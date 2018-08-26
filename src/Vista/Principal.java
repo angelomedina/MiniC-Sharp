@@ -4,7 +4,6 @@ import Exeptions.MyBaseErrorL;
 import Exeptions.MyConsoleErrorL;
 import Exeptions.MyExeption;
 import Modelo.Archivos;
-import Modelo.TreeVisitorNode;
 import checker.Checker;
 import generated.MyParser;
 import generated.Scanner;
@@ -15,7 +14,6 @@ import org.antlr.v4.runtime.tree.ParseTree;
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import java.awt.*;
-import java.awt.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -23,8 +21,6 @@ import java.util.*;
 import java.util.concurrent.Future;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-import checker.Checker;
 
 /**
  * Created by Arrieta on 19/3/2017.
@@ -64,7 +60,7 @@ public class Principal extends  JFrame implements ActionListener {
 
     private int contError=0;
 
-    Archivos a;
+    Archivos file;
     private int numLineas = 1, numHoja = 1, guardado = 0, abierto = 0;
     private Vector<String> filas = new Vector<String>();
 
@@ -153,6 +149,14 @@ public class Principal extends  JFrame implements ActionListener {
         menuBar.add(ayuda);
     }
     public static void main(String [] args) {
+
+        try {
+            UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");//nimbus
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Principal().setVisible(true);
@@ -227,11 +231,11 @@ public class Principal extends  JFrame implements ActionListener {
 
         if (e.getSource() == abrir || e.getSource() == btnAbrir) {
             try {
-                a = new Archivos();
-                codigoTabSelected().setText(a.abrirArchivo());
+                file = new Archivos();
+                codigoTabSelected().setText(file.abrirArchivo());
                 guardaFilas();
                 poneNumLineas();
-                tabbedPane.setTitleAt(tabbedPane.getSelectedIndex(),a.getNombreArchivo());
+                tabbedPane.setTitleAt(tabbedPane.getSelectedIndex(), file.getNombreArchivo());
                 abierto++;
             } catch (IOException ex) {
                 Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
@@ -348,9 +352,9 @@ public class Principal extends  JFrame implements ActionListener {
     private void guardarViejo() {
         String s = codigoTabSelected().getText();
         try {
-            a = new Archivos();
-            a.crearArchivo(s);
-            tabbedPane.setTitleAt(tabbedPane.getSelectedIndex(),a.getNombreArchivo());
+            file = new Archivos();
+            file.crearArchivo(s);
+            tabbedPane.setTitleAt(tabbedPane.getSelectedIndex(), file.getNombreArchivo());
         } catch (IOException ex) {
             JOptionPane.showMessageDialog(null, "Error de E/S");
         }
@@ -359,13 +363,14 @@ public class Principal extends  JFrame implements ActionListener {
     private void guardarNuevo() {
         String s = codigoTabSelected().getText();
         try {
-            a.crearArchivoUno(s, a.getNombreArchivo());
-            tabbedPane.setTitleAt(tabbedPane.getSelectedIndex(),a.getNombreArchivo());
+            file.crearArchivoUno(s, file.getNombreArchivo());
+            tabbedPane.setTitleAt(tabbedPane.getSelectedIndex(), file.getNombreArchivo());
         } catch (IOException ex) {
             JOptionPane.showMessageDialog(null, "Error de E/S");
         }
     }
 
+    //Declaracón de componentes
     private JPanel panel;
     private JButton btnNuevo;
     private JButton btnGuardar;

@@ -1,5 +1,6 @@
 parser grammar MyParser;
 
+
 options {
     tokenVocab = Scanner;
 }

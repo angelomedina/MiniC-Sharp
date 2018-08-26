@@ -26,7 +26,8 @@ public class TabPanel extends JPanel implements ActionListener{
 
         JPanel subSubPanel= new JPanel();
         subSubPanel.setLayout(new BorderLayout(1,1));
-        //subSubPanel.setBackground(Color.green);
+
+        subSubPanel.setBackground(Color.gray);
 
 
 
