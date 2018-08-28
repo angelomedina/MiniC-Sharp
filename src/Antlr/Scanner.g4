@@ -1,64 +1,91 @@
 lexer grammar Scanner;
 
+// Gramatica Regular
 
-LET : 'let';
-RETURN : 'return';
-INTEGER : DIGIT DIGIT*;
-STRING : '"'( .*? '"' .*?'"' .*?|.*?)'"';
-TRUE :'true';
-FALSE :'false';
-LEN :'len';
-FIRST :'first';
-LAST :'last';
-REST :'rest';
-PUSH :'push';
-FN :'fn';
-PUTS :'puts';
-IF :'if';
-ELSE :'else';
-COMA :',';
-PyCOMA : ';';
-IG : '=';
-PIZQ : '(';
-PDER : ')';
-PCI :'[';
-PCD :']';
-LLI :'{';
-LLD :'}';
-DOSPUN : ':';
-SUM : '+';
-SUB : '-';
-MUL : '*';
-DIV : '/';
-MAY :'>';
-MEN :'<';
-MAYI :'>=';
-MENI :'<=';
-IGIG : '==';
+// Simbologia de elementos
+// | : Usado para expresar alternativas
+// . : Usado para representar cualquier caracter
+// * : Usado para expresar la repeticion de 0 o mas veces
+// ? : Usado para expresar la repeticion de 0 o 1 vez
+
+// Palabras reservadas
+
+BREAK: 'break';
+CLASS: 'class';
+CONST: 'const';
+ELSE: 'else';
+IF: 'if';
+NEW: 'new';
+READ: 'read';
+RETURN: 'return';
+VOID: 'void';
+WHILE: 'while';
+WRITE: 'write';
+FOR: 'for';
+TRUE: 'true';
+FALSE: 'false';
+INT: 'int';
+CHAR: 'char';
+FLOAT: 'float';
+BOOL: 'bool';
+STRING: 'string';
+LIST: 'list';
 
 
-// Espaciado , skip: lo que hace es dejarlo pasar
-WS : [ \t\n\r]+ -> skip;
+// Simbolos
 
-//  Identificador
+SUM: '+';
+REST: '-';
+MULT: '*';
+DIV: '/';
+PORC: '%';
+IGIG: '==';
+DIF: '!=';
+MAY: '>';
+MAY_IG: '>=';
+MEN: '<';
+MEN_IG: '<=';
+AND: '&&';
+OR: '||';
+IG: '=';
+INC: '++';
+DEC: '--';
+PyC: ';';
+COMA: ',';
+PUNT: '.';
+PAR_IZQ: '(';
+PAR_DER: ')';
+CORC_IZQ: '[';
+CORC_DER: ']';
+LLA_IZQ: '{';
+LLA_DER: '}';
+ADM: '!';
+COM_DOB: '"';
+HASH: '#';
+DOLLAR: '$';
+AMP: '&';
+PREG: '?';
+ARRB: '@';
+DOS_PU: ':';
 
 
+// Fragments (Conjuntos de elementos)
+fragment LETTER: 'a'.. 'z' | 'A'..'Z' | '_';
+fragment DIGIT: '0'..'9';
 
- fragment LETTER: 'a'..'z' | 'A'..'Z' | '_'; // se toma como si fuera un fragmento.
+// Patrones Tokens
+IDENT: LETTER (LETTER | DIGIT)*;
+NUMBER: DIGIT (DIGIT)*;
 
- fragment DIGIT : '0'..'9';
+CHAR_CONST: '\'' ( PRINTABLE_CHAR | '\n' | '\r' )  '\'';
 
-ID: LETTER (LETTER|DIGIT)*;
+// Elementos char imprimibles
+PRINTABLE_CHAR: LETTER | DIGIT | ADM | COM_DOB |HASH | DOLLAR |
+                PORC | AMP | PAR_IZQ | PAR_DER | MULT | SUM |
+                COMA | REST | PUNT | DIV | DOS_PU | PyC | MEN | IG |
+                MAY | PREG | ARRB | '\'';
 
-
-
-LINE_COMMENT     : '//'.*?'\r'?'\n' -> skip ; //    comentador, lo que sea y termina en un salto de linea
-
-SPECIAL_COMMENT  : '/*'( SPECIAL_COMMENT | . )*?'*/' -> skip; // comentador, lo que sea, puede ser otro comentario, y cierra en un comentador.
-// la llamda recursiva hace que el de adentro tenga que tener un incio y un fin, de lo contrario el ultimo queda fuera.
-
-
-
-
-
-
+// Expresiones Ignoradas
+WS : [ \t\n\r]+ -> skip; // Espacio, tabulacion, salto de linea, retorno de carro.
+LINE_COMMENT: '//' .*? '\n' -> skip; // Comentario de linea, empieza con // seguido de cualquier caracter
+BLOCK_COMMENT: '/*' ( BLOCK_COMMENT | . )*? '*/' -> skip; // Comentario de bloque

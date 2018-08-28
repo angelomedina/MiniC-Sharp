@@ -1,15 +1,11 @@
 package Vista;
 
-import Exeptions.MyBaseErrorL;
-import Exeptions.MyConsoleErrorL;
-import Exeptions.MyExeption;
+import Antlr.MyParser;
+import Antlr.Scanner;
 import Modelo.Archivos;
-import checker.Checker;
-import generated.MyParser;
-import generated.Scanner;
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
-import org.antlr.v4.runtime.tree.ParseTree;
+import org.antlr.v4.runtime.Token;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
@@ -17,8 +13,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.util.*;
-import java.util.concurrent.Future;
+import java.util.List;
+import java.util.StringTokenizer;
+import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -28,7 +25,9 @@ import java.util.logging.Logger;
 public class Principal extends  JFrame implements ActionListener {
     Scanner scanner = null;
     MyParser parser = null;
-    ParseTree parseTree=null;
+
+
+
     int tab=1;
     private JMenuBar menuBar;
     private JMenu archivo;
@@ -215,19 +214,14 @@ public class Principal extends  JFrame implements ActionListener {
     }
     @Override
     public void actionPerformed(ActionEvent e) {
+
+
         //Abrir archivo
         ANTLRInputStream input = new ANTLRInputStream(codigoTabSelected().getText());
-                scanner = new Scanner(input);
-                scanner.removeErrorListeners();
-                scanner.addErrorListener(new MyConsoleErrorL(list));
-                CommonTokenStream tokens = new CommonTokenStream(scanner);
-                parser=new MyParser(tokens);
-                parser.removeErrorListeners();
-                parser.addErrorListener(new MyBaseErrorL(list));
+        scanner = new Scanner( input);
+        CommonTokenStream token = new CommonTokenStream( scanner );
+        parser = new MyParser(token);
 
-                parser.setErrorHandler(new MyExeption(list));
-
-        //Future<JFrame> treeGUI = org.antlr.v4.gui.Trees.inspect(parseTree,parser);
 
         if (e.getSource() == abrir || e.getSource() == btnAbrir) {
             try {
@@ -238,7 +232,7 @@ public class Principal extends  JFrame implements ActionListener {
                 tabbedPane.setTitleAt(tabbedPane.getSelectedIndex(), file.getNombreArchivo());
                 abierto++;
             } catch (IOException ex) {
-                Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger( Principal.class.getName()).log(Level.SEVERE, null, ex);
             }
         }else if (e.getSource() == guardar || e.getSource() == btnGuardar) {
             try{
@@ -302,14 +296,18 @@ public class Principal extends  JFrame implements ActionListener {
         } else if (e.getSource() == acercaDe) {
             JOptionPane.showMessageDialog(this,"No disponible");
         }else if (e.getSource()==btnCompilar){
+
+
             DefaultListModel defaultListModel=(DefaultListModel) list.getModel();
             String Mymsg="----------------------------------------------------";
             try {
 
-                parseTree = parser.program();
-                // se visita el mismo arbol pero con el visitor que chequea los tipos
-                Checker c=new Checker(list);
-                c.visit(parseTree);
+                parser.program();
+                scanner.reset();//para que vuelva a llenar los tokens, porque el parser los consumio
+                List<Token> lista = (List<Token>) scanner.getAllTokens();
+                for (Token t : lista)
+                   defaultListModel.addElement(scanner.VOCABULARY.getSymbolicName(t.getType()) + ":" + t.getText() + "\n");
+
 
                 if(list.getModel().getSize()>contError){
                     JOptionPane.showMessageDialog(this,"Error de compilación","",JOptionPane.ERROR_MESSAGE);
@@ -328,7 +326,7 @@ public class Principal extends  JFrame implements ActionListener {
             }
         }
         else if(e.getSource()==btnTree){
-            Future<JFrame> treeGUI = org.antlr.v4.gui.Trees.inspect(parseTree,parser);
+            //
         }
     }
     //En este método, cada fila del editor se va guardando en un vector

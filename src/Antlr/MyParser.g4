@@ -1,85 +1,76 @@
 parser grammar MyParser;
 
-
-options {
+options{
     tokenVocab = Scanner;
 }
 
-program  	: statement*                #programa ;
+// Gramatica Libre de contexto
 
-statement  	: LET letStatement          #statLet |
-             RETURN returnStatement     #staReturn|
-             expressionStatement        #staExpresion;
+// Inicio del programa
 
-letStatement    : ID IG expression ( PyCOMA | )         #letStatNodo ;
+// Estructura general de una clase
 
-returnStatement	: expression ( PyCOMA | )               #returnStatNodo;
+program: CLASS IDENT (constDecl | varDecl | classDecl )*
+        LLA_IZQ (methodDecl)* LLA_DER EOF;
 
-expressionStatement 	: expression ( PyCOMA | )       #espressionStatNodo;
+// Declaracion de una constante
+constDecl: CONST type IDENT IG ( NUMBER | CHAR_CONST ) PyC ;
 
-expression             	: additionExpression comparison #expressionNodo;
+// Declaracion de una variable
+varDecl: type IDENT ( COMA IDENT )* PyC ;
 
-comparison            	: ((MEN|MAY|MENI|MAYI|IGIG) additionExpression)*    #comparisionNodo;
+// Declaracion de una clase
+classDecl: CLASS IDENT LLA_IZQ ( varDecl )* LLA_DER ;
 
-additionExpression	: multiplicationExpression additionFactor               #addExprNodo;
+// Declaracion de un metodo
+methodDecl: ( type | VOID ) IDENT PAR_IZQ ( formPars )? PAR_DER ( varDecl )* block ;
 
-additionFactor       	: ((SUM|SUB) multiplicationExpression)*             #addFactNodo;
+// Formato de los parametros de un metodo
+formPars: type IDENT ( COMA type IDENT )* ;
 
-multiplicationExpression : elementExpression multiplicationFactor           #multExprNodo;
-
-multiplicationFactor	: ((MUL|DIV) elementExpression)*                    #multFactNodo;
-
-elementExpression 	: primitiveExpression (elementAccess | callExpression | ) #elemtExprNodo;
-
-elementAccess       	: PCI expression PCD    #eletAccNodo;
-
-callExpression	: PIZQ expressionList PDER      #callExpNodo;
-
-primitiveExpression	:   INTEGER                 #peInt|
-                        STRING                  #peStr|
-                        ID                      #peID|
-                        TRUE                    #peTrue|
-                        FALSE                   #prFalse|
-                        PIZQ expression PDER    #peParExpre|
-                       arrayLiteral             #peArrLit|
-                       arrayFunctions PIZQ expressionList PDER  #peArrFuntExpL|
-                       functionLiteral          #peFuntLit|
-                       hashLiteral              #peHashLit|
-                       printExpression          #pePrintExp|
-                       ifExpression             #peIfExp;
-
-arrayFunctions	:   LEN             #arrLen|
-                    FIRST           #arrFirst|
-                    LAST            #arrLast|
-                    REST            #arrRest|
-                    PUSH            #arrPush;
-
-arrayLiteral    : PCI expressionList PCD                                #arrLit;
-
-functionLiteral	: FN PIZQ functionParameters PDER blockStatement        #funtLitNodo;
-
-functionParameters	: ID moreIdentifiers                                #funtParaNodo;
-
-moreIdentifiers	: ( COMA ID )*                                          #moreIdNodo;
-
-hashLiteral		: LLI hashContent moreHashContent LLD                   #hashLitNodo;
-
-hashContent	: expression DOSPUN expression                              #hashContNodo;
-
-moreHashContent	: (COMA hashContent)*                                   #moreHCNodo;
-
-expressionList    : expression moreExpressions              #expListllena|   #expListVacia;
-
-moreExpressions   : (COMA expression)*                                  #morExpNodo;
-
-printExpression : PUTS PIZQ expression PDER                             #printExpNodo;
-
-ifExpression : IF expression blockStatement (ELSE blockStatement | )    #ifExpNodo;
-
-blockStatement : LLI statement* LLD                                     #blkStatNodo;
+// Formato para establecer el tipo de dato
+type: IDENT (CORC_IZQ CORC_DER)? ;
 
 
-operator :  SUM     #opSum|
-            SUB     #opSub|
-            MUL     #opMul|
-            DIV     #opDiv ;
+statement: designator ( IG expr | PAR_IZQ ( actPars )? PAR_DER  | INC | DEC ) PyC
+		 |  IF PAR_IZQ condition PAR_DER statement ( ELSE statement )?
+		 |  FOR PAR_IZQ expr PyC (condition)? PyC (statement)? PAR_DER statement
+		 |  WHILE PAR_IZQ condition PAR_DER statement
+		 |  BREAK PyC
+		 |  RETURN ( expr )? PyC
+		 |  READ PAR_IZQ designator PAR_DER PyC
+		 |  WRITE PAR_IZQ expr ( COMA NUMBER )? PAR_DER PyC
+		 |  block
+		 |  PyC;
+
+block: LLA_IZQ ( statement )* LLA_DER;
+
+actPars: expr ( COMA expr )*;
+
+// Formato de condiciones
+condition: condTerm ( OR condTerm )*;
+
+condTerm: condFact ( AND condFact)*;
+
+condFact: expr relop expr;
+
+expr: ( REST )? term ( addop term )*;
+
+term: factor ( mulop factor )*;
+
+factor: designator ( PAR_IZQ ( actPars )? PAR_DER )?
+		 |  NUMBER
+		 |  CHAR_CONST
+		 |  (TRUE | FALSE)
+		 |  NEW IDENT
+		 |  PAR_IZQ expr PAR_DER;
+
+
+designator: IDENT ( PUNT IDENT | CORC_IZQ expr CORC_DER )*;
+
+// Operadores logicos
+relop: IG | DIF | MAY | MAY_IG | MEN | MEN_IG;
+
+// Operadores matematicos
+addop: SUM | REST;
+mulop: MULT | DIV | PORC;
