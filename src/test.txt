@@ -1,0 +1,14 @@
+/* Codigo para comprobar la creacion de una clase vacia
+class claseP
+{
+
+}*/
+
+//* Codigo para comprobar la creacion de una clase vacia
+class claseP
+
+    //constDecl: CONST type IDENT IG ( NUMBER | CHAR_CONST ) PyC ;
+    const ghghjh nueva= 'o';
+    const ghghjh nueva2= 45;
+{}
+
