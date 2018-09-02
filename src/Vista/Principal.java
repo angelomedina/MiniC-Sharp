@@ -1,5 +1,6 @@
 package Vista;
 
+import Exeptions.*;
 import Antlr.MyParser;
 import Antlr.Scanner;
 import Modelo.Archivos;
@@ -57,7 +58,7 @@ public class Principal extends  JFrame implements ActionListener {
     private JMenuItem pPegar;
     private JMenuItem pCortar;
 
-    private int contError=0;
+    private int contError = 0;
 
     Archivos file;
     private int numLineas = 1, numHoja = 1, guardado = 0, abierto = 0;
@@ -219,8 +220,13 @@ public class Principal extends  JFrame implements ActionListener {
         //Abrir archivo
         ANTLRInputStream input = new ANTLRInputStream(codigoTabSelected().getText());
         scanner = new Scanner( input);
+        scanner.removeErrorListeners();
+        scanner.addErrorListener( new MyBaseErrorListener( list ) );
         CommonTokenStream token = new CommonTokenStream( scanner );
         parser = new MyParser(token);
+        parser.removeErrorListeners();
+        parser.addErrorListener( new MyBaseErrorListener( list ) );
+        //parser.setErrorHandler( new MyExeption( list ) );
 
 
         if (e.getSource() == abrir || e.getSource() == btnAbrir) {
@@ -305,17 +311,19 @@ public class Principal extends  JFrame implements ActionListener {
                 parser.program();
                 scanner.reset();//para que vuelva a llenar los tokens, porque el parser los consumio
                 List<Token> lista = (List<Token>) scanner.getAllTokens();
+
                 for (Token t : lista)
                    defaultListModel.addElement(scanner.VOCABULARY.getSymbolicName(t.getType()) + ":" + t.getText() + "\n");
 
 
+                /*
                 if(list.getModel().getSize()>contError){
                     JOptionPane.showMessageDialog(this,"Error de compilación","",JOptionPane.ERROR_MESSAGE);
                     defaultListModel.addElement(Mymsg);
                     contError=list.getModel().getSize();
                     return;
-                }
-                JOptionPane.showMessageDialog(this,"Compilación exitosa.");
+                }*/
+                JOptionPane.showMessageDialog(this,"Fin de compilación.");
                 defaultListModel.addElement(Mymsg);
                 contError=list.getModel().getSize();
             }
