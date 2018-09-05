@@ -221,12 +221,12 @@ public class Principal extends  JFrame implements ActionListener {
         ANTLRInputStream input = new ANTLRInputStream(codigoTabSelected().getText());
         scanner = new Scanner( input);
         scanner.removeErrorListeners();
-        scanner.addErrorListener( new MyBaseErrorListener( list ) );
+        scanner.addErrorListener(new MyConsoleErrorListener(list));
         CommonTokenStream token = new CommonTokenStream( scanner );
         parser = new MyParser(token);
         parser.removeErrorListeners();
         parser.addErrorListener( new MyBaseErrorListener( list ) );
-        //parser.setErrorHandler( new MyExeption( list ) );
+        parser.setErrorHandler( new MyException( list ) );
 
 
         if (e.getSource() == abrir || e.getSource() == btnAbrir) {
