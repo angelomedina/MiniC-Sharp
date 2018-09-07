@@ -7,6 +7,7 @@ import Modelo.Archivos;
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.Token;
+import org.antlr.v4.runtime.tree.ParseTree;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
@@ -17,6 +18,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.StringTokenizer;
 import java.util.Vector;
+import java.util.concurrent.ExecutionException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -24,8 +26,9 @@ import java.util.logging.Logger;
  * Created by Arrieta on 19/3/2017.
  */
 public class Principal extends  JFrame implements ActionListener {
-    Scanner scanner = null;
-    MyParser parser = null;
+    Scanner   scanner = null;
+    MyParser  parser  = null;
+    ParseTree tree    = null;
 
 
 
@@ -334,7 +337,17 @@ public class Principal extends  JFrame implements ActionListener {
             }
         }
         else if(e.getSource()==btnTree){
-            //
+
+            //impresion del arbol estas dos lines
+            java.util.concurrent.Future<JFrame> treeGUI = org.antlr.v4.gui.Trees.inspect(tree, parser);
+            try {
+                treeGUI.get().setVisible(true);
+            } catch (InterruptedException e1) {
+                e1.printStackTrace();
+            } catch (ExecutionException e1) {
+                e1.printStackTrace();
+            }
+
         }
     }
     //En este método, cada fila del editor se va guardando en un vector

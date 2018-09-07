@@ -1,5 +1,6 @@
 lexer grammar Scanner;
 
+
 // Gramatica Regular
 
 // Simbologia de elementos
@@ -24,13 +25,16 @@ WRITE: 'write';
 FOR: 'for';
 TRUE: 'true';
 FALSE: 'false';
-INT: 'int';
-CHAR: 'char';
-FLOAT: 'float';
-BOOL: 'bool';
-STRING: 'string';
+//INT: 'int';
+//CHAR: 'char';
+//FLOAT: 'float';
+//BOOL: 'bool';
+//STRING: 'string';
 LIST: 'list';
-
+// Para metodos
+ORD: 'ord';
+CHR: 'chr';
+LEN: 'len';
 
 // Simbolos
 
@@ -67,23 +71,35 @@ AMP: '&';
 PREG: '?';
 ARRB: '@';
 DOS_PU: ':';
+COM_SIM: '\'';
 
 
 // Fragments (Conjuntos de elementos)
 fragment LETTER: 'a'.. 'z' | 'A'..'Z' | '_';
 fragment DIGIT: '0'..'9';
+fragment DIGIT2: '1'..'9';
 
 // Patrones Tokens
 IDENT: LETTER (LETTER | DIGIT)*;
-NUMBER: DIGIT (DIGIT)*;
 
-CHAR_CONST: '\'' ( PRINTABLE_CHAR | '\n' | '\r' )  '\'';
+// Representa a los numeros enteros
+NUMBER_INTEGER_ZERO: '0'; // Estrictamente el numero 0
+NUMBER_INTEGER: DIGIT2 (DIGIT)*; // Los numero enteros de 1 en adelante
+
+//BOOL_CONST: (TRUE|FALSE); Valores booleanos
+NUMBER_FLOAT: DIGIT (DIGIT)* PUNT DIGIT (DIGIT)*;// Valores flotantes
+
+// Representa a las cadenas string
+STRING_CONST: '"' (PRINTABLE_CHAR | ' ')* '"';
+
+// Representa a los caracteres char
+CHAR_CONST: '\'' ( PRINTABLE_CHAR | '\n' | '\r' )  '\''; // longitud 1 caracter
 
 // Elementos char imprimibles
 PRINTABLE_CHAR: LETTER | DIGIT | ADM | COM_DOB |HASH | DOLLAR |
                 PORC | AMP | PAR_IZQ | PAR_DER | MULT | SUM |
                 COMA | REST | PUNT | DIV | DOS_PU | PyC | MEN | IG |
-                MAY | PREG | ARRB | '\'';
+                MAY | PREG | ARRB | COM_SIM;
 
 // Expresiones Ignoradas
 WS : [ \t\n\r]+ -> skip; // Espacio, tabulacion, salto de linea, retorno de carro.
