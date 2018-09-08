@@ -4,6 +4,7 @@ import Exeptions.*;
 import Antlr.MyParser;
 import Antlr.Scanner;
 import Modelo.Archivos;
+import org.antlr.v4.gui.Trees;
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.Token;
@@ -19,6 +20,7 @@ import java.util.List;
 import java.util.StringTokenizer;
 import java.util.Vector;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -26,9 +28,12 @@ import java.util.logging.Logger;
  * Created by Arrieta on 19/3/2017.
  */
 public class Principal extends  JFrame implements ActionListener {
-    Scanner   scanner = null;
-    MyParser  parser  = null;
-    ParseTree tree    = null;
+    Scanner   scanner   = null;
+    MyParser  parser    = null;
+    ParseTree tree = null;
+    MyBaseErrorListener errorListener = null;
+    MyException     myException = null;
+    MyConsoleErrorListener myConsoleErrorListener = null;
 
 
 
@@ -223,13 +228,20 @@ public class Principal extends  JFrame implements ActionListener {
         //Abrir archivo
         ANTLRInputStream input = new ANTLRInputStream(codigoTabSelected().getText());
         scanner = new Scanner( input);
-        scanner.removeErrorListeners();
-        scanner.addErrorListener(new MyConsoleErrorListener(list));
         CommonTokenStream token = new CommonTokenStream( scanner );
         parser = new MyParser(token);
+
+
+        errorListener          = new MyBaseErrorListener(list);
+        myException            = new MyException( list );
+        myConsoleErrorListener = new MyConsoleErrorListener( list );
+
+        scanner.removeErrorListeners();
+        scanner.addErrorListener( myConsoleErrorListener );
         parser.removeErrorListeners();
-        parser.addErrorListener( new MyBaseErrorListener( list ) );
-        parser.setErrorHandler( new MyException( list ) );
+        parser.addErrorListener( errorListener);
+        parser.setErrorHandler( myException );
+
 
 
         if (e.getSource() == abrir || e.getSource() == btnAbrir) {
@@ -319,33 +331,43 @@ public class Principal extends  JFrame implements ActionListener {
                    defaultListModel.addElement(scanner.VOCABULARY.getSymbolicName(t.getType()) + ":" + t.getText() + "\n");
 
 
-                /*
-                if(list.getModel().getSize()>contError){
-                    JOptionPane.showMessageDialog(this,"Error de compilación","",JOptionPane.ERROR_MESSAGE);
-                    defaultListModel.addElement(Mymsg);
-                    contError=list.getModel().getSize();
-                    return;
-                }*/
-                JOptionPane.showMessageDialog(this,"Fin de compilación.");
-                defaultListModel.addElement(Mymsg);
-                contError=list.getModel().getSize();
+                    if(myException.hasErrors() == false){
+
+                        JOptionPane.showMessageDialog(this,"Compilación exitosa.");
+                        defaultListModel.addElement(Mymsg);
+                        contError=list.getModel().getSize();
+                    }
+                    else{
+                        JOptionPane.showMessageDialog( this, "Error de compilación", "", JOptionPane.ERROR_MESSAGE );
+                        defaultListModel.addElement( Mymsg );
+                        contError = list.getModel().getSize();
+                        return;
+                    }
+
             }
             catch(Exception ex){
                 ex.printStackTrace();
-                JOptionPane.showMessageDialog(this,"Error de compilación","",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this,"Error de try/cash","",JOptionPane.ERROR_MESSAGE);
 
             }
         }
         else if(e.getSource()==btnTree){
 
-            //impresion del arbol estas dos lines
-            java.util.concurrent.Future<JFrame> treeGUI = org.antlr.v4.gui.Trees.inspect(tree, parser);
-            try {
-                treeGUI.get().setVisible(true);
-            } catch (InterruptedException e1) {
-                e1.printStackTrace();
-            } catch (ExecutionException e1) {
-                e1.printStackTrace();
+            if(myException.hasErrors() == false){
+                try {
+
+                    tree = parser.program();
+                    java.util.concurrent.Future<JFrame> treeGUI = org.antlr.v4.gui.Trees.inspect(tree, parser);
+
+                }catch (Exception ex){
+                    ex.printStackTrace();
+                    JOptionPane.showMessageDialog(this,"Error de try/cash","",JOptionPane.ERROR_MESSAGE);
+
+                }
+
+            }else{
+
+                JOptionPane.showMessageDialog( this, "No se puede crear el arbol si hay errores al compilar", "", JOptionPane.ERROR_MESSAGE );
             }
 
         }

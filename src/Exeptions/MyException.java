@@ -4,14 +4,25 @@ import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.misc.IntervalSet;
 
 import javax.swing.*;
+import java.util.ArrayList;
 
 public class MyException extends DefaultErrorStrategy {
 
     DefaultListModel defaultListModel;
 
+    public boolean error = false;
+
+
+
+
     public MyException(JList list){
         super();
         defaultListModel = (DefaultListModel) list.getModel();
+    }
+
+    public boolean hasErrors ( )
+    {
+        return this.error;
     }
 
     @Override
@@ -131,46 +142,60 @@ public class MyException extends DefaultErrorStrategy {
 
     @Override
     protected Token singleTokenDeletion(Parser recognizer) {
+        this.error = true;
         return super.singleTokenDeletion(recognizer);
     }
 
     @Override
     protected Token getMissingSymbol(Parser recognizer) {
+        this.error = true;
         return super.getMissingSymbol(recognizer);
     }
 
     @Override
     protected IntervalSet getExpectedTokens(Parser recognizer) {
+        this.error = true;
         return super.getExpectedTokens(recognizer);
     }
 
     @Override
     protected String getTokenErrorDisplay(Token t) {
+        this.error = true;
         return super.getTokenErrorDisplay(t);
     }
 
     @Override
     protected String getSymbolText(Token symbol) {
+
+        this.error = true;
         return super.getSymbolText(symbol);
     }
 
     @Override
     protected int getSymbolType(Token symbol) {
+
+        this.error = true;
         return super.getSymbolType(symbol);
     }
 
     @Override
     protected String escapeWSAndQuote(String s) {
+
+        this.error = true;
         return super.escapeWSAndQuote(s);
     }
 
     @Override
     protected IntervalSet getErrorRecoverySet(Parser recognizer) {
+
+        this.error = true;
         return super.getErrorRecoverySet(recognizer);
     }
 
     @Override
     protected void consumeUntil(Parser recognizer, IntervalSet set) {
+
+        this.error = true;
         super.consumeUntil(recognizer, set);
     }
 }

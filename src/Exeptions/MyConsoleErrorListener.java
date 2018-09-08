@@ -9,6 +9,7 @@ import javax.swing.*;
 public class MyConsoleErrorListener extends ConsoleErrorListener {
 
     DefaultListModel defaultListModel;
+    public boolean error = false;
 
     public MyConsoleErrorListener(JList list) {
         super();
@@ -16,10 +17,17 @@ public class MyConsoleErrorListener extends ConsoleErrorListener {
     }
 
     public void syntaxError(Recognizer<?, ?> recognizer, Object offendingSymbol, int line, int charPositionInLine, String msg, RecognitionException e) {
+        this.error = true;
         String Mymsg;
         Mymsg="Error de sintaxis en  " + line + ":" + (charPositionInLine+1) + " " + msg;
         defaultListModel.addElement(Mymsg);
 
+
+    }
+
+    public boolean hasErrors ( )
+    {
+        return this.error;
     }
 
 }

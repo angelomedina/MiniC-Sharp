@@ -148,6 +148,11 @@ public class MyParser extends Parser {
 			return getRuleContext(MethodDeclContext.class,i);
 		}
 		public ProgramASTContext(ProgramContext ctx) { copyFrom(ctx); }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitProgramAST(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final ProgramContext program() throws RecognitionException {
@@ -254,6 +259,11 @@ public class MyParser extends Parser {
 		public TerminalNode CHAR_CONST() { return getToken(MyParser.CHAR_CONST, 0); }
 		public TerminalNode STRING_CONST() { return getToken(MyParser.STRING_CONST, 0); }
 		public ConstDeclASTContext(ConstDeclContext ctx) { copyFrom(ctx); }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitConstDeclAST(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final ConstDeclContext constDecl() throws RecognitionException {
@@ -322,6 +332,11 @@ public class MyParser extends Parser {
 			return getToken(MyParser.COMA, i);
 		}
 		public VarDeclASTContext(VarDeclContext ctx) { copyFrom(ctx); }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitVarDeclAST(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final VarDeclContext varDecl() throws RecognitionException {
@@ -390,6 +405,11 @@ public class MyParser extends Parser {
 			return getRuleContext(VarDeclContext.class,i);
 		}
 		public ClassDeclASTContext(ClassDeclContext ctx) { copyFrom(ctx); }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitClassDeclAST(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final ClassDeclContext classDecl() throws RecognitionException {
@@ -467,6 +487,11 @@ public class MyParser extends Parser {
 			return getRuleContext(VarDeclContext.class,i);
 		}
 		public MethodDeclASTContext(MethodDeclContext ctx) { copyFrom(ctx); }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitMethodDeclAST(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final MethodDeclContext methodDecl() throws RecognitionException {
@@ -567,6 +592,11 @@ public class MyParser extends Parser {
 			return getToken(MyParser.COMA, i);
 		}
 		public FormParsASTContext(FormParsContext ctx) { copyFrom(ctx); }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitFormParsAST(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final FormParsContext formPars() throws RecognitionException {
@@ -628,6 +658,11 @@ public class MyParser extends Parser {
 		public TerminalNode CORC_IZQ() { return getToken(MyParser.CORC_IZQ, 0); }
 		public TerminalNode CORC_DER() { return getToken(MyParser.CORC_DER, 0); }
 		public TypeASTContext(TypeContext ctx) { copyFrom(ctx); }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitTypeAST(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final TypeContext type() throws RecognitionException {
@@ -683,6 +718,11 @@ public class MyParser extends Parser {
 			return getRuleContext(ExprContext.class,0);
 		}
 		public ReturnSTASTContext(StatementContext ctx) { copyFrom(ctx); }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitReturnSTAST(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	public static class IfSTASTContext extends StatementContext {
 		public TerminalNode IF() { return getToken(MyParser.IF, 0); }
@@ -699,12 +739,22 @@ public class MyParser extends Parser {
 		}
 		public TerminalNode ELSE() { return getToken(MyParser.ELSE, 0); }
 		public IfSTASTContext(StatementContext ctx) { copyFrom(ctx); }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitIfSTAST(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	public static class BlockSTASTContext extends StatementContext {
 		public BlockContext block() {
 			return getRuleContext(BlockContext.class,0);
 		}
 		public BlockSTASTContext(StatementContext ctx) { copyFrom(ctx); }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitBlockSTAST(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	public static class ReadSTATContext extends StatementContext {
 		public TerminalNode READ() { return getToken(MyParser.READ, 0); }
@@ -715,6 +765,11 @@ public class MyParser extends Parser {
 		public TerminalNode PAR_DER() { return getToken(MyParser.PAR_DER, 0); }
 		public TerminalNode PyC() { return getToken(MyParser.PyC, 0); }
 		public ReadSTATContext(StatementContext ctx) { copyFrom(ctx); }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitReadSTAT(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	public static class ForSTASTContext extends StatementContext {
 		public TerminalNode FOR() { return getToken(MyParser.FOR, 0); }
@@ -737,15 +792,30 @@ public class MyParser extends Parser {
 			return getRuleContext(ConditionContext.class,0);
 		}
 		public ForSTASTContext(StatementContext ctx) { copyFrom(ctx); }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitForSTAST(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	public static class BreakStASTContext extends StatementContext {
 		public TerminalNode BREAK() { return getToken(MyParser.BREAK, 0); }
 		public TerminalNode PyC() { return getToken(MyParser.PyC, 0); }
 		public BreakStASTContext(StatementContext ctx) { copyFrom(ctx); }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitBreakStAST(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	public static class PycSTASTContext extends StatementContext {
 		public TerminalNode PyC() { return getToken(MyParser.PyC, 0); }
 		public PycSTASTContext(StatementContext ctx) { copyFrom(ctx); }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitPycSTAST(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	public static class StatementSTASTContext extends StatementContext {
 		public DesignatorContext designator() {
@@ -764,6 +834,11 @@ public class MyParser extends Parser {
 			return getRuleContext(ActParsContext.class,0);
 		}
 		public StatementSTASTContext(StatementContext ctx) { copyFrom(ctx); }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitStatementSTAST(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	public static class WhileSTASTContext extends StatementContext {
 		public TerminalNode WHILE() { return getToken(MyParser.WHILE, 0); }
@@ -776,6 +851,11 @@ public class MyParser extends Parser {
 			return getRuleContext(StatementContext.class,0);
 		}
 		public WhileSTASTContext(StatementContext ctx) { copyFrom(ctx); }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitWhileSTAST(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	public static class WriteSTASTContext extends StatementContext {
 		public TerminalNode WRITE() { return getToken(MyParser.WRITE, 0); }
@@ -790,6 +870,11 @@ public class MyParser extends Parser {
 		public TerminalNode NUMBER_INTEGER_ZERO() { return getToken(MyParser.NUMBER_INTEGER_ZERO, 0); }
 		public TerminalNode NUMBER_FLOAT() { return getToken(MyParser.NUMBER_FLOAT, 0); }
 		public WriteSTASTContext(StatementContext ctx) { copyFrom(ctx); }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitWriteSTAST(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final StatementContext statement() throws RecognitionException {
@@ -1080,6 +1165,11 @@ public class MyParser extends Parser {
 			return getRuleContext(StatementContext.class,i);
 		}
 		public BlockASTContext(BlockContext ctx) { copyFrom(ctx); }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitBlockAST(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final BlockContext block() throws RecognitionException {
@@ -1144,6 +1234,11 @@ public class MyParser extends Parser {
 			return getToken(MyParser.COMA, i);
 		}
 		public ActParsASTContext(ActParsContext ctx) { copyFrom(ctx); }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitActParsAST(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final ActParsContext actPars() throws RecognitionException {
@@ -1208,6 +1303,11 @@ public class MyParser extends Parser {
 			return getToken(MyParser.OR, i);
 		}
 		public ConditionASTContext(ConditionContext ctx) { copyFrom(ctx); }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitConditionAST(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final ConditionContext condition() throws RecognitionException {
@@ -1272,6 +1372,11 @@ public class MyParser extends Parser {
 			return getToken(MyParser.AND, i);
 		}
 		public CondTermASTContext(CondTermContext ctx) { copyFrom(ctx); }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitCondTermAST(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final CondTermContext condTerm() throws RecognitionException {
@@ -1335,6 +1440,11 @@ public class MyParser extends Parser {
 			return getRuleContext(RelopContext.class,0);
 		}
 		public CondFactASTContext(CondFactContext ctx) { copyFrom(ctx); }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitCondFactAST(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final CondFactContext condFact() throws RecognitionException {
@@ -1389,6 +1499,11 @@ public class MyParser extends Parser {
 			return getRuleContext(AddopContext.class,i);
 		}
 		public ExprASTContext(ExprContext ctx) { copyFrom(ctx); }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitExprAST(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final ExprContext expr() throws RecognitionException {
@@ -1465,6 +1580,11 @@ public class MyParser extends Parser {
 			return getRuleContext(MulopContext.class,i);
 		}
 		public TermASTContext(TermContext ctx) { copyFrom(ctx); }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitTermAST(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final TermContext term() throws RecognitionException {
@@ -1520,6 +1640,11 @@ public class MyParser extends Parser {
 	public static class NumIntFASTContext extends FactorContext {
 		public TerminalNode NUMBER_INTEGER() { return getToken(MyParser.NUMBER_INTEGER, 0); }
 		public NumIntFASTContext(FactorContext ctx) { copyFrom(ctx); }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitNumIntFAST(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	public static class FactorFASTContext extends FactorContext {
 		public DesignatorContext designator() {
@@ -1531,10 +1656,20 @@ public class MyParser extends Parser {
 			return getRuleContext(ActParsContext.class,0);
 		}
 		public FactorFASTContext(FactorContext ctx) { copyFrom(ctx); }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitFactorFAST(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	public static class NumIntZeroFASTContext extends FactorContext {
 		public TerminalNode NUMBER_INTEGER_ZERO() { return getToken(MyParser.NUMBER_INTEGER_ZERO, 0); }
 		public NumIntZeroFASTContext(FactorContext ctx) { copyFrom(ctx); }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitNumIntZeroFAST(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	public static class ExpresionFASTContext extends FactorContext {
 		public TerminalNode PAR_IZQ() { return getToken(MyParser.PAR_IZQ, 0); }
@@ -1543,28 +1678,58 @@ public class MyParser extends Parser {
 		}
 		public TerminalNode PAR_DER() { return getToken(MyParser.PAR_DER, 0); }
 		public ExpresionFASTContext(FactorContext ctx) { copyFrom(ctx); }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitExpresionFAST(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	public static class ChaeFASTContext extends FactorContext {
 		public TerminalNode CHAR_CONST() { return getToken(MyParser.CHAR_CONST, 0); }
 		public ChaeFASTContext(FactorContext ctx) { copyFrom(ctx); }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitChaeFAST(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	public static class StringFASTContext extends FactorContext {
 		public TerminalNode STRING_CONST() { return getToken(MyParser.STRING_CONST, 0); }
 		public StringFASTContext(FactorContext ctx) { copyFrom(ctx); }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitStringFAST(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	public static class NewFASTContext extends FactorContext {
 		public TerminalNode NEW() { return getToken(MyParser.NEW, 0); }
 		public TerminalNode IDENT() { return getToken(MyParser.IDENT, 0); }
 		public NewFASTContext(FactorContext ctx) { copyFrom(ctx); }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitNewFAST(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	public static class BooleanFASTContext extends FactorContext {
 		public TerminalNode TRUE() { return getToken(MyParser.TRUE, 0); }
 		public TerminalNode FALSE() { return getToken(MyParser.FALSE, 0); }
 		public BooleanFASTContext(FactorContext ctx) { copyFrom(ctx); }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitBooleanFAST(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	public static class NumberFloatFASTContext extends FactorContext {
 		public TerminalNode NUMBER_FLOAT() { return getToken(MyParser.NUMBER_FLOAT, 0); }
 		public NumberFloatFASTContext(FactorContext ctx) { copyFrom(ctx); }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitNumberFloatFAST(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final FactorContext factor() throws RecognitionException {
@@ -1734,6 +1899,11 @@ public class MyParser extends Parser {
 			return getToken(MyParser.CORC_DER, i);
 		}
 		public DesignatorASTContext(DesignatorContext ctx) { copyFrom(ctx); }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitDesignatorAST(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final DesignatorContext designator() throws RecognitionException {
@@ -1804,6 +1974,11 @@ public class MyParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_relop; }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitRelop(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final RelopContext relop() throws RecognitionException {
@@ -1843,6 +2018,11 @@ public class MyParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_addop; }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitAddop(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final AddopContext addop() throws RecognitionException {
@@ -1883,6 +2063,11 @@ public class MyParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_mulop; }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitMulop(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final MulopContext mulop() throws RecognitionException {
