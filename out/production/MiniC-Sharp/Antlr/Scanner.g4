@@ -74,6 +74,7 @@ DOS_PU: ':';
 COM_SIM: '\'';
 
 
+
 // Fragments (Conjuntos de elementos)
 fragment LETTER: 'a'.. 'z' | 'A'..'Z' | '_';
 fragment DIGIT: '0'..'9';
@@ -99,7 +100,7 @@ CHAR_CONST: '\'' ( PRINTABLE_CHAR | '\n' | '\r' )  '\''; // longitud 1 caracter
 PRINTABLE_CHAR: LETTER | DIGIT | ADM | COM_DOB |HASH | DOLLAR |
                 PORC | AMP | PAR_IZQ | PAR_DER | MULT | SUM |
                 COMA | REST | PUNT | DIV | DOS_PU | PyC | MEN | IG |
-                MAY | PREG | ARRB | COM_SIM;
+                MAY | PREG | ARRB | COM_SIM | '\n' ;
 
 // Expresiones Ignoradas
 WS : [ \t\n\r]+ -> skip; // Espacio, tabulacion, salto de linea, retorno de carro.

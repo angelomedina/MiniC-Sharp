@@ -2,70 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6ebe243f-a307-4d73-a0f9-921472d75155" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Checker/Symbol.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Checker/SymbolTable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$ActParsASTContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$ActParsASTContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$ActParsContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$ActParsContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$AddopContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$AddopContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$BlockASTContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$BlockASTContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$BlockContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$BlockContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$BlockSTASTContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$BlockSTASTContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$BooleanFASTContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$BooleanFASTContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$BreakStASTContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$BreakStASTContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$ChaeFASTContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$ChaeFASTContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$ClassDeclASTContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$ClassDeclASTContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$ClassDeclContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$ClassDeclContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$CondFactASTContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$CondFactASTContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$CondFactContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$CondFactContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$CondTermASTContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$CondTermASTContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$CondTermContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$CondTermContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$ConditionASTContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$ConditionASTContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$ConditionContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$ConditionContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$ConstDeclASTContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$ConstDeclASTContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$ConstDeclContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$ConstDeclContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$DesignatorASTContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$DesignatorASTContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$DesignatorContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$DesignatorContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$ExprASTContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$ExprASTContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$ExprContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$ExprContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$ExpresionFASTContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$ExpresionFASTContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$FactorContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$FactorContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$FactorFASTContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$FactorFASTContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$ForSTASTContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$ForSTASTContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$FormParsASTContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$FormParsASTContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$FormParsContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$FormParsContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$IfSTASTContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$IfSTASTContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$MethodDeclASTContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$MethodDeclASTContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$MethodDeclContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$MethodDeclContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$MulopContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$MulopContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$NewFASTContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$NewFASTContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$NumIntFASTContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$NumIntFASTContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$NumIntZeroFASTContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$NumIntZeroFASTContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$NumberFloatFASTContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$NumberFloatFASTContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$ProgramASTContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$ProgramASTContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$PycSTASTContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$PycSTASTContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$ReadSTATContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$ReadSTATContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$RelopContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$RelopContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$ReturnSTASTContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$ReturnSTASTContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$StatementContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$StatementContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$StatementSTASTContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$StatementSTASTContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$StringFASTContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$StringFASTContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$TermASTContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$TermASTContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$TermContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$TermContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$TypeASTContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$TypeASTContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$TypeContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$TypeContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$VarDeclASTContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$VarDeclASTContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$VarDeclContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$VarDeclContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$WhileSTASTContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$WhileSTASTContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$WriteSTASTContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$WriteSTASTContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Exeptions/MyBaseErrorListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Exeptions/MyBaseErrorListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Exeptions/MyConsoleErrorListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Exeptions/MyConsoleErrorListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Exeptions/MyException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Exeptions/MyException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Vista/Principal$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Vista/Principal$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/Scanner.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/Scanner.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/Scanner.g4" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/Scanner.g4" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Vista/Principal.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Vista/Principal.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Exeptions/MyBaseErrorListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Exeptions/MyBaseErrorListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Exeptions/MyConsoleErrorListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Exeptions/MyConsoleErrorListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Exeptions/MyException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Exeptions/MyException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Generated/Antlr/MyParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Generated/Antlr/MyParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Antlr/Scanner.g4" beforeDir="false" afterPath="$PROJECT_DIR$/src/Antlr/Scanner.g4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Generated/Antlr/Scanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Generated/Antlr/Scanner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Vista/Principal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/Principal.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -143,49 +87,59 @@
     <session id="-1673243482">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="10" />
+          <entry key="project.closed" value="24" />
+          <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="3" />
+          <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.13" value="1" />
+          <entry key="project.open.time.14" value="1" />
+          <entry key="project.open.time.15" value="2" />
           <entry key="project.open.time.2" value="1" />
-          <entry key="project.open.time.4" value="1" />
-          <entry key="project.open.time.45" value="1" />
-          <entry key="project.open.time.48" value="1" />
+          <entry key="project.open.time.3" value="1" />
+          <entry key="project.open.time.38" value="1" />
+          <entry key="project.open.time.4" value="2" />
+          <entry key="project.open.time.45" value="2" />
+          <entry key="project.open.time.47" value="1" />
+          <entry key="project.open.time.48" value="2" />
+          <entry key="project.open.time.49" value="1" />
           <entry key="project.open.time.52" value="1" />
           <entry key="project.open.time.54" value="1" />
           <entry key="project.open.time.59" value="1" />
-          <entry key="project.opened" value="11" />
+          <entry key="project.open.time.6" value="1" />
+          <entry key="project.open.time.78" value="1" />
+          <entry key="project.opened" value="25" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="4" />
           <entry key="form" value="2" />
-          <entry key="g4" value="26" />
-          <entry key="java" value="60" />
+          <entry key="g4" value="31" />
+          <entry key="java" value="68" />
           <entry key="tokens" value="7" />
           <entry key="txt" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="ANTLR v4 grammar file" value="26" />
+          <entry key="ANTLR v4 grammar file" value="31" />
           <entry key="CLASS" value="4" />
           <entry key="GUI_DESIGNER_FORM" value="2" />
-          <entry key="JAVA" value="60" />
+          <entry key="JAVA" value="68" />
           <entry key="PLAIN_TEXT" value="15" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="g4" value="1629" />
-          <entry key="java" value="1364" />
+          <entry key="g4" value="1640" />
+          <entry key="java" value="2255" />
           <entry key="txt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="ANTLR v4 grammar file" value="1629" />
-          <entry key="JAVA" value="1364" />
+          <entry key="ANTLR v4 grammar file" value="1640" />
+          <entry key="JAVA" value="2255" />
           <entry key="PLAIN_TEXT" value="1" />
         </counts>
       </usages-collector>
@@ -194,22 +148,24 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Vista/Principal.java">
+        <entry file="file://$PROJECT_DIR$/src/Checker/SymbolTable.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="359" column="111" selection-start-line="359" selection-start-column="111" selection-end-line="359" selection-end-column="111" />
+            <state relative-caret-position="85">
+              <caret line="76" column="12" selection-start-line="76" selection-start-column="12" selection-end-line="76" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1722#1723#0" expanded="true" />
+                <element signature="e#1741#1742#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Antlr/MyParser.g4">
+        <entry file="file://$PROJECT_DIR$/src/Checker/Symbol.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="34" lean-forward="true" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
+            <state relative-caret-position="304">
+              <caret line="23" column="1" lean-forward="true" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -252,12 +208,14 @@
         <option value="$PROJECT_DIR$/src/Exeptions/ConsoleErrorListener.java" />
         <option value="$PROJECT_DIR$/src/Exeptions/MyExeption.java" />
         <option value="$PROJECT_DIR$/src/Exeptions/MyBaseErrorListener.java" />
-        <option value="$PROJECT_DIR$/src/Antlr/Scanner.g4" />
         <option value="$PROJECT_DIR$/src/test.txt" />
         <option value="$PROJECT_DIR$/src/Exeptions/MyException.java" />
         <option value="$PROJECT_DIR$/src/Exeptions/MyConsoleErrorListener.java" />
         <option value="$PROJECT_DIR$/src/Antlr/MyParser.g4" />
         <option value="$PROJECT_DIR$/src/Vista/Principal.java" />
+        <option value="$PROJECT_DIR$/src/Antlr/Scanner.g4" />
+        <option value="$PROJECT_DIR$/src/Checker/Symbol.java" />
+        <option value="$PROJECT_DIR$/src/Checker/SymbolTable.java" />
       </list>
     </option>
   </component>
@@ -273,7 +231,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="x" value="676" />
     <option name="width" value="697" />
     <option name="height" value="745" />
@@ -286,8 +244,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -304,13 +263,12 @@
               <item name="MiniC-Sharp" type="b2602c69:ProjectViewProjectNode" />
               <item name="MiniC-Sharp" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Antlr" type="462c0819:PsiDirectoryNode" />
+              <item name="Checker" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -332,26 +290,28 @@
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="409" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536429382106" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537929064268" />
     <property name="create.test.in.the.same.root" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Materia/PracticeScanner" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/MonkeySergioGenesis" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="project.propGUI" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\Doccumentos TEC\6 SEMESTRE 2018\Compiladores\MiniC-Sharp\src\generated\old" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="Exeptions" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\Doccumentos TEC\6 SEMESTRE 2018\Compiladores\Proyectos\I Proyecto\MiniC-Sharp\src\Exeptions" />
       <recent name="E:\Doccumentos TEC\6 SEMESTRE 2018\Compiladores\Proyectos\I Proyecto\MiniC-Sharp\src" />
       <recent name="E:\Doccumentos TEC\6 SEMESTRE 2018\Compiladores\Proyectos\I Proyecto\MiniC-Sharp\src\Antlr" />
       <recent name="E:\Doccumentos TEC\6 SEMESTRE 2018\Compiladores\MiniC-Sharp\src\generated\Antlr" />
       <recent name="E:\Doccumentos TEC\6 SEMESTRE 2018\Compiladores\MiniC-Sharp\src" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="Checker" />
+      <recent name="Exeptions" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Doccumentos TEC\6 SEMESTRE 2018\Compiladores\MiniC-Sharp\src\generated\old" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -379,6 +339,8 @@
       </method>
     </configuration>
     <configuration name="Principal" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="C:/Program Files/Java/jdk1.8.0_111/jre" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="Vista.Principal" />
       <module name="MiniC-Sharp" />
       <extension name="coverage">
@@ -442,12 +404,17 @@
       <workItem from="1536097864181" duration="119000" />
       <workItem from="1536109562841" duration="3172000" />
       <workItem from="1536336322741" duration="3708000" />
-      <workItem from="1536421901023" duration="7520000" />
+      <workItem from="1536421901023" duration="7644000" />
+      <workItem from="1536429644835" duration="66000" />
+      <workItem from="1536436479763" duration="286000" />
+      <workItem from="1536508618616" duration="1679000" />
+      <workItem from="1536643029927" duration="670000" />
+      <workItem from="1536692768228" duration="60000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43583000" />
+    <option name="totallyTimeSpent" value="46468000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -459,10 +426,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <frame x="676" y="0" width="697" height="745" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25189108" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.51805335" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24962178" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -471,12 +438,12 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.47419354" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.55" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32741934" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.3289689" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.2532258" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32741934" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.2569558" />
       <window_info anchor="bottom" id="Tool Output" order="8" weight="0.32419354" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.31612903" />
@@ -549,10 +516,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/MiniC-Sharp.iml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Vista/TreeView.form" />
     <entry file="file://$PROJECT_DIR$/src/Vista/TreeView.java" />
     <entry file="file://$PROJECT_DIR$/src/generated/MyParser.java" />
     <entry file="file://$PROJECT_DIR$/src/generated/MyParser.tokens" />
@@ -604,27 +567,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Modelo/MyTreeCellRenderer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Modelo/FiltroArchivo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret lean-forward="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Vista/TabPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="15" column="21" lean-forward="true" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Vista/Principal.form">
       <provider selected="true" editor-type-id="ui-designer" />
     </entry>
@@ -657,10 +599,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
-          <folding>
-            <element signature="e#815#816#0" expanded="true" />
-            <element signature="e#863#864#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -697,26 +635,63 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Antlr/Scanner.g4">
+    <entry file="file://$PROJECT_DIR$/src/Modelo/FiltroArchivo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="85" column="53" selection-start-line="85" selection-start-column="53" selection-end-line="85" selection-end-column="53" />
+        <state relative-caret-position="102">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Antlr/MyParser.g4">
+    <entry file="file://$PROJECT_DIR$/src/Modelo/MyTreeCellRenderer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="34" lean-forward="true" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
+        <state relative-caret-position="374">
+          <caret line="25" column="1" lean-forward="true" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Vista/TabPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Vista/Principal.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="359" column="111" selection-start-line="359" selection-start-column="111" selection-end-line="359" selection-end-column="111" />
+        <state relative-caret-position="381">
+          <caret line="203" column="22" selection-start-line="203" selection-start-column="22" selection-end-line="203" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Antlr/MyParser.g4">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404">
+          <caret line="62" column="65" selection-start-line="62" selection-start-column="65" selection-end-line="62" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Antlr/Scanner.g4">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="87" column="71" lean-forward="true" selection-start-line="87" selection-start-column="71" selection-end-line="87" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Checker/Symbol.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="23" column="1" lean-forward="true" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Checker/SymbolTable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="76" column="12" selection-start-line="76" selection-start-column="12" selection-end-line="76" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1722#1723#0" expanded="true" />
+            <element signature="e#1741#1742#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -779,6 +754,18 @@
               <list>
                 <option value="0.2" />
                 <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
               </list>
             </option>
           </splitter-proportions>

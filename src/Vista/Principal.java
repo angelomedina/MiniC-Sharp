@@ -231,11 +231,12 @@ public class Principal extends  JFrame implements ActionListener {
         CommonTokenStream token = new CommonTokenStream( scanner );
         parser = new MyParser(token);
 
-
+        //Control de errores, de ANTlR, personalizados y de consola
         errorListener          = new MyBaseErrorListener(list);
         myException            = new MyException( list );
         myConsoleErrorListener = new MyConsoleErrorListener( list );
 
+        //Someter el parser y escanner a pruebas
         scanner.removeErrorListeners();
         scanner.addErrorListener( myConsoleErrorListener );
         parser.removeErrorListeners();
@@ -356,7 +357,10 @@ public class Principal extends  JFrame implements ActionListener {
             if(myException.hasErrors() == false){
                 try {
 
+                    //se instancia el arbol
                     tree = parser.program();
+
+                    //se envia el arbol y el parser
                     java.util.concurrent.Future<JFrame> treeGUI = org.antlr.v4.gui.Trees.inspect(tree, parser);
 
                 }catch (Exception ex){
