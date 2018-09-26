@@ -99,7 +99,7 @@ public class SymbolTable {
                 for (int j = 0; j < i.level; j++){
                     nivel += "\t";
                 }
-                System.out.println(nivel + "-> Nombre: " + i.getName() + "-> Nivel: " + i.getLevel());
+                System.out.println(nivel + "-> Nombre: " + i.getName() + "-> Nivel: " + i.getLevel() + "-> Tipo: " + i.getType());
             }
             System.out.println("------------------------------------------");
 
