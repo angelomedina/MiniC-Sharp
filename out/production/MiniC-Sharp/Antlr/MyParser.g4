@@ -29,7 +29,7 @@ methodDecl: ( type | VOID ) IDENT PAR_IZQ ( formPars )? PAR_DER ( varDecl )* blo
 formPars: type IDENT ( COMA type IDENT )*                                                                               #formParsAST;
 
 // Formato para establecer el tipo de dato
-type: IDENT (CORC_IZQ CORC_DER)?                                                                                        #typeAST;
+type: IDENT (CORC_IZQ CORC_DER)?                                                                                    #typeAST;
 
 
 statement: designator ( IG expr | PAR_IZQ ( actPars )? PAR_DER  | INC | DEC ) PyC                                       #statementSTAST
@@ -59,16 +59,19 @@ expr: ( REST )? term ( addop term )*                                            
 term: factor ( mulop factor )*                                                                                          #termAST;
 
 factor: designator ( PAR_IZQ ( actPars )? PAR_DER )?                                                                    #factorFAST
+		 |  special_function (PAR_IZQ (actPars) PAR_DER)                                                                #spfunctionFAST
 		 |  NUMBER_INTEGER                                                                                              #numIntFAST
 		 |  NUMBER_INTEGER_ZERO                                                                                         #numIntZeroFAST
 		 |  NUMBER_FLOAT                                                                                                #numberFloatFAST
 		 |  STRING_CONST                                                                                                #stringFAST
 		 |  CHAR_CONST                                                                                                  #chaeFAST
 		 |  (TRUE|FALSE)                                                                                                #booleanFAST
-		 |  NEW IDENT                                                                                                   #newFAST
+		 |  NEW designator                                                                                                   #newFAST
 		 |  PAR_IZQ expr PAR_DER                                                                                        #expresionFAST;
 
-
+special_function: ORD                                                                                                   #spfunctionORD
+                | CHR                                                                                                   #spfunctionCHR
+                | LEN                                                                                                   #spfunctionLEN;
 designator: IDENT ( PUNT IDENT | CORC_IZQ expr CORC_DER )*                                                              #designatorAST;
 
 // Operadores logicos
