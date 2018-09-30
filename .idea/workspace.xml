@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6ebe243f-a307-4d73-a0f9-921472d75155" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Checker/SymbolTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Checker/SymbolTable.java" afterDir="false" />
-    </list>
+    <list default="true" id="6ebe243f-a307-4d73-a0f9-921472d75155" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -79,7 +77,7 @@
     <session id="-1673243482">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="24" />
+          <entry key="project.closed" value="25" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="3" />
           <entry key="project.open.time.12" value="1" />
@@ -142,8 +140,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Checker/SymbolTable.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="101" column="111" selection-start-line="101" selection-start-column="111" selection-end-line="101" selection-end-column="111" />
+            <state relative-caret-position="220">
+              <caret line="113" column="30" lean-forward="true" selection-start-line="113" selection-start-column="30" selection-end-line="113" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1722#1723#0" expanded="true" />
@@ -282,7 +280,7 @@
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="409" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537929202672" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537929392137" />
     <property name="create.test.in.the.same.root" value="true" />
     <property name="last_opened_file_path" value="$USER_HOME$/Downloads/MonkeySergioGenesis" />
     <property name="project.structure.last.edited" value="Project" />
@@ -678,8 +676,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Checker/SymbolTable.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="101" column="111" selection-start-line="101" selection-start-column="111" selection-end-line="101" selection-end-column="111" />
+        <state relative-caret-position="220">
+          <caret line="113" column="30" lean-forward="true" selection-start-line="113" selection-start-column="30" selection-end-line="113" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1722#1723#0" expanded="true" />
