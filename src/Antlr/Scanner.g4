@@ -25,12 +25,14 @@ WRITE: 'write';
 FOR: 'for';
 TRUE: 'true';
 FALSE: 'false';
-//INT: 'int';
-//CHAR: 'char';
-//FLOAT: 'float';
-//BOOL: 'bool';
-//STRING: 'string';
-LIST: 'list';
+/*
+INT: 'int';
+CHAR: 'char';
+FLOAT: 'float';
+BOOL: 'bool';
+STRING: 'string';
+LIST: 'list';*/
+
 // Para metodos
 ORD: 'ord';
 CHR: 'chr';
@@ -72,8 +74,8 @@ PREG: '?';
 ARRB: '@';
 DOS_PU: ':';
 COM_SIM: '\'';
-
-
+SALTO_LINEA: '\\n';
+TAB: '\\t';
 
 // Fragments (Conjuntos de elementos)
 fragment LETTER: 'a'.. 'z' | 'A'..'Z' | '_';
@@ -94,13 +96,13 @@ NUMBER_FLOAT: DIGIT (DIGIT)* PUNT DIGIT (DIGIT)*;// Valores flotantes
 STRING_CONST: '"' (PRINTABLE_CHAR | ' ')* '"';
 
 // Representa a los caracteres char
-CHAR_CONST: '\'' ( PRINTABLE_CHAR | '\n' | '\r' )  '\''; // longitud 1 caracter
+CHAR_CONST: '\'' (SALTO_LINEA | PRINTABLE_CHAR | TAB) '\''; //| ('\'' (PRINTABLE_CHAR)  '\''); // longitud 1 caracter
 
 // Elementos char imprimibles
 PRINTABLE_CHAR: LETTER | DIGIT | ADM | COM_DOB |HASH | DOLLAR |
                 PORC | AMP | PAR_IZQ | PAR_DER | MULT | SUM |
                 COMA | REST | PUNT | DIV | DOS_PU | PyC | MEN | IG |
-                MAY | PREG | ARRB | COM_SIM | '\n' ;
+                MAY | PREG | ARRB | COM_SIM;
 
 // Expresiones Ignoradas
 WS : [ \t\n\r]+ -> skip; // Espacio, tabulacion, salto de linea, retorno de carro.
