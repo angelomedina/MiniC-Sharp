@@ -1,10 +1,9 @@
 package Vista;
 
-import Exeptions.*;
 import Antlr.MyParser;
 import Antlr.Scanner;
+import Exeptions.*;
 import Modelo.Archivos;
-import org.antlr.v4.gui.Trees;
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.Token;
@@ -19,8 +18,6 @@ import java.io.IOException;
 import java.util.List;
 import java.util.StringTokenizer;
 import java.util.Vector;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Future;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -28,8 +25,8 @@ import java.util.logging.Logger;
  * Created by Arrieta on 19/3/2017.
  */
 public class Principal extends  JFrame implements ActionListener {
-    Scanner   scanner   = null;
-    MyParser  parser    = null;
+    Scanner scanner   = null;
+    MyParser parser    = null;
     ParseTree tree = null;
     MyBaseErrorListener errorListener = null;
     MyException     myException = null;

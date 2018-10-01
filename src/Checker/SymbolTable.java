@@ -14,9 +14,6 @@ public class SymbolTable {
     private int actuaLevel = 0;
     private LinkedList<Symbol> table = new LinkedList<Symbol>();
 
-
-
-
     /**
      * Agrega un identificador a la Tabla
      */

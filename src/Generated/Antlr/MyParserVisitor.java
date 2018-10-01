@@ -39,12 +39,19 @@ public interface MyParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitClassDeclAST(MyParser.ClassDeclASTContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code methodDeclAST}
+	 * Visit a parse tree produced by the {@code methodTypeDeclAST}
 	 * labeled alternative in {@link MyParser#methodDecl}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitMethodDeclAST(MyParser.MethodDeclASTContext ctx);
+	T visitMethodTypeDeclAST(MyParser.MethodTypeDeclASTContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code methodVoidDeclAST}
+	 * labeled alternative in {@link MyParser#methodDecl}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMethodVoidDeclAST(MyParser.MethodVoidDeclASTContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code formParsAST}
 	 * labeled alternative in {@link MyParser#formPars}.
@@ -60,12 +67,33 @@ public interface MyParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitTypeAST(MyParser.TypeASTContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code statementSTAST}
+	 * Visit a parse tree produced by the {@code statementIgSTAST}
 	 * labeled alternative in {@link MyParser#statement}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitStatementSTAST(MyParser.StatementSTASTContext ctx);
+	T visitStatementIgSTAST(MyParser.StatementIgSTASTContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code statementMetSTAST}
+	 * labeled alternative in {@link MyParser#statement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitStatementMetSTAST(MyParser.StatementMetSTASTContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code statementIncSTAST}
+	 * labeled alternative in {@link MyParser#statement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitStatementIncSTAST(MyParser.StatementIncSTASTContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code statementDecSTAST}
+	 * labeled alternative in {@link MyParser#statement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitStatementDecSTAST(MyParser.StatementDecSTASTContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code ifSTAST}
 	 * labeled alternative in {@link MyParser#statement}.
@@ -277,21 +305,80 @@ public interface MyParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitDesignatorAST(MyParser.DesignatorASTContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link MyParser#relop}.
+	 * Visit a parse tree produced by the {@code relopIgIgAST}
+	 * labeled alternative in {@link MyParser#relop}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitRelop(MyParser.RelopContext ctx);
+	T visitRelopIgIgAST(MyParser.RelopIgIgASTContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link MyParser#addop}.
+	 * Visit a parse tree produced by the {@code relopDifAST}
+	 * labeled alternative in {@link MyParser#relop}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitAddop(MyParser.AddopContext ctx);
+	T visitRelopDifAST(MyParser.RelopDifASTContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link MyParser#mulop}.
+	 * Visit a parse tree produced by the {@code relopMayAST}
+	 * labeled alternative in {@link MyParser#relop}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitMulop(MyParser.MulopContext ctx);
+	T visitRelopMayAST(MyParser.RelopMayASTContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code relopMatIgAST}
+	 * labeled alternative in {@link MyParser#relop}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitRelopMatIgAST(MyParser.RelopMatIgASTContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code relopMenAST}
+	 * labeled alternative in {@link MyParser#relop}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitRelopMenAST(MyParser.RelopMenASTContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code relopMenIgAST}
+	 * labeled alternative in {@link MyParser#relop}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitRelopMenIgAST(MyParser.RelopMenIgASTContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code addopSumAST}
+	 * labeled alternative in {@link MyParser#addop}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAddopSumAST(MyParser.AddopSumASTContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code addopRestAST}
+	 * labeled alternative in {@link MyParser#addop}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAddopRestAST(MyParser.AddopRestASTContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code mulopMultAST}
+	 * labeled alternative in {@link MyParser#mulop}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMulopMultAST(MyParser.MulopMultASTContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code mulopDivAST}
+	 * labeled alternative in {@link MyParser#mulop}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMulopDivAST(MyParser.MulopDivASTContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code mulopPorcAST}
+	 * labeled alternative in {@link MyParser#mulop}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMulopPorcAST(MyParser.MulopPorcASTContext ctx);
 }
