@@ -2,7 +2,6 @@ package Checker;
 
 import Antlr.MyParser;
 import Antlr.MyParserBaseVisitor;
-import org.antlr.v4.runtime.Token;
 
 public class Analizador_contextual extends MyParserBaseVisitor {
 

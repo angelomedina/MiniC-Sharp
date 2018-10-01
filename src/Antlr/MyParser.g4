@@ -69,7 +69,7 @@ factor: designator ( PAR_IZQ ( actPars )? PAR_DER )?                            
 		 |  STRING_CONST                                                                                                #stringFAST
 		 |  CHAR_CONST                                                                                                  #chaeFAST
 		 |  (TRUE|FALSE)                                                                                                #booleanFAST
-		 |  NEW designator                                                                                              #newFAST
+		 |  NEW designator                                                                                                   #newFAST
 		 |  PAR_IZQ expr PAR_DER                                                                                        #expresionFAST;
 
 special_function: ORD                                                                                                   #spfunctionORD
@@ -88,7 +88,6 @@ relop: IGIG                                                                     
 // Operadores matematicos
 addop: SUM                                                                                                              #addopSumAST
      | REST                                                                                                             #addopRestAST;
-
 mulop: MULT                                                                                                             #mulopMultAST
      | DIV                                                                                                              #mulopDivAST
      | PORC                                                                                                             #mulopPorcAST;
