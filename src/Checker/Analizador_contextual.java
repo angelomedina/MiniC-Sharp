@@ -5,6 +5,19 @@ import Generated.Antlr.MyParserBaseVisitor;
 
 public class Analizador_contextual extends MyParserBaseVisitor {
 
+    //Nota: todos los visitors que balan de declarar cosas se utiliza la tabla -->insertar/verificar alcaces
+    //Tabla de imbolos nombre, nivel y tipo: osea agregar un objeto y en esas clases que haya una gerarquia como metodos,clases
+    //Cuando verifico metodos: verificar si existe el metodo, los parametros y la cantidad de parametros; antes de hacer una visita contextual hacer otro vist para ver si existe
+
+
+    //Tabla de simbolos; id(simbol),nivel, tipo de simbolo, tipo de datos
+
+    //simbol.js abstracto
+    //  hereda IDS
+    //  hereda Meth
+    //  hereda Clas
+
+
     private SymbolTable tableS;
     private int numErrors;
 
