@@ -19,6 +19,8 @@ public class Analizador_contextual extends MyParserBaseVisitor {
 
     //expresiones: deben verificar los tipos como estament como for o whiledeben verificar algo pero no retornan nada
 
+    //antes de declarar cosas openScope y despues de delcarar closeScope
+
     private SymbolTable tableS;
     private int numErrors;
 
