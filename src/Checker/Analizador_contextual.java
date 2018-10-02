@@ -1,7 +1,7 @@
 package Checker;
 
-import Antlr.MyParser;
-import Antlr.MyParserBaseVisitor;
+import Generated.Antlr.MyParser;
+import Generated.Antlr.MyParserBaseVisitor;
 
 public class Analizador_contextual extends MyParserBaseVisitor {
 

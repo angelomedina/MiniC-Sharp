@@ -1,8 +1,10 @@
 package Vista;
 
-import Antlr.MyParser;
-import Antlr.Scanner;
+
+
 import Exeptions.*;
+import Generated.Antlr.MyParser;
+import Generated.Antlr.Scanner;
 import Modelo.Archivos;
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;

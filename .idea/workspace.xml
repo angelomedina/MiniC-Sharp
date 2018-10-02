@@ -1,7 +1,99 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6ebe243f-a307-4d73-a0f9-921472d75155" name="Default Changelist" comment="" />
+    <list default="true" id="6ebe243f-a307-4d73-a0f9-921472d75155" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$ActParsASTContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$ActParsContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$AddopContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$AddopRestASTContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$AddopSumASTContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$BlockASTContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$BlockContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$BlockSTASTContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$BooleanFASTContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$BreakStASTContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$ChaeFASTContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$ClassDeclASTContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$ClassDeclContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$CondFactASTContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$CondFactContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$CondTermASTContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$CondTermContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$ConditionASTContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$ConditionContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$ConstDeclASTContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$ConstDeclContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$DesignatorASTContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$DesignatorContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$ExprASTContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$ExprContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$ExpresionFASTContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$FactorContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$FactorFASTContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$ForSTASTContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$FormParsASTContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$FormParsContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$IfSTASTContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$MethodDeclContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$MethodTypeDeclASTContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$MethodVoidDeclASTContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$MulopContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$MulopDivASTContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$MulopMultASTContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$MulopPorcASTContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$NewFASTContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$NumIntFASTContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$NumIntZeroFASTContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$NumberFloatFASTContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$ProgramASTContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$ProgramContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$PycSTASTContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$ReadSTATContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$RelopContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$RelopDifASTContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$RelopIgIgASTContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$RelopMatIgASTContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$RelopMayASTContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$RelopMenASTContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$RelopMenIgASTContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$ReturnSTASTContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$Special_functionContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$SpfunctionCHRContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$SpfunctionFASTContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$SpfunctionLENContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$SpfunctionORDContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$StatementContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$StatementDecSTASTContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$StatementIgSTASTContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$StatementIncSTASTContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$StatementMetSTASTContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$StringFASTContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$TermASTContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$TermContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$TypeASTContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$TypeContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$VarDeclASTContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$VarDeclContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$WhileSTASTContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser$WriteSTASTContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser.g4" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser.g4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParserBaseVisitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParserVisitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/Scanner.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Checker/Analizador_contextual.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Vista/Principal$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Vista/Principal$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Vista/Principal.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Vista/Principal.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Antlr/MyParserBaseVisitor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Checker/Analizador_contextual.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Checker/Analizador_contextual.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Generated/Antlr/MyParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Generated/Antlr/MyParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Generated/Antlr/MyParserBaseVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Generated/Antlr/MyParserBaseVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Generated/Antlr/MyParserVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Generated/Antlr/MyParserVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Generated/Antlr/Scanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Generated/Antlr/Scanner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vista/Principal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/Principal.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,10 +114,6 @@
     </option>
     <expand />
     <select />
-  </component>
-  <component name="ErrorTreeViewConfiguration">
-    <option name="hideWarnings" value="true" />
-    <option name="HIDE_WARNINGS" value="true" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="1199675719">
@@ -81,7 +169,7 @@
     <session id="-1673243482">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="25" />
+          <entry key="project.closed" value="24" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="3" />
           <entry key="project.open.time.12" value="1" />
@@ -89,7 +177,6 @@
           <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.15" value="2" />
           <entry key="project.open.time.2" value="1" />
-          <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.38" value="1" />
           <entry key="project.open.time.4" value="2" />
           <entry key="project.open.time.45" value="2" />
@@ -101,7 +188,7 @@
           <entry key="project.open.time.59" value="1" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.78" value="1" />
-          <entry key="project.opened" value="25" />
+          <entry key="project.opened" value="24" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -109,7 +196,7 @@
           <entry key="class" value="4" />
           <entry key="form" value="2" />
           <entry key="g4" value="31" />
-          <entry key="java" value="68" />
+          <entry key="java" value="66" />
           <entry key="tokens" value="7" />
           <entry key="txt" value="8" />
         </counts>
@@ -119,209 +206,162 @@
           <entry key="ANTLR v4 grammar file" value="31" />
           <entry key="CLASS" value="4" />
           <entry key="GUI_DESIGNER_FORM" value="2" />
-          <entry key="JAVA" value="68" />
+          <entry key="JAVA" value="66" />
           <entry key="PLAIN_TEXT" value="15" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="g4" value="1640" />
-          <entry key="java" value="2262" />
+          <entry key="java" value="1574" />
           <entry key="txt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="ANTLR v4 grammar file" value="1640" />
-          <entry key="JAVA" value="2262" />
+          <entry key="JAVA" value="1574" />
           <entry key="PLAIN_TEXT" value="1" />
         </counts>
       </usages-collector>
     </session>
-    <session id="1139634089">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="3" />
-          <entry key="project.open.time.16" value="1" />
-          <entry key="project.open.time.5" value="2" />
-          <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="4" />
-        </counts>
-      </usages-collector>
+    <session id="-1876648510">
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="g4" value="9" />
-          <entry key="java" value="16" />
+          <entry key="java" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="ANTLR v4 grammar file" value="9" />
-          <entry key="JAVA" value="16" />
+          <entry key="JAVA" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="g4" value="1760" />
-          <entry key="java" value="377" />
+          <entry key="java" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="ANTLR v4 grammar file" value="1760" />
-          <entry key="JAVA" value="377" />
+          <entry key="JAVA" value="5" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Vista/Principal.java">
+        <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
           <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-            <state relative-caret-position="153">
-              <caret line="28" column="26" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Checker/Analizador_contextual.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="14" column="10" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#374#375#0" expanded="true" />
-                <element signature="e#423#424#0" expanded="true" />
-                <element signature="e#510#511#0" expanded="true" />
-                <element signature="e#561#562#0" expanded="true" />
-                <element signature="e#644#645#0" expanded="true" />
-                <element signature="e#693#694#0" expanded="true" />
-                <element signature="e#780#781#0" expanded="true" />
-                <element signature="e#831#832#0" expanded="true" />
-                <element signature="e#1222#1223#0" expanded="true" />
-                <element signature="e#1272#1273#0" expanded="true" />
-                <element signature="e#1349#1350#0" expanded="true" />
-                <element signature="e#1395#1396#0" expanded="true" />
-                <element signature="e#2081#2082#0" expanded="true" />
-                <element signature="e#2127#2128#0" expanded="true" />
-                <element signature="e#2206#2207#0" expanded="true" />
-                <element signature="e#2253#2254#0" expanded="true" />
-                <element signature="e#2336#2337#0" expanded="true" />
-                <element signature="e#2385#2386#0" expanded="true" />
-                <element signature="e#2468#2469#0" expanded="true" />
-                <element signature="e#2517#2518#0" expanded="true" />
-                <element signature="e#2602#2603#0" expanded="true" />
-                <element signature="e#2652#2653#0" expanded="true" />
-                <element signature="e#2731#2732#0" expanded="true" />
-                <element signature="e#2778#2779#0" expanded="true" />
-                <element signature="e#2861#2862#0" expanded="true" />
-                <element signature="e#2910#2911#0" expanded="true" />
-                <element signature="e#2993#2994#0" expanded="true" />
-                <element signature="e#3042#3043#0" expanded="true" />
-                <element signature="e#3121#3122#0" expanded="true" />
-                <element signature="e#3168#3169#0" expanded="true" />
-                <element signature="e#3247#3248#0" expanded="true" />
-                <element signature="e#3294#3295#0" expanded="true" />
-                <element signature="e#3377#3378#0" expanded="true" />
-                <element signature="e#3426#3427#0" expanded="true" />
-                <element signature="e#3513#3514#0" expanded="true" />
-                <element signature="e#3564#3565#0" expanded="true" />
-                <element signature="e#3649#3650#0" expanded="true" />
-                <element signature="e#3699#3700#0" expanded="true" />
-                <element signature="e#3784#3785#0" expanded="true" />
-                <element signature="e#3834#3835#0" expanded="true" />
-                <element signature="e#3911#3912#0" expanded="true" />
-                <element signature="e#3957#3958#0" expanded="true" />
-                <element signature="e#4034#4035#0" expanded="true" />
-                <element signature="e#4080#4081#0" expanded="true" />
-                <element signature="e#4163#4164#0" expanded="true" />
-                <element signature="e#4212#4213#0" expanded="true" />
-                <element signature="e#4303#4304#0" expanded="true" />
-                <element signature="e#4356#4357#0" expanded="true" />
-                <element signature="e#4439#4440#0" expanded="true" />
-                <element signature="e#4488#4489#0" expanded="true" />
-                <element signature="e#4579#4580#0" expanded="true" />
-                <element signature="e#4632#4633#0" expanded="true" />
-                <element signature="e#4725#4726#0" expanded="true" />
-                <element signature="e#4779#4780#0" expanded="true" />
-                <element signature="e#4862#4863#0" expanded="true" />
-                <element signature="e#4911#4912#0" expanded="true" />
-                <element signature="e#4990#4991#0" expanded="true" />
-                <element signature="e#5037#5038#0" expanded="true" />
-                <element signature="e#5122#5123#0" expanded="true" />
-                <element signature="e#5172#5173#0" expanded="true" />
-                <element signature="e#5249#5250#0" expanded="true" />
-                <element signature="e#5295#5296#0" expanded="true" />
-                <element signature="e#5384#5385#0" expanded="true" />
-                <element signature="e#5436#5437#0" expanded="true" />
-                <element signature="e#5525#5526#0" expanded="true" />
-                <element signature="e#5577#5578#0" expanded="true" />
-                <element signature="e#5666#5667#0" expanded="true" />
-                <element signature="e#5718#5719#0" expanded="true" />
-                <element signature="e#5807#5808#0" expanded="true" />
-                <element signature="e#5859#5860#0" expanded="true" />
-                <element signature="e#5948#5949#0" expanded="true" />
-                <element signature="e#6000#6001#0" expanded="true" />
-                <element signature="e#6087#6088#0" expanded="true" />
-                <element signature="e#6138#6139#0" expanded="true" />
-                <element signature="e#6223#6224#0" expanded="true" />
-                <element signature="e#6273#6274#0" expanded="true" />
-                <element signature="e#6358#6359#0" expanded="true" />
-                <element signature="e#6408#6409#0" expanded="true" />
-                <element signature="e#6497#6498#0" expanded="true" />
-                <element signature="e#6549#6550#0" expanded="true" />
-                <element signature="e#6634#6635#0" expanded="true" />
-                <element signature="e#6684#6685#0" expanded="true" />
-                <element signature="e#6773#6774#0" expanded="true" />
-                <element signature="e#6825#6826#0" expanded="true" />
-                <element signature="e#6910#6911#0" expanded="true" />
-                <element signature="e#6960#6961#0" expanded="true" />
-                <element signature="e#7047#7048#0" expanded="true" />
-                <element signature="e#7098#7099#0" expanded="true" />
-                <element signature="e#7185#7186#0" expanded="true" />
-                <element signature="e#7236#7237#0" expanded="true" />
-                <element signature="e#7321#7322#0" expanded="true" />
-                <element signature="e#7371#7372#0" expanded="true" />
-                <element signature="e#7458#7459#0" expanded="true" />
-                <element signature="e#7509#7510#0" expanded="true" />
-              </folding>
-=======
-<<<<<<< HEAD
-            <state relative-caret-position="220">
-              <caret line="113" column="30" lean-forward="true" selection-start-line="113" selection-start-column="30" selection-end-line="113" selection-end-column="30" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1722#1723#0" expanded="true" />
-                <element signature="e#1741#1742#0" expanded="true" />
-              </folding>
-=======
-            <state relative-caret-position="146">
-              <caret line="101" column="35" lean-forward="true" selection-start-line="101" selection-start-column="35" selection-end-line="101" selection-end-column="35" />
->>>>>>> 4a5f1d17841ff89e52f9a1168a6136c7a710f92b
->>>>>>> 852bc2772c2e7618eb18679fd38b67ba3f97d9fe
+            <state relative-caret-position="200">
+              <caret line="896" column="19" lean-forward="true" selection-start-line="896" selection-start-column="19" selection-end-line="896" selection-end-column="19" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Antlr/MyParser.g4">
+        <entry file="file://$PROJECT_DIR$/src/Checker/Analizador_contextual.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="21" column="126" lean-forward="true" selection-start-line="21" selection-start-column="126" selection-end-line="21" selection-end-column="126" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Checker/SymbolTable.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="952">
-              <caret line="56" column="5" selection-start-line="56" selection-start-column="5" selection-end-line="56" selection-end-column="5" />
+            <state>
+              <caret lean-forward="true" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#196#197#0" expanded="true" />
+                <element signature="e#243#244#0" expanded="true" />
+                <element signature="e#326#327#0" expanded="true" />
+                <element signature="e#375#376#0" expanded="true" />
+                <element signature="e#462#463#0" expanded="true" />
+                <element signature="e#513#514#0" expanded="true" />
+                <element signature="e#596#597#0" expanded="true" />
+                <element signature="e#645#646#0" expanded="true" />
+                <element signature="e#732#733#0" expanded="true" />
+                <element signature="e#783#784#0" expanded="true" />
+                <element signature="e#1174#1175#0" expanded="true" />
+                <element signature="e#1224#1225#0" expanded="true" />
+                <element signature="e#1301#1302#0" expanded="true" />
+                <element signature="e#1347#1348#0" expanded="true" />
+                <element signature="e#2033#2034#0" expanded="true" />
+                <element signature="e#2079#2080#0" expanded="true" />
+                <element signature="e#2158#2159#0" expanded="true" />
+                <element signature="e#2205#2206#0" expanded="true" />
+                <element signature="e#2288#2289#0" expanded="true" />
+                <element signature="e#2337#2338#0" expanded="true" />
+                <element signature="e#2420#2421#0" expanded="true" />
+                <element signature="e#2469#2470#0" expanded="true" />
+                <element signature="e#2554#2555#0" expanded="true" />
+                <element signature="e#2604#2605#0" expanded="true" />
+                <element signature="e#2683#2684#0" expanded="true" />
+                <element signature="e#2730#2731#0" expanded="true" />
+                <element signature="e#2813#2814#0" expanded="true" />
+                <element signature="e#2862#2863#0" expanded="true" />
+                <element signature="e#2945#2946#0" expanded="true" />
+                <element signature="e#2994#2995#0" expanded="true" />
+                <element signature="e#3073#3074#0" expanded="true" />
+                <element signature="e#3120#3121#0" expanded="true" />
+                <element signature="e#3199#3200#0" expanded="true" />
+                <element signature="e#3246#3247#0" expanded="true" />
+                <element signature="e#3329#3330#0" expanded="true" />
+                <element signature="e#3378#3379#0" expanded="true" />
+                <element signature="e#3465#3466#0" expanded="true" />
+                <element signature="e#3516#3517#0" expanded="true" />
+                <element signature="e#3601#3602#0" expanded="true" />
+                <element signature="e#3651#3652#0" expanded="true" />
+                <element signature="e#3736#3737#0" expanded="true" />
+                <element signature="e#3786#3787#0" expanded="true" />
+                <element signature="e#3863#3864#0" expanded="true" />
+                <element signature="e#3909#3910#0" expanded="true" />
+                <element signature="e#3986#3987#0" expanded="true" />
+                <element signature="e#4032#4033#0" expanded="true" />
+                <element signature="e#4115#4116#0" expanded="true" />
+                <element signature="e#4164#4165#0" expanded="true" />
+                <element signature="e#4255#4256#0" expanded="true" />
+                <element signature="e#4308#4309#0" expanded="true" />
+                <element signature="e#4391#4392#0" expanded="true" />
+                <element signature="e#4440#4441#0" expanded="true" />
+                <element signature="e#4531#4532#0" expanded="true" />
+                <element signature="e#4584#4585#0" expanded="true" />
+                <element signature="e#4677#4678#0" expanded="true" />
+                <element signature="e#4731#4732#0" expanded="true" />
+                <element signature="e#4814#4815#0" expanded="true" />
+                <element signature="e#4863#4864#0" expanded="true" />
+                <element signature="e#4942#4943#0" expanded="true" />
+                <element signature="e#4989#4990#0" expanded="true" />
+                <element signature="e#5074#5075#0" expanded="true" />
+                <element signature="e#5124#5125#0" expanded="true" />
+                <element signature="e#5201#5202#0" expanded="true" />
+                <element signature="e#5247#5248#0" expanded="true" />
+                <element signature="e#5336#5337#0" expanded="true" />
+                <element signature="e#5388#5389#0" expanded="true" />
+                <element signature="e#5477#5478#0" expanded="true" />
+                <element signature="e#5529#5530#0" expanded="true" />
+                <element signature="e#5618#5619#0" expanded="true" />
+                <element signature="e#5670#5671#0" expanded="true" />
+                <element signature="e#5759#5760#0" expanded="true" />
+                <element signature="e#5811#5812#0" expanded="true" />
+                <element signature="e#5900#5901#0" expanded="true" />
+                <element signature="e#5952#5953#0" expanded="true" />
+                <element signature="e#6039#6040#0" expanded="true" />
+                <element signature="e#6090#6091#0" expanded="true" />
+                <element signature="e#6175#6176#0" expanded="true" />
+                <element signature="e#6225#6226#0" expanded="true" />
+                <element signature="e#6310#6311#0" expanded="true" />
+                <element signature="e#6360#6361#0" expanded="true" />
+                <element signature="e#6449#6450#0" expanded="true" />
+                <element signature="e#6501#6502#0" expanded="true" />
+                <element signature="e#6586#6587#0" expanded="true" />
+                <element signature="e#6636#6637#0" expanded="true" />
+                <element signature="e#6725#6726#0" expanded="true" />
+                <element signature="e#6777#6778#0" expanded="true" />
+                <element signature="e#6862#6863#0" expanded="true" />
+                <element signature="e#6912#6913#0" expanded="true" />
+                <element signature="e#6999#7000#0" expanded="true" />
+                <element signature="e#7050#7051#0" expanded="true" />
+                <element signature="e#7137#7138#0" expanded="true" />
+                <element signature="e#7188#7189#0" expanded="true" />
+                <element signature="e#7273#7274#0" expanded="true" />
+                <element signature="e#7323#7324#0" expanded="true" />
+                <element signature="e#7410#7411#0" expanded="true" />
+                <element signature="e#7461#7462#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -368,14 +408,11 @@
         <option value="$PROJECT_DIR$/src/test.txt" />
         <option value="$PROJECT_DIR$/src/Exeptions/MyException.java" />
         <option value="$PROJECT_DIR$/src/Exeptions/MyConsoleErrorListener.java" />
-        <option value="$PROJECT_DIR$/src/Checker/Symbol.java" />
-        <option value="$PROJECT_DIR$/src/Antlr/Scanner.g4" />
-        <option value="$PROJECT_DIR$/src/Checker/SymbolTable.java" />
-        <option value="$PROJECT_DIR$/src/Vista/Principal.java" />
-        <option value="$PROJECT_DIR$/src/Checker/Analizador_contextual.java" />
-        <option value="$PROJECT_DIR$/src/Generated/Antlr/MyParserBaseVisitor.java" />
-        <option value="$PROJECT_DIR$/src/Antlr/MyParserBaseVisitor.java" />
         <option value="$PROJECT_DIR$/src/Antlr/MyParser.g4" />
+        <option value="$PROJECT_DIR$/src/Vista/Principal.java" />
+        <option value="$PROJECT_DIR$/src/Antlr/Scanner.g4" />
+        <option value="$PROJECT_DIR$/src/Antlr/MyParserBaseVisitor.java" />
+        <option value="$PROJECT_DIR$/src/Checker/Analizador_contextual.java" />
       </list>
     </option>
   </component>
@@ -391,22 +428,20 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="76" />
-    <option name="y" value="113" />
-    <option name="width" value="1153" />
-    <option name="height" value="728" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-7" />
+    <option name="width" value="697" />
+    <option name="height" value="745" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -417,19 +452,12 @@
             <path>
               <item name="MiniC-Sharp" type="b2602c69:ProjectViewProjectNode" />
               <item name="MiniC-Sharp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name=".idea" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="MiniC-Sharp" type="b2602c69:ProjectViewProjectNode" />
               <item name="MiniC-Sharp" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Antlr" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MiniC-Sharp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MiniC-Sharp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Checker" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="MiniC-Sharp" type="b2602c69:ProjectViewProjectNode" />
@@ -441,7 +469,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -449,37 +476,32 @@
     <property name="$PROJECT_DIR$/src/Antlr/MyParser.g4::/gen-listener" value="false" />
     <property name="$PROJECT_DIR$/src/Antlr/MyParser.g4::/gen-visitor" value="true" />
     <property name="$PROJECT_DIR$/src/Antlr/MyParser.g4::/language" value="Java" />
-    <property name="$PROJECT_DIR$/src/Antlr/MyParser.g4::/lib-dir" value="D:\Proyecto Compiladores\MiniC-Sharp\src\Generated" />
-    <property name="$PROJECT_DIR$/src/Antlr/MyParser.g4::/output-dir" value="D:\Proyecto Compiladores\MiniC-Sharp\src\Generated" />
+    <property name="$PROJECT_DIR$/src/Antlr/MyParser.g4::/lib-dir" value="E:\Doccumentos TEC\6 SEMESTRE 2018\Compiladores\Proyectos\I Proyecto\MiniC-Sharp\src\Generated" />
+    <property name="$PROJECT_DIR$/src/Antlr/MyParser.g4::/output-dir" value="E:\Doccumentos TEC\6 SEMESTRE 2018\Compiladores\Proyectos\I Proyecto\MiniC-Sharp\src\Generated" />
     <property name="$PROJECT_DIR$/src/Antlr/Scanner.g4::/auto-gen" value="false" />
     <property name="$PROJECT_DIR$/src/Antlr/Scanner.g4::/gen-listener" value="false" />
     <property name="$PROJECT_DIR$/src/Antlr/Scanner.g4::/gen-visitor" value="true" />
     <property name="$PROJECT_DIR$/src/Antlr/Scanner.g4::/language" value="Java" />
-    <property name="$PROJECT_DIR$/src/Antlr/Scanner.g4::/lib-dir" value="D:\Proyecto Compiladores\MiniC-Sharp\src\Generated" />
-    <property name="$PROJECT_DIR$/src/Antlr/Scanner.g4::/output-dir" value="D:\Proyecto Compiladores\MiniC-Sharp\src\Generated" />
+    <property name="$PROJECT_DIR$/src/Antlr/Scanner.g4::/lib-dir" value="E:\Doccumentos TEC\6 SEMESTRE 2018\Compiladores\Proyectos\I Proyecto\MiniC-Sharp\src\Generated" />
+    <property name="$PROJECT_DIR$/src/Antlr/Scanner.g4::/output-dir" value="E:\Doccumentos TEC\6 SEMESTRE 2018\Compiladores\Proyectos\I Proyecto\MiniC-Sharp\src\Generated" />
     <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW" value="false" />
     <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH" value="360" />
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW" value="true" />
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="409" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-<<<<<<< HEAD
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538354684930" />
-=======
-<<<<<<< HEAD
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537929392137" />
-=======
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538258342418" />
->>>>>>> 4a5f1d17841ff89e52f9a1168a6136c7a710f92b
->>>>>>> 852bc2772c2e7618eb18679fd38b67ba3f97d9fe
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538450872387" />
     <property name="create.test.in.the.same.root" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/MonkeySergioGenesis" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="project.propGUI" />
   </component>
   <component name="RecentsManager">
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="Checker" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\Doccumentos TEC\6 SEMESTRE 2018\Compiladores\Proyectos\I Proyecto\MiniC-Sharp\src\Exeptions" />
       <recent name="E:\Doccumentos TEC\6 SEMESTRE 2018\Compiladores\Proyectos\I Proyecto\MiniC-Sharp\src" />
@@ -488,7 +510,6 @@
       <recent name="E:\Doccumentos TEC\6 SEMESTRE 2018\Compiladores\MiniC-Sharp\src" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="Checker" />
       <recent name="Exeptions" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -507,20 +528,14 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.">
-    <configuration name="" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="Vista.Principal" />
+  <component name="RunManager" selected="Application.Principal">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="com.company.Main" />
       <module name="MiniC-Sharp" />
       <option name="ENABLE_SWING_INSPECTOR" value="true" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Run" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Main" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="Vista.Principal" />
-      <module name="MiniC-Sharp" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -555,14 +570,13 @@
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
-      <item itemvalue="Application." />
       <item itemvalue="Application.nada" />
       <item itemvalue="Application.Principal" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application." />
         <item itemvalue="Application.Principal" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.nada" />
       </list>
     </recent_temporary>
@@ -614,37 +628,34 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17927383" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24962178" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24962178" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info id="Capture Tool" order="6" />
-      <window_info id="DB Browser" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.47419354" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49848714" visible="true" weight="0.24836601" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39869282" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32580644" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32741934" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.21078432" />
-      <window_info anchor="bottom" id="Tool Output" order="8" weight="0.32352942" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5015129" side_tool="true" weight="0.3267974" />
-      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.49848714" weight="0.31535947" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.2532258" />
+      <window_info anchor="bottom" id="Tool Output" order="8" weight="0.32419354" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.31612903" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="12" weight="0.32741934" />
       <window_info anchor="bottom" id="ANTLR Preview" order="13" weight="0.32741934" />
-      <window_info anchor="bottom" id="DB Execution Console" order="14" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="1" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="2" />
-      <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="right" id="Ant Build" order="4" weight="0.24962178" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.24962178" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="right" id="Maven Projects" order="5" weight="0.32980332" />
       <window_info anchor="right" id="Database" order="6" weight="0.32980332" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
@@ -689,11 +700,24 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Exeptions/MyException.java</url>
+          <line>44</line>
+          <properties />
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/generated/MyParser.tokens" />
     <entry file="file://$PROJECT_DIR$/src/generated/MyParserBaseVisitor.java" />
     <entry file="file://$PROJECT_DIR$/src/generated/MyParserVisitor.java" />
     <entry file="file://$PROJECT_DIR$/src/generated/Scanner.java" />
@@ -777,6 +801,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Exeptions/MyException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="22" column="4" selection-start-line="22" selection-start-column="4" selection-end-line="25" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#MyException#0;class#MyException#0" />
+            <element signature="method#endErrorCondition#0;class#MyException#0" />
+            <element signature="method#sync#0;class#MyException#0" />
+            <element signature="method#reportNoViableAlternative#0;class#MyException#0" />
+            <element signature="method#reportInputMismatch#0;class#MyException#0" />
+            <element signature="method#reportFailedPredicate#0;class#MyException#0" />
+            <element signature="method#reportUnwantedToken#0;class#MyException#0" />
+            <element signature="method#reportMissingToken#0;class#MyException#0" />
+            <element signature="method#recoverInline#0;class#MyException#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Exeptions/MyConsoleErrorListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -805,185 +848,158 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Checker/Symbol.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Vista/TabPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1547">
-          <caret line="95" column="23" lean-forward="true" selection-start-line="95" selection-start-column="23" selection-end-line="95" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Generated/Antlr/MyParserListener.java" />
-    <entry file="file://$PROJECT_DIR$/src/Exeptions/MyException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="44" selection-start-line="44" selection-end-line="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Antlr/Scanner.g4">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="75" column="14" selection-start-line="75" selection-start-column="14" selection-end-line="75" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Vista/Principal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="28" column="26" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Antlr/MyParserBaseVisitor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-136">
-          <caret line="1" column="7" lean-forward="true" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Checker/Analizador_contextual.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="14" column="10" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#374#375#0" expanded="true" />
-            <element signature="e#423#424#0" expanded="true" />
-            <element signature="e#510#511#0" expanded="true" />
-            <element signature="e#561#562#0" expanded="true" />
-            <element signature="e#644#645#0" expanded="true" />
-            <element signature="e#693#694#0" expanded="true" />
-            <element signature="e#780#781#0" expanded="true" />
-            <element signature="e#831#832#0" expanded="true" />
-            <element signature="e#1222#1223#0" expanded="true" />
-            <element signature="e#1272#1273#0" expanded="true" />
-            <element signature="e#1349#1350#0" expanded="true" />
-            <element signature="e#1395#1396#0" expanded="true" />
-            <element signature="e#2081#2082#0" expanded="true" />
-            <element signature="e#2127#2128#0" expanded="true" />
-            <element signature="e#2206#2207#0" expanded="true" />
-            <element signature="e#2253#2254#0" expanded="true" />
-            <element signature="e#2336#2337#0" expanded="true" />
-            <element signature="e#2385#2386#0" expanded="true" />
-            <element signature="e#2468#2469#0" expanded="true" />
-            <element signature="e#2517#2518#0" expanded="true" />
-            <element signature="e#2602#2603#0" expanded="true" />
-            <element signature="e#2652#2653#0" expanded="true" />
-            <element signature="e#2731#2732#0" expanded="true" />
-            <element signature="e#2778#2779#0" expanded="true" />
-            <element signature="e#2861#2862#0" expanded="true" />
-            <element signature="e#2910#2911#0" expanded="true" />
-            <element signature="e#2993#2994#0" expanded="true" />
-            <element signature="e#3042#3043#0" expanded="true" />
-            <element signature="e#3121#3122#0" expanded="true" />
-            <element signature="e#3168#3169#0" expanded="true" />
-            <element signature="e#3247#3248#0" expanded="true" />
-            <element signature="e#3294#3295#0" expanded="true" />
-            <element signature="e#3377#3378#0" expanded="true" />
-            <element signature="e#3426#3427#0" expanded="true" />
-            <element signature="e#3513#3514#0" expanded="true" />
-            <element signature="e#3564#3565#0" expanded="true" />
-            <element signature="e#3649#3650#0" expanded="true" />
-            <element signature="e#3699#3700#0" expanded="true" />
-            <element signature="e#3784#3785#0" expanded="true" />
-            <element signature="e#3834#3835#0" expanded="true" />
-            <element signature="e#3911#3912#0" expanded="true" />
-            <element signature="e#3957#3958#0" expanded="true" />
-            <element signature="e#4034#4035#0" expanded="true" />
-            <element signature="e#4080#4081#0" expanded="true" />
-            <element signature="e#4163#4164#0" expanded="true" />
-            <element signature="e#4212#4213#0" expanded="true" />
-            <element signature="e#4303#4304#0" expanded="true" />
-            <element signature="e#4356#4357#0" expanded="true" />
-            <element signature="e#4439#4440#0" expanded="true" />
-            <element signature="e#4488#4489#0" expanded="true" />
-            <element signature="e#4579#4580#0" expanded="true" />
-            <element signature="e#4632#4633#0" expanded="true" />
-            <element signature="e#4725#4726#0" expanded="true" />
-            <element signature="e#4779#4780#0" expanded="true" />
-            <element signature="e#4862#4863#0" expanded="true" />
-            <element signature="e#4911#4912#0" expanded="true" />
-            <element signature="e#4990#4991#0" expanded="true" />
-            <element signature="e#5037#5038#0" expanded="true" />
-            <element signature="e#5122#5123#0" expanded="true" />
-            <element signature="e#5172#5173#0" expanded="true" />
-            <element signature="e#5249#5250#0" expanded="true" />
-            <element signature="e#5295#5296#0" expanded="true" />
-            <element signature="e#5384#5385#0" expanded="true" />
-            <element signature="e#5436#5437#0" expanded="true" />
-            <element signature="e#5525#5526#0" expanded="true" />
-            <element signature="e#5577#5578#0" expanded="true" />
-            <element signature="e#5666#5667#0" expanded="true" />
-            <element signature="e#5718#5719#0" expanded="true" />
-            <element signature="e#5807#5808#0" expanded="true" />
-            <element signature="e#5859#5860#0" expanded="true" />
-            <element signature="e#5948#5949#0" expanded="true" />
-            <element signature="e#6000#6001#0" expanded="true" />
-            <element signature="e#6087#6088#0" expanded="true" />
-            <element signature="e#6138#6139#0" expanded="true" />
-            <element signature="e#6223#6224#0" expanded="true" />
-            <element signature="e#6273#6274#0" expanded="true" />
-            <element signature="e#6358#6359#0" expanded="true" />
-            <element signature="e#6408#6409#0" expanded="true" />
-            <element signature="e#6497#6498#0" expanded="true" />
-            <element signature="e#6549#6550#0" expanded="true" />
-            <element signature="e#6634#6635#0" expanded="true" />
-            <element signature="e#6684#6685#0" expanded="true" />
-            <element signature="e#6773#6774#0" expanded="true" />
-            <element signature="e#6825#6826#0" expanded="true" />
-            <element signature="e#6910#6911#0" expanded="true" />
-            <element signature="e#6960#6961#0" expanded="true" />
-            <element signature="e#7047#7048#0" expanded="true" />
-            <element signature="e#7098#7099#0" expanded="true" />
-            <element signature="e#7185#7186#0" expanded="true" />
-            <element signature="e#7236#7237#0" expanded="true" />
-            <element signature="e#7321#7322#0" expanded="true" />
-            <element signature="e#7371#7372#0" expanded="true" />
-            <element signature="e#7458#7459#0" expanded="true" />
-            <element signature="e#7509#7510#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Checker/SymbolTable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="952">
-          <caret line="56" column="5" selection-start-line="56" selection-start-column="5" selection-end-line="56" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="187">
+          <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Antlr/MyParser.g4">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-        <state relative-caret-position="233">
-          <caret line="21" column="126" lean-forward="true" selection-start-line="21" selection-start-column="126" selection-end-line="21" selection-end-column="126" />
-=======
-<<<<<<< HEAD
-        <state relative-caret-position="220">
-          <caret line="113" column="30" lean-forward="true" selection-start-line="113" selection-start-column="30" selection-end-line="113" selection-end-column="30" />
+        <state relative-caret-position="1054">
+          <caret line="62" column="65" selection-start-line="62" selection-start-column="65" selection-end-line="62" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Vista/Principal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3043">
+          <caret line="203" column="22" selection-start-line="203" selection-start-column="22" selection-end-line="203" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Antlr/Scanner.g4">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="94" selection-start-line="94" selection-end-line="94" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Antlr/MyParserBaseVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="538">
+          <caret line="175" column="7" lean-forward="true" selection-start-line="175" selection-start-column="7" selection-end-line="175" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Checker/Analizador_contextua.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="33" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="896" column="19" lean-forward="true" selection-start-line="896" selection-start-column="19" selection-end-line="896" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Checker/Analizador_contextual.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret lean-forward="true" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1722#1723#0" expanded="true" />
-            <element signature="e#1741#1742#0" expanded="true" />
+            <element signature="e#196#197#0" expanded="true" />
+            <element signature="e#243#244#0" expanded="true" />
+            <element signature="e#326#327#0" expanded="true" />
+            <element signature="e#375#376#0" expanded="true" />
+            <element signature="e#462#463#0" expanded="true" />
+            <element signature="e#513#514#0" expanded="true" />
+            <element signature="e#596#597#0" expanded="true" />
+            <element signature="e#645#646#0" expanded="true" />
+            <element signature="e#732#733#0" expanded="true" />
+            <element signature="e#783#784#0" expanded="true" />
+            <element signature="e#1174#1175#0" expanded="true" />
+            <element signature="e#1224#1225#0" expanded="true" />
+            <element signature="e#1301#1302#0" expanded="true" />
+            <element signature="e#1347#1348#0" expanded="true" />
+            <element signature="e#2033#2034#0" expanded="true" />
+            <element signature="e#2079#2080#0" expanded="true" />
+            <element signature="e#2158#2159#0" expanded="true" />
+            <element signature="e#2205#2206#0" expanded="true" />
+            <element signature="e#2288#2289#0" expanded="true" />
+            <element signature="e#2337#2338#0" expanded="true" />
+            <element signature="e#2420#2421#0" expanded="true" />
+            <element signature="e#2469#2470#0" expanded="true" />
+            <element signature="e#2554#2555#0" expanded="true" />
+            <element signature="e#2604#2605#0" expanded="true" />
+            <element signature="e#2683#2684#0" expanded="true" />
+            <element signature="e#2730#2731#0" expanded="true" />
+            <element signature="e#2813#2814#0" expanded="true" />
+            <element signature="e#2862#2863#0" expanded="true" />
+            <element signature="e#2945#2946#0" expanded="true" />
+            <element signature="e#2994#2995#0" expanded="true" />
+            <element signature="e#3073#3074#0" expanded="true" />
+            <element signature="e#3120#3121#0" expanded="true" />
+            <element signature="e#3199#3200#0" expanded="true" />
+            <element signature="e#3246#3247#0" expanded="true" />
+            <element signature="e#3329#3330#0" expanded="true" />
+            <element signature="e#3378#3379#0" expanded="true" />
+            <element signature="e#3465#3466#0" expanded="true" />
+            <element signature="e#3516#3517#0" expanded="true" />
+            <element signature="e#3601#3602#0" expanded="true" />
+            <element signature="e#3651#3652#0" expanded="true" />
+            <element signature="e#3736#3737#0" expanded="true" />
+            <element signature="e#3786#3787#0" expanded="true" />
+            <element signature="e#3863#3864#0" expanded="true" />
+            <element signature="e#3909#3910#0" expanded="true" />
+            <element signature="e#3986#3987#0" expanded="true" />
+            <element signature="e#4032#4033#0" expanded="true" />
+            <element signature="e#4115#4116#0" expanded="true" />
+            <element signature="e#4164#4165#0" expanded="true" />
+            <element signature="e#4255#4256#0" expanded="true" />
+            <element signature="e#4308#4309#0" expanded="true" />
+            <element signature="e#4391#4392#0" expanded="true" />
+            <element signature="e#4440#4441#0" expanded="true" />
+            <element signature="e#4531#4532#0" expanded="true" />
+            <element signature="e#4584#4585#0" expanded="true" />
+            <element signature="e#4677#4678#0" expanded="true" />
+            <element signature="e#4731#4732#0" expanded="true" />
+            <element signature="e#4814#4815#0" expanded="true" />
+            <element signature="e#4863#4864#0" expanded="true" />
+            <element signature="e#4942#4943#0" expanded="true" />
+            <element signature="e#4989#4990#0" expanded="true" />
+            <element signature="e#5074#5075#0" expanded="true" />
+            <element signature="e#5124#5125#0" expanded="true" />
+            <element signature="e#5201#5202#0" expanded="true" />
+            <element signature="e#5247#5248#0" expanded="true" />
+            <element signature="e#5336#5337#0" expanded="true" />
+            <element signature="e#5388#5389#0" expanded="true" />
+            <element signature="e#5477#5478#0" expanded="true" />
+            <element signature="e#5529#5530#0" expanded="true" />
+            <element signature="e#5618#5619#0" expanded="true" />
+            <element signature="e#5670#5671#0" expanded="true" />
+            <element signature="e#5759#5760#0" expanded="true" />
+            <element signature="e#5811#5812#0" expanded="true" />
+            <element signature="e#5900#5901#0" expanded="true" />
+            <element signature="e#5952#5953#0" expanded="true" />
+            <element signature="e#6039#6040#0" expanded="true" />
+            <element signature="e#6090#6091#0" expanded="true" />
+            <element signature="e#6175#6176#0" expanded="true" />
+            <element signature="e#6225#6226#0" expanded="true" />
+            <element signature="e#6310#6311#0" expanded="true" />
+            <element signature="e#6360#6361#0" expanded="true" />
+            <element signature="e#6449#6450#0" expanded="true" />
+            <element signature="e#6501#6502#0" expanded="true" />
+            <element signature="e#6586#6587#0" expanded="true" />
+            <element signature="e#6636#6637#0" expanded="true" />
+            <element signature="e#6725#6726#0" expanded="true" />
+            <element signature="e#6777#6778#0" expanded="true" />
+            <element signature="e#6862#6863#0" expanded="true" />
+            <element signature="e#6912#6913#0" expanded="true" />
+            <element signature="e#6999#7000#0" expanded="true" />
+            <element signature="e#7050#7051#0" expanded="true" />
+            <element signature="e#7137#7138#0" expanded="true" />
+            <element signature="e#7188#7189#0" expanded="true" />
+            <element signature="e#7273#7274#0" expanded="true" />
+            <element signature="e#7323#7324#0" expanded="true" />
+            <element signature="e#7410#7411#0" expanded="true" />
+            <element signature="e#7461#7462#0" expanded="true" />
           </folding>
-=======
-        <state relative-caret-position="68">
-          <caret line="4" column="1" lean-forward="true" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
->>>>>>> 4a5f1d17841ff89e52f9a1168a6136c7a710f92b
->>>>>>> 852bc2772c2e7618eb18679fd38b67ba3f97d9fe
         </state>
       </provider>
     </entry>
