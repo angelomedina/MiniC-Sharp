@@ -17,6 +17,7 @@ public class Analizador_contextual extends MyParserBaseVisitor {
     //  hereda Meth
     //  hereda Clas
 
+    //expresiones: deben verificar los tipos como estament como for o whiledeben verificar algo pero no retornan nada
 
     private SymbolTable tableS;
     private int numErrors;
