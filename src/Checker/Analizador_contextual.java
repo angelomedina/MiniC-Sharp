@@ -6,19 +6,35 @@ import Generated.Antlr.MyParserBaseVisitor;
 public class Analizador_contextual extends MyParserBaseVisitor {
 
     private SymbolTable tableS;
+    private int numErrors;
 
     public Analizador_contextual(){
         this.tableS = new SymbolTable();
+        this.numErrors=0;
+    }
+
+    public boolean hasErrors(){
+        if (this.numErrors==0)
+            return false;
+        else
+            return true;
     }
 
     @Override
     public Object visitProgramAST(MyParser.ProgramASTContext ctx) {
-        return super.visitProgramAST(ctx);
+
+        this.numErrors=0;
+        //program: CLASS IDENT (constDecl | varDecl | classDecl )* LLA_IZQ (methodDecl)* LLA_DER EOF;;
+        return null;
     }
 
     @Override
     public Object visitConstDeclAST(MyParser.ConstDeclASTContext ctx) {
-        return super.visitConstDeclAST(ctx);
+
+        //constDecl:  CONST type IDENT IG  (NUMBER_INTEGER | NUMBER_INTEGER_ZERO | CHAR_CONST) PyC
+        return null;
+
+
     }
 
     @Override
@@ -48,7 +64,10 @@ public class Analizador_contextual extends MyParserBaseVisitor {
 
     @Override
     public Object visitTypeAST(MyParser.TypeASTContext ctx) {
-        return super.visitTypeAST(ctx);
+
+        //type IDENT ( COMA IDENT )* PyC
+
+        return null;
     }
 
     @Override
@@ -108,7 +127,10 @@ public class Analizador_contextual extends MyParserBaseVisitor {
 
     @Override
     public Object visitBlockSTAST(MyParser.BlockSTASTContext ctx) {
-        return super.visitBlockSTAST(ctx);
+
+        //block: LLA_IZQ ( statement )* LLA_DER
+
+        return null;
     }
 
     @Override
@@ -123,17 +145,30 @@ public class Analizador_contextual extends MyParserBaseVisitor {
 
     @Override
     public Object visitActParsAST(MyParser.ActParsASTContext ctx) {
-        return super.visitActParsAST(ctx);
+
+        //actPars: expr ( COMA expr )*
+
+        for(MyParser.ExprContext e: ctx.expr())
+            visit(e);
+        return null;
     }
 
     @Override
     public Object visitConditionAST(MyParser.ConditionASTContext ctx) {
-        return super.visitConditionAST(ctx);
+
+        //condition: condTerm ( OR condTerm )*
+        for(MyParser.CondTermContext e: ctx.condTerm())
+            visit(e);
+        return null;
     }
 
     @Override
     public Object visitCondTermAST(MyParser.CondTermASTContext ctx) {
-        return super.visitCondTermAST(ctx);
+
+        //condTerm: condFact ( AND condFact)*
+        for(MyParser.CondFactContext e: ctx.condFact())
+            visit(e);
+        return null;
     }
 
     @Override
