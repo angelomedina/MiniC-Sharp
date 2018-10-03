@@ -1,7 +1,9 @@
 package Checker;
 
-import org.antlr.v4.runtime.CommonToken;
-import org.antlr.v4.runtime.Token;
+import Checker.TypeSymbol.Classe;
+import Checker.TypeSymbol.Funcion;
+import Checker.TypeSymbol.Symbol;
+import Checker.TypeSymbol.Variable;
 
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -25,11 +27,11 @@ public class SymbolTable {
                 case "classe":
                     table.add(new Classe(id,tipo,actuaLevel));
                     break;
-                case "IDS":
-                    table.add(new IDS(id,tipo,actuaLevel));
+                case "Variable":
+                    table.add(new Variable(id,tipo,actuaLevel));
                     break;
-                case "Meth":
-                    table.add(new Meth(id,tipo,actuaLevel));
+                case "Funcion":
+                    table.add(new Funcion(id,tipo,actuaLevel));
                     break;
             }
         }

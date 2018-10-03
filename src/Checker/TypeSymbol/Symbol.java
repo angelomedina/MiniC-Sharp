@@ -1,11 +1,11 @@
-package Checker;
+package Checker.TypeSymbol;
 
 public  abstract class Symbol {
 
 
-    String name;
-    String type;
-    int    level;
+    public String name;
+    public String type;
+    public int    level;
 
     public Symbol(String n, String t, int l) {
         this.name = n;

@@ -1,4 +1,4 @@
-package Checker;
+package Checker.TypeSymbol;
 
 public class Classe extends Symbol {
 

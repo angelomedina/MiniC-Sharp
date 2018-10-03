@@ -13,8 +13,8 @@ public class Analizador_contextual extends MyParserBaseVisitor {
     //Tabla de simbolos; id(simbol),nivel, tipo de simbolo, tipo de datos
 
     //simbol.js abstracto
-    //  hereda IDS
-    //  hereda Meth
+    //  hereda Variable
+    //  hereda Funcion
     //  hereda Clas
 
     //expresiones: deben verificar los tipos como estament como for o whiledeben verificar algo pero no retornan nada
