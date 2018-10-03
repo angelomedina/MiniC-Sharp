@@ -42,7 +42,7 @@ public class SymbolTable {
 
         int cont  = 0;
         while (cont < this.table.size() && this.table.get(cont).getLevel() == actuaLevel){
-            if(this.table.get(cont).getName().equals(id)){
+            if(this.table.get(cont).getName().equals(id) && this.table.get(cont).getType().equals(tipo)){
                 System.out.println("El identificador " + id + " ya ha sido declarado!!!");
                 return true;
             }
