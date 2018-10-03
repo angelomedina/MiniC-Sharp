@@ -1,6 +1,7 @@
 package Checker;
 
-public class Symbol {
+public  abstract class Symbol {
+
 
     String name;
     String type;
@@ -21,4 +22,5 @@ public class Symbol {
     public String getType() { return type; }
 
     public int getLevel() {  return level; }
+
 }

@@ -17,15 +17,25 @@ public class SymbolTable {
     /**
      * Agrega un identificador a la Tabla
      */
-    public void enter(String id, String tipo) {
+    public void enter(String id, String tipo,String identificador) {
 
         if (exists(id,actuaLevel,tipo) == false) {
-            table.add(new Symbol(id, tipo, actuaLevel));
+
+            switch ( identificador ) {
+                case "classe":
+                    table.add(new Classe(id,tipo,actuaLevel));
+                    break;
+                case "IDS":
+                    table.add(new IDS(id,tipo,actuaLevel));
+                    break;
+                case "Meth":
+                    table.add(new Meth(id,tipo,actuaLevel));
+                    break;
+            }
         }
         else {
             System.out.println("El identificador ya fue declarado en el nivel actual!!!");
         }
-
     }
 
     private boolean exists(String id, int actuaLevel,String tipo) {
