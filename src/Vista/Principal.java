@@ -333,6 +333,31 @@ public class Principal extends  JFrame implements ActionListener {
 
                     if(myException.hasErrors() == false){
 
+                        //agregndo AContextual
+                        /*
+                        try {
+                            v = new AContextual();
+                            v.visit(tree);
+                        }
+                        catch(SemanticException e) {}
+
+                        if (v.hasErrors()==false) {
+                                JOptionPane.showMessageDialog(this,"Compilación exitosa.");
+                                defaultListModel.addElement(Mymsg);
+                                contError=list.getModel().getSize();
+
+                                //se envia el arbol y el parser
+                                java.util.concurrent.Future<JFrame> treeGUI = org.antlr.v4.gui.Trees.inspect(tree, parser);
+                        }
+                        else{
+                                JOptionPane.showMessageDialog(this,"Compilación Fallida!!");
+                                defaultListModel.addElement(Mymsg);
+                                contError=list.getModel().getSize();
+
+                                System.out.println("Total Errors: " + (errorListener.errorMsgs.size()+v.getNumErrors()));
+                            }
+                         */
+
                         JOptionPane.showMessageDialog(this,"Compilación exitosa.");
                         defaultListModel.addElement(Mymsg);
                         contError=list.getModel().getSize();

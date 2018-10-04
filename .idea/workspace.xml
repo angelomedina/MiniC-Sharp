@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6ebe243f-a307-4d73-a0f9-921472d75155" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Checker/SymbolTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Checker/SymbolTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vista/Principal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/Principal.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -140,24 +139,24 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="g4" value="4" />
-          <entry key="java" value="17" />
+          <entry key="java" value="18" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="ANTLR v4 grammar file" value="4" />
-          <entry key="JAVA" value="17" />
+          <entry key="JAVA" value="18" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="16" />
-          <entry key="java" value="2869" />
+          <entry key="java" value="2954" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="2869" />
+          <entry key="JAVA" value="2954" />
           <entry key="PLAIN_TEXT" value="16" />
         </counts>
       </usages-collector>
@@ -177,10 +176,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Checker/SymbolTable.java">
+        <entry file="file://$PROJECT_DIR$/src/Vista/Principal.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="124" column="22" selection-start-line="124" selection-start-column="22" selection-end-line="124" selection-end-column="22" />
+            <state relative-caret-position="-51">
+              <caret line="356" column="32" selection-start-line="356" selection-start-column="32" selection-end-line="356" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -231,7 +230,6 @@
         <option value="$PROJECT_DIR$/src/Exeptions/MyException.java" />
         <option value="$PROJECT_DIR$/src/Exeptions/MyConsoleErrorListener.java" />
         <option value="$PROJECT_DIR$/src/Antlr/MyParser.g4" />
-        <option value="$PROJECT_DIR$/src/Vista/Principal.java" />
         <option value="$PROJECT_DIR$/src/Antlr/Scanner.g4" />
         <option value="$PROJECT_DIR$/src/Antlr/MyParserBaseVisitor.java" />
         <option value="$PROJECT_DIR$/src/Checker/Analizador_contextual.java" />
@@ -243,6 +241,7 @@
         <option value="$PROJECT_DIR$/src/Checker/TypeSymbol/Classe.java" />
         <option value="$PROJECT_DIR$/src/Checker/TypeSymbol/Symbol.java" />
         <option value="$PROJECT_DIR$/src/Checker/SymbolTable.java" />
+        <option value="$PROJECT_DIR$/src/Vista/Principal.java" />
       </list>
     </option>
   </component>
@@ -258,7 +257,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-7" />
     <option name="width" value="697" />
     <option name="height" value="745" />
@@ -282,12 +281,6 @@
               <item name="MiniC-Sharp" type="b2602c69:ProjectViewProjectNode" />
               <item name="MiniC-Sharp" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MiniC-Sharp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MiniC-Sharp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Checker" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -454,10 +447,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="697" height="745" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.6844584" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.6838124" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24962178" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -676,13 +669,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Vista/Principal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3043">
-          <caret line="203" column="22" selection-start-line="203" selection-start-column="22" selection-end-line="203" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Antlr/MyParserBaseVisitor.java" />
     <entry file="file://$PROJECT_DIR$/src/Checker/Analizador_contextua.java" />
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
@@ -753,8 +739,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Checker/SymbolTable.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
+        <state relative-caret-position="2006">
           <caret line="124" column="22" selection-start-line="124" selection-start-column="22" selection-end-line="124" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Vista/Principal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-51">
+          <caret line="356" column="32" selection-start-line="356" selection-start-column="32" selection-end-line="356" selection-end-column="32" />
         </state>
       </provider>
     </entry>
