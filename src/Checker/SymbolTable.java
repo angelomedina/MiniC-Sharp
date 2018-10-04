@@ -19,35 +19,36 @@ public class SymbolTable {
     /**
      * Agrega un identificador a la Tabla
      */
-    public void enter(String id, String tipo,String identificador) {
+    public int enter(String id, String tipo,String identificador) {
 
-        if (exists(id,actuaLevel,tipo) == false) {
+        if (exists(id,actuaLevel) == false) {
 
             switch ( identificador ) {
                 case "classe":
                     table.add(new Classe(id,tipo,actuaLevel));
-                    break;
+                    return 0;//means id was succesfully inserted in table
                 case "Variable":
                     table.add(new Variable(id,tipo,actuaLevel));
-                    break;
+                    return 0;//means id was succesfully inserted in table
                 case "Funcion":
                     table.add(new Funcion(id,tipo,actuaLevel));
-                    break;
+                    return 0;//means id was succesfully inserted in table
             }
         }
         else {
-            System.out.println("El identificador ya fue declarado en el nivel actual!!!");
+            return 1; //means id exists already in table
         }
+        return 1;
     }
 
-    private boolean exists(String id, int actuaLevel,String tipo) {
+    private boolean exists(String id, int level) {
 
-        int cont  = 0;
-        while (cont < this.table.size() && this.table.get(cont).getLevel() == actuaLevel){
-            if(this.table.get(cont).getName().equals(id) && this.table.get(cont).getType().equals(tipo)){
-                System.out.println("El identificador " + id + " ya ha sido declarado!!!");
+        for (Iterator i = table.descendingIterator(); i.hasNext(); ) {
+            Symbol aux = (Symbol) i.next();
+            if (aux.getName().equals(id))
                 return true;
-            }
+            if (aux.getLevel() != level)
+                break;
         }
         return false;
     }
@@ -73,6 +74,7 @@ public class SymbolTable {
      * El más “profundo”
      */
     public void openScope() {
+
         this.actuaLevel++;
     }
 
@@ -82,21 +84,12 @@ public class SymbolTable {
      */
     public void closeScope() {
 
-        if(!this.table.isEmpty()){
-
-            Symbol element = this.table.get(0);
-
-            while(element != null && element.level == actuaLevel){
-                table.pop();
-
-                if(!this.table.isEmpty()){
-                    element = this.table.get(0);
-                }else{
-                    element = null;
-                }
-            }
-            this.actuaLevel--;
-        }
+        for (int i=table.size()-1; i>=0;i--)
+            if (table.get(i).getLevel()==this.actuaLevel)
+                table.remove(i);
+            else
+                break;
+        this.actuaLevel--;
     }
 
     public  void imprimir(){
@@ -122,8 +115,13 @@ public class SymbolTable {
     @Override
     public String toString() {
         String result="";
+
         for (Iterator i = table.descendingIterator(); i.hasNext(); )
-            result += i.next()+"\n";
+            result += i.next().toString()+"\n";
+        if(table.size() == 0){
+            result = "++ tabla vacia ++" +
+                    "";
+        }
         return result;
     }
 }
