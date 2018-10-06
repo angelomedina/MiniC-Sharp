@@ -26,12 +26,16 @@ public class Analizador_contextual extends MyParserBaseVisitor {
     //antes de declarar cosas openScope y despues de delcarar closeScope
 
     private SymbolTable tableS;
-    private int numErrors;
+    private int numErrors = 0;
     public LinkedList<String> listaErrores = new LinkedList<String>();
 
     public Analizador_contextual(){
         this.tableS = new SymbolTable();
         this.numErrors=0;
+    }
+
+    public int getNumErrors() {
+        return numErrors;
     }
 
     public boolean hasErrors(){

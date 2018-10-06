@@ -2,12 +2,14 @@ package Vista;
 
 
 
+import Checker.Analizador_contextual;
 import Exeptions.*;
 import Generated.Antlr.MyParser;
 import Generated.Antlr.Scanner;
 import Modelo.Archivos;
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
+import org.antlr.v4.runtime.RecognitionException;
 import org.antlr.v4.runtime.Token;
 import org.antlr.v4.runtime.tree.ParseTree;
 
@@ -33,6 +35,7 @@ public class Principal extends  JFrame implements ActionListener {
     MyBaseErrorListener errorListener = null;
     MyException     myException = null;
     MyConsoleErrorListener myConsoleErrorListener = null;
+    Analizador_contextual contextual = null;
 
 
 
@@ -318,7 +321,57 @@ public class Principal extends  JFrame implements ActionListener {
             JOptionPane.showMessageDialog(this,"No disponible");
         }else if (e.getSource()==btnCompilar){
 
+            DefaultListModel defaultListModel=(DefaultListModel) list.getModel();
+            String Mymsg="----------------------------------------------------";
 
+            try {
+                tree = parser.program();
+            }
+            catch(RecognitionException re){}
+
+            if(myException.hasErrors() == false){
+
+                //agregndo AContextual
+
+                //NOTA comentar esto en caso de error
+
+                try {
+                    contextual = new Analizador_contextual();
+                    contextual.visit(tree);
+                }
+                catch(SemanticException error) {}
+
+
+                if (contextual.hasErrors()==false) {
+                    JOptionPane.showMessageDialog(this,"Compilación exitosa.");
+                    defaultListModel.addElement(Mymsg);
+                    contError=list.getModel().getSize();
+
+                    //se envia el arbol y el parser
+                    java.util.concurrent.Future<JFrame> treeGUI = org.antlr.v4.gui.Trees.inspect(tree, parser);
+                }
+                else{
+                    JOptionPane.showMessageDialog(this,"Compilación Fallida!!");
+                    defaultListModel.addElement(Mymsg);
+                    contError=list.getModel().getSize();
+
+                    System.out.println("Total Errors: " + (errorListener.errorMsgs.size()+contextual.getNumErrors()));
+                }
+
+                JOptionPane.showMessageDialog(this,"Compilación exitosa.");
+                defaultListModel.addElement(Mymsg);
+                contError=list.getModel().getSize();
+
+            }
+            else{
+                JOptionPane.showMessageDialog( this, "Error de compilación", "", JOptionPane.ERROR_MESSAGE );
+                defaultListModel.addElement( Mymsg );
+                contError = list.getModel().getSize();
+                return;
+            }
+
+
+            /*
             DefaultListModel defaultListModel=(DefaultListModel) list.getModel();
             String Mymsg="----------------------------------------------------";
             try {
@@ -328,53 +381,13 @@ public class Principal extends  JFrame implements ActionListener {
                 List<Token> lista = (List<Token>) scanner.getAllTokens();
 
                 for (Token t : lista)
-                   defaultListModel.addElement(scanner.VOCABULARY.getSymbolicName(t.getType()) + ":" + t.getText() + "\n");
-
-
-                    if(myException.hasErrors() == false){
-
-                        //agregndo AContextual
-                        /*
-                        try {
-                            v = new AContextual();
-                            v.visit(tree);
-                        }
-                        catch(SemanticException e) {}
-
-                        if (v.hasErrors()==false) {
-                                JOptionPane.showMessageDialog(this,"Compilación exitosa.");
-                                defaultListModel.addElement(Mymsg);
-                                contError=list.getModel().getSize();
-
-                                //se envia el arbol y el parser
-                                java.util.concurrent.Future<JFrame> treeGUI = org.antlr.v4.gui.Trees.inspect(tree, parser);
-                        }
-                        else{
-                                JOptionPane.showMessageDialog(this,"Compilación Fallida!!");
-                                defaultListModel.addElement(Mymsg);
-                                contError=list.getModel().getSize();
-
-                                System.out.println("Total Errors: " + (errorListener.errorMsgs.size()+v.getNumErrors()));
-                            }
-                         */
-
-                        JOptionPane.showMessageDialog(this,"Compilación exitosa.");
-                        defaultListModel.addElement(Mymsg);
-                        contError=list.getModel().getSize();
-                    }
-                    else{
-                        JOptionPane.showMessageDialog( this, "Error de compilación", "", JOptionPane.ERROR_MESSAGE );
-                        defaultListModel.addElement( Mymsg );
-                        contError = list.getModel().getSize();
-                        return;
-                    }
-
+                    defaultListModel.addElement(scanner.VOCABULARY.getSymbolicName(t.getType()) + ":" + t.getText() + "\n");
             }
             catch(Exception ex){
                 ex.printStackTrace();
                 JOptionPane.showMessageDialog(this,"Error de try/cash","",JOptionPane.ERROR_MESSAGE);
+            }*/
 
-            }
         }
         else if(e.getSource()==btnTree){
 
