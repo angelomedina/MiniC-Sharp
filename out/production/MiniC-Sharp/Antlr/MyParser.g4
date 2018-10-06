@@ -10,10 +10,21 @@ options{
 
 // Estructura general de una clase
 // ¿Se debe separar ?
-program: CLASS IDENT (constDecl | varDecl | classDecl )* LLA_IZQ (methodDecl)* LLA_DER EOF                              #programAST;
+program: CLASS IDENT (declaration)* LLA_IZQ (methodDecl)* LLA_DER EOF                                                   #programAST;
+
+declaration: constDecl                                                                                                  #programConstAST
+           | varDecl                                                                                                    #programVarAST
+           | classDecl                                                                                                  #programClassAST;
 
 // Declaracion de una constante
-constDecl:  CONST type IDENT IG  (NUMBER_INTEGER | NUMBER_INTEGER_ZERO | CHAR_CONST) PyC                                #constDeclAST;
+constDecl: CONST type IDENT IG (valueTypeConst) PyC                                                                     #constDeclAST;
+
+valueTypeConst: NUMBER_INTEGER                                                                                          #constNumberIntDeclAST
+              | NUMBER_INTEGER_ZERO                                                                                     #constNumberIntZDeclAST
+              | NUMBER_FLOAT                                                                                            #constNumberFloDeclAST
+              | CHAR_CONST                                                                                              #constCharDeclAST
+              | STRING_CONST                                                                                            #constStringDeclAST;
+
 
 // Declaracion de una variable
 varDecl: type IDENT ( COMA IDENT )* PyC                                                                                 #varDeclAST;
@@ -22,8 +33,11 @@ varDecl: type IDENT ( COMA IDENT )* PyC                                         
 classDecl: CLASS IDENT LLA_IZQ ( varDecl )* LLA_DER                                                                     #classDeclAST;
 
 // Declaracion de un metodo
-methodDecl: ( type )IDENT PAR_IZQ ( formPars )? PAR_DER ( varDecl )* block                                              #methodTypeDeclAST
-           |( VOID ) IDENT PAR_IZQ ( formPars )? PAR_DER ( varDecl )* block                                             #methodVoidDeclAST;
+methodDecl: ( optionMethodDecl )IDENT PAR_IZQ ( formPars )? PAR_DER ( varDecl )* block                                  #methodDeclAST;
+
+
+optionMethodDecl: type                                                                                                  #methodTypeDeclAST
+                | VOID                                                                                                  #methodVoidDeclAST;
 
 // Formato de los parametros de un metodo
 formPars: type IDENT ( COMA type IDENT )*                                                                               #formParsAST;
@@ -42,9 +56,13 @@ statement: designator ( IG expr) PyC                                            
 		 |  BREAK PyC                                                                                                   #breakStAST
 		 |  RETURN ( expr )? PyC                                                                                        #returnSTAST
 		 |  READ PAR_IZQ designator PAR_DER PyC                                                                         #readSTAT
-		 |  WRITE PAR_IZQ expr ( COMA NUMBER_INTEGER | NUMBER_INTEGER_ZERO | NUMBER_FLOAT)? PAR_DER PyC                 #writeSTAST
+		 |  WRITE PAR_IZQ expr (writeType)? PAR_DER PyC                 #writeSTAST
 		 |  block                                                                                                       #blockSTAST
 		 |  PyC                                                                                                         #pycSTAST;
+
+writeType: COMA NUMBER_INTEGER                                                                                          #writeTypeNumIntSTAST
+        | NUMBER_INTEGER_ZERO                                                                                           #writeTypeNumIntZSTAST
+        | NUMBER_FLOAT                                                                                                  #writeTypeNumFloatSTAST;
 
 block: LLA_IZQ ( statement )* LLA_DER                                                                                   #blockAST;
 
@@ -68,14 +86,21 @@ factor: designator ( PAR_IZQ ( actPars )? PAR_DER )?                            
 		 |  NUMBER_FLOAT                                                                                                #numberFloatFAST
 		 |  STRING_CONST                                                                                                #stringFAST
 		 |  CHAR_CONST                                                                                                  #chaeFAST
-		 |  (TRUE|FALSE)                                                                                                #booleanFAST
-		 |  NEW designator                                                                                                   #newFAST
+		 |  (booleanValue)                                                                                              #booleanFAST
+		 |  NEW designator                                                                                              #newFAST
 		 |  PAR_IZQ expr PAR_DER                                                                                        #expresionFAST;
+
+booleanValue: TRUE                                                                                                      #booleanTrueFAST
+            |FALSE                                                                                                      #booleanFalseFAST;
 
 special_function: ORD                                                                                                   #spfunctionORD
                 | CHR                                                                                                   #spfunctionCHR
                 | LEN                                                                                                   #spfunctionLEN;
-designator: IDENT ( PUNT IDENT | CORC_IZQ expr CORC_DER )*                                                              #designatorAST;
+
+designator: IDENT (designatorExp)*                                                                                      #designatorAST;
+
+designatorExp: PUNT IDENT                                                                                               #designatorPuntIdAST
+            | CORC_IZQ expr CORC_DER                                                                                    #designatorCorcsAST;
 
 // Operadores logicos
 relop: IGIG                                                                                                             #relopIgIgAST
@@ -88,6 +113,7 @@ relop: IGIG                                                                     
 // Operadores matematicos
 addop: SUM                                                                                                              #addopSumAST
      | REST                                                                                                             #addopRestAST;
+
 mulop: MULT                                                                                                             #mulopMultAST
      | DIV                                                                                                              #mulopDivAST
      | PORC                                                                                                             #mulopPorcAST;

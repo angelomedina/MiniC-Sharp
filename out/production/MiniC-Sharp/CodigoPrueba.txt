@@ -1,0 +1,205 @@
+/* Codigo para comprobar la creacion de una clase vacia
+class claseP
+{
+
+}*/
+
+/* Codigo para comprobar la creacion de una clase con constantes
+class claseP
+
+    //constDecl: CONST type IDENT IG ( NUMBER | CHAR_CONST ) PyC ;
+    //const ghghjh nueva= 5.79655;
+    //const ghghjh nueva2= 045;
+    //const kkk aaa = ''';
+   // const kkk aaa = 12.9;
+{}
+*/
+
+/* Codigo para comprobar la creacion de una clase con variables constantes
+class www
+
+    //varDecl: type IDENT ( COMA IDENT )* PyC ;
+    tipo1 var1, var2, var3, var4,var5;
+    tipo2 h1,h5,t6;
+    tipo3 h2;
+
+{}*/
+
+/* Codigo para comprobar la creacion de una clase con clases internas
+class claseP
+
+    //classDecl: CLASS IDENT LLA_IZQ ( varDecl )* LLA_DER ;
+    class prueba {}
+    class prueba2 {tipo1 var1, var2, var3, var4,var5;}
+    class prueba3 {
+
+        tipo2 h1,h5,t6;
+        tipo5 h1,h2,t3;
+
+    }
+{}*/
+
+/* Codigo para comprobar la creacion de una clase con metodos
+class clasePS
+{
+
+    // methodDecl: ( type | VOID ) IDENT PAR_IZQ ( formPars )? PAR_DER ( varDecl )* block ;
+    // formPars: type IDENT ( COMA type IDENT )* ;
+
+    //void mVacio () {}
+
+    /*void mVacio (tipo1 abc, tipo2 def, tipo3 ghi)
+        // Variables
+        helio h1,h2,h3,h4;
+        xenon x1,x2,x3,x4;
+
+        {}
+     */
+
+    /*
+     algunTipo mTipo (tipo1 abc, tipo2 def, tipo3 ghi)
+             // Variables
+             helio h1,h2,h3,h4;
+             xenon x1,x2,x3,x4;
+
+       {}*/
+
+      algunTipo mTipo (tipo1 abc, tipo2 def, tipo3 ghi)
+
+               // Variables
+               helio h1,h2,h3,h4;
+               xenon x1,x2,x3,x4;
+
+               //statement: designator ( IG expr | PAR_IZQ ( actPars )? PAR_DER  | INC | DEC ) PyC
+
+               //designator: IDENT ( PUNT IDENT | CORC_IZQ expr CORC_DER )*;
+       { // Block
+
+            /*designators
+            prueba.hola = -123+675-574*467;
+            prueba[f] = -123+675-574*467;
+            oruga = oruga2[4];
+            gusano[42] = 'e';
+            oruga4[a] = false;
+            oruga32 = true;*/
+           //serpiente.s1[0] = new prueba;
+            //serpiente.s1[0] = (-1%34 * 99 / 229);
+            //avx = (bhc*kkh/j);
+       }
+
+}*/
+
+/* Codigo para comprobar el mayor de 3 numeros
+class clasePS
+{
+
+    /*var mayorNumero (var v1,var v2,var v3)
+
+        var nMayor;
+
+    {
+
+        //IF PAR_IZQ condition PAR_DER statement ( ELSE statement )?
+        if(v1 > v2){
+
+            if(v1 > v3) {
+                nMayor = v1;
+                return nMayor;
+
+            }
+
+            else {
+               nMayor = v3;
+               return nMayor;
+            }
+        }
+
+        else if(v2 > v3){
+           nMayor = v2;
+           return nMayor;
+       }
+
+       else {
+
+            nMayor = v3;
+            return nMayor;
+
+       }
+    }*/
+
+/*
+    boolean torf(var expr)
+
+        boolean resp;
+
+    {
+
+
+        if(expr == 1){
+
+            resp = true;
+            return expr;
+
+        }else {
+
+            resp = false;
+            return resp;
+
+        }
+
+    }
+
+    void tablas (var n1) {
+
+        for (i; i<0; i--;) {
+
+
+        }
+
+    }*/
+
+
+
+
+}*/
+
+// Codigo brindado por el profesor
+
+class P
+
+  //  const ghghjh nueva = 00000000.0;
+ //	const inXt size = 37.330;
+	const pal hghjk =  " 335.rt5-6-80.5* ";
+	const char letra = '-';
+	const string palabra = "ghjk7650'o kcj0322"";
+
+    /*
+	class Table {
+		List pos;
+		List neg;
+	}*/
+
+	//Table val;
+{   /*
+	void Main ()
+		int x, i;
+	{
+		//---------- Initialize val ----------
+		val = new Table;
+		val.pos = new List; val.neg = new List;
+		i = 0;
+		while (i < size) {
+			add(val.pos,0); add(val.neg,0);
+			i++;
+		}
+
+		//---------- Read values ----------
+		read(x);
+		while (-size < x && x < size) {
+			if (0 <= x) val.pos[x]++;
+			else val.neg[-x]++;
+			read(x);
+		}
+	}*/
+}
+

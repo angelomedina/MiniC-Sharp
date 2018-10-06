@@ -1,7 +1,7 @@
 package Checker;
 
 import Checker.TypeSymbol.Classe;
-import Checker.TypeSymbol.Funcion;
+import Checker.TypeSymbol.Constante;
 import Checker.TypeSymbol.Symbol;
 import Checker.TypeSymbol.Variable;
 
@@ -24,14 +24,14 @@ public class SymbolTable {
         if (exists(id,actuaLevel) == false) {
 
             switch ( identificador ) {
-                case "classe":
+                case "Classe":
                     table.add(new Classe(id,tipo,actuaLevel));
                     return 0;//means id was succesfully inserted in table
                 case "Variable":
                     table.add(new Variable(id,tipo,actuaLevel));
                     return 0;//means id was succesfully inserted in table
-                case "Funcion":
-                    table.add(new Funcion(id,tipo,actuaLevel));
+                case "Constante":
+                    table.add(new Constante(id,tipo,actuaLevel));
                     return 0;//means id was succesfully inserted in table
             }
         }

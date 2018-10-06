@@ -1,12 +1,16 @@
 package Checker;
 
+import Checker.TypeSymbol.Symbol;
 import Generated.Antlr.MyParser;
 import Generated.Antlr.MyParserBaseVisitor;
+import jdk.nashorn.internal.parser.Token;
+
+import java.util.LinkedList;
 
 public class Analizador_contextual extends MyParserBaseVisitor {
 
     //Nota: todos los visitors que balan de declarar cosas se utiliza la tabla -->insertar/verificar alcaces
-    //Tabla de imbolos nombre, nivel y tipo: osea agregar un objeto y en esas clases que haya una gerarquia como metodos,clases
+    //Tabla de simbolos nombre, nivel y tipo: osea agregar un objeto y en esas clases que haya una jerarquia como metodos,clases
     //Cuando verifico metodos: verificar si existe el metodo, los parametros y la cantidad de parametros; antes de hacer una visita contextual hacer otro vist para ver si existe
 
 
@@ -14,7 +18,7 @@ public class Analizador_contextual extends MyParserBaseVisitor {
 
     //simbol.js abstracto
     //  hereda Variable
-    //  hereda Funcion
+    //  hereda Constante
     //  hereda Clas
 
     //expresiones: deben verificar los tipos como estament como for o whiledeben verificar algo pero no retornan nada
@@ -23,6 +27,7 @@ public class Analizador_contextual extends MyParserBaseVisitor {
 
     private SymbolTable tableS;
     private int numErrors;
+    public LinkedList<String> listaErrores = new LinkedList<String>();
 
     public Analizador_contextual(){
         this.tableS = new SymbolTable();
@@ -40,14 +45,73 @@ public class Analizador_contextual extends MyParserBaseVisitor {
     public Object visitProgramAST(MyParser.ProgramASTContext ctx) {
 
         this.numErrors=0;
-        //program: CLASS IDENT (constDecl | varDecl | classDecl )* LLA_IZQ (methodDecl)* LLA_DER EOF;;
+        //program: CLASS IDENT (declaration)* LLA_IZQ (methodDecl)* LLA_DER EOF
+
+        //visita una declaración de clase
+        for (MyParser.ClassDeclContext e : ctx.classDecl())
+            visit(e);
+
+        //visita una declaración de variable
+        for (MyParser.VarDeclContext e : ctx.varDecl())
+            visit(e);
+
+        //visita una declaración de una constante
+        for (MyParser.ConstDeclContext e : ctx.constDecl())
+            visit(e);
+
+        //elimino niveles
+        tableS.closeScope();
+
+        //imprimimos la tabla
+        System.out.println(tableS.toString());
+
         return null;
     }
 
     @Override
     public Object visitConstDeclAST(MyParser.ConstDeclASTContext ctx) {
 
-        //constDecl:  CONST type IDENT IG  (NUMBER_INTEGER | NUMBER_INTEGER_ZERO | CHAR_CONST) PyC
+        String error = "";
+        //-->insertar/verificar alcaces
+
+        //constDecl:  CONST type IDENT IG (valueTypeConst) PyC
+
+        org.antlr.runtime.Token tipo = (org.antlr.runtime.Token) visit(ctx.type());
+
+        if ((tipo.getText().equals("int"))){
+
+            //hay tres tipos de int: number/diferente de cero/float: buscar forma de diferenciarlos
+
+            int res = tableS.enter(ctx.NUMBER_INTEGER().getText(),tipo.getText(),"Constante");
+
+            if (res == 1) {
+                this.numErrors++;
+                error = "Semantic Error ("+ ctx.NUMBER_INTEGER().getSymbol().getLine() + ":" + (ctx.NUMBER_INTEGER().getSymbol().getCharPositionInLine() + 1) + "): The identifier is already declared in actual context!!!";
+                listaErrores.push(error);
+            }
+        }
+        if ((tipo.getText().equals("char"))){
+            int res = tableS.enter(ctx.CHAR_CONST().getText(),tipo.getText(),"Constante");
+
+            if (res == 1) {
+                this.numErrors++;
+                error = "Semantic Error ("+ ctx.NUMBER_INTEGER().getSymbol().getLine() + ":" + (ctx.NUMBER_INTEGER().getSymbol().getCharPositionInLine() + 1) + "): The identifier is already declared in actual context!!!";
+                listaErrores.push(error);
+            }
+        }
+        // por algna razón no me reconoce el string
+        /*
+        if ((tipo.getText().equals("string"))){
+            int res = tableS.enter(ctx..getText(),tipo.getText(),"Constante");
+        }
+        */
+        else {
+            this.numErrors++;
+            error = "Semantic Error (" + tipo.getLine() + ":" + (tipo.getCharPositionInLine() + 1) + "): Wrong type denoter!!! WTF";
+            listaErrores.push(error);
+        }
+
+
         return null;
 
 
