@@ -1,5 +1,5 @@
 // Generated from E:/Doccumentos TEC/6 SEMESTRE 2018/Compiladores/Proyectos/I Proyecto/Avance II/MiniC-Sharp/src/Antlr\MyParser.g4 by ANTLR 4.7
-package Generated.Antlr;
+package Antlr;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -18,12 +18,68 @@ public interface MyParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitProgramAST(MyParser.ProgramASTContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code programConstAST}
+	 * labeled alternative in {@link MyParser#declaration}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitProgramConstAST(MyParser.ProgramConstASTContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code programVarAST}
+	 * labeled alternative in {@link MyParser#declaration}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitProgramVarAST(MyParser.ProgramVarASTContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code programClassAST}
+	 * labeled alternative in {@link MyParser#declaration}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitProgramClassAST(MyParser.ProgramClassASTContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code constDeclAST}
 	 * labeled alternative in {@link MyParser#constDecl}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitConstDeclAST(MyParser.ConstDeclASTContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code constNumberIntDeclAST}
+	 * labeled alternative in {@link MyParser#valueTypeConst}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitConstNumberIntDeclAST(MyParser.ConstNumberIntDeclASTContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code constNumberIntZDeclAST}
+	 * labeled alternative in {@link MyParser#valueTypeConst}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitConstNumberIntZDeclAST(MyParser.ConstNumberIntZDeclASTContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code constNumberFloDeclAST}
+	 * labeled alternative in {@link MyParser#valueTypeConst}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitConstNumberFloDeclAST(MyParser.ConstNumberFloDeclASTContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code constCharDeclAST}
+	 * labeled alternative in {@link MyParser#valueTypeConst}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitConstCharDeclAST(MyParser.ConstCharDeclASTContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code constStringDeclAST}
+	 * labeled alternative in {@link MyParser#valueTypeConst}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitConstStringDeclAST(MyParser.ConstStringDeclASTContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code varDeclAST}
 	 * labeled alternative in {@link MyParser#varDecl}.
@@ -39,15 +95,22 @@ public interface MyParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitClassDeclAST(MyParser.ClassDeclASTContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code methodTypeDeclAST}
+	 * Visit a parse tree produced by the {@code methodDeclAST}
 	 * labeled alternative in {@link MyParser#methodDecl}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMethodDeclAST(MyParser.MethodDeclASTContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code methodTypeDeclAST}
+	 * labeled alternative in {@link MyParser#optionMethodDecl}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitMethodTypeDeclAST(MyParser.MethodTypeDeclASTContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code methodVoidDeclAST}
-	 * labeled alternative in {@link MyParser#methodDecl}.
+	 * labeled alternative in {@link MyParser#optionMethodDecl}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
@@ -157,6 +220,27 @@ public interface MyParserVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitPycSTAST(MyParser.PycSTASTContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code writeTypeNumIntSTAST}
+	 * labeled alternative in {@link MyParser#writeType}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitWriteTypeNumIntSTAST(MyParser.WriteTypeNumIntSTASTContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code writeTypeNumIntZSTAST}
+	 * labeled alternative in {@link MyParser#writeType}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitWriteTypeNumIntZSTAST(MyParser.WriteTypeNumIntZSTASTContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code writeTypeNumFloatSTAST}
+	 * labeled alternative in {@link MyParser#writeType}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitWriteTypeNumFloatSTAST(MyParser.WriteTypeNumFloatSTASTContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code blockAST}
 	 * labeled alternative in {@link MyParser#block}.
@@ -277,6 +361,20 @@ public interface MyParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitExpresionFAST(MyParser.ExpresionFASTContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code booleanTrueFAST}
+	 * labeled alternative in {@link MyParser#booleanValue}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBooleanTrueFAST(MyParser.BooleanTrueFASTContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code booleanFalseFAST}
+	 * labeled alternative in {@link MyParser#booleanValue}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBooleanFalseFAST(MyParser.BooleanFalseFASTContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code spfunctionORD}
 	 * labeled alternative in {@link MyParser#special_function}.
 	 * @param ctx the parse tree
@@ -304,6 +402,20 @@ public interface MyParserVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitDesignatorAST(MyParser.DesignatorASTContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code designatorPuntIdAST}
+	 * labeled alternative in {@link MyParser#designatorExp}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDesignatorPuntIdAST(MyParser.DesignatorPuntIdASTContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code designatorCorcsAST}
+	 * labeled alternative in {@link MyParser#designatorExp}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDesignatorCorcsAST(MyParser.DesignatorCorcsASTContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code relopIgIgAST}
 	 * labeled alternative in {@link MyParser#relop}.

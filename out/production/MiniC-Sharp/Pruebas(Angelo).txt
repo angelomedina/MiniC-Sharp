@@ -1,0 +1,6 @@
+class claseP
+    const float   d = 12.5;
+    const string  c = "AA";
+    const char    b  = 'a';
+    const int     a  = 12;
+{}

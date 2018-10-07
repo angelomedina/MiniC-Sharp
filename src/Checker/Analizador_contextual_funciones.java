@@ -1,19 +1,13 @@
 package Checker;
 
-import Generated.Antlr.MyParser;
-import Generated.Antlr.MyParserBaseVisitor;
+import Antlr.MyParser;
+import Antlr.MyParserBaseVisitor;
+
 
 
 public class Analizador_contextual_funciones extends MyParserBaseVisitor {
 
-    //Nota(Angelo): comente las clases que medaban error.
 
-    @Override
-    public Object visitProgramAST(MyParser.ProgramASTContext ctx) {
-        return super.visitProgramAST(ctx);
-    }
-
-    /*
     @Override
     public Object visitProgramAST(MyParser.ProgramASTContext ctx) {
 
@@ -25,9 +19,8 @@ public class Analizador_contextual_funciones extends MyParserBaseVisitor {
 
         return null;
     }
-    */
 
-    /*
+
     @Override
     public Object visitProgramConstAST(MyParser.ProgramConstASTContext ctx) {
         return super.visitProgramConstAST(ctx);
@@ -42,21 +35,18 @@ public class Analizador_contextual_funciones extends MyParserBaseVisitor {
     public Object visitProgramClassAST(MyParser.ProgramClassASTContext ctx) {
         return super.visitProgramClassAST(ctx);
     }
-    */
+
 
     @Override
     public Object visitConstDeclAST(MyParser.ConstDeclASTContext ctx) {
         return super.visitConstDeclAST(ctx);
     }
 
-    /*
     @Override
     public Object visitConstNumberIntDeclAST(MyParser.ConstNumberIntDeclASTContext ctx) {
         return super.visitConstNumberIntDeclAST(ctx);
     }
-    */
 
-    /*
     @Override
     public Object visitConstNumberIntZDeclAST(MyParser.ConstNumberIntZDeclASTContext ctx) {
         return super.visitConstNumberIntZDeclAST(ctx);
@@ -76,7 +66,7 @@ public class Analizador_contextual_funciones extends MyParserBaseVisitor {
     public Object visitConstStringDeclAST(MyParser.ConstStringDeclASTContext ctx) {
         return super.visitConstStringDeclAST(ctx);
     }
-    */
+
 
     @Override
     public Object visitVarDeclAST(MyParser.VarDeclASTContext ctx) {
@@ -88,12 +78,12 @@ public class Analizador_contextual_funciones extends MyParserBaseVisitor {
         return super.visitClassDeclAST(ctx);
     }
 
-    /*
+
     @Override
     public Object visitMethodDeclAST(MyParser.MethodDeclASTContext ctx) {
         return super.visitMethodDeclAST(ctx);
     }
-    */
+
 
     @Override
     public Object visitMethodTypeDeclAST(MyParser.MethodTypeDeclASTContext ctx) {

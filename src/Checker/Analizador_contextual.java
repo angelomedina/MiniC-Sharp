@@ -1,9 +1,9 @@
 package Checker;
 
-import Checker.TypeSymbol.Symbol;
-import Generated.Antlr.MyParser;
-import Generated.Antlr.MyParserBaseVisitor;
-import jdk.nashorn.internal.parser.Token;
+
+import Antlr.MyParser;
+import Antlr.MyParserBaseVisitor;
+import org.antlr.v4.runtime.Token;
 
 import java.util.LinkedList;
 
@@ -25,9 +25,12 @@ public class Analizador_contextual extends MyParserBaseVisitor {
 
     //antes de declarar cosas openScope y despues de delcarar closeScope
 
-    private SymbolTable tableS;
-    private int numErrors = 0;
+    private SymbolTable       tableS;
+    private int               numErrors = 0;
     public LinkedList<String> listaErrores = new LinkedList<String>();
+
+
+
 
     public Analizador_contextual(){
         this.tableS = new SymbolTable();
@@ -45,29 +48,49 @@ public class Analizador_contextual extends MyParserBaseVisitor {
             return true;
     }
 
+    public String imprimir(){
+
+        return tableS.toString();
+    }
+
+
     @Override
     public Object visitProgramAST(MyParser.ProgramASTContext ctx) {
 
         this.numErrors=0;
-        //program: CLASS IDENT (declaration)* LLA_IZQ (methodDecl)* LLA_DER EOF
 
-        //visita una declaración de clase
-        for (MyParser.ClassDeclContext e : ctx.classDecl())
+        for (MyParser.DeclarationContext e : ctx.declaration())
             visit(e);
 
-        //visita una declaración de variable
-        for (MyParser.VarDeclContext e : ctx.varDecl())
+        for (MyParser.MethodDeclContext e : ctx.methodDecl())
             visit(e);
 
-        //visita una declaración de una constante
-        for (MyParser.ConstDeclContext e : ctx.constDecl())
-            visit(e);
+        return null;
+    }
 
-        //elimino niveles
-        tableS.closeScope();
+    @Override
+    public Object visitProgramConstAST(MyParser.ProgramConstASTContext ctx) {
 
-        //imprimimos la tabla
-        System.out.println(tableS.toString());
+        tableS.openScope();
+        visit(ctx.constDecl());
+
+        return null;
+    }
+
+    @Override
+    public Object visitProgramVarAST(MyParser.ProgramVarASTContext ctx) {
+
+        tableS.openScope();
+        visit(ctx.varDecl());
+
+        return null;
+    }
+
+    @Override
+    public Object visitProgramClassAST(MyParser.ProgramClassASTContext ctx) {
+
+        tableS.openScope();
+        visit(ctx.classDecl());
 
         return null;
     }
@@ -76,49 +99,55 @@ public class Analizador_contextual extends MyParserBaseVisitor {
     public Object visitConstDeclAST(MyParser.ConstDeclASTContext ctx) {
 
         String error = "";
-        //-->insertar/verificar alcaces
+        String tipo = ctx.type().getText();
 
-        //constDecl:  CONST type IDENT IG (valueTypeConst) PyC
+        if ((tipo.equals("int")) || (tipo.equals("char")) || (tipo.equals("bool")) || (tipo.equals("string")) || (tipo.equals("float"))) {
 
-        org.antlr.runtime.Token tipo = (org.antlr.runtime.Token) visit(ctx.type());
-
-        if ((tipo.getText().equals("int"))){
-
-            //hay tres tipos de int: number/diferente de cero/float: buscar forma de diferenciarlos
-
-            int res = tableS.enter(ctx.NUMBER_INTEGER().getText(),tipo.getText(),"Constante");
+            int res = tableS.enter(ctx.IDENT().getText(),ctx.IDENT().getSymbol().getText(),"Constante");
 
             if (res == 1) {
+
                 this.numErrors++;
-                error = "Semantic Error ("+ ctx.NUMBER_INTEGER().getSymbol().getLine() + ":" + (ctx.NUMBER_INTEGER().getSymbol().getCharPositionInLine() + 1) + "): The identifier is already declared in actual context!!!";
+                error = "Semantic Error (" + ctx.IDENT().getSymbol().getLine() + ":" + (ctx.IDENT().getSymbol().getCharPositionInLine() + 1) + "): The identifier is already declared in actual context!!!";
                 listaErrores.push(error);
             }
         }
-        if ((tipo.getText().equals("char"))){
-            int res = tableS.enter(ctx.CHAR_CONST().getText(),tipo.getText(),"Constante");
-
-            if (res == 1) {
-                this.numErrors++;
-                error = "Semantic Error ("+ ctx.NUMBER_INTEGER().getSymbol().getLine() + ":" + (ctx.NUMBER_INTEGER().getSymbol().getCharPositionInLine() + 1) + "): The identifier is already declared in actual context!!!";
-                listaErrores.push(error);
-            }
-        }
-        // por algna razón no me reconoce el string
-        /*
-        if ((tipo.getText().equals("string"))){
-            int res = tableS.enter(ctx..getText(),tipo.getText(),"Constante");
-        }
-        */
         else {
+
+            Token type = (Token) visit(ctx.valueTypeConst());
             this.numErrors++;
-            error = "Semantic Error (" + tipo.getLine() + ":" + (tipo.getCharPositionInLine() + 1) + "): Wrong type denoter!!! WTF";
+            error = "Semantic Error (" + type.getLine() + ":" + (type.getCharPositionInLine() + 1) + "): Wrong type denoter!!! WTF";
             listaErrores.push(error);
         }
-
 
         return null;
 
 
+    }
+
+    @Override
+    public Object visitConstNumberIntDeclAST(MyParser.ConstNumberIntDeclASTContext ctx) {
+        return super.visitConstNumberIntDeclAST(ctx);
+    }
+
+    @Override
+    public Object visitConstNumberIntZDeclAST(MyParser.ConstNumberIntZDeclASTContext ctx) {
+        return super.visitConstNumberIntZDeclAST(ctx);
+    }
+
+    @Override
+    public Object visitConstNumberFloDeclAST(MyParser.ConstNumberFloDeclASTContext ctx) {
+        return super.visitConstNumberFloDeclAST(ctx);
+    }
+
+    @Override
+    public Object visitConstCharDeclAST(MyParser.ConstCharDeclASTContext ctx) {
+        return super.visitConstCharDeclAST(ctx);
+    }
+
+    @Override
+    public Object visitConstStringDeclAST(MyParser.ConstStringDeclASTContext ctx) {
+        return super.visitConstStringDeclAST(ctx);
     }
 
     @Override
@@ -129,6 +158,11 @@ public class Analizador_contextual extends MyParserBaseVisitor {
     @Override
     public Object visitClassDeclAST(MyParser.ClassDeclASTContext ctx) {
         return super.visitClassDeclAST(ctx);
+    }
+
+    @Override
+    public Object visitMethodDeclAST(MyParser.MethodDeclASTContext ctx) {
+        return super.visitMethodDeclAST(ctx);
     }
 
     @Override
@@ -148,10 +182,7 @@ public class Analizador_contextual extends MyParserBaseVisitor {
 
     @Override
     public Object visitTypeAST(MyParser.TypeASTContext ctx) {
-
-        //type IDENT ( COMA IDENT )* PyC
-
-        return null;
+        return super.visitTypeAST(ctx);
     }
 
     @Override
@@ -211,15 +242,27 @@ public class Analizador_contextual extends MyParserBaseVisitor {
 
     @Override
     public Object visitBlockSTAST(MyParser.BlockSTASTContext ctx) {
-
-        //block: LLA_IZQ ( statement )* LLA_DER
-
-        return null;
+        return super.visitBlockSTAST(ctx);
     }
 
     @Override
     public Object visitPycSTAST(MyParser.PycSTASTContext ctx) {
         return super.visitPycSTAST(ctx);
+    }
+
+    @Override
+    public Object visitWriteTypeNumIntSTAST(MyParser.WriteTypeNumIntSTASTContext ctx) {
+        return super.visitWriteTypeNumIntSTAST(ctx);
+    }
+
+    @Override
+    public Object visitWriteTypeNumIntZSTAST(MyParser.WriteTypeNumIntZSTASTContext ctx) {
+        return super.visitWriteTypeNumIntZSTAST(ctx);
+    }
+
+    @Override
+    public Object visitWriteTypeNumFloatSTAST(MyParser.WriteTypeNumFloatSTASTContext ctx) {
+        return super.visitWriteTypeNumFloatSTAST(ctx);
     }
 
     @Override
@@ -229,30 +272,17 @@ public class Analizador_contextual extends MyParserBaseVisitor {
 
     @Override
     public Object visitActParsAST(MyParser.ActParsASTContext ctx) {
-
-        //actPars: expr ( COMA expr )*
-
-        for(MyParser.ExprContext e: ctx.expr())
-            visit(e);
-        return null;
+        return super.visitActParsAST(ctx);
     }
 
     @Override
     public Object visitConditionAST(MyParser.ConditionASTContext ctx) {
-
-        //condition: condTerm ( OR condTerm )*
-        for(MyParser.CondTermContext e: ctx.condTerm())
-            visit(e);
-        return null;
+        return super.visitConditionAST(ctx);
     }
 
     @Override
     public Object visitCondTermAST(MyParser.CondTermASTContext ctx) {
-
-        //condTerm: condFact ( AND condFact)*
-        for(MyParser.CondFactContext e: ctx.condFact())
-            visit(e);
-        return null;
+        return super.visitCondTermAST(ctx);
     }
 
     @Override
@@ -321,6 +351,16 @@ public class Analizador_contextual extends MyParserBaseVisitor {
     }
 
     @Override
+    public Object visitBooleanTrueFAST(MyParser.BooleanTrueFASTContext ctx) {
+        return super.visitBooleanTrueFAST(ctx);
+    }
+
+    @Override
+    public Object visitBooleanFalseFAST(MyParser.BooleanFalseFASTContext ctx) {
+        return super.visitBooleanFalseFAST(ctx);
+    }
+
+    @Override
     public Object visitSpfunctionORD(MyParser.SpfunctionORDContext ctx) {
         return super.visitSpfunctionORD(ctx);
     }
@@ -338,6 +378,16 @@ public class Analizador_contextual extends MyParserBaseVisitor {
     @Override
     public Object visitDesignatorAST(MyParser.DesignatorASTContext ctx) {
         return super.visitDesignatorAST(ctx);
+    }
+
+    @Override
+    public Object visitDesignatorPuntIdAST(MyParser.DesignatorPuntIdASTContext ctx) {
+        return super.visitDesignatorPuntIdAST(ctx);
+    }
+
+    @Override
+    public Object visitDesignatorCorcsAST(MyParser.DesignatorCorcsASTContext ctx) {
+        return super.visitDesignatorCorcsAST(ctx);
     }
 
     @Override

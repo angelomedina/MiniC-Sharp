@@ -2,15 +2,14 @@ package Vista;
 
 
 
+import Antlr.MyParser;
+import Antlr.Scanner;
 import Checker.Analizador_contextual;
 import Exeptions.*;
-import Generated.Antlr.MyParser;
-import Generated.Antlr.Scanner;
 import Modelo.Archivos;
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.RecognitionException;
-import org.antlr.v4.runtime.Token;
 import org.antlr.v4.runtime.tree.ParseTree;
 
 import javax.swing.*;
@@ -19,11 +18,11 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.util.List;
 import java.util.StringTokenizer;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 
 /**
  * Created by Arrieta on 19/3/2017.
@@ -36,6 +35,7 @@ public class Principal extends  JFrame implements ActionListener {
     MyException     myException = null;
     MyConsoleErrorListener myConsoleErrorListener = null;
     Analizador_contextual contextual = null;
+
 
 
 
@@ -336,6 +336,7 @@ public class Principal extends  JFrame implements ActionListener {
                 //NOTA comentar esto en caso de error
 
                 try {
+
                     contextual = new Analizador_contextual();
                     contextual.visit(tree);
                 }
@@ -343,6 +344,9 @@ public class Principal extends  JFrame implements ActionListener {
 
 
                 if (contextual.hasErrors()==false) {
+
+                    defaultListModel.addElement(contextual.imprimir());
+
                     JOptionPane.showMessageDialog(this,"Compilación exitosa.");
                     defaultListModel.addElement(Mymsg);
                     contError=list.getModel().getSize();
@@ -351,16 +355,21 @@ public class Principal extends  JFrame implements ActionListener {
                     java.util.concurrent.Future<JFrame> treeGUI = org.antlr.v4.gui.Trees.inspect(tree, parser);
                 }
                 else{
+
                     JOptionPane.showMessageDialog(this,"Compilación Fallida!!");
                     defaultListModel.addElement(Mymsg);
                     contError=list.getModel().getSize();
 
+                    //imprimo lista de errores
+
+
+                    for (String error : contextual.listaErrores) {
+
+                        defaultListModel.addElement( error );
+                    }
+
                     System.out.println("Total Errors: " + (errorListener.errorMsgs.size()+contextual.getNumErrors()));
                 }
-
-                JOptionPane.showMessageDialog(this,"Compilación exitosa.");
-                defaultListModel.addElement(Mymsg);
-                contError=list.getModel().getSize();
 
             }
             else{

@@ -25,20 +25,19 @@ public class SymbolTable {
 
             switch ( identificador ) {
                 case "Classe":
-                    table.add(new Classe(id,tipo,actuaLevel));
+                    table.add(new Classe(id, tipo, actuaLevel));
                     return 0;//means id was succesfully inserted in table
                 case "Variable":
-                    table.add(new Variable(id,tipo,actuaLevel));
+                    table.add(new Variable(id, tipo, actuaLevel));
                     return 0;//means id was succesfully inserted in table
                 case "Constante":
-                    table.add(new Constante(id,tipo,actuaLevel));
+                    table.add(new Constante(id, tipo, actuaLevel));
                     return 0;//means id was succesfully inserted in table
             }
         }
-        else {
-            return 1; //means id exists already in table
-        }
-        return 1;
+
+        return 1; //means id exists already in table
+
     }
 
     private boolean exists(String id, int level) {
