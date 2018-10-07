@@ -71,7 +71,6 @@ public class Analizador_contextual extends MyParserBaseVisitor {
     @Override
     public Object visitProgramConstAST(MyParser.ProgramConstASTContext ctx) {
 
-        tableS.openScope();
         visit(ctx.constDecl());
 
         return null;
@@ -80,7 +79,6 @@ public class Analizador_contextual extends MyParserBaseVisitor {
     @Override
     public Object visitProgramVarAST(MyParser.ProgramVarASTContext ctx) {
 
-        tableS.openScope();
         visit(ctx.varDecl());
 
         return null;
@@ -89,7 +87,6 @@ public class Analizador_contextual extends MyParserBaseVisitor {
     @Override
     public Object visitProgramClassAST(MyParser.ProgramClassASTContext ctx) {
 
-        tableS.openScope();
         visit(ctx.classDecl());
 
         return null;
@@ -127,37 +124,72 @@ public class Analizador_contextual extends MyParserBaseVisitor {
 
     @Override
     public Object visitConstNumberIntDeclAST(MyParser.ConstNumberIntDeclASTContext ctx) {
-        return super.visitConstNumberIntDeclAST(ctx);
+        return ctx.NUMBER_INTEGER().getSymbol();
     }
 
     @Override
     public Object visitConstNumberIntZDeclAST(MyParser.ConstNumberIntZDeclASTContext ctx) {
-        return super.visitConstNumberIntZDeclAST(ctx);
+        return ctx.NUMBER_INTEGER_ZERO().getSymbol();
     }
 
     @Override
     public Object visitConstNumberFloDeclAST(MyParser.ConstNumberFloDeclASTContext ctx) {
-        return super.visitConstNumberFloDeclAST(ctx);
+        return ctx.NUMBER_FLOAT().getSymbol();
     }
 
     @Override
     public Object visitConstCharDeclAST(MyParser.ConstCharDeclASTContext ctx) {
-        return super.visitConstCharDeclAST(ctx);
+        return ctx.CHAR_CONST().getSymbol();
     }
 
     @Override
     public Object visitConstStringDeclAST(MyParser.ConstStringDeclASTContext ctx) {
-        return super.visitConstStringDeclAST(ctx);
+        return ctx.STRING_CONST().getSymbol();
     }
 
     @Override
     public Object visitVarDeclAST(MyParser.VarDeclASTContext ctx) {
-        return super.visitVarDeclAST(ctx);
+
+        //varDecl: type IDENT ( COMA IDENT )* PyC
+        String error = "";
+        String tipo = ctx.type().getText();
+
+
+        int i;
+        for (i=1; i<ctx.IDENT().size()-1; i++){
+
+                if ((tipo.equals("int")) || (tipo.equals("char")) || (tipo.equals("bool")) || (tipo.equals("string")) || (tipo.equals("float"))) {
+
+                    int res = tableS.enter(ctx.IDENT(i).getText(),ctx.IDENT(i).getSymbol().getText(),"Variable");
+
+                    if (res == 1) {
+
+                        this.numErrors++;
+                        error = "Semantic Error (" + ctx.IDENT(i).getSymbol().getLine() + ":" + (ctx.IDENT(i).getSymbol().getCharPositionInLine() + 1) + "): The identifier is already declared in actual context!!!";
+                        listaErrores.push(error);
+                    }
+                }
+                else {
+
+                    Token type = (Token) visit(ctx.IDENT(i));
+                    this.numErrors++;
+                    error = "Semantic Error (" + type.getLine() + ":" + (type.getCharPositionInLine() + 1) + "): Wrong type IDENT!!!";
+                    listaErrores.push(error);
+                }
+
+        }
+
+        return null;
+
+
     }
 
     @Override
     public Object visitClassDeclAST(MyParser.ClassDeclASTContext ctx) {
-        return super.visitClassDeclAST(ctx);
+
+        //classDecl: CLASS IDENT LLA_IZQ ( varDecl )* LLA_DER
+
+        return null;
     }
 
     @Override
