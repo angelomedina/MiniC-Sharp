@@ -353,6 +353,7 @@ public class Principal extends  JFrame implements ActionListener {
 
                     //se envia el arbol y el parser
                     java.util.concurrent.Future<JFrame> treeGUI = org.antlr.v4.gui.Trees.inspect(tree, parser);
+
                 }
                 else{
 
@@ -368,7 +369,8 @@ public class Principal extends  JFrame implements ActionListener {
                         defaultListModel.addElement( error );
                     }
 
-                    System.out.println("Total Errors: " + (errorListener.errorMsgs.size()+contextual.getNumErrors()));
+                    defaultListModel.addElement( "Total Errors: " + (errorListener.errorMsgs.size()+contextual.getNumErrors()) );
+
                 }
 
             }

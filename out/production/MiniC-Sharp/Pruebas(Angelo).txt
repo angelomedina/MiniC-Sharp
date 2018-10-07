@@ -11,3 +11,17 @@ class claseP
 class www
     string var1, var2, var3, var4,var5;
 {}
+
+//CLASES
+class claseP
+
+    //classDecl: CLASS IDENT LLA_IZQ ( varDecl )* LLA_DER ;
+    class prueba {}
+    class prueba2 {tipo1 var1, var2, var3, var4,var5;}
+    class prueba3 {
+
+        tipo2 h1,h5,t6;
+        tipo5 h1,h2,t3;
+
+    }
+{}

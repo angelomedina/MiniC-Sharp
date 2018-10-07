@@ -21,7 +21,7 @@ public class SymbolTable {
      */
     public int enter(String id, String tipo,String identificador) {
 
-        if (exists(id,actuaLevel,tipo) == false) {
+        if (exists(id,actuaLevel) == false) {
 
             switch ( identificador ) {
                 case "Classe":
@@ -40,13 +40,13 @@ public class SymbolTable {
 
     }
 
-    private boolean exists(String id, int level,String tipo) {
+    private boolean exists(String id, int level) {
 
         for (Iterator i = table.descendingIterator(); i.hasNext(); ) {
 
             Symbol aux = (Symbol) i.next();
 
-            if (aux.getName().equals(id) && aux.getType().equals(tipo))
+            if (aux.getName().equals(id))
                 return true;
 
             if (aux.getLevel() != level)

@@ -187,7 +187,35 @@ public class Analizador_contextual extends MyParserBaseVisitor {
     @Override
     public Object visitClassDeclAST(MyParser.ClassDeclASTContext ctx) {
 
-        //classDecl: CLASS IDENT LLA_IZQ ( varDecl )* LLA_DER
+        String error = "";
+
+        int clasePadre = tableS.enter(ctx.CLASS().getText(),ctx.CLASS().getSymbol().getText(),"Classe");
+
+        if (clasePadre == 1) {
+
+            //cuando entra la primera ves la padre y el primer hijo se crean
+            //cuando tienen muchos hijos la clase padre se crea nuvamente, pero la clase padre solo se puede delcarar
+            //una vez por eso aunque de error de clase padre, no se guarda en la lista pero sus hijos si
+            int claseHija = tableS.enter(ctx.IDENT().getText(),ctx.IDENT().getSymbol().getText(),"Classe");
+
+            if (claseHija == 1) {
+
+                this.numErrors++;
+                error = "Semantic Error Hijo("+ ctx.IDENT().getSymbol().getLine() + ":" + (ctx.IDENT().getSymbol().getCharPositionInLine() + 1) + "): The identifier is already declared in actual context!!!";
+                listaErrores.push(error);
+            }
+
+        }else{
+
+            int claseHija = tableS.enter(ctx.IDENT().getText(),ctx.IDENT().getSymbol().getText(),"Classe");
+
+            if (claseHija == 1) {
+
+                this.numErrors++;
+                error = "Semantic Error Hijo("+ ctx.IDENT().getSymbol().getLine() + ":" + (ctx.IDENT().getSymbol().getCharPositionInLine() + 1) + "): The identifier is already declared in actual context!!!";
+                listaErrores.push(error);
+            }
+        }
 
         return null;
     }
@@ -424,56 +452,56 @@ public class Analizador_contextual extends MyParserBaseVisitor {
 
     @Override
     public Object visitRelopIgIgAST(MyParser.RelopIgIgASTContext ctx) {
-        return super.visitRelopIgIgAST(ctx);
+        return ctx.IGIG().getSymbol();
     }
 
     @Override
     public Object visitRelopDifAST(MyParser.RelopDifASTContext ctx) {
-        return super.visitRelopDifAST(ctx);
+        return ctx.DIF().getSymbol();
     }
 
     @Override
     public Object visitRelopMayAST(MyParser.RelopMayASTContext ctx) {
-        return super.visitRelopMayAST(ctx);
+        return ctx.MAY().getSymbol();
     }
 
     @Override
     public Object visitRelopMatIgAST(MyParser.RelopMatIgASTContext ctx) {
-        return super.visitRelopMatIgAST(ctx);
+        return ctx.MAY_IG().getSymbol();
     }
 
     @Override
     public Object visitRelopMenAST(MyParser.RelopMenASTContext ctx) {
-        return super.visitRelopMenAST(ctx);
+        return ctx.MEN().getSymbol();
     }
 
     @Override
     public Object visitRelopMenIgAST(MyParser.RelopMenIgASTContext ctx) {
-        return super.visitRelopMenIgAST(ctx);
+        return ctx.MEN_IG().getSymbol();
     }
 
     @Override
     public Object visitAddopSumAST(MyParser.AddopSumASTContext ctx) {
-        return super.visitAddopSumAST(ctx);
+        return ctx.SUM().getSymbol();
     }
 
     @Override
     public Object visitAddopRestAST(MyParser.AddopRestASTContext ctx) {
-        return super.visitAddopRestAST(ctx);
+        return ctx.REST().getSymbol();
     }
 
     @Override
     public Object visitMulopMultAST(MyParser.MulopMultASTContext ctx) {
-        return super.visitMulopMultAST(ctx);
+        return ctx.MULT().getSymbol();
     }
 
     @Override
     public Object visitMulopDivAST(MyParser.MulopDivASTContext ctx) {
-        return super.visitMulopDivAST(ctx);
+        return ctx.DIV().getSymbol();
     }
 
     @Override
     public Object visitMulopPorcAST(MyParser.MulopPorcASTContext ctx) {
-        return super.visitMulopPorcAST(ctx);
+        return  ctx.PORC().getSymbol();
     }
 }
