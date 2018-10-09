@@ -4,7 +4,9 @@ package Vista;
 
 import Antlr.MyParser;
 import Antlr.Scanner;
-import Checker.Analizador_contextual;
+import Checker.ParaFunciones.ACF_Lectura_Previa;
+import Checker.ParaFunciones.ACF_Verificacion_Declaraciones_Parametros;
+import Checker.ParaVariables.ACVC_Declaracion_Asignacion;
 import Exeptions.*;
 import Modelo.Archivos;
 import org.antlr.v4.runtime.ANTLRInputStream;
@@ -34,10 +36,9 @@ public class Principal extends  JFrame implements ActionListener {
     MyBaseErrorListener errorListener = null;
     MyException     myException = null;
     MyConsoleErrorListener myConsoleErrorListener = null;
-    Analizador_contextual contextual = null;
-
-
-
+    ACVC_Declaracion_Asignacion analizador_contextual_vc1 = null;
+    ACF_Lectura_Previa analizador_contextual_f1 = null;
+    ACF_Verificacion_Declaraciones_Parametros analizador_contextual_f2 = null;
 
     int tab=1;
     private JMenuBar menuBar;
@@ -329,33 +330,118 @@ public class Principal extends  JFrame implements ActionListener {
             }
             catch(RecognitionException re){}
 
-            if(myException.hasErrors() == false){
+            if(myException.hasErrors() == false){ //Inicio analizadores contextuales
 
                 //agregndo AContextual
 
                 //NOTA comentar esto en caso de error
 
-                try {
+                // Analizador 1 (Analizador Contextual de Variables y clases)
 
-                    contextual = new Analizador_contextual();
-                    contextual.visit(tree);
+                try { // Utilizo Analizador Contextual de Variables y clases
+                        // Para revisar la declaracion de clases y variables, y la asignacion de datos primitivos a variabñes
+
+                    // Declaracion analizador 1 (Analizador Contextual de Variables y clases)
+                    analizador_contextual_vc1 = new ACVC_Declaracion_Asignacion();
+                    analizador_contextual_vc1.visit(tree);
                 }
                 catch(SemanticException error) {}
 
+                // Si el analizador 1 (Analizador Contextual de Variables y clases) no tiene errores
 
-                if (contextual.hasErrors()==false) {
+                if (analizador_contextual_vc1.hasErrors()==false) {
 
-                    defaultListModel.addElement(contextual.imprimir());
+                    // Imprimo resultados del Analizador 1 (Analizador Contextual de Variables y clases)
+                    defaultListModel.addElement(analizador_contextual_vc1.imprimir());
 
-                    JOptionPane.showMessageDialog(this,"Compilación exitosa.");
-                    defaultListModel.addElement(Mymsg);
-                    contError=list.getModel().getSize();
+                    // Analizador 2 (Analizador Contextual de Funciones)
+
+                    try { // Utilizo Analizador Contextual de Funciones
+                        // Para revisar las funciones declaradas, y agregarlas a la tabla de funciones
+
+                        // Declaracion Analizador 2 (Analizador Contextual de Funciones)
+                        analizador_contextual_f1 = new ACF_Lectura_Previa();
+                        analizador_contextual_f1.visit(tree);
+                    }
+                    catch(SemanticException error) {}
+
+                    // Si el Analizador 2 (Analizador Contextual de Funciones) no tiene errores
+                    if (analizador_contextual_f1.hasErrors()==false) {
+
+                        // Imprimo los resultados del Analizador 2 (Analizador Contextual de Funciones)
+                        //defaultListModel.addElement(analizador_contextual_f1.imprimir());
+                       // System.out.println(analizador_contextual_f1.imprimir());
+
+                        // Analizador 3 (Analizador Contextual de Funciones para declaraciones, numero parametros, tipos de parametros)
+
+                        try { // Utilizo Analizador Contextual de Funciones para declaraciones, numero parametros, tipos de parametros
+                            // Para revisar las funciones declaradas, y verificarlas en la tabla de funciones, el numero de parametros que recibe, y los tipos de los parametros
+
+                            // Declaracion Analizador 3 (Analizador Contextual de Funciones para declaraciones, numero parametros, tipos de parametros)
+                            analizador_contextual_f2 = new
+                                    ACF_Verificacion_Declaraciones_Parametros(analizador_contextual_f1.getTableF(),analizador_contextual_vc1.getTableS());
+                            analizador_contextual_f2.visit(tree);
+                        }
+                        catch(SemanticException error) {}
+
+                        // Si el Analizador 3 (Analizador Contextual de Funciones para declaraciones, numero parametros, tipos de parametros) no tiene errores
+                        if (analizador_contextual_f2.hasErrors()==false) {
+
+                            // Imprimo los resultados del Analizador 3 (Analizador Contextual de Funciones para declaraciones, numero parametros, tipos de parametros)
+                            //defaultListModel.addElement(analizador_contextual_f1.imprimir());
+                            System.out.println(analizador_contextual_f2.imprimir());
+
+                            // Analizador 4
+                        }
+
+                        else{ // Si el Analizador 3 (Analizador Contextual de Funciones para declaraciones, numero parametros, tipos de parametros) tiene errores
+
+                            JOptionPane.showMessageDialog(this,"Compilación Fallida!!");
+                            defaultListModel.addElement(Mymsg);
+                            contError=list.getModel().getSize();
+
+                            //imprimo lista de errores
+
+
+                            for (String error : analizador_contextual_f2.listaErrores) {
+
+                                defaultListModel.addElement( error );
+                            }
+
+                            defaultListModel.addElement( "Total Errors: " + (errorListener.errorMsgs.size()+ analizador_contextual_f2.getNumErrors()) );
+
+                        }
+
+                    }
+
+                    else{ // Si el Analizador 2 (Analizador Contextual de Funciones) tiene errores
+
+                        JOptionPane.showMessageDialog(this,"Compilación Fallida!!");
+                        defaultListModel.addElement(Mymsg);
+                        contError=list.getModel().getSize();
+
+                        //imprimo lista de errores
+
+
+                        for (String error : analizador_contextual_f1.listaErrores) {
+
+                            defaultListModel.addElement( error );
+                        }
+
+                        defaultListModel.addElement( "Total Errors: " + (errorListener.errorMsgs.size()+ analizador_contextual_f1.getNumErrors()) );
+
+                    }
+
+                    // Hasta el final
+                    //JOptionPane.showMessageDialog(this,"Compilación exitosa.");
+                    //defaultListModel.addElement(Mymsg);
+                    //contError=list.getModel().getSize();
 
                     //se envia el arbol y el parser
-                    java.util.concurrent.Future<JFrame> treeGUI = org.antlr.v4.gui.Trees.inspect(tree, parser);
+                    //java.util.concurrent.Future<JFrame> treeGUI = org.antlr.v4.gui.Trees.inspect(tree, parser);
 
                 }
-                else{
+                else{ // Si el analizador 1 (Analizador Contextual de Variables y clases) tiene errores
 
                     JOptionPane.showMessageDialog(this,"Compilación Fallida!!");
                     defaultListModel.addElement(Mymsg);
@@ -364,12 +450,12 @@ public class Principal extends  JFrame implements ActionListener {
                     //imprimo lista de errores
 
 
-                    for (String error : contextual.listaErrores) {
+                    for (String error : analizador_contextual_vc1.listaErrores) {
 
                         defaultListModel.addElement( error );
                     }
 
-                    defaultListModel.addElement( "Total Errors: " + (errorListener.errorMsgs.size()+contextual.getNumErrors()) );
+                    defaultListModel.addElement( "Total Errors: " + (errorListener.errorMsgs.size()+ analizador_contextual_vc1.getNumErrors()) );
 
                 }
 

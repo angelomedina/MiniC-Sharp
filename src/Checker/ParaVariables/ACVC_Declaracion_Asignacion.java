@@ -1,13 +1,14 @@
-package Checker;
+package Checker.ParaVariables;
 
 
 import Antlr.MyParser;
 import Antlr.MyParserBaseVisitor;
+import Checker.TypeSymbol.SymbolTable;
 import org.antlr.v4.runtime.Token;
 
 import java.util.LinkedList;
 
-public class Analizador_contextual extends MyParserBaseVisitor {
+public class ACVC_Declaracion_Asignacion extends MyParserBaseVisitor {
 
     //Nota: todos los visitors que balan de declarar cosas se utiliza la tabla -->insertar/verificar alcaces
     //Tabla de simbolos nombre, nivel y tipo: osea agregar un objeto y en esas clases que haya una jerarquia como metodos,clases
@@ -25,14 +26,12 @@ public class Analizador_contextual extends MyParserBaseVisitor {
 
     //antes de declarar cosas openScope y despues de delcarar closeScope
 
-    private SymbolTable       tableS;
-    private int               numErrors = 0;
+    private SymbolTable tableS;
+    private int numErrors = 0;
     public LinkedList<String> listaErrores = new LinkedList<String>();
 
 
-
-
-    public Analizador_contextual(){
+    public ACVC_Declaracion_Asignacion(){
         this.tableS = new SymbolTable();
         this.numErrors=0;
     }
@@ -53,6 +52,9 @@ public class Analizador_contextual extends MyParserBaseVisitor {
         return tableS.toString();
     }
 
+    public SymbolTable getTableS() {
+        return tableS;
+    }
 
     @Override
     public Object visitProgramAST(MyParser.ProgramASTContext ctx) {
@@ -60,9 +62,6 @@ public class Analizador_contextual extends MyParserBaseVisitor {
         this.numErrors=0;
 
         for (MyParser.DeclarationContext e : ctx.declaration())
-            visit(e);
-
-        for (MyParser.MethodDeclContext e : ctx.methodDecl())
             visit(e);
 
         return null;
@@ -98,9 +97,9 @@ public class Analizador_contextual extends MyParserBaseVisitor {
         String error = "";
         String tipo = ctx.type().getText();
 
-        if ((tipo.equals("int")) || (tipo.equals("char")) || (tipo.equals("bool")) || (tipo.equals("string")) || (tipo.equals("float"))) {
+        if ((tipo.equals("int")) || (tipo.equals("char"))) {
 
-            int res = tableS.enter(ctx.IDENT().getText(),ctx.IDENT().getSymbol().getText(),"Constante");
+            int res = tableS.enter(ctx.IDENT().getText(),tipo,"Constante");
 
             if (res == 1) {
 
@@ -132,20 +131,6 @@ public class Analizador_contextual extends MyParserBaseVisitor {
         return ctx.NUMBER_INTEGER_ZERO().getSymbol();
     }
 
-    @Override
-    public Object visitConstNumberFloDeclAST(MyParser.ConstNumberFloDeclASTContext ctx) {
-        return ctx.NUMBER_FLOAT().getSymbol();
-    }
-
-    @Override
-    public Object visitConstCharDeclAST(MyParser.ConstCharDeclASTContext ctx) {
-        return ctx.CHAR_CONST().getSymbol();
-    }
-
-    @Override
-    public Object visitConstStringDeclAST(MyParser.ConstStringDeclASTContext ctx) {
-        return ctx.STRING_CONST().getSymbol();
-    }
 
     @Override
     public Object visitVarDeclAST(MyParser.VarDeclASTContext ctx) {
@@ -158,9 +143,7 @@ public class Analizador_contextual extends MyParserBaseVisitor {
         int i;
         for (i=1; i<ctx.IDENT().size()-1; i++){
 
-                if ((tipo.equals("int")) || (tipo.equals("char")) || (tipo.equals("bool")) || (tipo.equals("string")) || (tipo.equals("float"))) {
-
-                    int res = tableS.enter(ctx.IDENT(i).getText(),ctx.IDENT(i).getSymbol().getText(),"Variable");
+                    int res = tableS.enter(ctx.IDENT(i).getText(),tipo,"Variable");
 
                     if (res == 1) {
 
@@ -169,15 +152,6 @@ public class Analizador_contextual extends MyParserBaseVisitor {
                         listaErrores.push(error);
                     }
                 }
-                else {
-
-                    Token type = (Token) visit(ctx.IDENT(i));
-                    this.numErrors++;
-                    error = "Semantic Error (" + type.getLine() + ":" + (type.getCharPositionInLine() + 1) + "): Wrong type IDENT!!!";
-                    listaErrores.push(error);
-                }
-
-        }
 
         return null;
 
@@ -218,31 +192,6 @@ public class Analizador_contextual extends MyParserBaseVisitor {
         }
 
         return null;
-    }
-
-    @Override
-    public Object visitMethodDeclAST(MyParser.MethodDeclASTContext ctx) {
-        return super.visitMethodDeclAST(ctx);
-    }
-
-    @Override
-    public Object visitMethodTypeDeclAST(MyParser.MethodTypeDeclASTContext ctx) {
-        return super.visitMethodTypeDeclAST(ctx);
-    }
-
-    @Override
-    public Object visitMethodVoidDeclAST(MyParser.MethodVoidDeclASTContext ctx) {
-        return super.visitMethodVoidDeclAST(ctx);
-    }
-
-    @Override
-    public Object visitFormParsAST(MyParser.FormParsASTContext ctx) {
-        return super.visitFormParsAST(ctx);
-    }
-
-    @Override
-    public Object visitTypeAST(MyParser.TypeASTContext ctx) {
-        return super.visitTypeAST(ctx);
     }
 
     @Override

@@ -1,4 +1,4 @@
-package Checker;
+package Checker.TypeSymbol;
 
 import Checker.TypeSymbol.Classe;
 import Checker.TypeSymbol.Constante;

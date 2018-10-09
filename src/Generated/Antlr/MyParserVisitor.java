@@ -1,4 +1,4 @@
-// Generated from E:/Doccumentos TEC/6 SEMESTRE 2018/Compiladores/Proyectos/I Proyecto/Avance II/MiniC-Sharp/src/Antlr\MyParser.g4 by ANTLR 4.7
+// Generated from D:/Proyecto Compiladores/MiniC-Sharp/src/Antlr\MyParser.g4 by ANTLR 4.7
 package Antlr;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
@@ -60,26 +60,12 @@ public interface MyParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitConstNumberIntZDeclAST(MyParser.ConstNumberIntZDeclASTContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code constNumberFloDeclAST}
-	 * labeled alternative in {@link MyParser#valueTypeConst}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitConstNumberFloDeclAST(MyParser.ConstNumberFloDeclASTContext ctx);
-	/**
 	 * Visit a parse tree produced by the {@code constCharDeclAST}
 	 * labeled alternative in {@link MyParser#valueTypeConst}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitConstCharDeclAST(MyParser.ConstCharDeclASTContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code constStringDeclAST}
-	 * labeled alternative in {@link MyParser#valueTypeConst}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitConstStringDeclAST(MyParser.ConstStringDeclASTContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code varDeclAST}
 	 * labeled alternative in {@link MyParser#varDecl}.

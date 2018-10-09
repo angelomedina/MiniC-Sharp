@@ -21,9 +21,7 @@ constDecl: CONST type IDENT IG (valueTypeConst) PyC                             
 
 valueTypeConst: NUMBER_INTEGER                                                                                          #constNumberIntDeclAST
               | NUMBER_INTEGER_ZERO                                                                                     #constNumberIntZDeclAST
-              | NUMBER_FLOAT                                                                                            #constNumberFloDeclAST
-              | CHAR_CONST                                                                                              #constCharDeclAST
-              | STRING_CONST                                                                                            #constStringDeclAST;
+              | CHAR_CONST                                                                                              #constCharDeclAST;
 
 
 // Declaracion de una variable
