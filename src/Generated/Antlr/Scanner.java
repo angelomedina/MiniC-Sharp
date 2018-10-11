@@ -1,4 +1,4 @@
-// Generated from D:/Proyecto Compiladores/MiniC-Sharp/src/Antlr\Scanner.g4 by ANTLR 4.7
+// Generated from E:/Doccumentos TEC/6 SEMESTRE 2018/Compiladores/Proyectos/I Proyecto/Avance II/MiniC-Sharp/src/Antlr\Scanner.g4 by ANTLR 4.7
 package Antlr;
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;

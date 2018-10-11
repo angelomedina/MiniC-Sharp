@@ -26,6 +26,10 @@ public class ACVC_Declaracion_Asignacion extends MyParserBaseVisitor {
 
     //antes de declarar cosas openScope y despues de delcarar closeScope
 
+
+    //Nota: en los alcances solo son dos niveles por la logica de del proyecto.
+    //open scope se uiliza en la declaracion de un metodo y luego de vistar close scope
+
     private SymbolTable tableS;
     private int numErrors = 0;
     public LinkedList<String> listaErrores = new LinkedList<String>();
@@ -141,7 +145,7 @@ public class ACVC_Declaracion_Asignacion extends MyParserBaseVisitor {
 
 
         int i;
-        for (i=1; i<ctx.IDENT().size()-1; i++){
+        for (i=0; i<ctx.IDENT().size(); i++){
 
                     int res = tableS.enter(ctx.IDENT(i).getText(),tipo,"Variable");
 
