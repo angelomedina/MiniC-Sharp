@@ -1,4 +1,4 @@
-// Generated from D:/Proyecto Compiladores/MiniC-Sharp/src/Antlr\MyParser.g4 by ANTLR 4.7
+// Generated from C:/Users/Felipe-Boza/Desktop/MiniC-Sharp/src/Antlr\MyParser.g4 by ANTLR 4.7
 package Antlr;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
