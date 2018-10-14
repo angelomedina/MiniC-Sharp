@@ -7,6 +7,7 @@ import Checker.TypeSymbol.SymbolTable;
 import org.antlr.v4.runtime.Token;
 
 import java.util.LinkedList;
+import java.util.List;
 
 public class ACVC_Declaracion_Asignacion extends MyParserBaseVisitor {
 
@@ -29,7 +30,10 @@ public class ACVC_Declaracion_Asignacion extends MyParserBaseVisitor {
     private SymbolTable tableS;
     private int numErrors = 0;
     public LinkedList<String> listaErrores = new LinkedList<String>();
-
+    public List<String> varsName;
+    public List<String> varsType;
+    public List<String> paramsName;
+    public boolean varClases = false;
 
     public ACVC_Declaracion_Asignacion(){
         this.tableS = new SymbolTable();
@@ -61,7 +65,11 @@ public class ACVC_Declaracion_Asignacion extends MyParserBaseVisitor {
 
         this.numErrors=0;
 
+        tableS.registrarFuncionesPredefinidas();
         for (MyParser.DeclarationContext e : ctx.declaration())
+            visit(e);
+
+        for (MyParser.MethodDeclContext e : ctx.methodDecl())
             visit(e);
 
         return null;
@@ -99,12 +107,12 @@ public class ACVC_Declaracion_Asignacion extends MyParserBaseVisitor {
 
         if ((tipo.equals("int")) || (tipo.equals("char"))) {
 
-            int res = tableS.enter(ctx.IDENT().getText(),tipo,"Constante");
+            int res = tableS.enterVarCons(ctx.IDENT().getText(),tipo,"Constante");
 
             if (res == 1) {
 
                 this.numErrors++;
-                error = "Semantic Error (" + ctx.IDENT().getSymbol().getLine() + ":" + (ctx.IDENT().getSymbol().getCharPositionInLine() + 1) + "): The identifier is already declared in actual context!!!";
+                error = "Error Semantico (" + ctx.IDENT().getSymbol().getLine() + ":" + (ctx.IDENT().getSymbol().getCharPositionInLine() + 1) + "): El identificador ya ha sido declarado en el contexto actual!";
                 listaErrores.push(error);
             }
         }
@@ -112,7 +120,7 @@ public class ACVC_Declaracion_Asignacion extends MyParserBaseVisitor {
 
             Token type = (Token) visit(ctx.valueTypeConst());
             this.numErrors++;
-            error = "Semantic Error (" + type.getLine() + ":" + (type.getCharPositionInLine() + 1) + "): Wrong type denoter!!! WTF";
+            error = "Error Semantico (" + type.getLine() + ":" + (type.getCharPositionInLine() + 1) + "): Tipo de dato incorrecto! ";
             listaErrores.push(error);
         }
 
@@ -139,19 +147,27 @@ public class ACVC_Declaracion_Asignacion extends MyParserBaseVisitor {
         String error = "";
         String tipo = ctx.type().getText();
 
+        //System.out.println("ss "+ctx.IDENT(0));
 
-        int i;
-        for (i=1; i<ctx.IDENT().size()-1; i++){
+        for (int i=0; i<ctx.IDENT().size(); i++){
 
-                    int res = tableS.enter(ctx.IDENT(i).getText(),tipo,"Variable");
+                    int res = tableS.enterVarCons(ctx.IDENT(i).getText(),tipo,"Variable");
 
                     if (res == 1) {
 
                         this.numErrors++;
-                        error = "Semantic Error (" + ctx.IDENT(i).getSymbol().getLine() + ":" + (ctx.IDENT(i).getSymbol().getCharPositionInLine() + 1) + "): The identifier is already declared in actual context!!!";
+                        error = "Error Semantico (" + ctx.IDENT(i).getSymbol().getLine() + ":" + (ctx.IDENT(i).getSymbol().getCharPositionInLine() + 1) + "): El identificador ya ha sido declarado en el contexto actual!";
                         listaErrores.push(error);
+                    }else {
+                        if(varClases) { // Indica que son variables de clases
+                            varsName.add(ctx.IDENT(i).getSymbol().getText());
+                            varsType.add(tipo);
+                        }
                     }
+
                 }
+
+                varClases = false;
 
         return null;
 
@@ -163,14 +179,38 @@ public class ACVC_Declaracion_Asignacion extends MyParserBaseVisitor {
 
         String error = "";
 
-        int clasePadre = tableS.enter(ctx.CLASS().getText(),ctx.CLASS().getSymbol().getText(),"Classe");
+        varsName = new LinkedList<>();
+        varsType = new LinkedList<>();
+
+        if(ctx.varDecl() != null ){
+            tableS.actuaLevel +=1;
+            for (MyParser.VarDeclContext e : ctx.varDecl()) {
+                varClases = true;
+                visit(e);
+            }
+
+            tableS.actuaLevel -=1;
+           // tableS.closeScope();
+
+            //System.out.println("Tiene "+varsName.size()+" variables.");
+        }
+
+        int res = tableS.enterCl(ctx.IDENT().getText(),ctx.CLASS().getText(), varsName, varsType);
+
+        if(res == 1){
+            this.numErrors++;
+            error = "Error Semantico("+ ctx.IDENT().getSymbol().getLine() + ":" + (ctx.IDENT().getSymbol().getCharPositionInLine() + 1) + "): Ya existe un elemento con ese nombre!";
+            listaErrores.push(error);
+        }
+        /*
+        int clasePadre = tableS.enterCl(ctx.CLASS().getText(),ctx.CLASS().getSymbol().getText(),"Clase");
 
         if (clasePadre == 1) {
 
             //cuando entra la primera ves la padre y el primer hijo se crean
             //cuando tienen muchos hijos la clase padre se crea nuvamente, pero la clase padre solo se puede delcarar
             //una vez por eso aunque de error de clase padre, no se guarda en la lista pero sus hijos si
-            int claseHija = tableS.enter(ctx.IDENT().getText(),ctx.IDENT().getSymbol().getText(),"Classe");
+            int claseHija = tableS.enterCl(ctx.IDENT().getText(),ctx.IDENT().getSymbol().getText(),"Clase");
 
             if (claseHija == 1) {
 
@@ -181,7 +221,7 @@ public class ACVC_Declaracion_Asignacion extends MyParserBaseVisitor {
 
         }else{
 
-            int claseHija = tableS.enter(ctx.IDENT().getText(),ctx.IDENT().getSymbol().getText(),"Classe");
+            int claseHija = tableS.enterCl(ctx.IDENT().getText(),ctx.IDENT().getSymbol().getText(),"Clase");
 
             if (claseHija == 1) {
 
@@ -189,268 +229,119 @@ public class ACVC_Declaracion_Asignacion extends MyParserBaseVisitor {
                 error = "Semantic Error Hijo("+ ctx.IDENT().getSymbol().getLine() + ":" + (ctx.IDENT().getSymbol().getCharPositionInLine() + 1) + "): The identifier is already declared in actual context!!!";
                 listaErrores.push(error);
             }
+        }*/
+
+        return null;
+    }
+
+    // Declaracion de metodos
+
+    @Override
+    public Object visitMethodDeclAST(MyParser.MethodDeclASTContext ctx) {
+
+        String error;
+        // System.out.println("En MethodDeclAST");
+        Token tipo = (Token) visit(ctx.optionMethodDecl());
+        List<String> parametros = new LinkedList<>();
+        //System.out.println(ctx.formPars());
+        paramsName = new LinkedList<>();
+
+        // Se registran los parametros de la funcion
+        if(ctx.formPars() != null){ // Si tiene parametros
+            tableS.openScope();
+            parametros = (List<String>) visit(ctx.formPars()); // Los obtengo
+            tableS.actuaLevel-=1;
+        }
+
+
+        varsName = new LinkedList<>();
+        varsType = new LinkedList<>();
+
+
+        if(ctx.varDecl() != null){ // Si tiene variables
+
+
+            tableS.openScope();
+            for (MyParser.VarDeclContext e : ctx.varDecl()) {
+                varClases = true;
+                visit(e);
+            }
+
+            tableS.actuaLevel -=1;
+        }
+
+
+        //Antes de agregar
+        //  System.out.println("F-> "+tipo.getText()+" "+ctx.IDENT().getSymbol().getText());
+
+        int res = tableS.enterFunc(ctx.IDENT().getSymbol().getText(), tipo.getText(),varsName,varsType,paramsName,parametros);
+
+        if(res == 1) {
+
+            this.numErrors++;
+            error = "Error Semantico ("
+                    + ctx.IDENT().getSymbol().getLine() + ":" + (ctx.IDENT().getSymbol().getCharPositionInLine() + 1)
+                    + "): La funcion ya ha sido declarada";
+            listaErrores.push(error);
         }
 
         return null;
     }
 
+    // OptionMethodDecl
+
     @Override
-    public Object visitStatementIgSTAST(MyParser.StatementIgSTASTContext ctx) {
-        return super.visitStatementIgSTAST(ctx);
+    public Object visitMethodTypeDeclAST(MyParser.MethodTypeDeclASTContext ctx) {
+
+        return visit(ctx.type());
     }
 
     @Override
-    public Object visitStatementMetSTAST(MyParser.StatementMetSTASTContext ctx) {
-        return super.visitStatementMetSTAST(ctx);
+    public Object visitMethodVoidDeclAST(MyParser.MethodVoidDeclASTContext ctx) {
+        //  System.out.println("En MethodVoidDeclAST");
+        return ctx.VOID().getSymbol();
     }
 
+    // FormPars
     @Override
-    public Object visitStatementIncSTAST(MyParser.StatementIncSTASTContext ctx) {
-        return super.visitStatementIncSTAST(ctx);
+    public List<String> visitFormParsAST(MyParser.FormParsASTContext ctx) {
+
+        String error;
+
+        //Open scopeSystem.out.println("En formPars");
+        List<String> params = new LinkedList<>();
+
+        for (MyParser.TypeContext e : ctx.type()) {
+            Token elemento = (Token) visit(e);
+            params.add(elemento.getText());
+            ///System.out.println(elemento.getText());
+        }
+
+        for (int i=0; i<ctx.IDENT().size(); i++){
+            paramsName.add(ctx.IDENT(i).getText());
+        }
+
+        for (int i = 0; i<paramsName.size(); i++){
+
+            int res = tableS.enterVarCons(paramsName.get(i),params.get(i),"Variable");
+
+            if (res == 1) {
+
+                this.numErrors++;
+                error = "Error Semantico (" + ctx.IDENT(i).getSymbol().getLine() + ":" + (ctx.IDENT(i).getSymbol().getCharPositionInLine() + 1) + "): El identificador ya ha sido declarado en el contexto actual!";
+                listaErrores.push(error);
+            }
+        }
+        // close scope
+
+        return params;
     }
 
+    //Type
     @Override
-    public Object visitStatementDecSTAST(MyParser.StatementDecSTASTContext ctx) {
-        return super.visitStatementDecSTAST(ctx);
+    public Object visitTypeAST(MyParser.TypeASTContext ctx) {
+        // System.out.println("En Type ");
+        return ctx.IDENT().getSymbol();
     }
 
-    @Override
-    public Object visitIfSTAST(MyParser.IfSTASTContext ctx) {
-        return super.visitIfSTAST(ctx);
-    }
-
-    @Override
-    public Object visitForSTAST(MyParser.ForSTASTContext ctx) {
-        return super.visitForSTAST(ctx);
-    }
-
-    @Override
-    public Object visitWhileSTAST(MyParser.WhileSTASTContext ctx) {
-        return super.visitWhileSTAST(ctx);
-    }
-
-    @Override
-    public Object visitBreakStAST(MyParser.BreakStASTContext ctx) {
-        return super.visitBreakStAST(ctx);
-    }
-
-    @Override
-    public Object visitReturnSTAST(MyParser.ReturnSTASTContext ctx) {
-        return super.visitReturnSTAST(ctx);
-    }
-
-    @Override
-    public Object visitReadSTAT(MyParser.ReadSTATContext ctx) {
-        return super.visitReadSTAT(ctx);
-    }
-
-    @Override
-    public Object visitWriteSTAST(MyParser.WriteSTASTContext ctx) {
-        return super.visitWriteSTAST(ctx);
-    }
-
-    @Override
-    public Object visitBlockSTAST(MyParser.BlockSTASTContext ctx) {
-        return super.visitBlockSTAST(ctx);
-    }
-
-    @Override
-    public Object visitPycSTAST(MyParser.PycSTASTContext ctx) {
-        return super.visitPycSTAST(ctx);
-    }
-
-    @Override
-    public Object visitWriteTypeNumIntSTAST(MyParser.WriteTypeNumIntSTASTContext ctx) {
-        return super.visitWriteTypeNumIntSTAST(ctx);
-    }
-
-    @Override
-    public Object visitWriteTypeNumIntZSTAST(MyParser.WriteTypeNumIntZSTASTContext ctx) {
-        return super.visitWriteTypeNumIntZSTAST(ctx);
-    }
-
-    @Override
-    public Object visitWriteTypeNumFloatSTAST(MyParser.WriteTypeNumFloatSTASTContext ctx) {
-        return super.visitWriteTypeNumFloatSTAST(ctx);
-    }
-
-    @Override
-    public Object visitBlockAST(MyParser.BlockASTContext ctx) {
-        return super.visitBlockAST(ctx);
-    }
-
-    @Override
-    public Object visitActParsAST(MyParser.ActParsASTContext ctx) {
-        return super.visitActParsAST(ctx);
-    }
-
-    @Override
-    public Object visitConditionAST(MyParser.ConditionASTContext ctx) {
-        return super.visitConditionAST(ctx);
-    }
-
-    @Override
-    public Object visitCondTermAST(MyParser.CondTermASTContext ctx) {
-        return super.visitCondTermAST(ctx);
-    }
-
-    @Override
-    public Object visitCondFactAST(MyParser.CondFactASTContext ctx) {
-        return super.visitCondFactAST(ctx);
-    }
-
-    @Override
-    public Object visitExprAST(MyParser.ExprASTContext ctx) {
-        return super.visitExprAST(ctx);
-    }
-
-    @Override
-    public Object visitTermAST(MyParser.TermASTContext ctx) {
-        return super.visitTermAST(ctx);
-    }
-
-    @Override
-    public Object visitFactorFAST(MyParser.FactorFASTContext ctx) {
-        return super.visitFactorFAST(ctx);
-    }
-
-    @Override
-    public Object visitSpfunctionFAST(MyParser.SpfunctionFASTContext ctx) {
-        return super.visitSpfunctionFAST(ctx);
-    }
-
-    @Override
-    public Object visitNumIntFAST(MyParser.NumIntFASTContext ctx) {
-        return super.visitNumIntFAST(ctx);
-    }
-
-    @Override
-    public Object visitNumIntZeroFAST(MyParser.NumIntZeroFASTContext ctx) {
-        return super.visitNumIntZeroFAST(ctx);
-    }
-
-    @Override
-    public Object visitNumberFloatFAST(MyParser.NumberFloatFASTContext ctx) {
-        return super.visitNumberFloatFAST(ctx);
-    }
-
-    @Override
-    public Object visitStringFAST(MyParser.StringFASTContext ctx) {
-        return super.visitStringFAST(ctx);
-    }
-
-    @Override
-    public Object visitChaeFAST(MyParser.ChaeFASTContext ctx) {
-        return super.visitChaeFAST(ctx);
-    }
-
-    @Override
-    public Object visitBooleanFAST(MyParser.BooleanFASTContext ctx) {
-        return super.visitBooleanFAST(ctx);
-    }
-
-    @Override
-    public Object visitNewFAST(MyParser.NewFASTContext ctx) {
-        return super.visitNewFAST(ctx);
-    }
-
-    @Override
-    public Object visitExpresionFAST(MyParser.ExpresionFASTContext ctx) {
-        return super.visitExpresionFAST(ctx);
-    }
-
-    @Override
-    public Object visitBooleanTrueFAST(MyParser.BooleanTrueFASTContext ctx) {
-        return super.visitBooleanTrueFAST(ctx);
-    }
-
-    @Override
-    public Object visitBooleanFalseFAST(MyParser.BooleanFalseFASTContext ctx) {
-        return super.visitBooleanFalseFAST(ctx);
-    }
-
-    @Override
-    public Object visitSpfunctionORD(MyParser.SpfunctionORDContext ctx) {
-        return super.visitSpfunctionORD(ctx);
-    }
-
-    @Override
-    public Object visitSpfunctionCHR(MyParser.SpfunctionCHRContext ctx) {
-        return super.visitSpfunctionCHR(ctx);
-    }
-
-    @Override
-    public Object visitSpfunctionLEN(MyParser.SpfunctionLENContext ctx) {
-        return super.visitSpfunctionLEN(ctx);
-    }
-
-    @Override
-    public Object visitDesignatorAST(MyParser.DesignatorASTContext ctx) {
-        return super.visitDesignatorAST(ctx);
-    }
-
-    @Override
-    public Object visitDesignatorPuntIdAST(MyParser.DesignatorPuntIdASTContext ctx) {
-        return super.visitDesignatorPuntIdAST(ctx);
-    }
-
-    @Override
-    public Object visitDesignatorCorcsAST(MyParser.DesignatorCorcsASTContext ctx) {
-        return super.visitDesignatorCorcsAST(ctx);
-    }
-
-    @Override
-    public Object visitRelopIgIgAST(MyParser.RelopIgIgASTContext ctx) {
-        return ctx.IGIG().getSymbol();
-    }
-
-    @Override
-    public Object visitRelopDifAST(MyParser.RelopDifASTContext ctx) {
-        return ctx.DIF().getSymbol();
-    }
-
-    @Override
-    public Object visitRelopMayAST(MyParser.RelopMayASTContext ctx) {
-        return ctx.MAY().getSymbol();
-    }
-
-    @Override
-    public Object visitRelopMatIgAST(MyParser.RelopMatIgASTContext ctx) {
-        return ctx.MAY_IG().getSymbol();
-    }
-
-    @Override
-    public Object visitRelopMenAST(MyParser.RelopMenASTContext ctx) {
-        return ctx.MEN().getSymbol();
-    }
-
-    @Override
-    public Object visitRelopMenIgAST(MyParser.RelopMenIgASTContext ctx) {
-        return ctx.MEN_IG().getSymbol();
-    }
-
-    @Override
-    public Object visitAddopSumAST(MyParser.AddopSumASTContext ctx) {
-        return ctx.SUM().getSymbol();
-    }
-
-    @Override
-    public Object visitAddopRestAST(MyParser.AddopRestASTContext ctx) {
-        return ctx.REST().getSymbol();
-    }
-
-    @Override
-    public Object visitMulopMultAST(MyParser.MulopMultASTContext ctx) {
-        return ctx.MULT().getSymbol();
-    }
-
-    @Override
-    public Object visitMulopDivAST(MyParser.MulopDivASTContext ctx) {
-        return ctx.DIV().getSymbol();
-    }
-
-    @Override
-    public Object visitMulopPorcAST(MyParser.MulopPorcASTContext ctx) {
-        return  ctx.PORC().getSymbol();
-    }
 }

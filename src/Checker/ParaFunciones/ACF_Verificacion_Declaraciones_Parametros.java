@@ -11,7 +11,7 @@ import java.util.List;
 
 public class ACF_Verificacion_Declaraciones_Parametros extends MyParserBaseVisitor {
 
-    private int numErrors;
+  /*  private int numErrors;
     private FunctionTable tableF;
     private SymbolTable tableV;
 
@@ -237,5 +237,5 @@ public class ACF_Verificacion_Declaraciones_Parametros extends MyParserBaseVisit
     @Override
     public Object visitSpfunctionLEN(MyParser.SpfunctionLENContext ctx) {
         return super.visitSpfunctionLEN(ctx);
-    }
+    }*/
 }

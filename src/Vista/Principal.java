@@ -4,7 +4,6 @@ package Vista;
 
 import Antlr.MyParser;
 import Antlr.Scanner;
-import Checker.ParaFunciones.ACF_Lectura_Previa;
 import Checker.ParaFunciones.ACF_Verificacion_Declaraciones_Parametros;
 import Checker.ParaVariables.ACVC_Declaracion_Asignacion;
 import Exeptions.*;
@@ -37,8 +36,8 @@ public class Principal extends  JFrame implements ActionListener {
     MyException     myException = null;
     MyConsoleErrorListener myConsoleErrorListener = null;
     ACVC_Declaracion_Asignacion analizador_contextual_vc1 = null;
-    ACF_Lectura_Previa analizador_contextual_f1 = null;
-    ACF_Verificacion_Declaraciones_Parametros analizador_contextual_f2 = null;
+   // ACF_Lectura_Previa analizador_contextual_f1 = null;
+   // ACF_Verificacion_Declaraciones_Parametros analizador_contextual_f2 = null;
 
     int tab=1;
     private JMenuBar menuBar;
@@ -352,11 +351,12 @@ public class Principal extends  JFrame implements ActionListener {
                 if (analizador_contextual_vc1.hasErrors()==false) {
 
                     // Imprimo resultados del Analizador 1 (Analizador Contextual de Variables y clases)
-                    defaultListModel.addElement(analizador_contextual_vc1.imprimir());
+                    //defaultListModel.addElement(analizador_contextual_vc1.imprimir());
 
+                    System.out.println(analizador_contextual_vc1.imprimir());
                     // Analizador 2 (Analizador Contextual de Funciones)
 
-                    try { // Utilizo Analizador Contextual de Funciones
+                    /*try { // Utilizo Analizador Contextual de Funciones
                         // Para revisar las funciones declaradas, y agregarlas a la tabla de funciones
 
                         // Declaracion Analizador 2 (Analizador Contextual de Funciones)
@@ -370,7 +370,7 @@ public class Principal extends  JFrame implements ActionListener {
 
                         // Imprimo los resultados del Analizador 2 (Analizador Contextual de Funciones)
                         //defaultListModel.addElement(analizador_contextual_f1.imprimir());
-                       // System.out.println(analizador_contextual_f1.imprimir());
+                        System.out.println(analizador_contextual_f1.imprimir());
 
                         // Analizador 3 (Analizador Contextual de Funciones para declaraciones, numero parametros, tipos de parametros)
 
@@ -389,7 +389,7 @@ public class Principal extends  JFrame implements ActionListener {
 
                             // Imprimo los resultados del Analizador 3 (Analizador Contextual de Funciones para declaraciones, numero parametros, tipos de parametros)
                             //defaultListModel.addElement(analizador_contextual_f1.imprimir());
-                            System.out.println(analizador_contextual_f2.imprimir());
+                           // System.out.println(analizador_contextual_f2.imprimir());
 
                             // Analizador 4
                         }
@@ -430,7 +430,7 @@ public class Principal extends  JFrame implements ActionListener {
 
                         defaultListModel.addElement( "Total Errors: " + (errorListener.errorMsgs.size()+ analizador_contextual_f1.getNumErrors()) );
 
-                    }
+                    }*/
 
                     // Hasta el final
                     //JOptionPane.showMessageDialog(this,"Compilación exitosa.");

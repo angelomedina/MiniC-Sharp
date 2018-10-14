@@ -1,32 +1,26 @@
 package Checker.TypeSymbol;
 
-import Checker.TypeSymbol.Classe;
-import Checker.TypeSymbol.Constante;
-import Checker.TypeSymbol.Symbol;
-import Checker.TypeSymbol.Variable;
-
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Created by oviquez on 24/9/2018.
  */
 public class SymbolTable {
 
-    private int actuaLevel = 0;
-    private LinkedList<Symbol> table = new LinkedList<Symbol>();
+    public int actuaLevel = 0;
+    public LinkedList<Symbol> table = new LinkedList<Symbol>();
 
     /**
-     * Agrega un identificador a la Tabla
+     * Funcion para registrar variables, y constantes
      */
-    public int enter(String id, String tipo,String identificador) {
+    public int enterVarCons(String id, String tipo,String identificador) {
 
         if (exists(id,actuaLevel) == false) {
 
             switch ( identificador ) {
-                case "Classe":
-                    table.add(new Classe(id, tipo, actuaLevel));
-                    return 0;//means id was succesfully inserted in table
+
                 case "Variable":
                     table.add(new Variable(id, tipo, actuaLevel));
                     return 0;//means id was succesfully inserted in table
@@ -38,6 +32,58 @@ public class SymbolTable {
 
         return 1; //means id exists already in table
 
+    }
+
+
+    /**
+     * Funcion para registrar funciones
+     */
+
+    public int enterFunc(String id, String tipo,List<String>varsName, List<String> varsType, List<String>paramsName, List<String> paramsType) {
+
+        if (exists(id,actuaLevel) == false) {
+
+            table.add(new FuncionNormal(id,tipo,actuaLevel,varsName,varsType,paramsName,paramsType));
+            return 0;//means id was succesfully inserted in table
+        }
+
+        return 1;
+    }
+
+    /**
+     * Funcion para registrar clases
+     */
+    public int enterCl(String id, String tipo, List<String>paramsName, List<String> paramsType) {
+
+        if (exists(id,actuaLevel) == false) {
+
+            table.add(new Clase(id, tipo, actuaLevel,paramsName,paramsType));
+            return 0;//means id was succesfully inserted in table
+        }
+
+        return 1; //means id exists already in table
+
+    }
+
+
+    public void registrarFuncionesPredefinidas(){
+
+        List<String> params = new LinkedList<>();
+        params.add("char");
+
+        List<String>params2 = new LinkedList<>();
+        params2.add("int");
+
+        List<String>params3 = new LinkedList<>();
+        params3.add("uni");
+
+        List<String> names = new LinkedList<>();
+        names.add("");
+
+
+        table.add(new FuncionSpecial("ord","char",-1,"int"));
+        table.add(new FuncionSpecial("chr","int",-1,"char"));
+        table.add(new FuncionSpecial("len","arreglo",-1,"int"));
     }
 
     private boolean exists(String id, int level) {
@@ -103,7 +149,16 @@ public class SymbolTable {
                 for (int j = 0; j < i.level; j++){
                     nivel += "\t";
                 }
-                System.out.println(nivel + "-> Nombre: " + i.getName() + "-> Nivel: " + i.getLevel() + "-> Tipo: " + i.getType());
+
+                if(i.getIdSimbolo().equals("Constante") || i.getIdSimbolo().equals("Variable")) {
+                    System.out.println(nivel + "-> Nombre: " + i.getName() + "-> Nivel: " + i.getLevel() + "-> Tipo: " + i.getType());
+                }
+                else if(i.getIdSimbolo().equals("Funcion")){
+                    ((Funcion) i ).toString();
+                }
+                else if(i.getIdSimbolo().equals("Clase")){
+                    ((Clase) i ).toString();
+                }
             }
             System.out.println("------------------------------------------");
 
@@ -119,7 +174,8 @@ public class SymbolTable {
         String result="";
 
         for (Iterator i = table.descendingIterator(); i.hasNext(); )
-            result += i.next().toString()+"\n";
+
+            result += "\n"+i.next().toString()+"\n";
         if(table.size() == 0){
             result = "++ tabla vacia ++" +
                     "";
