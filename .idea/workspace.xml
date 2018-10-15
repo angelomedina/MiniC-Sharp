@@ -2,17 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6ebe243f-a307-4d73-a0f9-921472d75155" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Checker/ParaVariables/AC_Statement.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Checker/ParaFunciones/ACF_Verificacion_Declaraciones_Parametros.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Checker/ParaFunciones/ACF_Verificacion_Declaraciones_Parametros.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Antlr/MyParser.g4" beforeDir="false" afterPath="$PROJECT_DIR$/src/Antlr/MyParser.g4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Vista/Principal.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Vista/Principal.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Checker/ParaVariables/ACVC_Declaracion_Asignacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Checker/ParaVariables/ACVC_Declaracion_Asignacion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Generated/Antlr/MyParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Generated/Antlr/MyParser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Generated/Antlr/MyParserBaseVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Generated/Antlr/MyParserBaseVisitor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Generated/Antlr/MyParserVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Generated/Antlr/MyParserVisitor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Generated/Antlr/Scanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Generated/Antlr/Scanner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vista/Principal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/Principal.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,10 +21,10 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/MiniC_Sharp$P.ic" NAME="P Coverage Results" MODIFIED="1538977306148" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/MiniC_Sharp$Principal.ic" NAME="Principal Coverage Results" MODIFIED="1538863260690" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>Vista.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/MiniC_Sharp$P.ic" NAME="P Coverage Results" MODIFIED="1538977306148" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -155,38 +154,38 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="7" />
-          <entry key="g4" value="13" />
-          <entry key="java" value="88" />
-          <entry key="txt" value="11" />
+          <entry key="g4" value="15" />
+          <entry key="java" value="90" />
+          <entry key="txt" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="ANTLR v4 grammar file" value="13" />
+          <entry key="ANTLR v4 grammar file" value="15" />
           <entry key="CLASS" value="7" />
-          <entry key="JAVA" value="88" />
-          <entry key="PLAIN_TEXT" value="11" />
+          <entry key="JAVA" value="90" />
+          <entry key="PLAIN_TEXT" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="25" />
           <entry key="g4" value="52" />
-          <entry key="java" value="6021" />
+          <entry key="java" value="6374" />
           <entry key="txt" value="76" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="ANTLR v4 grammar file" value="52" />
-          <entry key="JAVA" value="6021" />
+          <entry key="JAVA" value="6374" />
           <entry key="PLAIN_TEXT" value="101" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.lifecycle.project">
         <counts>
           <entry key="project.closed" value="16" />
-          <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.184" value="1" />
           <entry key="project.open.time.2" value="2" />
@@ -201,7 +200,7 @@
           <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.59" value="1" />
           <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="17" />
+          <entry key="project.opened" value="18" />
         </counts>
       </usages-collector>
     </session>
@@ -277,39 +276,47 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Checker/ParaVariables/ACVC_Declaracion_Asignacion.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2831">
-              <caret line="156" column="49" selection-start-line="156" selection-start-column="49" selection-end-line="156" selection-end-column="49" />
+            <state relative-caret-position="153">
+              <caret line="385" column="39" lean-forward="true" selection-start-line="385" selection-start-column="39" selection-end-line="385" selection-end-column="39" />
               <folding>
                 <element signature="method#hasErrors#0;class#ACVC_Declaracion_Asignacion#0" />
                 <element signature="method#imprimir#0;class#ACVC_Declaracion_Asignacion#0" />
-                <element signature="method#visitProgramAST#0;class#ACVC_Declaracion_Asignacion#0" />
-                <element signature="method#visitProgramConstAST#0;class#ACVC_Declaracion_Asignacion#0" />
-                <element signature="method#visitProgramVarAST#0;class#ACVC_Declaracion_Asignacion#0" />
-                <element signature="method#visitProgramClassAST#0;class#ACVC_Declaracion_Asignacion#0" />
-                <element signature="method#visitConstDeclAST#0;class#ACVC_Declaracion_Asignacion#0" />
-                <element signature="method#visitConstNumberIntDeclAST#0;class#ACVC_Declaracion_Asignacion#0" />
+                <element signature="e#11406#11407#0" expanded="true" />
+                <element signature="e#11452#11453#0" expanded="true" />
+                <element signature="e#11418#11419#0" expanded="true" />
+                <element signature="e#11470#11471#0" expanded="true" />
+                <element signature="e#11336#11552#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Vista/Principal.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Antlr/MyParser.g4">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1398">
-              <caret line="356" column="51" lean-forward="true" selection-start-line="356" selection-start-column="51" selection-end-line="356" selection-end-column="51" />
+            <state relative-caret-position="137">
+              <caret line="79" selection-start-line="79" selection-end-line="79" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Checker/ParaFunciones/ACF_Verificacion_Declaraciones_Parametros.java">
+        <entry file="file://$PROJECT_DIR$/src/Antlr/Scanner.g4">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1047">
-              <caret line="196" column="15" selection-start-line="196" selection-start-column="11" selection-end-line="196" selection-end-column="15" />
+            <state relative-caret-position="188">
+              <caret line="43" column="4" selection-start-line="43" selection-end-line="43" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/CodigoPrueba.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2142">
+              <caret line="41" column="61" lean-forward="true" selection-start-line="41" selection-start-column="61" selection-end-line="41" selection-end-column="61" />
             </state>
           </provider>
         </entry>
@@ -325,10 +332,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>main</find>
-      <find>error</find>
-      <find>act</find>
-      <find>cond</find>
       <find>visi</find>
       <find>visitIF</find>
       <find>Decla</find>
@@ -348,6 +351,17 @@
       <find>Sys</find>
       <find>void</find>
       <find>MethodDecl</find>
+      <find>statement</find>
+      <find>StatementIgSTAST</find>
+      <find>Statement</find>
+      <find>PUN</find>
+      <find>IDENT</find>
+      <find>PUNT</find>
+      <find>CORC_IZQ</find>
+      <find>DesignatorPuntIdAST</find>
+      <find>REST</find>
+      <find>expre</find>
+      <find>term</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -396,12 +410,12 @@
         <option value="$PROJECT_DIR$/src/Checker/Analizador_contextual.java" />
         <option value="$PROJECT_DIR$/src/Checker/ACV_Declaracion_Asignacion.java" />
         <option value="$PROJECT_DIR$/src/Checker/ParaVariables/ACV_Declaracion_Asignacion.java" />
-        <option value="$PROJECT_DIR$/src/Vista/Principal.java" />
         <option value="$PROJECT_DIR$/src/Checker/ParaFunciones/FunctionTable.java" />
         <option value="$PROJECT_DIR$/src/Checker/ParaFunciones/ACF_Verificacion_Declaraciones_Parametros.java" />
         <option value="$PROJECT_DIR$/src/Antlr/MyParser.g4" />
         <option value="$PROJECT_DIR$/src/Checker/ParaFunciones/ACF_Lectura_Previa.java" />
         <option value="$PROJECT_DIR$/src/Checker/ParaVariables/AC_Statement.java" />
+        <option value="$PROJECT_DIR$/src/Vista/Principal.java" />
         <option value="$PROJECT_DIR$/src/Checker/ParaVariables/ACVC_Declaracion_Asignacion.java" />
       </list>
     </option>
@@ -418,7 +432,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="676" />
     <option name="width" value="697" />
     <option name="height" value="745" />
@@ -431,8 +445,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -445,43 +459,10 @@
               <item name="MiniC-Sharp" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="MiniC-Sharp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MiniC-Sharp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Antlr" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MiniC-Sharp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MiniC-Sharp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Checker" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MiniC-Sharp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MiniC-Sharp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Checker" type="462c0819:PsiDirectoryNode" />
-              <item name="TypeSymbol" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MiniC-Sharp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MiniC-Sharp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Vista" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MiniC-Sharp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MiniC-Sharp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Vista" type="462c0819:PsiDirectoryNode" />
-              <item name="Principal" type="e9f4de52:FormNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -489,14 +470,14 @@
     <property name="$PROJECT_DIR$/src/Antlr/MyParser.g4::/gen-listener" value="false" />
     <property name="$PROJECT_DIR$/src/Antlr/MyParser.g4::/gen-visitor" value="true" />
     <property name="$PROJECT_DIR$/src/Antlr/MyParser.g4::/language" value="Java" />
-    <property name="$PROJECT_DIR$/src/Antlr/MyParser.g4::/lib-dir" value="C:\Users\Felipe-Boza\Desktop\MiniC-Sharp\src\Generated" />
-    <property name="$PROJECT_DIR$/src/Antlr/MyParser.g4::/output-dir" value="C:\Users\Felipe-Boza\Desktop\MiniC-Sharp\src\Generated" />
+    <property name="$PROJECT_DIR$/src/Antlr/MyParser.g4::/lib-dir" value="E:\Doccumentos TEC\6 SEMESTRE 2018\Compiladores\Proyectos\I Proyecto\Avance II\MiniC-Sharp\src\Generated" />
+    <property name="$PROJECT_DIR$/src/Antlr/MyParser.g4::/output-dir" value="E:\Doccumentos TEC\6 SEMESTRE 2018\Compiladores\Proyectos\I Proyecto\Avance II\MiniC-Sharp\src\Generated" />
     <property name="$PROJECT_DIR$/src/Antlr/Scanner.g4::/auto-gen" value="false" />
     <property name="$PROJECT_DIR$/src/Antlr/Scanner.g4::/gen-listener" value="false" />
     <property name="$PROJECT_DIR$/src/Antlr/Scanner.g4::/gen-visitor" value="true" />
     <property name="$PROJECT_DIR$/src/Antlr/Scanner.g4::/language" value="Java" />
-    <property name="$PROJECT_DIR$/src/Antlr/Scanner.g4::/lib-dir" value="C:\Users\Felipe-Boza\Desktop\MiniC-Sharp\src\Generated" />
-    <property name="$PROJECT_DIR$/src/Antlr/Scanner.g4::/output-dir" value="C:\Users\Felipe-Boza\Desktop\MiniC-Sharp\src\Generated" />
+    <property name="$PROJECT_DIR$/src/Antlr/Scanner.g4::/lib-dir" value="E:\Doccumentos TEC\6 SEMESTRE 2018\Compiladores\Proyectos\I Proyecto\Avance II\MiniC-Sharp\src\Generated" />
+    <property name="$PROJECT_DIR$/src/Antlr/Scanner.g4::/output-dir" value="E:\Doccumentos TEC\6 SEMESTRE 2018\Compiladores\Proyectos\I Proyecto\Avance II\MiniC-Sharp\src\Generated" />
     <property name="OverrideImplement.combined" value="false" />
     <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW" value="false" />
     <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH" value="360" />
@@ -504,7 +485,7 @@
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="409" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539477931963" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539571203861" />
     <property name="create.test.in.the.same.root" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Generated" />
     <property name="project.structure.last.edited" value="Project" />
@@ -608,9 +589,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.31467474" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.505295" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24962178" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -620,7 +602,7 @@
       <window_info id="DB Browser" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.47419354" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32352942" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32258064" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39869282" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -628,7 +610,7 @@
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.5516129" />
       <window_info anchor="bottom" id="Tool Output" order="8" weight="0.32352942" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.31045753" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.30967742" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="12" weight="0.32580644" />
       <window_info anchor="bottom" id="ANTLR Preview" order="13" weight="0.32741934" />
@@ -848,22 +830,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/CodigoPrueba.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="41" column="61" lean-forward="true" selection-start-line="41" selection-start-column="61" selection-end-line="41" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Checker/ParaFunciones/Funcion.java" />
     <entry file="file://$PROJECT_DIR$/src/Checker/ParaFunciones/FunctionTable.java" />
-    <entry file="file://$PROJECT_DIR$/src/Pruebas(Angelo).txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="10" column="9" lean-forward="true" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Checker/TypeSymbol/Variable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -920,62 +888,63 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Checker/ParaFunciones/ACF_Lectura_Previa.java">
+    <entry file="file://$PROJECT_DIR$/src/Checker/ParaFunciones/ACF_Lectura_Previa.java" />
+    <entry file="file://$PROJECT_DIR$/src/Checker/ParaVariables/AC_Statement.java" />
+    <entry file="file://$PROJECT_DIR$/src/Pruebas(Angelo).txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Checker/ParaVariables/AC_Statement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="13" lean-forward="true" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Checker/ParaFunciones/ACF_Verificacion_Declaraciones_Parametros.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1047">
-          <caret line="196" column="15" selection-start-line="196" selection-start-column="11" selection-end-line="196" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Antlr/Scanner.g4">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="58" column="9" lean-forward="true" selection-start-line="58" selection-start-column="9" selection-end-line="58" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Antlr/MyParser.g4">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="42" column="28" selection-start-line="42" selection-start-column="28" selection-end-line="42" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Checker/ParaVariables/ACVC_Declaracion_Asignacion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2831">
-          <caret line="156" column="49" selection-start-line="156" selection-start-column="49" selection-end-line="156" selection-end-column="49" />
-          <folding>
-            <element signature="method#hasErrors#0;class#ACVC_Declaracion_Asignacion#0" />
-            <element signature="method#imprimir#0;class#ACVC_Declaracion_Asignacion#0" />
-            <element signature="method#visitProgramAST#0;class#ACVC_Declaracion_Asignacion#0" />
-            <element signature="method#visitProgramConstAST#0;class#ACVC_Declaracion_Asignacion#0" />
-            <element signature="method#visitProgramVarAST#0;class#ACVC_Declaracion_Asignacion#0" />
-            <element signature="method#visitProgramClassAST#0;class#ACVC_Declaracion_Asignacion#0" />
-            <element signature="method#visitConstDeclAST#0;class#ACVC_Declaracion_Asignacion#0" />
-            <element signature="method#visitConstNumberIntDeclAST#0;class#ACVC_Declaracion_Asignacion#0" />
-          </folding>
+        <state relative-caret-position="-13">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Vista/Principal.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1398">
-          <caret line="356" column="51" lean-forward="true" selection-start-line="356" selection-start-column="51" selection-end-line="356" selection-end-column="51" />
+        <state relative-caret-position="359">
+          <caret line="358" selection-start-line="358" selection-end-line="358" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Checker/ParaFunciones/ACF_Verificacion_Declaraciones_Parametros.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="538">
+          <caret line="196" column="15" selection-start-line="196" selection-start-column="11" selection-end-line="196" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CodigoPrueba.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2142">
+          <caret line="41" column="61" lean-forward="true" selection-start-line="41" selection-start-column="61" selection-end-line="41" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Antlr/Scanner.g4">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="43" column="4" selection-start-line="43" selection-end-line="43" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Antlr/MyParser.g4">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="137">
+          <caret line="79" selection-start-line="79" selection-end-line="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Checker/ParaVariables/ACVC_Declaracion_Asignacion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="385" column="39" lean-forward="true" selection-start-line="385" selection-start-column="39" selection-end-line="385" selection-end-column="39" />
+          <folding>
+            <element signature="method#hasErrors#0;class#ACVC_Declaracion_Asignacion#0" />
+            <element signature="method#imprimir#0;class#ACVC_Declaracion_Asignacion#0" />
+            <element signature="e#11406#11407#0" expanded="true" />
+            <element signature="e#11452#11453#0" expanded="true" />
+            <element signature="e#11418#11419#0" expanded="true" />
+            <element signature="e#11470#11471#0" expanded="true" />
+            <element signature="e#11336#11552#0" />
+          </folding>
         </state>
       </provider>
     </entry>

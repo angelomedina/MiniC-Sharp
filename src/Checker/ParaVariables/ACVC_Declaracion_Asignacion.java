@@ -349,4 +349,77 @@ public class ACVC_Declaracion_Asignacion extends MyParserBaseVisitor {
         return ctx.IDENT().getSymbol();
     }
 
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //Descripcion metodos de statement(Angelo)
+
+    //statement
+    /*
+    #statementIgSTAST                               ... en proceso
+    #statementMetSTAST
+    #statementIncSTAST
+    #statementDecSTAST
+    #ifSTAST
+    #forSTAST
+    #whileSTAST
+    #breakStAST
+    #returnSTAST
+    #readSTAT
+    #writeSTAST
+    #blockSTAST
+    #pycSTAST;
+    #designatorAST;
+    #conditionAST;
+    #exprAST;
+    #writeTypeNumIntSTAST
+     */
+
+    @Override
+    public Object visitTermAST(MyParser.TermASTContext ctx) {
+        return super.visitTermAST(ctx);
+    }
+
+    @Override
+    public Object visitExprAST(MyParser.ExprASTContext ctx) {
+
+        // ( REST )? term ( addop term )*
+        // ( - )
+        return super.visitExprAST(ctx);
+    }
+
+    @Override
+    public Object visitDesignatorPuntIdAST(MyParser.DesignatorPuntIdASTContext ctx) {
+
+        // PUNT IDENT
+
+        return super.visitDesignatorPuntIdAST(ctx);
+    }
+
+    @Override
+    public Object visitDesignatorCorcsAST(MyParser.DesignatorCorcsASTContext ctx) {
+
+        // CORC_IZQ expr CORC_DER
+        // [ expre ]
+
+        return super.visitDesignatorCorcsAST(ctx);
+    }
+
+    @Override
+    public Object visitDesignatorAST(MyParser.DesignatorASTContext ctx) {
+        return super.visitDesignatorAST(ctx);
+    }
+
+    @Override
+    public Object visitStatementIgSTAST(MyParser.StatementIgSTASTContext ctx) {
+
+        //designator ( IG expr) PyC
+
+        //designator
+        //designatorExp
+        //exp
+        //term
+        // addop
+        // term
+
+        return super.visitStatementIgSTAST(ctx);
+    }
 }

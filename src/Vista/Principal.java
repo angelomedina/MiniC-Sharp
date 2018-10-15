@@ -354,6 +354,9 @@ public class Principal extends  JFrame implements ActionListener {
                     //defaultListModel.addElement(analizador_contextual_vc1.imprimir());
 
                     System.out.println(analizador_contextual_vc1.imprimir());
+                    JOptionPane.showMessageDialog(this,"Compilación exitosa.");
+                    defaultListModel.addElement(Mymsg);
+
                     // Analizador 2 (Analizador Contextual de Funciones)
 
                     /*try { // Utilizo Analizador Contextual de Funciones
