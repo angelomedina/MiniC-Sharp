@@ -396,13 +396,40 @@ public class ACVC_Declaracion_Asignacion extends MyParserBaseVisitor {
     @Override
     public Object visitExprAST(MyParser.ExprASTContext ctx) {
 
+        // term: factor ( mulop factor )*
+        // factor:
+
         //( REST )? term ( addop term )*
 
         // -
         return super.visitExprAST(ctx);
     }
 
+    /// inicio factor
+
+    @Override
+    public Object visitSpfunctionFAST(MyParser.SpfunctionFASTContext ctx) {
+
+        //special_function (PAR_IZQ (actPars) PAR_DER)
+
+        return super.visitSpfunctionFAST(ctx);
+    }
+
+
+    // fin factor
+
+
+
+
     //-----  CON DUDAS
+
+    @Override //preguntar: que hago con el new
+    public Object visitNewFAST(MyParser.NewFASTContext ctx) {
+
+        //NEW designator
+        visit(ctx.designator());
+        return super.visitNewFAST(ctx);
+    }
 
     @Override  //preguntar: condiciones estan en la lista y son de tipo igual
     public Object visitStatementIgSTAST(MyParser.StatementIgSTASTContext ctx) {
@@ -457,7 +484,81 @@ public class ACVC_Declaracion_Asignacion extends MyParserBaseVisitor {
         return ctx.NUMBER_INTEGER().getSymbol();
     }
 
+
+
     //----LISTOS
+
+
+    @Override
+    public Object visitActParsAST(MyParser.ActParsASTContext ctx) {
+
+        //expr ( COMA expr )*
+        for (MyParser.ExprContext e : ctx.expr())
+            visit(e);
+
+        return null;
+    }
+
+    @Override
+    public Object visitSpfunctionORD(MyParser.SpfunctionORDContext ctx) {
+        return ctx.ORD().getSymbol();
+    }
+
+    @Override
+    public Object visitSpfunctionCHR(MyParser.SpfunctionCHRContext ctx) {
+        return ctx.CHR();
+    }
+
+    @Override
+    public Object visitSpfunctionLEN(MyParser.SpfunctionLENContext ctx) {
+        return ctx.LEN().getSymbol();
+    }
+
+    @Override
+    public Object visitNumIntFAST(MyParser.NumIntFASTContext ctx) {
+        return ctx.NUMBER_INTEGER().getSymbol();
+    }
+
+    @Override
+    public Object visitNumIntZeroFAST(MyParser.NumIntZeroFASTContext ctx) {
+        return ctx.NUMBER_INTEGER_ZERO().getSymbol();
+    }
+
+    @Override
+    public Object visitNumberFloatFAST(MyParser.NumberFloatFASTContext ctx) {
+        return ctx.NUMBER_FLOAT().getSymbol();
+    }
+
+    @Override
+    public Object visitStringFAST(MyParser.StringFASTContext ctx) {
+        return ctx.STRING_CONST().getSymbol();
+    }
+
+    @Override
+    public Object visitChaeFAST(MyParser.ChaeFASTContext ctx) {
+
+        //CHAR_CONST
+        return ctx.CHAR_CONST().getSymbol();
+    }
+
+    @Override
+    public Object visitExpresionFAST(MyParser.ExpresionFASTContext ctx) {
+
+        //PAR_IZQ expr PAR_DER
+        visit(ctx.expr());
+
+        return null;
+    }
+
+    @Override
+    public Object visitBooleanTrueFAST(MyParser.BooleanTrueFASTContext ctx) {
+        return ctx.TRUE().getSymbol();
+    }
+
+    @Override
+    public Object visitBooleanFalseFAST(MyParser.BooleanFalseFASTContext ctx) {
+        return ctx.FALSE().getSymbol();
+    }
 
     @Override
     public Object visitWriteTypeNumIntZSTAST(MyParser.WriteTypeNumIntZSTASTContext ctx) {
@@ -506,7 +607,6 @@ public class ACVC_Declaracion_Asignacion extends MyParserBaseVisitor {
             visit(e);
         return null;
     }
-
 
     @Override
     public Object visitTermAST(MyParser.TermASTContext ctx) {
