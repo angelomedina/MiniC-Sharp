@@ -4,6 +4,7 @@ package Checker.ParaVariables;
 import Antlr.MyParser;
 import Antlr.MyParserBaseVisitor;
 import Checker.TypeSymbol.SymbolTable;
+import com.sun.org.apache.bcel.internal.generic.RETURN;
 import org.antlr.v4.runtime.Token;
 
 import java.util.LinkedList;
@@ -105,6 +106,8 @@ public class ACVC_Declaracion_Asignacion extends MyParserBaseVisitor {
 
     @Override
     public Object visitConstDeclAST(MyParser.ConstDeclASTContext ctx) {
+
+        //CONST type IDENT IG (valueTypeConst) PyC
 
         String error = "";
         String tipo = ctx.type().getText();
@@ -374,59 +377,55 @@ public class ACVC_Declaracion_Asignacion extends MyParserBaseVisitor {
     #writeTypeNumIntSTAST
      */
 
-
+    // en proceso
     @Override
-    public Object visitTermAST(MyParser.TermASTContext ctx) {
-        return super.visitTermAST(ctx);
+    public Object visitWriteSTAST(MyParser.WriteSTASTContext ctx) {
+
+        //CONST type IDENT IG (valueTypeConst) PyC
+        //const float   d = 12.5;
+
+        //WRITE PAR_IZQ expr (writeType)? PAR_DER PyC
+
+
+        //write ( 3*2 );
+
+
+        return super.visitWriteSTAST(ctx);
     }
 
     @Override
     public Object visitExprAST(MyParser.ExprASTContext ctx) {
 
-        // ( REST )? term ( addop term )*
-        // ( - )
+        //( REST )? term ( addop term )*
+
+        // -
         return super.visitExprAST(ctx);
     }
 
+    //-----  CON DUDAS
 
-    @Override
+    @Override  //preguntar: condiciones estan en la lista y son de tipo igual
     public Object visitStatementIgSTAST(MyParser.StatementIgSTASTContext ctx) {
 
         //designator ( IG expr) PyC
+        // a = b ;
         visit(ctx.designator());
 
         return null;
-        //return super.visitStatementIgSTAST(ctx);
     }
 
-    @Override
+    @Override //preguntar: si es solo visitar
     public Object visitIfSTAST(MyParser.IfSTASTContext ctx) {
 
-        //return super.visitIfSTAST(ctx);
         //IF PAR_IZQ condition PAR_DER statement ( ELSE statement )?
-        //if(v1 > v2){}else {}
-        /*
-        String error;
-        String cond = (String) visit(ctx.condition());
+        //if ( a = b){} else{}
 
-        if(!cond.equals("int")){
-            this.numErrors++;
-            error = "Semantic Error ("
-                    + ctx.IF().getSymbol().getLine()
-                    + ":" + (ctx.IF().getSymbol().getCharPositionInLine() + 1)
-                    + "): Invalid if expression type ";
-            listaErrores.push(error);
+        visit(ctx.condition());
 
-        }else{
-        }*/
-
-        return null;
-
+        return  null;
     }
 
-    //----- funcionales
-
-    @Override
+    @Override //preguntar: si  ident() tiene que hacer algo
     public Object visitDesignatorAST(MyParser.DesignatorASTContext ctx) {
 
         //IDENT (designatorExp)*
@@ -435,18 +434,39 @@ public class ACVC_Declaracion_Asignacion extends MyParserBaseVisitor {
         return null;
     }
 
-    @Override //preguntar
+    @Override //preguntar: si es solo visitar
     public Object visitDesignatorCorcsAST(MyParser.DesignatorCorcsASTContext ctx) {
 
         // CORC_IZQ expr CORC_DER
 
-        return super.visitDesignatorCorcsAST(ctx);
+        visit(ctx.expr());
+
+        return null;
     }
 
-    @Override
+    @Override //preguntar: si se vistan ambos
     public Object visitDesignatorPuntIdAST(MyParser.DesignatorPuntIdASTContext ctx) {
         // PUNT IDENT
         return super.visitDesignatorPuntIdAST(ctx);
+    }
+
+    @Override //preguntar: si s vistan ambos
+    public Object visitWriteTypeNumIntSTAST(MyParser.WriteTypeNumIntSTASTContext ctx) {
+
+        //COMA NUMBER_INTEGER
+        return ctx.NUMBER_INTEGER().getSymbol();
+    }
+
+    //----LISTOS
+
+    @Override
+    public Object visitWriteTypeNumIntZSTAST(MyParser.WriteTypeNumIntZSTASTContext ctx) {
+        return ctx.NUMBER_INTEGER_ZERO().getSymbol();
+    }
+
+    @Override
+    public Object visitWriteTypeNumFloatSTAST(MyParser.WriteTypeNumFloatSTASTContext ctx) {
+        return ctx.NUMBER_FLOAT();
     }
 
     @Override
@@ -483,6 +503,16 @@ public class ACVC_Declaracion_Asignacion extends MyParserBaseVisitor {
 
         //condition: condTerm ( OR condTerm )*
         for (MyParser.CondTermContext e : ctx.condTerm())
+            visit(e);
+        return null;
+    }
+
+
+    @Override
+    public Object visitTermAST(MyParser.TermASTContext ctx) {
+
+        //term: factor ( mulop factor )*
+        for (MyParser.FactorContext e : ctx.factor())
             visit(e);
         return null;
     }
