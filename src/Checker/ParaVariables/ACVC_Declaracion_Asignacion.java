@@ -361,26 +361,11 @@ public class ACVC_Declaracion_Asignacion extends MyParserBaseVisitor {
 
     // en proceso
 
-
-    @Override
-    public Object visitStatementMetSTAST(MyParser.StatementMetSTASTContext ctx) {
-
-        //designator (PAR_IZQ ( actPars )? PAR_DER ) PyC
-        return super.visitStatementMetSTAST(ctx);
-    }
-
     @Override
     public Object visitForSTAST(MyParser.ForSTASTContext ctx) {
 
         //FOR PAR_IZQ expr PyC (condition)? PyC (statement)? PAR_DER statement
         return super.visitForSTAST(ctx);
-    }
-
-    @Override
-    public Object visitWhileSTAST(MyParser.WhileSTASTContext ctx) {
-
-        //WHILE PAR_IZQ condition PAR_DER statement
-        return super.visitWhileSTAST(ctx);
     }
 
     @Override
@@ -403,26 +388,6 @@ public class ACVC_Declaracion_Asignacion extends MyParserBaseVisitor {
         //designator ( PAR_IZQ ( actPars )? PAR_DER )?
         return super.visitFactorFAST(ctx);
     }
-
-
-
-    @Override
-    public Object visitWriteSTAST(MyParser.WriteSTASTContext ctx) {
-
-        //CONST type IDENT IG (valueTypeConst) PyC
-        //const float   d = 12.5;
-
-        //WRITE PAR_IZQ expr (writeType)? PAR_DER PyC
-
-
-        //write ( 3*2 );
-
-
-        return super.visitWriteSTAST(ctx);
-    }
-
-
-    /// inicio factor
 
     @Override
     public Object visitSpfunctionFAST(MyParser.SpfunctionFASTContext ctx) {
@@ -454,6 +419,16 @@ public class ACVC_Declaracion_Asignacion extends MyParserBaseVisitor {
 
     //-----  CON DUDAS
 
+    @Override //preguntar: si es solo visitar (Kevin)
+    public Object visitWriteSTAST(MyParser.WriteSTASTContext ctx) {
+
+        //WRITE PAR_IZQ expr (writeType)? PAR_DER PyC
+
+        visit(ctx.expr());
+
+        return null;
+    }
+
     @Override //preguntar: que hago con el new
     public Object visitNewFAST(MyParser.NewFASTContext ctx) {
 
@@ -476,13 +451,27 @@ public class ACVC_Declaracion_Asignacion extends MyParserBaseVisitor {
     public Object visitIfSTAST(MyParser.IfSTASTContext ctx) {
 
         //IF PAR_IZQ condition PAR_DER statement ( ELSE statement )?
-        //if ( a = b){} else{}
 
         visit(ctx.condition());
+
+        for (MyParser.StatementContext e: ctx.statement())
+            visit(e);
+
 
         return  null;
     }
 
+    @Override  //preguntar: si es solo visitar
+    public Object visitWhileSTAST(MyParser.WhileSTASTContext ctx) {
+
+        //WHILE PAR_IZQ condition PAR_DER statement
+
+        visit(ctx.condition());
+
+        visit(ctx.statement());
+
+        return null;
+    }
 
     @Override //preguntar: si es solo visitar
     public Object visitDesignatorCorcsAST(MyParser.DesignatorCorcsASTContext ctx) {
