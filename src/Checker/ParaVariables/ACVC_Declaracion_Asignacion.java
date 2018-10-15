@@ -4,7 +4,6 @@ package Checker.ParaVariables;
 import Antlr.MyParser;
 import Antlr.MyParserBaseVisitor;
 import Checker.TypeSymbol.SymbolTable;
-import com.sun.org.apache.bcel.internal.generic.RETURN;
 import org.antlr.v4.runtime.Token;
 
 import java.util.LinkedList;
@@ -357,27 +356,54 @@ public class ACVC_Declaracion_Asignacion extends MyParserBaseVisitor {
 
     //statement
 
-    /*
-    #statementIgSTAST                               ... en proceso
-    #statementMetSTAST
-    #statementIncSTAST
-    #statementDecSTAST
-    #ifSTAST
-    #forSTAST
-    #whileSTAST
-    #breakStAST
-    #returnSTAST
-    #readSTAT
-    #writeSTAST
-    #blockSTAST
-    #pycSTAST;
-    #designatorAST;
-    #conditionAST;
-    #exprAST;
-    #writeTypeNumIntSTAST
-     */
 
     // en proceso
+
+
+    @Override
+    public Object visitStatementMetSTAST(MyParser.StatementMetSTASTContext ctx) {
+
+        //designator (PAR_IZQ ( actPars )? PAR_DER ) PyC
+        return super.visitStatementMetSTAST(ctx);
+    }
+
+    @Override
+    public Object visitForSTAST(MyParser.ForSTASTContext ctx) {
+
+        //FOR PAR_IZQ expr PyC (condition)? PyC (statement)? PAR_DER statement
+        return super.visitForSTAST(ctx);
+    }
+
+    @Override
+    public Object visitWhileSTAST(MyParser.WhileSTASTContext ctx) {
+
+        //WHILE PAR_IZQ condition PAR_DER statement
+        return super.visitWhileSTAST(ctx);
+    }
+
+    @Override
+    public Object visitReturnSTAST(MyParser.ReturnSTASTContext ctx) {
+
+        //RETURN ( expr )? PyC
+        return super.visitReturnSTAST(ctx);
+    }
+
+    @Override
+    public Object visitReadSTAT(MyParser.ReadSTATContext ctx) {
+
+        //READ PAR_IZQ designator PAR_DER PyC
+        return super.visitReadSTAT(ctx);
+    }
+
+    @Override
+    public Object visitFactorFAST(MyParser.FactorFASTContext ctx) {
+
+        //designator ( PAR_IZQ ( actPars )? PAR_DER )?
+        return super.visitFactorFAST(ctx);
+    }
+
+
+
     @Override
     public Object visitWriteSTAST(MyParser.WriteSTASTContext ctx) {
 
@@ -412,11 +438,25 @@ public class ACVC_Declaracion_Asignacion extends MyParserBaseVisitor {
 
         //special_function (PAR_IZQ (actPars) PAR_DER)
 
+        // OR ( 6*6 )
         return super.visitSpfunctionFAST(ctx);
     }
 
 
-    // fin factor
+    @Override
+    public Object visitStatementIncSTAST(MyParser.StatementIncSTASTContext ctx) {
+
+        //designator ( INC ) PyC
+        // i++;
+        return super.visitStatementIncSTAST(ctx);
+    }
+
+    @Override
+    public Object visitStatementDecSTAST(MyParser.StatementDecSTASTContext ctx) {
+
+        //designator ( DEC ) PyC
+        return super.visitStatementDecSTAST(ctx);
+    }
 
 
 
@@ -480,7 +520,11 @@ public class ACVC_Declaracion_Asignacion extends MyParserBaseVisitor {
     @Override //preguntar: si s vistan ambos
     public Object visitWriteTypeNumIntSTAST(MyParser.WriteTypeNumIntSTASTContext ctx) {
 
-        //COMA NUMBER_INTEGER
+        //COMA
+
+        if(ctx.NUMBER_INTEGER() != null){
+            visit(ctx.NUMBER_INTEGER());
+        }
         return ctx.NUMBER_INTEGER().getSymbol();
     }
 
@@ -488,6 +532,13 @@ public class ACVC_Declaracion_Asignacion extends MyParserBaseVisitor {
 
     //----LISTOS
 
+    @Override
+    public Object visitBooleanFAST(MyParser.BooleanFASTContext ctx) {
+
+        visit(ctx.booleanValue());
+
+        return null;
+    }
 
     @Override
     public Object visitActParsAST(MyParser.ActParsASTContext ctx) {
