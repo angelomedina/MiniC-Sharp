@@ -466,8 +466,8 @@ public class ACVC_Declaracion_Asignacion extends MyParserBaseVisitor {
     public Object visitStatementIgSTAST(MyParser.StatementIgSTASTContext ctx) {
 
         //designator ( IG expr) PyC
-        // a = b ;
-        visit(ctx.designator());
+        // a = 2*4 ;
+
 
         return null;
     }
