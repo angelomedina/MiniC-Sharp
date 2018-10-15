@@ -3,6 +3,7 @@ package Checker.ParaVariables;
 
 import Antlr.MyParser;
 import Antlr.MyParserBaseVisitor;
+import Checker.TypeSymbol.Symbol;
 import Checker.TypeSymbol.SymbolTable;
 import Exeptions.SemanticException;
 import org.antlr.v4.runtime.Token;
@@ -482,14 +483,6 @@ public class ACVC_Declaracion_Asignacion extends MyParserBaseVisitor {
         return  null;
     }
 
-    @Override //preguntar: si  ident() tiene que hacer algo
-    public Object visitDesignatorAST(MyParser.DesignatorASTContext ctx) {
-
-        //IDENT (designatorExp)*
-        for (MyParser.DesignatorExpContext e: ctx.designatorExp())
-            visit(e);
-        return null;
-    }
 
     @Override //preguntar: si es solo visitar
     public Object visitDesignatorCorcsAST(MyParser.DesignatorCorcsASTContext ctx) {
@@ -512,6 +505,30 @@ public class ACVC_Declaracion_Asignacion extends MyParserBaseVisitor {
 
 
     //----LISTOS
+
+    @Override
+    public Object visitDesignatorAST(MyParser.DesignatorASTContext ctx) {
+
+        //IDENT (designatorExp)*
+        String error = "";
+
+        Symbol existe = tableS.retrieve(ctx.IDENT().getText());
+
+        if(existe != null ) {
+
+            for (MyParser.DesignatorExpContext e : ctx.designatorExp())
+                visit(e);
+        }else{
+            this.numErrors++;
+
+            error = ("Semantic Error (" +
+                    +ctx.IDENT().getSymbol().getLine() + ":" + (ctx.IDENT().getSymbol().getCharPositionInLine() + 1)
+                    + "): Identifier doesn't exist!!!");
+            listaErrores.push(error);
+            throw new SemanticException();
+        }
+        return null;
+    }
 
     @Override
     public Object visitExprAST(MyParser.ExprASTContext ctx) {

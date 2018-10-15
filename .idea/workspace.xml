@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6ebe243f-a307-4d73-a0f9-921472d75155" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/src/Checker/ParaVariables/ACVC_Declaracion_Asignacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Checker/ParaVariables/ACVC_Declaracion_Asignacion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Checker/TypeSymbol/SymbolTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Checker/TypeSymbol/SymbolTable.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -146,7 +147,7 @@
         <counts>
           <entry key="class" value="7" />
           <entry key="g4" value="16" />
-          <entry key="java" value="103" />
+          <entry key="java" value="104" />
           <entry key="tokens" value="1" />
           <entry key="txt" value="16" />
         </counts>
@@ -155,7 +156,7 @@
         <counts>
           <entry key="ANTLR v4 grammar file" value="16" />
           <entry key="CLASS" value="7" />
-          <entry key="JAVA" value="103" />
+          <entry key="JAVA" value="104" />
           <entry key="PLAIN_TEXT" value="17" />
         </counts>
       </usages-collector>
@@ -163,14 +164,14 @@
         <counts>
           <entry key="dummy" value="25" />
           <entry key="g4" value="53" />
-          <entry key="java" value="8004" />
+          <entry key="java" value="8172" />
           <entry key="txt" value="83" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="ANTLR v4 grammar file" value="53" />
-          <entry key="JAVA" value="8004" />
+          <entry key="JAVA" value="8172" />
           <entry key="PLAIN_TEXT" value="108" />
         </counts>
       </usages-collector>
@@ -271,41 +272,78 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Checker/ParaVariables/ACVC_Declaracion_Asignacion.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="421">
-              <caret line="509" column="5" selection-start-line="509" selection-start-column="5" selection-end-line="509" selection-end-column="5" />
+            <state relative-caret-position="507">
+              <caret line="530" column="5" selection-start-line="530" selection-start-column="5" selection-end-line="530" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#hasErrors#0;class#ACVC_Declaracion_Asignacion#0" />
                 <element signature="method#imprimir#0;class#ACVC_Declaracion_Asignacion#0" />
-                <element signature="e#12081#12290#0" />
                 <element signature="e#11894#12153#0" />
                 <element signature="e#11920#12124#0" />
-                <element signature="e#12612#12731#0" />
                 <element signature="e#12766#12973#0" />
+                <element signature="e#14454#14656#0" />
+                <element signature="e#14442#15161#0" />
                 <element signature="e#14653#15525#0" />
                 <element signature="e#14680#14937#0" />
                 <element signature="e#14943#15221#0" />
                 <element signature="e#15094#15241#0" />
                 <element signature="e#14017#14130#0" />
+                <element signature="e#16675#16676#0" expanded="true" />
+                <element signature="e#16719#16720#0" expanded="true" />
+                <element signature="e#16808#16809#0" expanded="true" />
+                <element signature="e#16840#16841#0" expanded="true" />
+                <element signature="e#16929#16930#0" expanded="true" />
+                <element signature="e#16973#16974#0" expanded="true" />
+                <element signature="e#17056#17057#0" expanded="true" />
+                <element signature="e#17111#17112#0" expanded="true" />
                 <element signature="e#13802#13947#0" />
+                <element signature="e#17355#17356#0" expanded="true" />
+                <element signature="e#17408#17409#0" expanded="true" />
+                <element signature="e#17491#17492#0" expanded="true" />
+                <element signature="e#17544#17545#0" expanded="true" />
                 <element signature="e#13801#13947#0" />
+                <element signature="e#17789#17790#0" expanded="true" />
+                <element signature="e#17834#17835#0" expanded="true" />
+                <element signature="e#17929#17930#0" expanded="true" />
+                <element signature="e#17975#17976#0" expanded="true" />
                 <element signature="e#12929#13088#0" />
+                <element signature="e#18247#18248#0" expanded="true" />
+                <element signature="e#18288#18289#0" expanded="true" />
+                <element signature="e#18371#18372#0" expanded="true" />
+                <element signature="e#18420#18421#0" expanded="true" />
                 <element signature="e#13127#13350#0" />
                 <element signature="e#13356#13585#0" />
+                <element signature="e#18963#18964#0" expanded="true" />
+                <element signature="e#19007#19008#0" expanded="true" />
                 <element signature="e#12741#12947#0" />
                 <element signature="e#14757#14971#0" />
                 <element signature="e#12991#13223#0" />
                 <element signature="e#13228#13375#0" />
+                <element signature="e#19957#19958#0" expanded="true" />
+                <element signature="e#20008#20009#0" expanded="true" />
+                <element signature="e#20095#20096#0" expanded="true" />
+                <element signature="e#20140#20141#0" expanded="true" />
+                <element signature="e#20225#20226#0" expanded="true" />
+                <element signature="e#20269#20270#0" expanded="true" />
+                <element signature="e#20354#20355#0" expanded="true" />
+                <element signature="e#20398#20399#0" expanded="true" />
+                <element signature="e#20487#20488#0" expanded="true" />
+                <element signature="e#20534#20535#0" expanded="true" />
+                <element signature="e#20619#20620#0" expanded="true" />
+                <element signature="e#20663#20664#0" expanded="true" />
+                <element signature="e#20752#20753#0" expanded="true" />
+                <element signature="e#20799#20800#0" expanded="true" />
+                <element signature="e#20884#20885#0" expanded="true" />
+                <element signature="e#20928#20929#0" expanded="true" />
+                <element signature="e#21015#21016#0" expanded="true" />
+                <element signature="e#21060#21061#0" expanded="true" />
+                <element signature="e#21147#21148#0" expanded="true" />
+                <element signature="e#21192#21193#0" expanded="true" />
+                <element signature="e#21277#21278#0" expanded="true" />
+                <element signature="e#21321#21322#0" expanded="true" />
+                <element signature="e#21408#21409#0" expanded="true" />
+                <element signature="e#21453#21454#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Exeptions/SemanticException.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="30" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -314,25 +352,16 @@
         <entry file="file://$PROJECT_DIR$/src/Antlr/MyParser.g4">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="188">
-              <caret line="75" column="121" selection-start-line="75" selection-start-column="121" selection-end-line="75" selection-end-column="128" />
+              <caret line="75" column="22" lean-forward="true" selection-start-line="75" selection-start-column="22" selection-end-line="75" selection-end-column="22" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/CodigoPrueba.txt">
+        <entry file="file://$PROJECT_DIR$/src/Checker/TypeSymbol/SymbolTable.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="241">
-              <caret line="192" column="12" lean-forward="true" selection-start-line="192" selection-start-column="12" selection-end-line="192" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Antlr/Scanner.g4">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="188">
-              <caret line="56" column="3" selection-start-line="56" selection-end-line="56" selection-end-column="3" />
+            <state relative-caret-position="453">
+              <caret line="184" selection-start-line="184" selection-end-line="184" />
             </state>
           </provider>
         </entry>
@@ -357,7 +386,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>FormParsAST</find>
       <find>ClassDeclAST</find>
       <find>statementMetSTAST</find>
       <find>writeTypeNumIntSTAST</find>
@@ -382,11 +410,12 @@
       <find>WhileSTAST</find>
       <find>ForSTAST</find>
       <find>StatementDecSTAST</find>
-      <find>+</find>
-      <find>inc</find>
       <find>expre</find>
-      <find>WriteTypeNumIntSTAST</find>
       <find>exprAST</find>
+      <find>inc</find>
+      <find>+</find>
+      <find>WriteTypeNumIntSTAST</find>
+      <find>designator</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -442,6 +471,7 @@
         <option value="$PROJECT_DIR$/src/Antlr/MyParser.g4" />
         <option value="$PROJECT_DIR$/src/Generated/Antlr/MyParser.java" />
         <option value="$PROJECT_DIR$/src/Vista/Principal.java" />
+        <option value="$PROJECT_DIR$/src/Checker/TypeSymbol/SymbolTable.java" />
         <option value="$PROJECT_DIR$/src/Checker/ParaVariables/ACVC_Declaracion_Asignacion.java" />
       </list>
     </option>
@@ -489,7 +519,14 @@
               <item name="MiniC-Sharp" type="b2602c69:ProjectViewProjectNode" />
               <item name="MiniC-Sharp" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Exeptions" type="462c0819:PsiDirectoryNode" />
+              <item name="Checker" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MiniC-Sharp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MiniC-Sharp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Checker" type="462c0819:PsiDirectoryNode" />
+              <item name="TypeSymbol" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -517,7 +554,7 @@
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="409" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539629135431" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539630802238" />
     <property name="create.test.in.the.same.root" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Generated" />
     <property name="project.structure.last.edited" value="Project" />
@@ -884,24 +921,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Checker/TypeSymbol/SymbolTable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1468">
-          <caret line="71" column="26" selection-start-line="71" selection-start-column="26" selection-end-line="71" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Generated/Antlr/MyParser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1560" column="33" selection-start-line="1560" selection-start-column="33" selection-end-line="1560" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Pruebas(Angelo).txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="28" selection-start-line="28" selection-end-line="37" selection-end-column="2" />
         </state>
       </provider>
     </entry>
@@ -915,10 +938,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/CodigoPrueba.txt">
+    <entry file="file://$PROJECT_DIR$/src/Exeptions/SemanticException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="192" column="12" lean-forward="true" selection-start-line="192" selection-start-column="12" selection-end-line="192" selection-end-column="16" />
+        <state relative-caret-position="34">
+          <caret line="2" column="30" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="30" />
         </state>
       </provider>
     </entry>
@@ -929,47 +952,107 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Antlr/MyParser.g4">
+    <entry file="file://$PROJECT_DIR$/src/Pruebas(Angelo).txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="75" column="121" selection-start-line="75" selection-start-column="121" selection-end-line="75" selection-end-column="128" />
+        <state relative-caret-position="340">
+          <caret line="28" selection-start-line="28" selection-end-line="37" selection-end-column="2" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Exeptions/SemanticException.java">
+    <entry file="file://$PROJECT_DIR$/src/CodigoPrueba.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="30" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="30" />
+        <state relative-caret-position="241">
+          <caret line="192" column="12" lean-forward="true" selection-start-line="192" selection-start-column="12" selection-end-line="192" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Antlr/MyParser.g4">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="75" column="22" lean-forward="true" selection-start-line="75" selection-start-column="22" selection-end-line="75" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Checker/TypeSymbol/SymbolTable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="453">
+          <caret line="184" selection-start-line="184" selection-end-line="184" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Checker/ParaVariables/ACVC_Declaracion_Asignacion.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
-          <caret line="509" column="5" selection-start-line="509" selection-start-column="5" selection-end-line="509" selection-end-column="5" />
+        <state relative-caret-position="507">
+          <caret line="530" column="5" selection-start-line="530" selection-start-column="5" selection-end-line="530" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#hasErrors#0;class#ACVC_Declaracion_Asignacion#0" />
             <element signature="method#imprimir#0;class#ACVC_Declaracion_Asignacion#0" />
-            <element signature="e#12081#12290#0" />
             <element signature="e#11894#12153#0" />
             <element signature="e#11920#12124#0" />
-            <element signature="e#12612#12731#0" />
             <element signature="e#12766#12973#0" />
+            <element signature="e#14454#14656#0" />
+            <element signature="e#14442#15161#0" />
             <element signature="e#14653#15525#0" />
             <element signature="e#14680#14937#0" />
             <element signature="e#14943#15221#0" />
             <element signature="e#15094#15241#0" />
             <element signature="e#14017#14130#0" />
+            <element signature="e#16675#16676#0" expanded="true" />
+            <element signature="e#16719#16720#0" expanded="true" />
+            <element signature="e#16808#16809#0" expanded="true" />
+            <element signature="e#16840#16841#0" expanded="true" />
+            <element signature="e#16929#16930#0" expanded="true" />
+            <element signature="e#16973#16974#0" expanded="true" />
+            <element signature="e#17056#17057#0" expanded="true" />
+            <element signature="e#17111#17112#0" expanded="true" />
             <element signature="e#13802#13947#0" />
+            <element signature="e#17355#17356#0" expanded="true" />
+            <element signature="e#17408#17409#0" expanded="true" />
+            <element signature="e#17491#17492#0" expanded="true" />
+            <element signature="e#17544#17545#0" expanded="true" />
             <element signature="e#13801#13947#0" />
+            <element signature="e#17789#17790#0" expanded="true" />
+            <element signature="e#17834#17835#0" expanded="true" />
+            <element signature="e#17929#17930#0" expanded="true" />
+            <element signature="e#17975#17976#0" expanded="true" />
             <element signature="e#12929#13088#0" />
+            <element signature="e#18247#18248#0" expanded="true" />
+            <element signature="e#18288#18289#0" expanded="true" />
+            <element signature="e#18371#18372#0" expanded="true" />
+            <element signature="e#18420#18421#0" expanded="true" />
             <element signature="e#13127#13350#0" />
             <element signature="e#13356#13585#0" />
+            <element signature="e#18963#18964#0" expanded="true" />
+            <element signature="e#19007#19008#0" expanded="true" />
             <element signature="e#12741#12947#0" />
             <element signature="e#14757#14971#0" />
             <element signature="e#12991#13223#0" />
             <element signature="e#13228#13375#0" />
+            <element signature="e#19957#19958#0" expanded="true" />
+            <element signature="e#20008#20009#0" expanded="true" />
+            <element signature="e#20095#20096#0" expanded="true" />
+            <element signature="e#20140#20141#0" expanded="true" />
+            <element signature="e#20225#20226#0" expanded="true" />
+            <element signature="e#20269#20270#0" expanded="true" />
+            <element signature="e#20354#20355#0" expanded="true" />
+            <element signature="e#20398#20399#0" expanded="true" />
+            <element signature="e#20487#20488#0" expanded="true" />
+            <element signature="e#20534#20535#0" expanded="true" />
+            <element signature="e#20619#20620#0" expanded="true" />
+            <element signature="e#20663#20664#0" expanded="true" />
+            <element signature="e#20752#20753#0" expanded="true" />
+            <element signature="e#20799#20800#0" expanded="true" />
+            <element signature="e#20884#20885#0" expanded="true" />
+            <element signature="e#20928#20929#0" expanded="true" />
+            <element signature="e#21015#21016#0" expanded="true" />
+            <element signature="e#21060#21061#0" expanded="true" />
+            <element signature="e#21147#21148#0" expanded="true" />
+            <element signature="e#21192#21193#0" expanded="true" />
+            <element signature="e#21277#21278#0" expanded="true" />
+            <element signature="e#21321#21322#0" expanded="true" />
+            <element signature="e#21408#21409#0" expanded="true" />
+            <element signature="e#21453#21454#0" expanded="true" />
           </folding>
         </state>
       </provider>

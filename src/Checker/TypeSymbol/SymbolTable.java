@@ -86,7 +86,7 @@ public class SymbolTable {
         table.add(new FuncionSpecial("len","arreglo",-1,"int"));
     }
 
-    private boolean exists(String id, int level) {
+    public boolean exists(String id, int level) {
 
         for (Iterator i = table.descendingIterator(); i.hasNext(); ) {
 
