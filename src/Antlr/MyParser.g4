@@ -55,7 +55,7 @@ statement: designator ( IG expr) PyC                                            
 		 |  RETURN ( expr )? PyC                                                                                        #returnSTAST
 		 |  READ PAR_IZQ designator PAR_DER PyC                                                                         #readSTAT
 		 |  WRITE PAR_IZQ expr (writeType)? PAR_DER PyC                                                                 #writeSTAST
-		 |  block                                                                                                       #blockSTAST
+		 |  LLA_IZQ ( statement )* LLA_DER                                                                              #blockSTAST
 		 |  PyC                                                                                                         #pycSTAST;
 
 writeType: COMA NUMBER_INTEGER                                                                                          #writeTypeNumIntSTAST

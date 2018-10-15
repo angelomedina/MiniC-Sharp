@@ -1,13 +1,6 @@
 package Checker.ParaFunciones;
 
-import Antlr.MyParser;
 import Antlr.MyParserBaseVisitor;
-import Checker.TypeSymbol.Symbol;
-import Checker.TypeSymbol.SymbolTable;
-import org.antlr.v4.runtime.Token;
-
-import java.util.LinkedList;
-import java.util.List;
 
 public class ACF_Verificacion_Declaraciones_Parametros extends MyParserBaseVisitor {
 

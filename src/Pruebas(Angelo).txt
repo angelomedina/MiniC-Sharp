@@ -25,3 +25,14 @@ class claseP
 
     }
 {}
+
+class claseP
+    class prueba3 {
+	 if(expr == 1){
+
+
+        }else {
+
+        }
+    }
+{}

@@ -4,7 +4,6 @@ package Vista;
 
 import Antlr.MyParser;
 import Antlr.Scanner;
-import Checker.ParaFunciones.ACF_Verificacion_Declaraciones_Parametros;
 import Checker.ParaVariables.ACVC_Declaracion_Asignacion;
 import Exeptions.*;
 import Modelo.Archivos;

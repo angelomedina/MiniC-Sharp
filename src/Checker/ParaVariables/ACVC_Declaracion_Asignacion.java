@@ -353,6 +353,7 @@ public class ACVC_Declaracion_Asignacion extends MyParserBaseVisitor {
     //Descripcion metodos de statement(Angelo)
 
     //statement
+
     /*
     #statementIgSTAST                               ... en proceso
     #statementMetSTAST
@@ -373,6 +374,7 @@ public class ACVC_Declaracion_Asignacion extends MyParserBaseVisitor {
     #writeTypeNumIntSTAST
      */
 
+
     @Override
     public Object visitTermAST(MyParser.TermASTContext ctx) {
         return super.visitTermAST(ctx);
@@ -386,27 +388,6 @@ public class ACVC_Declaracion_Asignacion extends MyParserBaseVisitor {
         return super.visitExprAST(ctx);
     }
 
-    @Override
-    public Object visitDesignatorPuntIdAST(MyParser.DesignatorPuntIdASTContext ctx) {
-
-        // PUNT IDENT
-
-        return super.visitDesignatorPuntIdAST(ctx);
-    }
-
-    @Override
-    public Object visitDesignatorCorcsAST(MyParser.DesignatorCorcsASTContext ctx) {
-
-        // CORC_IZQ expr CORC_DER
-        // [ expre ]
-
-        return super.visitDesignatorCorcsAST(ctx);
-    }
-
-    @Override
-    public Object visitDesignatorAST(MyParser.DesignatorASTContext ctx) {
-        return super.visitDesignatorAST(ctx);
-    }
 
     @Override
     public Object visitStatementIgSTAST(MyParser.StatementIgSTASTContext ctx) {
@@ -424,10 +405,77 @@ public class ACVC_Declaracion_Asignacion extends MyParserBaseVisitor {
         //return super.visitIfSTAST(ctx);
         //IF PAR_IZQ condition PAR_DER statement ( ELSE statement )?
         //if(v1 > v2){}else {}
+        /*
+        String error;
+        String cond = (String) visit(ctx.condition());
 
-        //String te = (String) visit(ctx.condition()
+        if(!cond.equals("int")){
+            this.numErrors++;
+            error = "Semantic Error ("
+                    + ctx.IF().getSymbol().getLine()
+                    + ":" + (ctx.IF().getSymbol().getCharPositionInLine() + 1)
+                    + "): Invalid if expression type ";
+            listaErrores.push(error);
+
+        }else{
+        }*/
+
         return null;
 
+    }
+
+    //----- funcionales
+
+    @Override
+    public Object visitDesignatorAST(MyParser.DesignatorASTContext ctx) {
+
+        //IDENT (designatorExp)*
+        for (MyParser.DesignatorExpContext e: ctx.designatorExp())
+            visit(e);
+        return null;
+    }
+
+    @Override //preguntar
+    public Object visitDesignatorCorcsAST(MyParser.DesignatorCorcsASTContext ctx) {
+
+        // CORC_IZQ expr CORC_DER
+
+        return super.visitDesignatorCorcsAST(ctx);
+    }
+
+    @Override
+    public Object visitDesignatorPuntIdAST(MyParser.DesignatorPuntIdASTContext ctx) {
+        // PUNT IDENT
+        return super.visitDesignatorPuntIdAST(ctx);
+    }
+
+    @Override
+    public Object visitBreakStAST(MyParser.BreakStASTContext ctx) {
+        return super.visitBreakStAST(ctx);
+    }
+
+    @Override
+    public Object visitBlockAST(MyParser.BlockASTContext ctx) {
+
+        //LLA_IZQ ( statement )* LLA_DER
+        for (MyParser.StatementContext e: ctx.statement())
+            visit(e);
+        return null;
+    }
+
+    @Override
+    public Object visitBlockSTAST(MyParser.BlockSTASTContext ctx) {
+
+        //LLA_IZQ ( statement )* LLA_DER
+        for (MyParser.StatementContext e : ctx.statement())
+            visit(e);
+        return null;
+
+    }
+
+    @Override
+    public Object visitPycSTAST(MyParser.PycSTASTContext ctx) {
+        return ctx.PyC().getSymbol();
     }
 
     @Override
