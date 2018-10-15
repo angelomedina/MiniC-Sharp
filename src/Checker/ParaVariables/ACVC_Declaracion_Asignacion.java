@@ -4,6 +4,7 @@ package Checker.ParaVariables;
 import Antlr.MyParser;
 import Antlr.MyParserBaseVisitor;
 import Checker.TypeSymbol.SymbolTable;
+import Exeptions.SemanticException;
 import org.antlr.v4.runtime.Token;
 
 import java.util.LinkedList;
@@ -419,17 +420,6 @@ public class ACVC_Declaracion_Asignacion extends MyParserBaseVisitor {
         return super.visitWriteSTAST(ctx);
     }
 
-    @Override
-    public Object visitExprAST(MyParser.ExprASTContext ctx) {
-
-        // term: factor ( mulop factor )*
-        // factor:
-
-        //( REST )? term ( addop term )*
-
-        // -
-        return super.visitExprAST(ctx);
-    }
 
     /// inicio factor
 
@@ -455,9 +445,9 @@ public class ACVC_Declaracion_Asignacion extends MyParserBaseVisitor {
     public Object visitStatementDecSTAST(MyParser.StatementDecSTASTContext ctx) {
 
         //designator ( DEC ) PyC
+        //i--;
         return super.visitStatementDecSTAST(ctx);
     }
-
 
 
 
@@ -511,26 +501,68 @@ public class ACVC_Declaracion_Asignacion extends MyParserBaseVisitor {
         return null;
     }
 
-    @Override //preguntar: si se vistan ambos
-    public Object visitDesignatorPuntIdAST(MyParser.DesignatorPuntIdASTContext ctx) {
-        // PUNT IDENT
-        return super.visitDesignatorPuntIdAST(ctx);
+    @Override //preguntar: si es solo visitar
+    public Object visitExpresionFAST(MyParser.ExpresionFASTContext ctx) {
+
+        //PAR_IZQ expr PAR_DER
+        visit(ctx.expr());
+
+        return null;
     }
 
-    @Override //preguntar: si s vistan ambos
+
+    //----LISTOS
+
+    @Override
+    public Object visitExprAST(MyParser.ExprASTContext ctx) {
+
+
+        //( REST )? term ( addop term )*
+
+        String error = "";
+        String tipo1 = (String) visit(ctx.term(0));
+        String tipo2 = "";
+
+        for (int i=0; i<ctx.term().size(); i++){
+            tipo2 = (String) visit(ctx.term(i));
+
+            if(!tipo1.equals(tipo2)){
+                this.numErrors++;
+
+                error = "Semantic Error ("
+                        + ((Token) visit(ctx.addop(i - 1))).getLine() + ":" + (((Token) visit(ctx.addop(i - 1))).getCharPositionInLine() + 1)
+                        + "): Incompatible types in expression between "
+                        + tipo1 + " and " + tipo2;
+                listaErrores.push(error);
+
+                throw new SemanticException();
+            }
+            tipo1 = tipo2;
+        }
+        return tipo1;
+    }
+
+    @Override
+    public Object visitDesignatorPuntIdAST(MyParser.DesignatorPuntIdASTContext ctx) {
+
+        // PUNT IDENT
+
+        if(ctx.IDENT() != null){
+            visit(ctx.IDENT());
+        }
+        return ctx.IDENT().getSymbol();
+    }
+
+    @Override
     public Object visitWriteTypeNumIntSTAST(MyParser.WriteTypeNumIntSTASTContext ctx) {
 
-        //COMA
+        //COMA NUMBER_INTEGER
 
         if(ctx.NUMBER_INTEGER() != null){
             visit(ctx.NUMBER_INTEGER());
         }
         return ctx.NUMBER_INTEGER().getSymbol();
     }
-
-
-
-    //----LISTOS
 
     @Override
     public Object visitBooleanFAST(MyParser.BooleanFASTContext ctx) {
@@ -590,15 +622,6 @@ public class ACVC_Declaracion_Asignacion extends MyParserBaseVisitor {
 
         //CHAR_CONST
         return ctx.CHAR_CONST().getSymbol();
-    }
-
-    @Override
-    public Object visitExpresionFAST(MyParser.ExpresionFASTContext ctx) {
-
-        //PAR_IZQ expr PAR_DER
-        visit(ctx.expr());
-
-        return null;
     }
 
     @Override
