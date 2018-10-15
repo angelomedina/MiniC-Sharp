@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6ebe243f-a307-4d73-a0f9-921472d75155" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Antlr/MyParser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Vista/Principal.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Vista/Principal.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Checker/ParaVariables/ACVC_Declaracion_Asignacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Checker/ParaVariables/ACVC_Declaracion_Asignacion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Generated/Antlr/MyParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Generated/Antlr/MyParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Generated/Antlr/MyParserBaseVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Generated/Antlr/MyParserBaseVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Generated/Antlr/MyParserVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Generated/Antlr/MyParserVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Generated/Antlr/Scanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Generated/Antlr/Scanner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vista/Principal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/Principal.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -170,15 +161,15 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="25" />
-          <entry key="g4" value="52" />
-          <entry key="java" value="6374" />
+          <entry key="g4" value="53" />
+          <entry key="java" value="6641" />
           <entry key="txt" value="76" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="ANTLR v4 grammar file" value="52" />
-          <entry key="JAVA" value="6374" />
+          <entry key="ANTLR v4 grammar file" value="53" />
+          <entry key="JAVA" value="6641" />
           <entry key="PLAIN_TEXT" value="101" />
         </counts>
       </usages-collector>
@@ -279,8 +270,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Checker/ParaVariables/ACVC_Declaracion_Asignacion.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="385" column="39" lean-forward="true" selection-start-line="385" selection-start-column="39" selection-end-line="385" selection-end-column="39" />
+            <state relative-caret-position="399">
+              <caret line="514" column="38" selection-start-line="514" selection-start-column="38" selection-end-line="514" selection-end-column="38" />
               <folding>
                 <element signature="method#hasErrors#0;class#ACVC_Declaracion_Asignacion#0" />
                 <element signature="method#imprimir#0;class#ACVC_Declaracion_Asignacion#0" />
@@ -288,7 +279,30 @@
                 <element signature="e#11452#11453#0" expanded="true" />
                 <element signature="e#11418#11419#0" expanded="true" />
                 <element signature="e#11470#11471#0" expanded="true" />
-                <element signature="e#11336#11552#0" />
+                <element signature="e#13487#13488#0" expanded="true" />
+                <element signature="e#13525#13526#0" expanded="true" />
+                <element signature="e#13629#13630#0" expanded="true" />
+                <element signature="e#13680#13681#0" expanded="true" />
+                <element signature="e#13765#13766#0" expanded="true" />
+                <element signature="e#13815#13816#0" expanded="true" />
+                <element signature="e#13900#13901#0" expanded="true" />
+                <element signature="e#13950#13951#0" expanded="true" />
+                <element signature="e#14039#14040#0" expanded="true" />
+                <element signature="e#14091#14092#0" expanded="true" />
+                <element signature="e#14176#14177#0" expanded="true" />
+                <element signature="e#14226#14227#0" expanded="true" />
+                <element signature="e#14315#14316#0" expanded="true" />
+                <element signature="e#14367#14368#0" expanded="true" />
+                <element signature="e#14452#14453#0" expanded="true" />
+                <element signature="e#14502#14503#0" expanded="true" />
+                <element signature="e#14589#14590#0" expanded="true" />
+                <element signature="e#14640#14641#0" expanded="true" />
+                <element signature="e#14727#14728#0" expanded="true" />
+                <element signature="e#14778#14779#0" expanded="true" />
+                <element signature="e#14807#14808#0" expanded="true" />
+                <element signature="e#14851#14852#0" expanded="true" />
+                <element signature="e#15000#15001#0" expanded="true" />
+                <element signature="e#15051#15052#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -297,8 +311,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Antlr/MyParser.g4">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="137">
-              <caret line="79" selection-start-line="79" selection-end-line="79" />
+            <state relative-caret-position="185">
+              <caret line="23" column="137" selection-start-line="23" selection-start-column="121" selection-end-line="23" selection-end-column="137" />
             </state>
           </provider>
         </entry>
@@ -315,8 +329,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/CodigoPrueba.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2142">
-              <caret line="41" column="61" lean-forward="true" selection-start-line="41" selection-start-column="61" selection-end-line="41" selection-end-column="61" />
+            <state relative-caret-position="389">
+              <caret line="113" column="13" lean-forward="true" selection-start-line="110" selection-start-column="12" selection-end-line="113" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -332,10 +346,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>visi</find>
-      <find>visitIF</find>
-      <find>Decla</find>
-      <find>DeclarationContext</find>
       <find>decla</find>
       <find>constDecl</find>
       <find>constDec</find>
@@ -352,7 +362,6 @@
       <find>void</find>
       <find>MethodDecl</find>
       <find>statement</find>
-      <find>StatementIgSTAST</find>
       <find>Statement</find>
       <find>PUN</find>
       <find>IDENT</find>
@@ -360,8 +369,13 @@
       <find>CORC_IZQ</find>
       <find>DesignatorPuntIdAST</find>
       <find>REST</find>
-      <find>expre</find>
       <find>term</find>
+      <find>StatementIgSTAST</find>
+      <find>if</find>
+      <find>ConditionAST</find>
+      <find>CondFactAST</find>
+      <find>expre</find>
+      <find>ConstCharDeclAST</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -412,10 +426,10 @@
         <option value="$PROJECT_DIR$/src/Checker/ParaVariables/ACV_Declaracion_Asignacion.java" />
         <option value="$PROJECT_DIR$/src/Checker/ParaFunciones/FunctionTable.java" />
         <option value="$PROJECT_DIR$/src/Checker/ParaFunciones/ACF_Verificacion_Declaraciones_Parametros.java" />
-        <option value="$PROJECT_DIR$/src/Antlr/MyParser.g4" />
         <option value="$PROJECT_DIR$/src/Checker/ParaFunciones/ACF_Lectura_Previa.java" />
         <option value="$PROJECT_DIR$/src/Checker/ParaVariables/AC_Statement.java" />
         <option value="$PROJECT_DIR$/src/Vista/Principal.java" />
+        <option value="$PROJECT_DIR$/src/Antlr/MyParser.g4" />
         <option value="$PROJECT_DIR$/src/Checker/ParaVariables/ACVC_Declaracion_Asignacion.java" />
       </list>
     </option>
@@ -432,8 +446,8 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="676" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-7" />
     <option name="width" value="697" />
     <option name="height" value="745" />
   </component>
@@ -485,7 +499,7 @@
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="409" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539571203861" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539575967608" />
     <property name="create.test.in.the.same.root" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Generated" />
     <property name="project.structure.last.edited" value="Project" />
@@ -589,10 +603,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <frame x="-7" y="0" width="697" height="745" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.505295" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.50392467" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24962178" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -607,11 +621,11 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32741934" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.5516129" />
-      <window_info anchor="bottom" id="Tool Output" order="8" weight="0.32352942" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.30967742" />
-      <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49924356" weight="0.5516129" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50075644" side_tool="true" weight="0.5516129" />
+      <window_info anchor="bottom" id="Messages" order="9" weight="0.30967742" />
+      <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Tool Output" order="11" weight="0.32242227" />
       <window_info anchor="bottom" id="Version Control" order="12" weight="0.32580644" />
       <window_info anchor="bottom" id="ANTLR Preview" order="13" weight="0.32741934" />
       <window_info anchor="bottom" id="DB Execution Console" order="14" />
@@ -626,41 +640,6 @@
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info anchor="right" id="Coverage" order="9" side_tool="true" weight="0.15885022" />
     </layout>
-    <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2375189" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.24962178" />
-      <window_info id="Designer" order="2" />
-      <window_info id="Image Layers" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info id="Capture Tool" order="6" />
-      <window_info id="DB Browser" order="7" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.47419354" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.375817" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39869282" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32741934" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.5516129" />
-      <window_info anchor="bottom" id="Tool Output" order="8" weight="0.32419354" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.3120915" />
-      <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="12" weight="0.32580644" />
-      <window_info anchor="bottom" id="ANTLR Preview" order="13" weight="0.32741934" />
-      <window_info anchor="bottom" id="DB Execution Console" order="14" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.24962178" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="Maven Projects" order="5" weight="0.32980332" />
-      <window_info anchor="right" id="Database" order="6" weight="0.32980332" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
-      <window_info anchor="right" id="Theme Preview" order="8" />
-      <window_info anchor="right" id="Coverage" order="9" side_tool="true" weight="0.15885022" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -676,6 +655,12 @@
           <line>44</line>
           <properties />
           <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Checker/ParaVariables/ACVC_Declaracion_Asignacion.java</url>
+          <line>453</line>
+          <properties />
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -911,13 +896,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/CodigoPrueba.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2142">
-          <caret line="41" column="61" lean-forward="true" selection-start-line="41" selection-start-column="61" selection-end-line="41" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Antlr/Scanner.g4">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="188">
@@ -925,17 +903,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/CodigoPrueba.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="389">
+          <caret line="113" column="13" lean-forward="true" selection-start-line="110" selection-start-column="12" selection-end-line="113" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Antlr/MyParser.g4">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="79" selection-start-line="79" selection-end-line="79" />
+        <state relative-caret-position="185">
+          <caret line="23" column="137" selection-start-line="23" selection-start-column="121" selection-end-line="23" selection-end-column="137" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Checker/ParaVariables/ACVC_Declaracion_Asignacion.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="385" column="39" lean-forward="true" selection-start-line="385" selection-start-column="39" selection-end-line="385" selection-end-column="39" />
+        <state relative-caret-position="399">
+          <caret line="514" column="38" selection-start-line="514" selection-start-column="38" selection-end-line="514" selection-end-column="38" />
           <folding>
             <element signature="method#hasErrors#0;class#ACVC_Declaracion_Asignacion#0" />
             <element signature="method#imprimir#0;class#ACVC_Declaracion_Asignacion#0" />
@@ -943,7 +928,30 @@
             <element signature="e#11452#11453#0" expanded="true" />
             <element signature="e#11418#11419#0" expanded="true" />
             <element signature="e#11470#11471#0" expanded="true" />
-            <element signature="e#11336#11552#0" />
+            <element signature="e#13487#13488#0" expanded="true" />
+            <element signature="e#13525#13526#0" expanded="true" />
+            <element signature="e#13629#13630#0" expanded="true" />
+            <element signature="e#13680#13681#0" expanded="true" />
+            <element signature="e#13765#13766#0" expanded="true" />
+            <element signature="e#13815#13816#0" expanded="true" />
+            <element signature="e#13900#13901#0" expanded="true" />
+            <element signature="e#13950#13951#0" expanded="true" />
+            <element signature="e#14039#14040#0" expanded="true" />
+            <element signature="e#14091#14092#0" expanded="true" />
+            <element signature="e#14176#14177#0" expanded="true" />
+            <element signature="e#14226#14227#0" expanded="true" />
+            <element signature="e#14315#14316#0" expanded="true" />
+            <element signature="e#14367#14368#0" expanded="true" />
+            <element signature="e#14452#14453#0" expanded="true" />
+            <element signature="e#14502#14503#0" expanded="true" />
+            <element signature="e#14589#14590#0" expanded="true" />
+            <element signature="e#14640#14641#0" expanded="true" />
+            <element signature="e#14727#14728#0" expanded="true" />
+            <element signature="e#14778#14779#0" expanded="true" />
+            <element signature="e#14807#14808#0" expanded="true" />
+            <element signature="e#14851#14852#0" expanded="true" />
+            <element signature="e#15000#15001#0" expanded="true" />
+            <element signature="e#15051#15052#0" expanded="true" />
           </folding>
         </state>
       </provider>

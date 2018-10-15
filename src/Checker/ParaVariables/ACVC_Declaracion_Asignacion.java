@@ -412,14 +412,106 @@ public class ACVC_Declaracion_Asignacion extends MyParserBaseVisitor {
     public Object visitStatementIgSTAST(MyParser.StatementIgSTASTContext ctx) {
 
         //designator ( IG expr) PyC
+        visit(ctx.designator());
 
-        //designator
-        //designatorExp
-        //exp
-        //term
-        // addop
-        // term
+        return null;
+        //return super.visitStatementIgSTAST(ctx);
+    }
 
-        return super.visitStatementIgSTAST(ctx);
+    @Override
+    public Object visitIfSTAST(MyParser.IfSTASTContext ctx) {
+
+        //return super.visitIfSTAST(ctx);
+        //IF PAR_IZQ condition PAR_DER statement ( ELSE statement )?
+        //if(v1 > v2){}else {}
+
+        //String te = (String) visit(ctx.condition()
+        return null;
+
+    }
+
+    @Override
+    public Object visitConditionAST(MyParser.ConditionASTContext ctx) {
+
+        //condition: condTerm ( OR condTerm )*
+        for (MyParser.CondTermContext e : ctx.condTerm())
+            visit(e);
+        return null;
+    }
+
+    @Override
+    public Object visitCondTermAST(MyParser.CondTermASTContext ctx) {
+
+        //condFact ( AND condFact)*
+        for (MyParser.CondFactContext e : ctx.condFact())
+            visit(e);
+        return null;
+    }
+
+    @Override
+    public Object visitCondFactAST(MyParser.CondFactASTContext ctx) {
+
+        //expr relop expr
+        return super.visitCondFactAST(ctx);
+    }
+
+    @Override
+    public Object visitConstCharDeclAST(MyParser.ConstCharDeclASTContext ctx) {
+        return ctx.CHAR_CONST().getSymbol();
+    }
+
+    @Override
+    public Object visitRelopIgIgAST(MyParser.RelopIgIgASTContext ctx) {
+        return ctx.IGIG().getSymbol();
+    }
+
+    @Override
+    public Object visitRelopDifAST(MyParser.RelopDifASTContext ctx) {
+        return ctx.DIF().getSymbol();
+    }
+
+    @Override
+    public Object visitRelopMayAST(MyParser.RelopMayASTContext ctx) {
+        return ctx.MAY().getSymbol();
+    }
+
+    @Override
+    public Object visitRelopMatIgAST(MyParser.RelopMatIgASTContext ctx) {
+        return ctx.MAY_IG().getSymbol();
+    }
+
+    @Override
+    public Object visitRelopMenAST(MyParser.RelopMenASTContext ctx) {
+        return ctx.MEN().getSymbol();
+    }
+
+    @Override
+    public Object visitRelopMenIgAST(MyParser.RelopMenIgASTContext ctx) {
+        return ctx.MEN_IG().getSymbol();
+    }
+
+    @Override
+    public Object visitAddopSumAST(MyParser.AddopSumASTContext ctx) {
+        return ctx.SUM().getSymbol();
+    }
+
+    @Override
+    public Object visitAddopRestAST(MyParser.AddopRestASTContext ctx) {
+        return ctx.REST().getSymbol();
+    }
+
+    @Override
+    public Object visitMulopMultAST(MyParser.MulopMultASTContext ctx) {
+        return ctx.MULT().getSymbol();
+    }
+
+    @Override
+    public Object visitMulopDivAST(MyParser.MulopDivASTContext ctx) {
+        return ctx.DIV().getSymbol();
+    }
+
+    @Override
+    public Object visitMulopPorcAST(MyParser.MulopPorcASTContext ctx) {
+        return ctx.PORC().getSymbol();
     }
 }
