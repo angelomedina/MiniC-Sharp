@@ -112,7 +112,7 @@ public class AC_Declaracion_Asignacion extends MyParserBaseVisitor {
         String error = "";
         String tipo = ctx.type().getText();
 
-        if ((tipo.equals("int")) || (tipo.equals("char"))) {
+        if ((tipo.equals("int")) || (tipo.equals("char"))) { // Verificacion de constantes
 
             int res = tableS.enterVarCons(ctx.IDENT().getText(),tipo,"Constante");
 
@@ -146,6 +146,16 @@ public class AC_Declaracion_Asignacion extends MyParserBaseVisitor {
         return ctx.NUMBER_INTEGER_ZERO().getSymbol();
     }
 
+    public boolean esArreglo(String arreglo){
+
+        if(arreglo.contains("[") || arreglo.contains("]")){
+            return true; // Si es un arreglo
+        }
+
+        return false;
+
+    }
+
 
     @Override
     public Object visitVarDeclAST(MyParser.VarDeclASTContext ctx) {
@@ -153,13 +163,20 @@ public class AC_Declaracion_Asignacion extends MyParserBaseVisitor {
         //varDecl: type IDENT ( COMA IDENT )* PyC
         String error = "";
         String tipo = ctx.type().getText();
-
+        String tipo2 = "";
         //System.out.println("ss "+ctx.IDENT(0));
 
 
         for (int i=0; i<ctx.IDENT().size(); i++){
 
-                    int res = tableS.enterVarCons(ctx.IDENT(i).getText(),tipo,"Variable");
+                    if(esArreglo(tipo)){
+                        tipo2 = "Arreglo";
+                    }
+                    else {
+                        tipo2 = "Variable";
+                    }
+
+                    int res = tableS.enterVarCons(ctx.IDENT(i).getText(),tipo,tipo2);
 
                     if (res == 1) {
 
@@ -262,13 +279,11 @@ public class AC_Declaracion_Asignacion extends MyParserBaseVisitor {
             parametros = (List<String>) visit(ctx.formPars()); // Los obtengo
 
         }
-        tableS.actuaLevel -=1;
+
 
         varsName = new LinkedList<>();
         varsType = new LinkedList<>();
 
-
-        tableS.openScope();
         if(ctx.varDecl() != null){ // Si tiene variables
 
             //System.out.println("R.Vars "+tableS.actuaLevel);
@@ -277,11 +292,14 @@ public class AC_Declaracion_Asignacion extends MyParserBaseVisitor {
                 visit(e);
             }
         }
-        tableS.actuaLevel -=1;
+
 
 //        tableS.imprimir();
 
         int res = tableS.enterFunc(ctx.IDENT().getSymbol().getText(), tipo.getText(),varsName,varsType,paramsName,parametros);
+
+        tableS.actuaLevel--;
+        //tableS.closeScope();
 
         if(res == 1) {
 
@@ -451,20 +469,6 @@ public class AC_Declaracion_Asignacion extends MyParserBaseVisitor {
         return null;
     }
 
-    @Override
-    public Object visitSpfunctionORD(MyParser.SpfunctionORDContext ctx) {
-        return ctx.ORD().getSymbol();
-    }
-
-    @Override
-    public Object visitSpfunctionCHR(MyParser.SpfunctionCHRContext ctx) {
-        return ctx.CHR().getSymbol();
-    }
-
-    @Override
-    public Object visitSpfunctionLEN(MyParser.SpfunctionLENContext ctx) {
-        return ctx.LEN().getSymbol();
-    }
 
     @Override
     public Object visitNumIntFAST(MyParser.NumIntFASTContext ctx) {
@@ -532,8 +536,9 @@ public class AC_Declaracion_Asignacion extends MyParserBaseVisitor {
     public Object visitBlockSTAST(MyParser.BlockSTASTContext ctx) {
 
         //LLA_IZQ ( statement )* LLA_DER
-        for (MyParser.StatementContext e : ctx.statement())
-            visit(e);
+
+        visit(ctx.block());
+
         return null;
 
     }
@@ -745,11 +750,6 @@ public class AC_Declaracion_Asignacion extends MyParserBaseVisitor {
 
 
 
-
-
-
-
-
     //Codigo: Angelo: Faltante /////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -760,18 +760,11 @@ public class AC_Declaracion_Asignacion extends MyParserBaseVisitor {
         return super.visitForSTAST(ctx);
     }
 
-    @Override
-    public Object visitSpfunctionFAST(MyParser.SpfunctionFASTContext ctx) {
-
-        //special_function (PAR_IZQ (actPars) PAR_DER)
-        return super.visitSpfunctionFAST(ctx);
-    }
-
     @Override //preguntar: que hago con el new
     public Object visitNewFAST(MyParser.NewFASTContext ctx) {
 
         //NEW designator
-        visit(ctx.designator());
+
         return super.visitNewFAST(ctx);
     }
 

@@ -14,6 +14,8 @@ public class AC_Llamadas_Funciones extends MyParserBaseVisitor {
     private SymbolTable tableS;
     private String error = "";
     private boolean buscandoRetorno = false;
+    private boolean en_funcion = false;
+    private String funcion_actual = "";
 
     public LinkedList<String> listaErrores = new LinkedList<String>();
 
@@ -78,9 +80,6 @@ public class AC_Llamadas_Funciones extends MyParserBaseVisitor {
     }
 
     // statementIgSTAST
-
-
-
     @Override
     public Object visitStatementIgSTAST(MyParser.StatementIgSTASTContext ctx) {
 
@@ -193,10 +192,11 @@ public class AC_Llamadas_Funciones extends MyParserBaseVisitor {
     @Override
     public Object visitReturnSTAST(MyParser.ReturnSTASTContext ctx) {
 
-
         System.out.println("En return "+ctx.expr().getText());
         buscandoRetorno = true;
-        visit(ctx.expr());
+        //visit(ctx.expr());
+
+
 
         return null;
     }
@@ -276,6 +276,8 @@ public class AC_Llamadas_Funciones extends MyParserBaseVisitor {
 
                 if(buscandoRetorno){
 
+
+
                 }
 
                 else {
@@ -284,6 +286,12 @@ public class AC_Llamadas_Funciones extends MyParserBaseVisitor {
 
                         verificar_elementos((Funcion) elemento, ctx.actPars());
 
+                    }else{
+                        if(ctx.actPars() != null){
+                            numErrors++;
+                            error = "Error el elemento " + ctx.designator().getText()+ " no es una funcion.";
+                            listaErrores.push(error);
+                        }
                     }
 
                 }
@@ -317,6 +325,8 @@ public class AC_Llamadas_Funciones extends MyParserBaseVisitor {
 
     private void verificar_elementos(Funcion elemento, MyParser.ActParsContext actPars) {
 
+       // System.out.println("EEEEEEEEEEEEEEEEE "+elemento.getName());
+
         List<String> parametros_recibidos = new LinkedList<>();
         FuncionSpecial funcionSpecial = null;
         FuncionNormal funcionNormal = null;
@@ -340,7 +350,7 @@ public class AC_Llamadas_Funciones extends MyParserBaseVisitor {
 
             if(parametros_recibidos.size() != elemento.getnParams()){
                 numErrors++;
-                error = "Error el numero de parametros recibidos es incorrecto";
+                error = "Error el numero de parametros recibidos en la funcion "+elemento.getName()+" es incorrecto";
                 listaErrores.push(error);
             }
             else {
@@ -365,16 +375,26 @@ public class AC_Llamadas_Funciones extends MyParserBaseVisitor {
                         } else {
 
                             if(elemento.getName().equals("len") || elemento.getName().equals("ord") || elemento.getName().equals("chr")){
-
+                                //System.out.println("Funcion special "+elemento.getName());
                                 // Convierto a una funcion especial
                                  funcionSpecial = (FuncionSpecial) elemento;
+                                 if(elemento.getName().equals("len")){// Si la funcion es len, verifico si la variable es un arreglo
+                                   // System.out.println("->> Elemento "+elem.getIdSimbolo()+ " <<-");
 
-                                 System.out.println(elem.getType() + " : "+funcionSpecial.getType());
-                                if (!elem.getType().equals(funcionSpecial.getType())) {
-                                    numErrors++;
-                                    error = "Error el elemento " + parametros_recibidos.get(x) + " debe ser de tipo " + funcionSpecial.getType()+" .";
-                                    listaErrores.push(error);
-                                }
+                                     if(elem.getIdSimbolo().equals("Variable")){ // Si no es un arreglo
+                                         numErrors++;
+                                         error = "Error el elemento "+elem.getName()+" no es un arreglo";
+                                         listaErrores.push(error);
+                                     }
+
+                                 }
+                                 else {
+                                     if (!elem.getType().equals(funcionSpecial.getType())) {
+                                         numErrors++;
+                                         error = "Error el elemento " + parametros_recibidos.get(x) + " debe ser de tipo " + funcionSpecial.getType() + " .";
+                                         listaErrores.push(error);
+                                     }
+                                 }
                             }
 
                             else {
@@ -444,20 +464,45 @@ public class AC_Llamadas_Funciones extends MyParserBaseVisitor {
         return null;
     }
 
+    public boolean isInteger(String numero){
+        try{
+            Integer.parseInt(numero);
+            return true;
+        }catch(NumberFormatException e){
+            return false;
+        }
+    }
+
     @Override
     public Object visitCondFactAST(MyParser.CondFactASTContext ctx) {
 
 
-        Symbol existExpreI    = tableS.retrieve(ctx.expr(0).getText());
-        Symbol existExpreII   = tableS.retrieve(ctx.expr(1).getText());
+        //verifico si son numeros
 
-        if( existExpreI != null && existExpreII != null) {
+        if(isInteger(ctx.expr(0).getText()) == true || isInteger(ctx.expr(1).getText()) == true) {
 
-            if(!existExpreI.equals(existExpreII)){
+            if(isInteger(ctx.expr(0).getText()) != isInteger(ctx.expr(1).getText()) ){
                 numErrors++;
                 error = "Semantic Error Incompatible types in CondFactAST between "
-                        + existExpreI.getName() + " and " + existExpreII.getName() ;
+                        + ctx.expr(0).getText() + " and " + ctx.expr(1).getText() ;
                 listaErrores.push(error);
+            }
+        }
+        else{
+
+            //verifico si son id
+
+            Symbol existExpreI    = tableS.retrieve(ctx.expr(0).getText());
+            Symbol existExpreII   = tableS.retrieve(ctx.expr(1).getText());
+
+            if( existExpreI != null && existExpreII != null) {
+
+                if(!existExpreI.equals(existExpreII)){
+                    numErrors++;
+                    error = "Semantic Error Incompatible types in CondFactAST between "
+                            + existExpreI.getName() + " and " + existExpreII.getName() ;
+                    listaErrores.push(error);
+                }
             }
         }
 

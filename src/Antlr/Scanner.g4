@@ -25,18 +25,6 @@ WRITE: 'write';
 FOR: 'for';
 TRUE: 'true';
 FALSE: 'false';
-/*
-INT: 'int';
-CHAR: 'char';
-FLOAT: 'float';
-BOOL: 'bool';
-STRING: 'string';
-LIST: 'list';*/
-
-// Para metodos
-ORD: 'ord';
-CHR: 'chr';
-LEN: 'len';
 
 // Simbolos
 

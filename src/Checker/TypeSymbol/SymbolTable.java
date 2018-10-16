@@ -22,7 +22,10 @@ public class SymbolTable {
             switch ( identificador ) {
 
                 case "Variable":
-                    table.add(new Variable(id, tipo, actuaLevel));
+                    table.add(new Variable(id, tipo, actuaLevel,identificador));
+                    return 0;//means id was succesfully inserted in table
+                case "Arreglo":
+                    table.add(new Variable(id, tipo, actuaLevel,identificador));
                     return 0;//means id was succesfully inserted in table
                 case "Constante":
                     table.add(new Constante(id, tipo, actuaLevel));
@@ -50,17 +53,6 @@ public class SymbolTable {
         return 1;
     }
 
-    public int enterFunc2(String id, String tipo, List<Symbol> params) {
-
-        if (exists(id,actuaLevel) == false) {
-
-            table.add(new FuncionNormal(id,tipo,actuaLevel,params));
-          //  System.out.println("Agregada");
-            return 0;//means id was succesfully inserted in table
-        }
-
-        return 1;
-    }
     /**
      * Funcion para registrar clases
      */
@@ -79,22 +71,9 @@ public class SymbolTable {
 
     public void registrarFuncionesPredefinidas(){
 
-        List<String> params = new LinkedList<>();
-        params.add("char");
-
-        List<String>params2 = new LinkedList<>();
-        params2.add("int");
-
-        List<String>params3 = new LinkedList<>();
-        params3.add("uni");
-
-        List<String> names = new LinkedList<>();
-        names.add("");
-
-
         table.add(new FuncionSpecial("ord","char",-1,"int"));
         table.add(new FuncionSpecial("chr","int",-1,"char"));
-        table.add(new FuncionSpecial("len","arreglo",-1,"int"));
+        table.add(new FuncionSpecial("len","Arreglo",-1,"int"));
     }
 
     private boolean exists(String id, int level) {

@@ -1,4 +1,4 @@
-// Generated from E:/Doccumentos TEC/6 SEMESTRE 2018/Compiladores/Proyectos/I Proyecto/Avance II/MiniC-Sharp/src/Antlr\MyParser.g4 by ANTLR 4.7
+// Generated from D:/Proyecto Compiladores/MiniC-Sharp/src/Antlr\MyParser.g4 by ANTLR 4.7
 package Antlr;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
@@ -284,13 +284,6 @@ public interface MyParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitFactorFAST(MyParser.FactorFASTContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code spfunctionFAST}
-	 * labeled alternative in {@link MyParser#factor}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitSpfunctionFAST(MyParser.SpfunctionFASTContext ctx);
-	/**
 	 * Visit a parse tree produced by the {@code numIntFAST}
 	 * labeled alternative in {@link MyParser#factor}.
 	 * @param ctx the parse tree
@@ -360,27 +353,6 @@ public interface MyParserVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitBooleanFalseFAST(MyParser.BooleanFalseFASTContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code spfunctionORD}
-	 * labeled alternative in {@link MyParser#special_function}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitSpfunctionORD(MyParser.SpfunctionORDContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code spfunctionCHR}
-	 * labeled alternative in {@link MyParser#special_function}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitSpfunctionCHR(MyParser.SpfunctionCHRContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code spfunctionLEN}
-	 * labeled alternative in {@link MyParser#special_function}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitSpfunctionLEN(MyParser.SpfunctionLENContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code designatorAST}
 	 * labeled alternative in {@link MyParser#designator}.

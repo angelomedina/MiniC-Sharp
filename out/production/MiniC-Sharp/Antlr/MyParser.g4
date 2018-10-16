@@ -55,7 +55,7 @@ statement: designator ( IG expr) PyC                                            
 		 |  RETURN ( expr )? PyC                                                                                        #returnSTAST
 		 |  READ PAR_IZQ designator PAR_DER PyC                                                                         #readSTAT
 		 |  WRITE PAR_IZQ expr (writeType)? PAR_DER PyC                                                                 #writeSTAST
-		 |  LLA_IZQ ( statement )* LLA_DER                                                                              #blockSTAST
+		 |  block                                                                                                       #blockSTAST
 		 |  PyC                                                                                                         #pycSTAST;
 
 writeType: COMA NUMBER_INTEGER                                                                                          #writeTypeNumIntSTAST
@@ -78,22 +78,17 @@ expr: ( REST )? term ( addop term )*                                            
 term: factor ( mulop factor )*                                                                                          #termAST;
 
 factor: designator ( PAR_IZQ ( actPars )? PAR_DER )?                                                                    #factorFAST
-		 |  special_function (PAR_IZQ (actPars) PAR_DER)                                                                #spfunctionFAST
 		 |  NUMBER_INTEGER                                                                                              #numIntFAST
 		 |  NUMBER_INTEGER_ZERO                                                                                         #numIntZeroFAST
 		 |  NUMBER_FLOAT                                                                                                #numberFloatFAST
 		 |  STRING_CONST                                                                                                #stringFAST
 		 |  CHAR_CONST                                                                                                  #chaeFAST
 		 |  (booleanValue)                                                                                              #booleanFAST
-		 |  NEW designator                                                                                              #newFAST
+		 |  NEW IDENT                                                                                                   #newFAST
 		 |  PAR_IZQ expr PAR_DER                                                                                        #expresionFAST;
 
 booleanValue: TRUE                                                                                                      #booleanTrueFAST
             |FALSE                                                                                                      #booleanFalseFAST;
-
-special_function: ORD                                                                                                   #spfunctionORD
-                | CHR                                                                                                   #spfunctionCHR
-                | LEN                                                                                                   #spfunctionLEN;
 
 designator: IDENT (designatorExp)*                                                                                      #designatorAST;
 
