@@ -3,7 +3,9 @@ package Checker.Analizadores;
 
 import Antlr.MyParser;
 import Antlr.MyParserBaseVisitor;
+import Checker.TypeSymbol.Symbol;
 import Checker.TypeSymbol.SymbolTable;
+import Exeptions.SemanticException;
 import org.antlr.v4.runtime.Token;
 
 import java.util.LinkedList;
@@ -349,4 +351,430 @@ public class AC_Declaracion_Asignacion extends MyParserBaseVisitor {
         return ctx.IDENT().getSymbol();
     }
 
+
+
+
+    //CODIGO: Angelo: ///////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+    @Override
+    public Object visitDesignatorAST(MyParser.DesignatorASTContext ctx) {
+
+        //IDENT (designatorExp)*
+        String error = "";
+
+        Symbol existe = tableS.retrieve(ctx.IDENT().getText());
+
+        if(existe != null ) {
+
+            for (MyParser.DesignatorExpContext e : ctx.designatorExp())
+                visit(e);
+        }else{
+            this.numErrors++;
+
+            error = ("Semantic Error (" +
+                    +ctx.IDENT().getSymbol().getLine() + ":" + (ctx.IDENT().getSymbol().getCharPositionInLine() + 1)
+                    + "): Identifier doesn't exist!!!");
+            listaErrores.push(error);
+            throw new SemanticException();
+        }
+        return null;
+    }
+
+    @Override
+    public Object visitExprAST(MyParser.ExprASTContext ctx) {
+
+
+        //( REST )? term ( addop term )*
+
+        String error = "";
+        String tipo1 = (String) visit(ctx.term(0));
+        String tipo2 = "";
+
+        for (int i=0; i<ctx.term().size(); i++){
+            tipo2 = (String) visit(ctx.term(i));
+
+            if(!tipo1.equals(tipo2)){
+                this.numErrors++;
+
+                error = "Semantic Error ("
+                        + ((Token) visit(ctx.addop(i - 1))).getLine() + ":" + (((Token) visit(ctx.addop(i - 1))).getCharPositionInLine() + 1)
+                        + "): Incompatible types in expression between "
+                        + tipo1 + " and " + tipo2;
+                listaErrores.push(error);
+
+                throw new SemanticException();
+            }
+            tipo1 = tipo2;
+        }
+        return tipo1;
+    }
+
+    @Override
+    public Object visitDesignatorPuntIdAST(MyParser.DesignatorPuntIdASTContext ctx) {
+
+        // PUNT IDENT
+
+        if(ctx.IDENT() != null){
+            visit(ctx.IDENT());
+        }
+        return ctx.IDENT().getSymbol();
+    }
+
+    @Override
+    public Object visitWriteTypeNumIntSTAST(MyParser.WriteTypeNumIntSTASTContext ctx) {
+
+        //COMA NUMBER_INTEGER
+
+        if(ctx.NUMBER_INTEGER() != null){
+            visit(ctx.NUMBER_INTEGER());
+        }
+        return ctx.NUMBER_INTEGER().getSymbol();
+    }
+
+    @Override
+    public Object visitBooleanFAST(MyParser.BooleanFASTContext ctx) {
+
+        visit(ctx.booleanValue());
+
+        return null;
+    }
+
+    @Override
+    public Object visitActParsAST(MyParser.ActParsASTContext ctx) {
+
+        //expr ( COMA expr )*
+        for (MyParser.ExprContext e : ctx.expr())
+            visit(e);
+
+        return null;
+    }
+
+    @Override
+    public Object visitSpfunctionORD(MyParser.SpfunctionORDContext ctx) {
+        return ctx.ORD().getSymbol();
+    }
+
+    @Override
+    public Object visitSpfunctionCHR(MyParser.SpfunctionCHRContext ctx) {
+        return ctx.CHR().getSymbol();
+    }
+
+    @Override
+    public Object visitSpfunctionLEN(MyParser.SpfunctionLENContext ctx) {
+        return ctx.LEN().getSymbol();
+    }
+
+    @Override
+    public Object visitNumIntFAST(MyParser.NumIntFASTContext ctx) {
+        return ctx.NUMBER_INTEGER().getSymbol();
+    }
+
+    @Override
+    public Object visitNumIntZeroFAST(MyParser.NumIntZeroFASTContext ctx) {
+        return ctx.NUMBER_INTEGER_ZERO().getSymbol();
+    }
+
+    @Override
+    public Object visitNumberFloatFAST(MyParser.NumberFloatFASTContext ctx) {
+        return ctx.NUMBER_FLOAT().getSymbol();
+    }
+
+    @Override
+    public Object visitStringFAST(MyParser.StringFASTContext ctx) {
+        return ctx.STRING_CONST().getSymbol();
+    }
+
+    @Override
+    public Object visitChaeFAST(MyParser.ChaeFASTContext ctx) {
+
+        //CHAR_CONST
+        return ctx.CHAR_CONST().getSymbol();
+    }
+
+    @Override
+    public Object visitBooleanTrueFAST(MyParser.BooleanTrueFASTContext ctx) {
+        return ctx.TRUE().getSymbol();
+    }
+
+    @Override
+    public Object visitBooleanFalseFAST(MyParser.BooleanFalseFASTContext ctx) {
+        return ctx.FALSE().getSymbol();
+    }
+
+    @Override
+    public Object visitWriteTypeNumIntZSTAST(MyParser.WriteTypeNumIntZSTASTContext ctx) {
+        return ctx.NUMBER_INTEGER_ZERO().getSymbol();
+    }
+
+    @Override
+    public Object visitWriteTypeNumFloatSTAST(MyParser.WriteTypeNumFloatSTASTContext ctx) {
+        return ctx.NUMBER_FLOAT();
+    }
+
+    @Override
+    public Object visitBreakStAST(MyParser.BreakStASTContext ctx) {
+        return super.visitBreakStAST(ctx);
+    }
+
+    @Override
+    public Object visitBlockAST(MyParser.BlockASTContext ctx) {
+
+        //LLA_IZQ ( statement )* LLA_DER
+        for (MyParser.StatementContext e: ctx.statement())
+            visit(e);
+        return null;
+    }
+
+    @Override
+    public Object visitBlockSTAST(MyParser.BlockSTASTContext ctx) {
+
+        //LLA_IZQ ( statement )* LLA_DER
+        for (MyParser.StatementContext e : ctx.statement())
+            visit(e);
+        return null;
+
+    }
+
+    @Override
+    public Object visitPycSTAST(MyParser.PycSTASTContext ctx) {
+        return ctx.PyC().getSymbol();
+    }
+
+    @Override
+    public Object visitConditionAST(MyParser.ConditionASTContext ctx) {
+
+        //condition: condTerm ( OR condTerm )*
+        for (MyParser.CondTermContext e : ctx.condTerm())
+            visit(e);
+        return null;
+    }
+
+    @Override
+    public Object visitTermAST(MyParser.TermASTContext ctx) {
+
+        //term: factor ( mulop factor )*
+        for (MyParser.FactorContext e : ctx.factor())
+            visit(e);
+        return null;
+    }
+
+    @Override
+    public Object visitCondTermAST(MyParser.CondTermASTContext ctx) {
+
+        //condFact ( AND condFact)*
+        for (MyParser.CondFactContext e : ctx.condFact())
+            visit(e);
+        return null;
+    }
+
+    @Override
+    public Object visitCondFactAST(MyParser.CondFactASTContext ctx) {
+
+        //expr relop expr
+        return super.visitCondFactAST(ctx);
+    }
+
+    @Override
+    public Object visitConstCharDeclAST(MyParser.ConstCharDeclASTContext ctx) {
+        return ctx.CHAR_CONST().getSymbol();
+    }
+
+    @Override
+    public Object visitRelopIgIgAST(MyParser.RelopIgIgASTContext ctx) {
+        return ctx.IGIG().getSymbol();
+    }
+
+    @Override
+    public Object visitRelopDifAST(MyParser.RelopDifASTContext ctx) {
+        return ctx.DIF().getSymbol();
+    }
+
+    @Override
+    public Object visitRelopMayAST(MyParser.RelopMayASTContext ctx) {
+        return ctx.MAY().getSymbol();
+    }
+
+    @Override
+    public Object visitRelopMatIgAST(MyParser.RelopMatIgASTContext ctx) {
+        return ctx.MAY_IG().getSymbol();
+    }
+
+    @Override
+    public Object visitRelopMenAST(MyParser.RelopMenASTContext ctx) {
+        return ctx.MEN().getSymbol();
+    }
+
+    @Override
+    public Object visitRelopMenIgAST(MyParser.RelopMenIgASTContext ctx) {
+        return ctx.MEN_IG().getSymbol();
+    }
+
+    @Override
+    public Object visitAddopSumAST(MyParser.AddopSumASTContext ctx) {
+        return ctx.SUM().getSymbol();
+    }
+
+    @Override
+    public Object visitAddopRestAST(MyParser.AddopRestASTContext ctx) {
+        return ctx.REST().getSymbol();
+    }
+
+    @Override
+    public Object visitMulopMultAST(MyParser.MulopMultASTContext ctx) {
+        return ctx.MULT().getSymbol();
+    }
+
+    @Override
+    public Object visitMulopDivAST(MyParser.MulopDivASTContext ctx) {
+        return ctx.DIV().getSymbol();
+    }
+
+    @Override
+    public Object visitMulopPorcAST(MyParser.MulopPorcASTContext ctx) {
+        return ctx.PORC().getSymbol();
+    }
+
+
+    //Codigo: Angelo: Faltante /////////////////////////////////////////////////////////////////////////////////////////
+
+    @Override
+    public Object visitForSTAST(MyParser.ForSTASTContext ctx) {
+
+        //FOR PAR_IZQ expr PyC (condition)? PyC (statement)? PAR_DER statement
+        return super.visitForSTAST(ctx);
+    }
+
+
+    @Override
+    public Object visitFactorFAST(MyParser.FactorFASTContext ctx) {
+
+        //designator ( PAR_IZQ ( actPars )? PAR_DER )?
+        return super.visitFactorFAST(ctx);
+    }
+
+    @Override
+    public Object visitSpfunctionFAST(MyParser.SpfunctionFASTContext ctx) {
+
+        //special_function (PAR_IZQ (actPars) PAR_DER)
+
+        // OR ( 6*6 )
+        return super.visitSpfunctionFAST(ctx);
+    }
+
+
+    @Override
+    public Object visitStatementIncSTAST(MyParser.StatementIncSTASTContext ctx) {
+
+        //designator ( INC ) PyC
+        // i++;
+        return super.visitStatementIncSTAST(ctx);
+    }
+
+    @Override
+    public Object visitStatementDecSTAST(MyParser.StatementDecSTASTContext ctx) {
+
+        //designator ( DEC ) PyC
+        //i--;
+        return super.visitStatementDecSTAST(ctx);
+    }
+
+
+
+    //CON DUDAS ////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    @Override //preguntar: si es solo visitar
+    public Object visitReadSTAT(MyParser.ReadSTATContext ctx) {
+
+        //READ PAR_IZQ designator PAR_DER PyC
+        visit(ctx.designator());
+
+        return null;
+    }
+
+    @Override //preguntar: si es solo visitar (Kevin)
+    public Object visitWriteSTAST(MyParser.WriteSTASTContext ctx) {
+
+        //WRITE PAR_IZQ expr (writeType)? PAR_DER PyC
+
+        visit(ctx.expr());
+
+        return null;
+    }
+
+    @Override //preguntar: si solo es visitar
+    public Object visitReturnSTAST(MyParser.ReturnSTASTContext ctx) {
+
+        //RETURN ( expr )? PyC
+        visit(ctx.expr());
+
+        return null;
+    }
+
+    @Override //preguntar: que hago con el new
+    public Object visitNewFAST(MyParser.NewFASTContext ctx) {
+
+        //NEW designator
+        visit(ctx.designator());
+        return super.visitNewFAST(ctx);
+    }
+
+    @Override  //preguntar: condiciones estan en la lista y son de tipo igual
+    public Object visitStatementIgSTAST(MyParser.StatementIgSTASTContext ctx) {
+
+        //designator ( IG expr) PyC
+        // a = 2*4 ;
+
+
+        return null;
+    }
+
+    @Override //preguntar: si es solo visitar
+    public Object visitIfSTAST(MyParser.IfSTASTContext ctx) {
+
+        //IF PAR_IZQ condition PAR_DER statement ( ELSE statement )?
+
+        visit(ctx.condition());
+
+        for (MyParser.StatementContext e: ctx.statement())
+            visit(e);
+
+
+        return  null;
+    }
+
+    @Override  //preguntar: si es solo visitar
+    public Object visitWhileSTAST(MyParser.WhileSTASTContext ctx) {
+
+        //WHILE PAR_IZQ condition PAR_DER statement
+
+        visit(ctx.condition());
+
+        visit(ctx.statement());
+
+        return null;
+    }
+
+    @Override //preguntar: si es solo visitar
+    public Object visitDesignatorCorcsAST(MyParser.DesignatorCorcsASTContext ctx) {
+
+        // CORC_IZQ expr CORC_DER
+
+        visit(ctx.expr());
+
+        return null;
+    }
+
+    @Override //preguntar: si es solo visitar
+    public Object visitExpresionFAST(MyParser.ExpresionFASTContext ctx) {
+
+        //PAR_IZQ expr PAR_DER
+        visit(ctx.expr());
+
+        return null;
+    }
+
 }
+
+
+
