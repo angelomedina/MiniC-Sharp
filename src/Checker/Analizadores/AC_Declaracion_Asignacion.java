@@ -515,7 +515,8 @@ public class AC_Declaracion_Asignacion extends MyParserBaseVisitor {
 
     @Override
     public Object visitBreakStAST(MyParser.BreakStASTContext ctx) {
-        return super.visitBreakStAST(ctx);
+
+        return ctx.BREAK().getSymbol();
     }
 
     @Override
@@ -761,8 +762,6 @@ public class AC_Declaracion_Asignacion extends MyParserBaseVisitor {
     public Object visitSpfunctionFAST(MyParser.SpfunctionFASTContext ctx) {
 
         //special_function (PAR_IZQ (actPars) PAR_DER)
-
-        // OR ( 6*6 )
         return super.visitSpfunctionFAST(ctx);
     }
 
