@@ -447,6 +447,21 @@ public class AC_Llamadas_Funciones extends MyParserBaseVisitor {
     @Override
     public Object visitCondFactAST(MyParser.CondFactASTContext ctx) {
 
+
+        Symbol existExpreI    = tableS.retrieve(ctx.expr(0).getText());
+        Symbol existExpreII   = tableS.retrieve(ctx.expr(1).getText());
+
+        if( existExpreI != null && existExpreII != null) {
+
+            if(!existExpreI.equals(existExpreII)){
+                numErrors++;
+                error = "Semantic Error Incompatible types in CondFactAST between "
+                        + existExpreI.getName() + " and " + existExpreII.getName() ;
+                listaErrores.push(error);
+            }
+        }
+
+
         visit(ctx.expr(0));
         visit(ctx.relop());
         visit(ctx.expr(1));

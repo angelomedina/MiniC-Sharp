@@ -2,34 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6ebe243f-a307-4d73-a0f9-921472d75155" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Pruebas/Funciones/FuncionesV1.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Pruebas/Funciones/FuncionesV10.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Pruebas/Funciones/FuncionesV11.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Pruebas/Funciones/FuncionesV12.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Pruebas/Funciones/FuncionesV2.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Pruebas/Funciones/FuncionesV3.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Pruebas/Funciones/FuncionesV4.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Pruebas/Funciones/FuncionesV5.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Pruebas/Funciones/FuncionesV6.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Pruebas/Funciones/FuncionesV7.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Pruebas/Funciones/FuncionesV8.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Pruebas/Funciones/FuncionesV9.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Pruebas/Pruebas Completas/PruebaCompleta1.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Pruebas/Pruebas Completas/PruebaCompleta2.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Pruebas/Pruebas Completas/PruebaCompleta3.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Pruebas/Pruebas Completas/PruebaCompleta4.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Pruebas/Pruebas Completas/PruebaCompleta5.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Pruebas/Pruebas Completas/PruebaCompleta5.txt.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Pruebas/Pruebas Completas/PruebaCompleta6.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Pruebas/Pruebas Completas/PruebaCompleta7.txt.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Pruebas/Pruebas Completas/PruebaCompleta9.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Pruebas/Variables/VariablesV1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Checker/Analizadores/AC_Declaracion_Asignacion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Checker/Analizadores/AC_Llamadas_Funciones.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Checker/Analizadores/AC_Declaracion_Asignacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Checker/Analizadores/AC_Declaracion_Asignacion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Checker/Analizadores/AC_Llamadas_Funciones.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Checker/Analizadores/AC_Llamadas_Funciones.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pruebas(Angelo).txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pruebas(Angelo).txt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -175,7 +148,7 @@
           <entry key="g4" value="18" />
           <entry key="java" value="131" />
           <entry key="tokens" value="1" />
-          <entry key="txt" value="51" />
+          <entry key="txt" value="52" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -183,21 +156,21 @@
           <entry key="ANTLR v4 grammar file" value="18" />
           <entry key="CLASS" value="7" />
           <entry key="JAVA" value="131" />
-          <entry key="PLAIN_TEXT" value="52" />
+          <entry key="PLAIN_TEXT" value="53" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="25" />
           <entry key="g4" value="53" />
-          <entry key="java" value="9169" />
+          <entry key="java" value="9194" />
           <entry key="txt" value="100" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="ANTLR v4 grammar file" value="53" />
-          <entry key="JAVA" value="9169" />
+          <entry key="JAVA" value="9194" />
           <entry key="PLAIN_TEXT" value="125" />
         </counts>
       </usages-collector>
@@ -296,19 +269,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Checker/Analizadores/AC_Declaracion_Asignacion.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="696" column="28" selection-start-line="696" selection-start-column="18" selection-end-line="696" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Checker/Analizadores/AC_Llamadas_Funciones.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="92" column="16" selection-start-line="92" selection-start-column="16" selection-end-line="92" selection-end-column="16" />
+            <state relative-caret-position="89">
+              <caret line="459" column="41" lean-forward="true" selection-start-line="459" selection-start-column="41" selection-end-line="459" selection-end-column="41" />
               <folding>
                 <element signature="e#4606#4607#0" expanded="true" />
                 <element signature="e#4655#4656#0" expanded="true" />
@@ -317,11 +281,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Pruebas(Angelo).txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="196">
-              <caret line="70" lean-forward="true" selection-start-line="70" selection-end-line="70" />
+            <state relative-caret-position="32">
+              <caret line="56" selection-start-line="56" selection-end-line="71" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -329,8 +293,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Antlr/MyParser.g4">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="46" column="137" selection-start-line="46" selection-start-column="121" selection-end-line="46" selection-end-column="137" />
+            <state relative-caret-position="221">
+              <caret line="73" column="132" selection-start-line="73" selection-start-column="121" selection-end-line="73" selection-end-column="132" />
             </state>
           </provider>
         </entry>
@@ -346,8 +310,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>StatementDecSTAST</find>
-      <find>expre</find>
       <find>exprAST</find>
       <find>inc</find>
       <find>+</find>
@@ -372,10 +334,12 @@
       <find>visitDesignatorCorcsAST</find>
       <find>visitExpresionFAST</find>
       <find>sys</find>
-      <find>statementIgSTAST</find>
       <find>visitStatementIgSTAST</find>
       <find>exist</find>
+      <find>statementIgSTAST</find>
       <find>exis</find>
+      <find>conditionAST</find>
+      <find>condFactAST</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -509,7 +473,7 @@
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="409" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539665916089" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539666821140" />
     <property name="create.test.in.the.same.root" value="true" />
     <property name="last_opened_file_path" value="$USER_HOME$/Downloads/MiniC-Sharp" />
     <property name="project.structure.last.edited" value="Project" />
@@ -617,10 +581,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <frame x="676" y="0" width="697" height="745" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.19364598" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.40031397" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24962178" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -630,7 +594,7 @@
       <window_info id="DB Browser" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.47419354" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.43709677" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.44844517" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39869282" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -924,13 +888,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Antlr/MyParser.g4">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="46" column="137" selection-start-line="46" selection-start-column="121" selection-end-line="46" selection-end-column="137" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Checker/Analizadores/AC_Declaracion_Asignacion.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -938,21 +895,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Pruebas(Angelo).txt">
+    <entry file="file://$PROJECT_DIR$/src/Antlr/MyParser.g4">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="70" lean-forward="true" selection-start-line="70" selection-end-line="70" />
+        <state relative-caret-position="221">
+          <caret line="73" column="132" selection-start-line="73" selection-start-column="121" selection-end-line="73" selection-end-column="132" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Checker/Analizadores/AC_Llamadas_Funciones.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="92" column="16" selection-start-line="92" selection-start-column="16" selection-end-line="92" selection-end-column="16" />
+        <state relative-caret-position="89">
+          <caret line="459" column="41" lean-forward="true" selection-start-line="459" selection-start-column="41" selection-end-line="459" selection-end-column="41" />
           <folding>
             <element signature="e#4606#4607#0" expanded="true" />
             <element signature="e#4655#4656#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Pruebas(Angelo).txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="32">
+          <caret line="56" selection-start-line="56" selection-end-line="71" selection-end-column="1" />
         </state>
       </provider>
     </entry>
