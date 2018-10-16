@@ -40,7 +40,7 @@ public class AC_Declaracion_Asignacion extends MyParserBaseVisitor {
     public List<String> varsType;
     public List<String> paramsName;
     public boolean varClases = false;
-    public boolean buscandoRetorno = false;
+
 
     public AC_Declaracion_Asignacion(){
         this.tableS = new SymbolTable();
@@ -280,7 +280,6 @@ public class AC_Declaracion_Asignacion extends MyParserBaseVisitor {
 
         }
 
-
         varsName = new LinkedList<>();
         varsType = new LinkedList<>();
 
@@ -431,7 +430,6 @@ public class AC_Declaracion_Asignacion extends MyParserBaseVisitor {
 
     @Override
     public Object visitDesignatorPuntIdAST(MyParser.DesignatorPuntIdASTContext ctx) {
-
         // PUNT IDENT
 
         if(ctx.IDENT() != null){
@@ -685,8 +683,6 @@ public class AC_Declaracion_Asignacion extends MyParserBaseVisitor {
     @Override
     public Object visitReturnSTAST(MyParser.ReturnSTASTContext ctx) {
 
-        System.out.println("En return "+ctx.expr().getText());
-        buscandoRetorno = true;
         visit(ctx.expr());
 
         return null;

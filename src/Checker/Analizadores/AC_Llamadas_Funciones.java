@@ -13,7 +13,7 @@ public class AC_Llamadas_Funciones extends MyParserBaseVisitor {
     private int numErrors;
     private SymbolTable tableS;
     private String error = "";
-    private boolean buscandoRetorno = false;
+    private boolean debeTenerRetorno = false;
     private boolean en_funcion = false;
     private String funcion_actual = "";
 
@@ -56,13 +56,33 @@ public class AC_Llamadas_Funciones extends MyParserBaseVisitor {
         return null;
     }
 
+    @Override
+    public Object visitMethodTypeDeclAST(MyParser.MethodTypeDeclASTContext ctx) {
+
+        debeTenerRetorno = true;
+        return null;
+    }
+
 
     // Method Declaration
 
     @Override
     public Object visitMethodDeclAST(MyParser.MethodDeclASTContext ctx) {
 
+        en_funcion = true;
+        funcion_actual = ctx.IDENT().getText();
+       // System.out.println("Ret 1 "+debeTenerRetorno);
+        visit(ctx.optionMethodDecl());
+     //   System.out.println("Ret 2 "+debeTenerRetorno);
         visit(ctx.block());
+
+//        System.out.println("Retorno despues "+debeTenerRetorno);
+
+        if(debeTenerRetorno){
+            numErrors++;
+            error = "Error, la funcion "+ funcion_actual+ " debe tener un valor de retorno.";
+            listaErrores.push(error);
+        }
 
         return null;
     }
@@ -189,14 +209,140 @@ public class AC_Llamadas_Funciones extends MyParserBaseVisitor {
         return null;
     }
 
+    public static boolean isNumeric(String cadena) {
+
+        boolean resultado;
+
+        try {
+            Integer.parseInt(cadena);
+            resultado = true;
+        } catch (NumberFormatException excepcion) {
+            resultado = false;
+        }
+
+        return resultado;
+    }
+
+    public String obtenerNombreElemento(String elemento){
+
+        String nombre = "";
+        for(int i = 0; i<elemento.length(); i++){
+
+            if(elemento.charAt(i) == '(' || elemento.charAt(i) == '['){
+                return nombre;
+            }else{
+
+                nombre+=elemento.charAt(i);
+            }
+
+        }
+
+        return nombre;
+
+    }
+
     @Override
     public Object visitReturnSTAST(MyParser.ReturnSTASTContext ctx) {
 
-        System.out.println("En return "+ctx.expr().getText());
-        buscandoRetorno = true;
-        //visit(ctx.expr());
+        Symbol elementoFuncion = tableS.retrieve(funcion_actual);
+        Symbol elemento,elementoAUX;
+
+        //System.out.println("En return "+ctx.expr().getText());
+        if(ctx.expr()!= null) {
+            visit(ctx.expr());
+        }
+
+        if(en_funcion && !elementoFuncion.getType().equals("void")) {
+
+            if (ctx.expr() == null) {
+                numErrors++;
+                error = "Error se debe retornar un valor.";
+                listaErrores.push(error);
+            }
+
+            else {
+
+                if (isNumeric(ctx.expr().getText())) { // Si el retorno es un numero
+
+                    if(!elementoFuncion.getType().equals("int")){ // y el tipo de retorno no es un numero
+                        numErrors++;
+                        error = "Error, el tipo de valor retornado por la funcion no debe ser int";
+                        listaErrores.push(error);
+                    }
 
 
+                }
+
+                else if(ctx.expr().getText().equals("true") || ctx.expr().getText().equals("false")) { // Si el retorno es un valor booleano
+
+                    if(!elementoFuncion.getType().equals("bool")){ // y el tipo retorno no es un booleano
+                        numErrors++;
+                        error = "Error, el tipo de valor retornado por la funcion no debe ser booleano";
+                        listaErrores.push(error);
+                    }
+
+                }
+
+                else if(ctx.expr().getText().contains("(") || ctx.expr().getText().contains("[")){// Si es la llamada a una funcion o un arreglo
+
+                    String nombreE = obtenerNombreElemento(ctx.expr().getText());
+
+                    if(!nombreE.equals("")){
+                        elementoAUX = tableS.retrieve(nombreE);
+
+                        if(elementoAUX != null){
+                            if(!elementoAUX.getType().equals(elementoFuncion.getType())){
+                                numErrors++;
+                                error = "El tipo de retorno del elemento "+elementoAUX.getName()+
+                                        " es "+elementoAUX.getType()+" . Sin embargo, deben ser "+elementoFuncion.getType();
+                                listaErrores.push(error);
+                            }
+                        }
+                    }
+                    else{
+                        // FALTA DE VALIDAR EXPRESION COMPLEJA
+                    }
+
+                }
+
+
+                else {
+                    elemento = tableS.retrieve(ctx.expr().getText());
+
+                    if (elemento != null) {
+
+                        if (!elementoFuncion.getType().equals(elemento.getType())) {
+
+                            numErrors++;
+                            error = "Error, el tipo de valor retornado es " + elemento.getType()
+                                    + ", pero debe ser " + elementoFuncion.getType() + " .";
+                            listaErrores.push(error);
+                        }
+
+                        //System.out.println("Lo que estoy retornando "+ctx.expr().getText());
+                        //System.out.println("Lo que debo retornar "+elementoFuncion.getType());
+                    }
+
+                    else {
+                        numErrors++;
+                        error = "Error, el elemento "+ctx.expr().getText()+ " no existe.";
+                        listaErrores.push(error);
+                    }
+
+                }
+
+            }
+
+        }else { // Si no estoy dentro de una funcion
+
+            numErrors++;
+            error = "La funcion no retorna valores";
+            listaErrores.push(error);
+        }
+
+        funcion_actual = "";
+        en_funcion = false;
+        debeTenerRetorno = false; // Si encontro el retorno
 
         return null;
     }
@@ -271,17 +417,6 @@ public class AC_Llamadas_Funciones extends MyParserBaseVisitor {
             Symbol elemento = tableS.retrieve(ctx.designator().getText());
             if (elemento != null) {
 
-            //    System.out.println("Elemento "+elemento.getName()+" encontrado.");
-              //  System.out.println("Tipo "+elemento.getIdSimbolo());
-
-                if(buscandoRetorno){
-
-
-
-                }
-
-                else {
-
                     if (elemento.getIdSimbolo().equals("Funcion")) { // Si es una funcion
 
                         verificar_elementos((Funcion) elemento, ctx.actPars());
@@ -293,8 +428,6 @@ public class AC_Llamadas_Funciones extends MyParserBaseVisitor {
                             listaErrores.push(error);
                         }
                     }
-
-                }
 
             }
 
