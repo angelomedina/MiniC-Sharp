@@ -2,9 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6ebe243f-a307-4d73-a0f9-921472d75155" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Checker/ParaVariables/ACVC_Declaracion_Asignacion.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Checker/ParaVariables/ACVC_Declaracion_Asignacion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Checker/ParaVariables/ACVC_Declaracion_Asignacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Checker/ParaVariables/ACVC_Declaracion_Asignacion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Checker/Analizadores/AC_Declaracion_Asignacion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Checker/Analizadores/AC_Llamadas_Funciones.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Checker/Analizadores/AC_Verificacion_Retornos.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/FuncionesV12.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/PruebaCompleta6.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/PruebaCompleta7.txt.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Checker/TypeSymbol/Clase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Checker/TypeSymbol/Clase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Checker/TypeSymbol/Constante.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Checker/TypeSymbol/Constante.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Checker/TypeSymbol/Funcion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Checker/TypeSymbol/Funcion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Checker/TypeSymbol/FuncionNormal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Checker/TypeSymbol/FuncionNormal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Checker/TypeSymbol/FuncionSpecial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Checker/TypeSymbol/FuncionSpecial.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Checker/TypeSymbol/SymbolTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Checker/TypeSymbol/SymbolTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Checker/TypeSymbol/Variable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Checker/TypeSymbol/Variable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vista/Principal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/Principal.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -148,17 +159,17 @@
         <counts>
           <entry key="class" value="7" />
           <entry key="g4" value="16" />
-          <entry key="java" value="104" />
+          <entry key="java" value="116" />
           <entry key="tokens" value="1" />
-          <entry key="txt" value="20" />
+          <entry key="txt" value="22" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="ANTLR v4 grammar file" value="16" />
           <entry key="CLASS" value="7" />
-          <entry key="JAVA" value="104" />
-          <entry key="PLAIN_TEXT" value="21" />
+          <entry key="JAVA" value="116" />
+          <entry key="PLAIN_TEXT" value="23" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -270,89 +281,27 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/PruebaCompleta6.txt">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Checker/ParaVariables/ACVC_Declaracion_Asignacion.java">
+        <entry file="file://$PROJECT_DIR$/src/Vista/Principal.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="332">
-              <caret line="416" column="5" selection-start-line="416" selection-start-column="5" selection-end-line="416" selection-end-column="5" />
+            <state relative-caret-position="538">
+              <caret line="525" lean-forward="true" selection-start-line="525" selection-end-line="525" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#hasErrors#0;class#ACVC_Declaracion_Asignacion#0" />
-                <element signature="method#imprimir#0;class#ACVC_Declaracion_Asignacion#0" />
-                <element signature="method#visitProgramAST#0;class#ACVC_Declaracion_Asignacion#0" />
-                <element signature="method#visitProgramConstAST#0;class#ACVC_Declaracion_Asignacion#0" />
-                <element signature="method#visitProgramVarAST#0;class#ACVC_Declaracion_Asignacion#0" />
-                <element signature="method#visitProgramClassAST#0;class#ACVC_Declaracion_Asignacion#0" />
-                <element signature="method#visitConstDeclAST#0;class#ACVC_Declaracion_Asignacion#0" />
-                <element signature="method#visitConstNumberIntDeclAST#0;class#ACVC_Declaracion_Asignacion#0" />
-                <element signature="method#visitConstNumberIntZDeclAST#0;class#ACVC_Declaracion_Asignacion#0" />
-                <element signature="method#visitVarDeclAST#0;class#ACVC_Declaracion_Asignacion#0" />
-                <element signature="method#visitClassDeclAST#0;class#ACVC_Declaracion_Asignacion#0" />
-                <element signature="method#visitMethodDeclAST#0;class#ACVC_Declaracion_Asignacion#0" />
-                <element signature="method#visitFormParsAST#0;class#ACVC_Declaracion_Asignacion#0" />
-                <element signature="e#12685#12937#0" />
-                <element signature="e#12578#12739#0" />
-                <element signature="e#12990#13199#0" />
-                <element signature="e#13205#13445#0" />
-                <element signature="e#13451#13764#0" />
-                <element signature="e#13530#13709#0" />
-                <element signature="e#13771#13987#0" />
-                <element signature="e#13993#14195#0" />
-                <element signature="e#14442#15161#0" />
-                <element signature="e#14653#15525#0" />
-                <element signature="e#14680#14937#0" />
-                <element signature="e#14943#15221#0" />
-                <element signature="e#15094#15241#0" />
-                <element signature="e#14017#14130#0" />
-                <element signature="e#13802#13947#0" />
-                <element signature="e#13801#13947#0" />
-                <element signature="e#17789#17790#0" expanded="true" />
-                <element signature="e#17834#17835#0" expanded="true" />
-                <element signature="e#17929#17930#0" expanded="true" />
-                <element signature="e#17975#17976#0" expanded="true" />
-                <element signature="e#12929#13088#0" />
-                <element signature="e#18247#18248#0" expanded="true" />
-                <element signature="e#18288#18289#0" expanded="true" />
-                <element signature="e#18371#18372#0" expanded="true" />
-                <element signature="e#18420#18421#0" expanded="true" />
-                <element signature="e#13127#13350#0" />
-                <element signature="e#13356#13585#0" />
-                <element signature="e#18963#18964#0" expanded="true" />
-                <element signature="e#19007#19008#0" expanded="true" />
-                <element signature="e#12741#12947#0" />
-                <element signature="e#14757#14971#0" />
-                <element signature="e#12991#13223#0" />
-                <element signature="e#13228#13375#0" />
+                <element signature="e#4953#5075#0" expanded="true" />
+                <element signature="e#5074#5075#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="156" column="9" lean-forward="true" selection-start-line="156" selection-start-column="9" selection-end-line="156" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Pruebas(Angelo).txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="51" column="18" lean-forward="true" selection-start-line="51" selection-start-column="18" selection-end-line="51" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Antlr/MyParser.g4">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="188">
-              <caret line="52" column="53" selection-start-line="52" selection-start-column="44" selection-end-line="52" selection-end-column="53" />
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/src/PruebaCompleta7.txt.txt">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -449,10 +398,12 @@
         <option value="$PROJECT_DIR$/src/Generated/Antlr/MyParserVisitor.java" />
         <option value="$PROJECT_DIR$/src/Antlr/MyParser.g4" />
         <option value="$PROJECT_DIR$/src/Generated/Antlr/MyParser.java" />
-        <option value="$PROJECT_DIR$/src/Vista/Principal.java" />
         <option value="$PROJECT_DIR$/src/Checker/TypeSymbol/SymbolTable.java" />
         <option value="$PROJECT_DIR$/src/Pruebas(Angelo).txt" />
         <option value="$PROJECT_DIR$/src/Checker/ParaVariables/ACVC_Declaracion_Asignacion.java" />
+        <option value="$PROJECT_DIR$/src/Checker/TypeSymbol/FuncionSpecial.java" />
+        <option value="$PROJECT_DIR$/src/Checker/Analizadores/AC_Declaracion_Asignacion.java" />
+        <option value="$PROJECT_DIR$/src/Vista/Principal.java" />
       </list>
     </option>
   </component>
@@ -490,6 +441,17 @@
               <item name="MiniC-Sharp" type="b2602c69:ProjectViewProjectNode" />
               <item name="MiniC-Sharp" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="MiniC-Sharp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MiniC-Sharp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MiniC-Sharp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MiniC-Sharp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Vista" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -516,9 +478,9 @@
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="409" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539650634244" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539653150471" />
     <property name="create.test.in.the.same.root" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Generated" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/MiniC-Sharp" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -532,17 +494,18 @@
       <recent name="Generated.Antlr" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Doccumentos TEC\6 SEMESTRE 2018\Compiladores\Proyectos\I Proyecto\Avance II\MiniC-Sharp\src" />
       <recent name="E:\Doccumentos TEC\6 SEMESTRE 2018\Compiladores\MiniC-Sharp\src\generated\old" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="Exeptions" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Doccumentos TEC\6 SEMESTRE 2018\Compiladores\Proyectos\I Proyecto\Avance II\MiniC-Sharp\src" />
+      <recent name="E:\Doccumentos TEC\6 SEMESTRE 2018\Compiladores\Proyectos\I Proyecto\Avance II\MiniC-Sharp\src\Checker" />
       <recent name="D:\Proyecto Compiladores\MiniC-Sharp\src\Checker" />
       <recent name="E:\Doccumentos TEC\6 SEMESTRE 2018\Compiladores\Proyectos\I Proyecto\MiniC-Sharp\src\Exeptions" />
       <recent name="E:\Doccumentos TEC\6 SEMESTRE 2018\Compiladores\Proyectos\I Proyecto\MiniC-Sharp\src" />
-      <recent name="E:\Doccumentos TEC\6 SEMESTRE 2018\Compiladores\Proyectos\I Proyecto\MiniC-Sharp\src\Antlr" />
-      <recent name="E:\Doccumentos TEC\6 SEMESTRE 2018\Compiladores\MiniC-Sharp\src\generated\Antlr" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -626,7 +589,7 @@
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16565809" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16414523" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24962178" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -684,29 +647,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Exeptions/ConsoleErrorListener.java" />
-    <entry file="jar://$PROJECT_DIR$/src/Librerias/antlr-4.7.1-complete.jar!/org/antlr/v4/runtime/DefaultErrorStrategy.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Exeptions/MyExeption.java" />
-    <entry file="jar://$PROJECT_DIR$/src/Librerias/antlr-4.7.1-complete.jar!/org/antlr/v4/gui/Trees.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="35" column="58" lean-forward="true" selection-start-line="35" selection-start-column="58" selection-end-line="35" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/src/Librerias/antlr-4.7.1-complete.jar!/org/antlr/v4/gui/TreeViewer.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="59">
-          <caret line="492" selection-start-line="492" selection-end-line="492" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Modelo/FiltroArchivo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -808,55 +748,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Checker/ParaFunciones/Funcion.java" />
     <entry file="file://$PROJECT_DIR$/src/Checker/ParaFunciones/FunctionTable.java" />
-    <entry file="file://$PROJECT_DIR$/src/Checker/TypeSymbol/Variable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Checker/TypeSymbol/Symbol.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="50" selection-start-line="16" selection-start-column="50" selection-end-line="16" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Checker/TypeSymbol/FuncionNormal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1391">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Checker/TypeSymbol/FuncionSpecial.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Checker/TypeSymbol/Funcion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Checker/TypeSymbol/Constante.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Checker/TypeSymbol/Clase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-524">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Checker/ParaFunciones/ACF_Lectura_Previa.java" />
     <entry file="file://$PROJECT_DIR$/src/Checker/ParaVariables/AC_Statement.java" />
     <entry file="file://$PROJECT_DIR$/src/Checker/ParaFunciones/ACF_Verificacion_Declaraciones_Parametros.java">
@@ -883,16 +774,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Vista/Principal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-374">
-          <caret line="42" column="26" lean-forward="true" selection-start-line="42" selection-start-column="26" selection-end-line="42" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Exeptions/SemanticException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -904,13 +785,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="188">
           <caret line="56" column="3" selection-start-line="56" selection-end-line="56" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Checker/TypeSymbol/SymbolTable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="163" lean-forward="true" selection-start-line="163" selection-end-line="163" />
         </state>
       </provider>
     </entry>
@@ -928,13 +802,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="156" column="9" lean-forward="true" selection-start-line="156" selection-start-column="9" selection-end-line="156" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Pruebas(Angelo).txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
@@ -944,8 +811,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Checker/ParaVariables/ACVC_Declaracion_Asignacion.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="416" column="5" selection-start-line="416" selection-start-column="5" selection-end-line="416" selection-end-column="5" />
+        <state relative-caret-position="3060">
+          <caret line="499" lean-forward="true" selection-start-line="499" selection-end-line="499" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#hasErrors#0;class#ACVC_Declaracion_Asignacion#0" />
@@ -961,6 +828,10 @@
             <element signature="method#visitClassDeclAST#0;class#ACVC_Declaracion_Asignacion#0" />
             <element signature="method#visitMethodDeclAST#0;class#ACVC_Declaracion_Asignacion#0" />
             <element signature="method#visitFormParsAST#0;class#ACVC_Declaracion_Asignacion#0" />
+            <element signature="e#11111#11311#0" />
+            <element signature="e#11842#12024#0" />
+            <element signature="e#12335#12552#0" />
+            <element signature="e#12166#12379#0" />
             <element signature="e#12685#12937#0" />
             <element signature="e#12578#12739#0" />
             <element signature="e#12990#13199#0" />
@@ -977,15 +848,7 @@
             <element signature="e#14017#14130#0" />
             <element signature="e#13802#13947#0" />
             <element signature="e#13801#13947#0" />
-            <element signature="e#17789#17790#0" expanded="true" />
-            <element signature="e#17834#17835#0" expanded="true" />
-            <element signature="e#17929#17930#0" expanded="true" />
-            <element signature="e#17975#17976#0" expanded="true" />
             <element signature="e#12929#13088#0" />
-            <element signature="e#18247#18248#0" expanded="true" />
-            <element signature="e#18288#18289#0" expanded="true" />
-            <element signature="e#18371#18372#0" expanded="true" />
-            <element signature="e#18420#18421#0" expanded="true" />
             <element signature="e#13127#13350#0" />
             <element signature="e#13356#13585#0" />
             <element signature="e#18963#18964#0" expanded="true" />
@@ -994,6 +857,99 @@
             <element signature="e#14757#14971#0" />
             <element signature="e#12991#13223#0" />
             <element signature="e#13228#13375#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="156" column="9" lean-forward="true" selection-start-line="156" selection-start-column="9" selection-end-line="156" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Checker/TypeSymbol/Symbol.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="50" selection-start-line="16" selection-start-column="50" selection-end-line="16" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Checker/TypeSymbol/Funcion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Checker/TypeSymbol/FuncionNormal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Checker/TypeSymbol/SymbolTable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2737">
+          <caret line="163" lean-forward="true" selection-start-line="163" selection-end-line="163" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Checker/TypeSymbol/Constante.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Checker/TypeSymbol/Clase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Checker/TypeSymbol/Variable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Checker/TypeSymbol/FuncionSpecial.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Checker/Analizadores/AC_Llamadas_Funciones.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Checker/Analizadores/AC_Verificacion_Retornos.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Checker/Analizadores/AC_Declaracion_Asignacion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-204">
+          <caret line="124" column="61" lean-forward="true" selection-start-line="124" selection-start-column="61" selection-end-line="124" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PruebaCompleta6.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PruebaCompleta7.txt.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Vista/Principal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="538">
+          <caret line="525" lean-forward="true" selection-start-line="525" selection-end-line="525" />
+          <folding>
+            <element signature="e#4953#5075#0" expanded="true" />
+            <element signature="e#5074#5075#0" expanded="true" />
           </folding>
         </state>
       </provider>

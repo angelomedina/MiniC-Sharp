@@ -1,0 +1,21 @@
+class AllProds
+
+     in s;
+     in l;
+     int x;
+     char a1,a2,a3;
+
+{ 
+    int abc(int g){
+    }
+
+    int b(in a, in vm, in dc){}
+    int c(){}
+    int d(){}
+    int e(){}   
+
+   int def(){
+   // Pruebas regla statementIgSTAT
+   ab[chr(x)] = (ord(a1));
+   }
+}

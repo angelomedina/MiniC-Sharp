@@ -1,10 +1,7 @@
 package Checker.TypeSymbol;
 
 
-
-import java.util.List;
-
-public class FuncionSpecial extends Funcion{
+public class FuncionSpecial extends Funcion {
 
     String returnType;
 

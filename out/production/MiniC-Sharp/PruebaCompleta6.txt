@@ -1,0 +1,19 @@
+class AllProds
+
+     in s;
+     in l;
+
+{ 
+    int abc(int g){
+    }
+
+    int b(in a, in vm, in dc){}
+    int c(){}
+    int d(){}
+    int e(){}   
+
+   int def(){
+   ad[b(s,a,l)] = x;
+   ad[s] = x;
+   }
+}

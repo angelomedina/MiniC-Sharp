@@ -4,7 +4,8 @@ package Vista;
 
 import Antlr.MyParser;
 import Antlr.Scanner;
-import Checker.ParaVariables.ACVC_Declaracion_Asignacion;
+import Checker.Analizadores.AC_Llamadas_Funciones;
+import Checker.Analizadores.AC_Declaracion_Asignacion;
 import Exeptions.*;
 import Modelo.Archivos;
 import org.antlr.v4.runtime.ANTLRInputStream;
@@ -34,9 +35,8 @@ public class Principal extends  JFrame implements ActionListener {
     MyBaseErrorListener errorListener = null;
     MyException     myException = null;
     MyConsoleErrorListener myConsoleErrorListener = null;
-    ACVC_Declaracion_Asignacion analizador_contextual_vc1 = null;
-   // ACF_Lectura_Previa analizador_contextual_f1 = null;
-   // ACF_Verificacion_Declaraciones_Parametros analizador_contextual_f2 = null;
+    AC_Declaracion_Asignacion analizador_contextual_vc1 = null;
+    AC_Llamadas_Funciones analizador_contextual_f1 = null;
 
     int tab=1;
     private JMenuBar menuBar;
@@ -337,10 +337,10 @@ public class Principal extends  JFrame implements ActionListener {
                 // Analizador 1 (Analizador Contextual de Variables y clases)
 
                 try { // Utilizo Analizador Contextual de Variables y clases
-                        // Para revisar la declaracion de clases y variables, y la asignacion de datos primitivos a variabñes
+                    // Para revisar la declaracion de clases y variables, y la asignacion de datos primitivos a variabñes
 
                     // Declaracion analizador 1 (Analizador Contextual de Variables y clases)
-                    analizador_contextual_vc1 = new ACVC_Declaracion_Asignacion();
+                    analizador_contextual_vc1 = new AC_Declaracion_Asignacion();
                     analizador_contextual_vc1.visit(tree);
                 }
                 catch(SemanticException error) {}
@@ -353,16 +353,14 @@ public class Principal extends  JFrame implements ActionListener {
                     //defaultListModel.addElement(analizador_contextual_vc1.imprimir());
 
                     System.out.println(analizador_contextual_vc1.imprimir());
-                    JOptionPane.showMessageDialog(this,"Compilación exitosa.");
-                    defaultListModel.addElement(Mymsg);
 
                     // Analizador 2 (Analizador Contextual de Funciones)
 
-                    /*try { // Utilizo Analizador Contextual de Funciones
+                    try { // Utilizo Analizador Contextual de Funciones
                         // Para revisar las funciones declaradas, y agregarlas a la tabla de funciones
 
                         // Declaracion Analizador 2 (Analizador Contextual de Funciones)
-                        analizador_contextual_f1 = new ACF_Lectura_Previa();
+                        analizador_contextual_f1 = new AC_Llamadas_Funciones(analizador_contextual_vc1.getTableS());
                         analizador_contextual_f1.visit(tree);
                     }
                     catch(SemanticException error) {}
@@ -372,47 +370,9 @@ public class Principal extends  JFrame implements ActionListener {
 
                         // Imprimo los resultados del Analizador 2 (Analizador Contextual de Funciones)
                         //defaultListModel.addElement(analizador_contextual_f1.imprimir());
-                        System.out.println(analizador_contextual_f1.imprimir());
+                        //  System.out.println(analizador_contextual_f1.imprimir());
 
-                        // Analizador 3 (Analizador Contextual de Funciones para declaraciones, numero parametros, tipos de parametros)
-
-                        try { // Utilizo Analizador Contextual de Funciones para declaraciones, numero parametros, tipos de parametros
-                            // Para revisar las funciones declaradas, y verificarlas en la tabla de funciones, el numero de parametros que recibe, y los tipos de los parametros
-
-                            // Declaracion Analizador 3 (Analizador Contextual de Funciones para declaraciones, numero parametros, tipos de parametros)
-                            analizador_contextual_f2 = new
-                                    ACF_Verificacion_Declaraciones_Parametros(analizador_contextual_f1.getTableF(),analizador_contextual_vc1.getTableS());
-                            analizador_contextual_f2.visit(tree);
-                        }
-                        catch(SemanticException error) {}
-
-                        // Si el Analizador 3 (Analizador Contextual de Funciones para declaraciones, numero parametros, tipos de parametros) no tiene errores
-                        if (analizador_contextual_f2.hasErrors()==false) {
-
-                            // Imprimo los resultados del Analizador 3 (Analizador Contextual de Funciones para declaraciones, numero parametros, tipos de parametros)
-                            //defaultListModel.addElement(analizador_contextual_f1.imprimir());
-                           // System.out.println(analizador_contextual_f2.imprimir());
-
-                            // Analizador 4
-                        }
-
-                        else{ // Si el Analizador 3 (Analizador Contextual de Funciones para declaraciones, numero parametros, tipos de parametros) tiene errores
-
-                            JOptionPane.showMessageDialog(this,"Compilación Fallida!!");
-                            defaultListModel.addElement(Mymsg);
-                            contError=list.getModel().getSize();
-
-                            //imprimo lista de errores
-
-
-                            for (String error : analizador_contextual_f2.listaErrores) {
-
-                                defaultListModel.addElement( error );
-                            }
-
-                            defaultListModel.addElement( "Total Errors: " + (errorListener.errorMsgs.size()+ analizador_contextual_f2.getNumErrors()) );
-
-                        }
+                        JOptionPane.showMessageDialog(this,"Compilación exitosa.");
 
                     }
 
@@ -432,7 +392,7 @@ public class Principal extends  JFrame implements ActionListener {
 
                         defaultListModel.addElement( "Total Errors: " + (errorListener.errorMsgs.size()+ analizador_contextual_f1.getNumErrors()) );
 
-                    }*/
+                    }
 
                     // Hasta el final
                     //JOptionPane.showMessageDialog(this,"Compilación exitosa.");

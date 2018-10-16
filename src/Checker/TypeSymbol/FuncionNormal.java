@@ -4,7 +4,7 @@ package Checker.TypeSymbol;
 
 import java.util.List;
 
-public class FuncionNormal extends Funcion{
+public class FuncionNormal extends Funcion {
 
     // Para guardar los nombres de parametros dentro de la funcion
     public List<String> paramsName;
@@ -14,6 +14,7 @@ public class FuncionNormal extends Funcion{
     public List<String> varsName;
     public List<String> varsType;
 
+    List<Symbol> params;
 
     public FuncionNormal(String n, String t, int l,
                          List<String> varsName, List<String> varsType,List<String> paramsName, List<String> paramsType) {
@@ -24,20 +25,29 @@ public class FuncionNormal extends Funcion{
         this.varsType = varsType;
     }
 
+    public FuncionNormal(String n, String t, int l, List<Symbol> params) {
+        super(n,t,l,params.size());
+        this.params = params;
+    }
+
+
 
     public String toString(){
 
         if(!type.equals("void")) {
             //return "NO";
-            return "Elemento: "+this.idSimbolo+"\n"+"ID: " + this.name + ", Type:" + this.type + ", level:" + this.level + ", nParams:" + this.nParams + "\n"+
+           return "Elemento: "+this.idSimbolo+"\n"+"ID: " + this.name + ", Type:" + this.type + ", level:" + this.level + ", nParams:" + this.nParams + "\n"+
                     "-> Vars Name: " + this.getVarsNameInText() + "-> Vars Type: " + this.getVarsTypeInText()+ " <-\n"+
                     "-> Params Name: " + this.getParamsNameInText() + "-> Params Type: " + this.getParamsTypeInText()+ " <-\n"
                     +"-> Return: "+this.type;
         }
-
         return "Elemento: "+this.idSimbolo+"\n"+"ID: " + this.name + ", Type:" + this.type + ", level:" + this.level + ", nParams:" + this.nParams  + "\n"+
                 "-> Vars Name: " + this.getVarsNameInText() + "-> Vars Type: " + this.getVarsTypeInText()+ " <-\n"+
                 "-> Params Name: " + this.getParamsNameInText() + "-> Params Type: " + this.getParamsTypeInText()+ " <-\n";
+    }
+
+    public List<Symbol> getParams() {
+        return params;
     }
 
     public String getParamsNameInText(){

@@ -50,6 +50,17 @@ public class SymbolTable {
         return 1;
     }
 
+    public int enterFunc2(String id, String tipo, List<Symbol> params) {
+
+        if (exists(id,actuaLevel) == false) {
+
+            table.add(new FuncionNormal(id,tipo,actuaLevel,params));
+          //  System.out.println("Agregada");
+            return 0;//means id was succesfully inserted in table
+        }
+
+        return 1;
+    }
     /**
      * Funcion para registrar clases
      */
@@ -86,7 +97,7 @@ public class SymbolTable {
         table.add(new FuncionSpecial("len","arreglo",-1,"int"));
     }
 
-    public boolean exists(String id, int level) {
+    private boolean exists(String id, int level) {
 
         for (Iterator i = table.descendingIterator(); i.hasNext(); ) {
 

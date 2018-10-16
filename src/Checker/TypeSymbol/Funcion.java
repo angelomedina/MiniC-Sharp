@@ -1,10 +1,7 @@
 package Checker.TypeSymbol;
 
 
-
-import java.util.List;
-
-public abstract class Funcion extends Symbol{
+public abstract class Funcion extends Symbol {
 
     public int nParams;
 
