@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6ebe243f-a307-4d73-a0f9-921472d75155" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Checker/ParaVariables/ACVC_Declaracion_Asignacion.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Checker/ParaVariables/ACVC_Declaracion_Asignacion.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Checker/Analizadores/AC_Declaracion_Asignacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Checker/Analizadores/AC_Declaracion_Asignacion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Checker/ParaFunciones/ACF_Verificacion_Declaraciones_Parametros.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Checker/ParaVariables/ACVC_Declaracion_Asignacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Checker/ParaVariables/ACVC_Declaracion_Asignacion.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -150,31 +146,31 @@
         <counts>
           <entry key="class" value="7" />
           <entry key="g4" value="17" />
-          <entry key="java" value="126" />
+          <entry key="java" value="128" />
           <entry key="tokens" value="1" />
-          <entry key="txt" value="24" />
+          <entry key="txt" value="28" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="ANTLR v4 grammar file" value="17" />
           <entry key="CLASS" value="7" />
-          <entry key="JAVA" value="126" />
-          <entry key="PLAIN_TEXT" value="25" />
+          <entry key="JAVA" value="128" />
+          <entry key="PLAIN_TEXT" value="29" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="25" />
           <entry key="g4" value="53" />
-          <entry key="java" value="8697" />
+          <entry key="java" value="8931" />
           <entry key="txt" value="87" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="ANTLR v4 grammar file" value="53" />
-          <entry key="JAVA" value="8697" />
+          <entry key="JAVA" value="8931" />
           <entry key="PLAIN_TEXT" value="112" />
         </counts>
       </usages-collector>
@@ -272,57 +268,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Checker/Analizadores/AC_Declaracion_Asignacion.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Checker/Analizadores/AC_Llamadas_Funciones.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="538">
-              <caret line="774" column="5" selection-start-line="774" selection-start-column="5" selection-end-line="774" selection-end-column="5" />
-              <folding>
-                <element signature="e#10834#11675#0" />
-                <element signature="e#11681#12553#0" />
-                <element signature="e#12559#12799#0" />
-                <element signature="e#12805#13082#0" />
-                <element signature="e#13088#13231#0" />
-                <element signature="e#13237#13445#0" />
-                <element signature="e#13988#14133#0" />
-                <element signature="e#14421#14567#0" />
-                <element signature="e#14852#15011#0" />
-                <element signature="e#15297#15520#0" />
-                <element signature="e#15526#15755#0" />
-                <element signature="e#15884#16120#0" />
-                <element signature="e#16126#16342#0" />
-                <element signature="e#16348#16571#0" />
-                <element signature="e#16577#16733#0" />
-              </folding>
+            <state relative-caret-position="180">
+              <caret line="387" column="36" selection-start-line="387" selection-start-column="18" selection-end-line="387" selection-end-column="36" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Checker/ParaVariables/ACVC_Declaracion_Asignacion.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Checker/Analizadores/AC_Declaracion_Asignacion.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="497" column="5" lean-forward="true" selection-start-line="363" selection-start-column="4" selection-end-line="497" selection-end-column="5" />
+            <state relative-caret-position="148">
+              <caret line="747" column="4" selection-start-line="747" selection-start-column="4" selection-end-line="747" selection-end-column="4" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1774#1902#0" />
-                <element signature="e#1908#1974#0" />
-                <element signature="e#2047#2400#0" />
-                <element signature="e#2406#2554#0" />
-                <element signature="e#2560#2702#0" />
-                <element signature="e#2708#2856#0" />
-                <element signature="e#2862#3874#0" />
-                <element signature="e#3880#4034#0" />
-                <element signature="e#4040#4201#0" />
-                <element signature="e#4208#5318#0" />
-                <element signature="e#5324#7652#0" />
-                <element signature="e#7689#9268#0" />
-                <element signature="e#9635#10723#0" />
-                <element signature="e#14315#15034#0" />
-                <element signature="e#16892#16893#0" expanded="true" />
-                <element signature="e#16936#16937#0" expanded="true" />
-                <element signature="e#17025#17026#0" expanded="true" />
-                <element signature="e#17069#17070#0" expanded="true" />
+                <element signature="e#18332#18518#0" />
+                <element signature="e#18528#18715#0" />
+                <element signature="e#18721#18903#0" />
+                <element signature="e#18906#19126#0" />
+                <element signature="e#19180#19411#0" />
+                <element signature="e#19415#19631#0" />
+                <element signature="e#19636#19905#0" />
+                <element signature="e#19910#20142#0" />
+                <element signature="e#20139#20324#0" />
+                <element signature="e#20329#20499#0" />
               </folding>
             </state>
           </provider>
@@ -339,17 +309,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>ex</find>
-      <find>meth</find>
-      <find>metho</find>
-      <find>termAST</find>
-      <find>term</find>
-      <find>( REST )? term ( addop term )*</find>
-      <find>BooleanFalseFAST</find>
-      <find>addop</find>
-      <find>factor</find>
-      <find>BooleanFAST</find>
-      <find>FactorFAST</find>
       <find>ReadSTAT</find>
       <find>ReturnSTAST</find>
       <find>WhileSTAST</find>
@@ -369,6 +328,17 @@
       <find>whil</find>
       <find>for</find>
       <find>listos</find>
+      <find>visitFactorFAST</find>
+      <find>visitStatementIncSTAST</find>
+      <find>visitStatementDecSTAST</find>
+      <find>visitReadSTAT</find>
+      <find>visitWriteSTAST</find>
+      <find>visitReturnSTAST</find>
+      <find>visitStatementIgSTAST</find>
+      <find>visitIfSTAST</find>
+      <find>visitWhileSTAST</find>
+      <find>visitDesignatorCorcsAST</find>
+      <find>visitExpresionFAST</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -483,13 +453,6 @@
               <item name="Checker" type="462c0819:PsiDirectoryNode" />
               <item name="Analizadores" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="MiniC-Sharp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MiniC-Sharp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Checker" type="462c0819:PsiDirectoryNode" />
-              <item name="ParaVariables" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -516,7 +479,7 @@
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="409" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539659444699" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539661599940" />
     <property name="create.test.in.the.same.root" value="true" />
     <property name="last_opened_file_path" value="$USER_HOME$/Downloads/MiniC-Sharp" />
     <property name="project.structure.last.edited" value="Project" />
@@ -627,7 +590,7 @@
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.2655068" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.5510204" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24962178" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -819,13 +782,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/CodigoPrueba.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97">
-          <caret line="106" column="30" lean-forward="true" selection-start-line="106" selection-start-column="30" selection-end-line="106" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Pruebas(Angelo).txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
@@ -896,31 +852,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/FuncionesV12.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="29" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PruebaCompleta7.txt.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="67">
-          <caret line="12" column="13" lean-forward="true" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Checker/Analizadores/AC_Verificacion_Retornos.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Checker/Analizadores/AC_Llamadas_Funciones.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4105">
-          <caret line="92" column="70" lean-forward="true" selection-start-line="92" selection-start-column="70" selection-end-line="92" selection-end-column="70" />
         </state>
       </provider>
     </entry>
@@ -935,13 +870,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="384" column="50" lean-forward="true" selection-start-line="384" selection-start-column="50" selection-end-line="384" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PruebaCompleta6.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" selection-end-line="19" />
         </state>
       </provider>
     </entry>
@@ -973,26 +901,56 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/PruebaCompleta7.txt.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CodigoPrueba.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="97">
+          <caret line="106" column="30" lean-forward="true" selection-start-line="106" selection-start-column="30" selection-end-line="106" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FuncionesV12.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="12" lean-forward="true" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PruebaCompleta6.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="1" lean-forward="true" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Checker/Analizadores/AC_Llamadas_Funciones.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="387" column="36" selection-start-line="387" selection-start-column="18" selection-end-line="387" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Checker/Analizadores/AC_Declaracion_Asignacion.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="538">
-          <caret line="774" column="5" selection-start-line="774" selection-start-column="5" selection-end-line="774" selection-end-column="5" />
+        <state relative-caret-position="148">
+          <caret line="747" column="4" selection-start-line="747" selection-start-column="4" selection-end-line="747" selection-end-column="4" />
           <folding>
-            <element signature="e#10834#11675#0" />
-            <element signature="e#11681#12553#0" />
-            <element signature="e#12559#12799#0" />
-            <element signature="e#12805#13082#0" />
-            <element signature="e#13088#13231#0" />
-            <element signature="e#13237#13445#0" />
-            <element signature="e#13988#14133#0" />
-            <element signature="e#14421#14567#0" />
-            <element signature="e#14852#15011#0" />
-            <element signature="e#15297#15520#0" />
-            <element signature="e#15526#15755#0" />
-            <element signature="e#15884#16120#0" />
-            <element signature="e#16126#16342#0" />
-            <element signature="e#16348#16571#0" />
-            <element signature="e#16577#16733#0" />
+            <element signature="e#18332#18518#0" />
+            <element signature="e#18528#18715#0" />
+            <element signature="e#18721#18903#0" />
+            <element signature="e#18906#19126#0" />
+            <element signature="e#19180#19411#0" />
+            <element signature="e#19415#19631#0" />
+            <element signature="e#19636#19905#0" />
+            <element signature="e#19910#20142#0" />
+            <element signature="e#20139#20324#0" />
+            <element signature="e#20329#20499#0" />
           </folding>
         </state>
       </provider>

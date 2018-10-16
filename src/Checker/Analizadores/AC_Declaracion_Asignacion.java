@@ -40,6 +40,7 @@ public class AC_Declaracion_Asignacion extends MyParserBaseVisitor {
     public List<String> varsType;
     public List<String> paramsName;
     public boolean varClases = false;
+    public boolean buscandoRetorno = false;
 
     public AC_Declaracion_Asignacion(){
         this.tableS = new SymbolTable();
@@ -635,22 +636,125 @@ public class AC_Declaracion_Asignacion extends MyParserBaseVisitor {
         return ctx.PORC().getSymbol();
     }
 
+    @Override
+    public Object visitStatementIncSTAST(MyParser.StatementIncSTASTContext ctx) {
+
+        //designator ( INC ) PyC
+
+        visit(ctx.designator());
+        return null;
+    }
+
+    @Override
+    public Object visitStatementDecSTAST(MyParser.StatementDecSTASTContext ctx) {
+
+        //designator ( DEC ) PyC
+
+        visit(ctx.designator());
+        return null;
+
+    }
+
+    @Override
+    public Object visitReadSTAT(MyParser.ReadSTATContext ctx) {
+
+        //READ PAR_IZQ designator PAR_DER PyC
+
+        visit(ctx.designator());
+
+        return null;
+    }
+
+    @Override
+    public Object visitWriteSTAST(MyParser.WriteSTASTContext ctx) {
+
+        //WRITE PAR_IZQ expr (writeType)? PAR_DER PyC
+
+        visit(ctx.expr());
+        visit(ctx.writeType());
+
+        return null;
+    }
+
+    @Override
+    public Object visitReturnSTAST(MyParser.ReturnSTASTContext ctx) {
+
+        System.out.println("En return "+ctx.expr().getText());
+        buscandoRetorno = true;
+        visit(ctx.expr());
+
+        return null;
+    }
+
+    @Override
+    public Object visitStatementIgSTAST(MyParser.StatementIgSTASTContext ctx) {
+
+        //designator ( IG expr) PyC
+
+        visit(ctx.designator());
+        visit(ctx.expr());
+
+        return null;
+    }
+
+    @Override
+    public Object visitIfSTAST(MyParser.IfSTASTContext ctx) {
+
+        //IF PAR_IZQ condition PAR_DER statement ( ELSE statement )?
+
+        visit(ctx.condition());
+        visit(ctx.statement(0));
+        visit(ctx.statement(1));
+
+        return null;
+    }
+
+    @Override
+    public Object visitWhileSTAST(MyParser.WhileSTASTContext ctx) {
+
+        //WHILE PAR_IZQ condition PAR_DER statement
+
+        visit(ctx.condition());
+        visit(ctx.statement());
+
+        return null;
+    }
+
+    @Override
+    public Object visitDesignatorCorcsAST(MyParser.DesignatorCorcsASTContext ctx) {
+
+        // CORC_IZQ expr CORC_DER
+
+        visit(ctx.expr());
+
+        return null;
+    }
+
+    @Override
+    public Object visitExpresionFAST(MyParser.ExpresionFASTContext ctx) {
+
+        //PAR_IZQ expr PAR_DER
+        visit(ctx.expr());
+
+        return null;
+    }
+
+
+
+
+
+
+
+
 
     //Codigo: Angelo: Faltante /////////////////////////////////////////////////////////////////////////////////////////
+
 
     @Override
     public Object visitForSTAST(MyParser.ForSTASTContext ctx) {
 
         //FOR PAR_IZQ expr PyC (condition)? PyC (statement)? PAR_DER statement
         return super.visitForSTAST(ctx);
-    }
-
-
-    @Override
-    public Object visitFactorFAST(MyParser.FactorFASTContext ctx) {
-
-        //designator ( PAR_IZQ ( actPars )? PAR_DER )?
-        return super.visitFactorFAST(ctx);
     }
 
     @Override
@@ -662,55 +766,6 @@ public class AC_Declaracion_Asignacion extends MyParserBaseVisitor {
         return super.visitSpfunctionFAST(ctx);
     }
 
-
-    @Override
-    public Object visitStatementIncSTAST(MyParser.StatementIncSTASTContext ctx) {
-
-        //designator ( INC ) PyC
-        // i++;
-        return super.visitStatementIncSTAST(ctx);
-    }
-
-    @Override
-    public Object visitStatementDecSTAST(MyParser.StatementDecSTASTContext ctx) {
-
-        //designator ( DEC ) PyC
-        //i--;
-        return super.visitStatementDecSTAST(ctx);
-    }
-
-
-
-    //CON DUDAS ////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    @Override //preguntar: si es solo visitar
-    public Object visitReadSTAT(MyParser.ReadSTATContext ctx) {
-
-        //READ PAR_IZQ designator PAR_DER PyC
-        visit(ctx.designator());
-
-        return null;
-    }
-
-    @Override //preguntar: si es solo visitar (Kevin)
-    public Object visitWriteSTAST(MyParser.WriteSTASTContext ctx) {
-
-        //WRITE PAR_IZQ expr (writeType)? PAR_DER PyC
-
-        visit(ctx.expr());
-
-        return null;
-    }
-
-    @Override //preguntar: si solo es visitar
-    public Object visitReturnSTAST(MyParser.ReturnSTASTContext ctx) {
-
-        //RETURN ( expr )? PyC
-        visit(ctx.expr());
-
-        return null;
-    }
-
     @Override //preguntar: que hago con el new
     public Object visitNewFAST(MyParser.NewFASTContext ctx) {
 
@@ -719,61 +774,12 @@ public class AC_Declaracion_Asignacion extends MyParserBaseVisitor {
         return super.visitNewFAST(ctx);
     }
 
-    @Override  //preguntar: condiciones estan en la lista y son de tipo igual
-    public Object visitStatementIgSTAST(MyParser.StatementIgSTASTContext ctx) {
+    @Override
+    public Object visitFactorFAST(MyParser.FactorFASTContext ctx) {
 
-        //designator ( IG expr) PyC
-        // a = 2*4 ;
-
-
-        return null;
+        //designator ( PAR_IZQ ( actPars )? PAR_DER )?
+        return super.visitFactorFAST(ctx);
     }
-
-    @Override //preguntar: si es solo visitar
-    public Object visitIfSTAST(MyParser.IfSTASTContext ctx) {
-
-        //IF PAR_IZQ condition PAR_DER statement ( ELSE statement )?
-
-        visit(ctx.condition());
-
-        for (MyParser.StatementContext e: ctx.statement())
-            visit(e);
-
-
-        return  null;
-    }
-
-    @Override  //preguntar: si es solo visitar
-    public Object visitWhileSTAST(MyParser.WhileSTASTContext ctx) {
-
-        //WHILE PAR_IZQ condition PAR_DER statement
-
-        visit(ctx.condition());
-
-        visit(ctx.statement());
-
-        return null;
-    }
-
-    @Override //preguntar: si es solo visitar
-    public Object visitDesignatorCorcsAST(MyParser.DesignatorCorcsASTContext ctx) {
-
-        // CORC_IZQ expr CORC_DER
-
-        visit(ctx.expr());
-
-        return null;
-    }
-
-    @Override //preguntar: si es solo visitar
-    public Object visitExpresionFAST(MyParser.ExpresionFASTContext ctx) {
-
-        //PAR_IZQ expr PAR_DER
-        visit(ctx.expr());
-
-        return null;
-    }
-
 }
 
 
