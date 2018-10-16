@@ -444,20 +444,45 @@ public class AC_Llamadas_Funciones extends MyParserBaseVisitor {
         return null;
     }
 
+    public boolean isInteger(String numero){
+        try{
+            Integer.parseInt(numero);
+            return true;
+        }catch(NumberFormatException e){
+            return false;
+        }
+    }
+
     @Override
     public Object visitCondFactAST(MyParser.CondFactASTContext ctx) {
 
 
-        Symbol existExpreI    = tableS.retrieve(ctx.expr(0).getText());
-        Symbol existExpreII   = tableS.retrieve(ctx.expr(1).getText());
+        //verifico si son numeros
 
-        if( existExpreI != null && existExpreII != null) {
+        if(isInteger(ctx.expr(0).getText()) == true || isInteger(ctx.expr(1).getText()) == true) {
 
-            if(!existExpreI.equals(existExpreII)){
+            if(isInteger(ctx.expr(0).getText()) != isInteger(ctx.expr(1).getText()) ){
                 numErrors++;
                 error = "Semantic Error Incompatible types in CondFactAST between "
-                        + existExpreI.getName() + " and " + existExpreII.getName() ;
+                        + ctx.expr(0).getText() + " and " + ctx.expr(1).getText() ;
                 listaErrores.push(error);
+            }
+        }
+        else{
+
+            //verifico si son id
+
+            Symbol existExpreI    = tableS.retrieve(ctx.expr(0).getText());
+            Symbol existExpreII   = tableS.retrieve(ctx.expr(1).getText());
+
+            if( existExpreI != null && existExpreII != null) {
+
+                if(!existExpreI.equals(existExpreII)){
+                    numErrors++;
+                    error = "Semantic Error Incompatible types in CondFactAST between "
+                            + existExpreI.getName() + " and " + existExpreII.getName() ;
+                    listaErrores.push(error);
+                }
             }
         }
 

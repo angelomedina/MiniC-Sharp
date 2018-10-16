@@ -58,7 +58,6 @@ class AllProds
 const int a = 0;
 const char b = 'b';
 {
-
     void ocuta(){
 
         if(3 > 5){
@@ -67,6 +66,4 @@ const char b = 'b';
            a=b;
        }
    }
-
-
 }
