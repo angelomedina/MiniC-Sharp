@@ -1,0 +1,19 @@
+class AllProds
+    const int llama = 3;
+    const char vf = '2';
+    var fe,ff,ert,fghj;
+{ 
+
+    int abc(int g){
+    }
+
+    int b(){}
+    int c(){}
+    int d(){}
+    int e(){}   
+
+   int def(){
+   as[-abc(g,d(s))] = ss;
+   a[b(x,y,z(q),c(w,e),d(r,t,y),e(u,i,o,p))] = erty;
+   }
+}

@@ -1,0 +1,17 @@
+class AllProds
+
+{ 
+
+    int  ocuta(){
+      
+        if(len(a) > 5){
+           read(ols.ee);
+            xyz = len(w);
+            return ord(d);
+       }
+       return len(s);
+     
+   }
+    
+
+}

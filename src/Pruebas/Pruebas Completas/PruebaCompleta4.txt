@@ -1,0 +1,15 @@
+class AllProds
+{ 
+
+    int abc(int g){
+    }
+
+    int b(in a, in vm, in c){}
+    int c(){}
+    int d(){}
+    int e(){}   
+
+   int def(){
+   ad[b] = x;
+   }
+}

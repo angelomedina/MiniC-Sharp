@@ -1,0 +1,12 @@
+class AllProds
+
+{ 
+
+    int  ocuta(){
+        as[-lr(d)] = ss;
+       as[-fff(d)] = ss;
+     
+   }
+    
+
+}

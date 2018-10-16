@@ -1,0 +1,13 @@
+class AllProds
+
+     in s;
+     in l;
+     char x;
+
+{ 
+    int abc(int g){
+     
+     as[s(w)] ++;
+
+    }
+}

@@ -1,0 +1,22 @@
+class AllProds
+
+{ 
+
+    algo WriteError (){}
+    string WriteError (){}
+    char WriteError (){}
+    int WriteError (){}
+    
+   void WriteError ()
+  {
+  
+  }
+   
+  void WriteError ()
+  {
+  
+  }
+
+  void WriteError (){}	
+
+}

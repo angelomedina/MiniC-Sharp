@@ -1,0 +1,22 @@
+class AllProds
+
+{ 
+
+    algo sol(){}
+    string luna(){}
+    char pluton (){}
+    int  ocuta(){}
+    
+   voidr kkjnnn ()
+  {
+  
+  }
+   
+  void l2r ()
+  {
+  
+  }
+
+  void dd (){}	
+
+}

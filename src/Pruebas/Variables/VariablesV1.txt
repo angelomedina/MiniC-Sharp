@@ -1,0 +1,6 @@
+
+// CONSTANTES
+class claseP
+    const char    b  = 'a';
+    const int     a  = 12;
+{}

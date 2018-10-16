@@ -1,0 +1,34 @@
+class AllProds
+
+{ 
+
+    algo sol(){
+      
+     return z;
+
+    }
+    string luna(){}
+    char pluton (){}
+    int  ocuta(){
+      
+        if(len(a) > 5){
+            xyz = len(w);
+            return ord(d);
+       }
+       return len(s);
+     
+   }
+    
+   voidr kkjnnn (int d,int s)
+  {
+  
+  }
+   
+  void l2r (char w)
+  {
+  
+  }
+
+  void dd (string d, int ch, char w ){}	
+
+}

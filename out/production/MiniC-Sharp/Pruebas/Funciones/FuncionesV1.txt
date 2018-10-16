@@ -1,0 +1,16 @@
+class AllProds
+
+{ 
+    void WriteError ()
+  {
+  
+  }
+   
+  void WriteError ()
+  {
+  
+  }
+
+  void WriteError (){}	
+
+}

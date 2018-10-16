@@ -38,20 +38,35 @@ class claseP
 {}
 
 
+class AllProds
+const int a = 0;
+{
 
-class claseP
+    void ocuta(){
 
-     const int     a  = 12;
-     const int     b  = 13;
+        if(3 > 5){
+             a = 4*4;
+       }else{
+           a=4*5;
+       }
+   }
 
-    class prueba3 {
 
-            if( a == b ) {
-               // return b;
-            }
-            else {
-               //return b;
-            }
+}
 
-    }
-{}
+class AllProds
+const int a = 0;
+const char b = 'b';
+{
+
+    void ocuta(){
+
+        if(3 > 5){
+             a = 4*4;
+       }else{
+           a=b;
+       }
+   }
+
+
+}

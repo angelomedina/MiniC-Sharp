@@ -1,0 +1,12 @@
+class AllProds
+
+{ 
+
+    int  ocuta(){
+        as[-len(d)] = ss;
+       return len(s);
+     
+   }
+    
+
+}

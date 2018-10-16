@@ -79,8 +79,24 @@ public class AC_Llamadas_Funciones extends MyParserBaseVisitor {
 
     // statementIgSTAST
 
+
+
     @Override
     public Object visitStatementIgSTAST(MyParser.StatementIgSTASTContext ctx) {
+
+
+        Symbol existDesignator = tableS.retrieve(ctx.designator().getText());
+        Symbol existExpre      = tableS.retrieve(ctx.expr().getText());
+
+        if( existExpre != null && existDesignator != null) {
+
+            if(!existDesignator.equals(existExpre)){
+                numErrors++;
+                error = "Semantic Error Incompatible types in StatementIgSTAST between "
+                        + existDesignator.getName() + " and " + existExpre.getName() ;
+                listaErrores.push(error);
+            }
+        }
 
         visit(ctx.designator());
         visit(ctx.expr());

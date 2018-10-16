@@ -691,6 +691,8 @@ public class AC_Declaracion_Asignacion extends MyParserBaseVisitor {
     public Object visitStatementIgSTAST(MyParser.StatementIgSTASTContext ctx) {
 
         //designator ( IG expr) PyC
+        System.out.println("I statement");
+
 
         visit(ctx.designator());
         visit(ctx.expr());
