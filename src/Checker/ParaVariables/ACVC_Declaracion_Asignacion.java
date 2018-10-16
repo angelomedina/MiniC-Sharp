@@ -368,19 +368,6 @@ public class ACVC_Declaracion_Asignacion extends MyParserBaseVisitor {
         return super.visitForSTAST(ctx);
     }
 
-    @Override
-    public Object visitReturnSTAST(MyParser.ReturnSTASTContext ctx) {
-
-        //RETURN ( expr )? PyC
-        return super.visitReturnSTAST(ctx);
-    }
-
-    @Override
-    public Object visitReadSTAT(MyParser.ReadSTATContext ctx) {
-
-        //READ PAR_IZQ designator PAR_DER PyC
-        return super.visitReadSTAT(ctx);
-    }
 
     @Override
     public Object visitFactorFAST(MyParser.FactorFASTContext ctx) {
@@ -419,11 +406,29 @@ public class ACVC_Declaracion_Asignacion extends MyParserBaseVisitor {
 
     //-----  CON DUDAS
 
+    @Override //preguntar: si es solo visitar
+    public Object visitReadSTAT(MyParser.ReadSTATContext ctx) {
+
+        //READ PAR_IZQ designator PAR_DER PyC
+        visit(ctx.designator());
+
+        return null;
+    }
+
     @Override //preguntar: si es solo visitar (Kevin)
     public Object visitWriteSTAST(MyParser.WriteSTASTContext ctx) {
 
         //WRITE PAR_IZQ expr (writeType)? PAR_DER PyC
 
+        visit(ctx.expr());
+
+        return null;
+    }
+
+    @Override //preguntar: si solo es visitar
+    public Object visitReturnSTAST(MyParser.ReturnSTASTContext ctx) {
+
+        //RETURN ( expr )? PyC
         visit(ctx.expr());
 
         return null;
