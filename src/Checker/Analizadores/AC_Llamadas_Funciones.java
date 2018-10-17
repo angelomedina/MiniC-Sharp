@@ -610,20 +610,62 @@ public class AC_Llamadas_Funciones extends MyParserBaseVisitor {
     public Object visitCondFactAST(MyParser.CondFactASTContext ctx) {
 
 
-        //verifico si son numeros
+        //verifico si alguno es un Int
 
         if(isInteger(ctx.expr(0).getText()) == true || isInteger(ctx.expr(1).getText()) == true) {
 
-            if(isInteger(ctx.expr(0).getText()) != isInteger(ctx.expr(1).getText()) ){
-                numErrors++;
-                error = "Semantic Error Incompatible types in CondFactAST between "
-                        + ctx.expr(0).getText() + " and " + ctx.expr(1).getText() ;
-                listaErrores.push(error);
+
+            //verificar si alguno es ID y el otro es Int
+            Symbol existExpreI    = tableS.retrieve(ctx.expr(0).getText());
+            Symbol existExpreII   = tableS.retrieve(ctx.expr(1).getText());
+
+            // a < 1
+            //si entro aqui significa que este es un ID
+            if(existExpreI != null){
+
+                    // si estra aqui significa que es un Int
+                    if(isInteger(ctx.expr(1).getText()) == true) {
+
+                        //comparo el ID con el Int
+                        if(!existExpreI.getType().equals("int")) {
+                            numErrors++;
+                            error = "Semantic Error Incompatible types in CondFactAST between "
+                                    + existExpreI.getName() + " and " + ctx.expr(1).getText();
+                            listaErrores.push(error);
+                        }
+                    }
             }
+            // 1 < a
+            //si entro aqui significa que este es un ID
+            else if(existExpreII != null){
+
+                    // si estra aqui significa que es un Int
+                    if(isInteger(ctx.expr(1).getText()) == true) {
+
+                        //comparo el ID con el Int
+
+                        if(!existExpreII.getType().equals("int")) {
+                            numErrors++;
+                            error = "Semantic Error Incompatible types in CondFactAST between "
+                                    + existExpreII.getName() + "  and " + ctx.expr(1).getText();
+                            listaErrores.push(error);
+                        }
+                    }
+            }
+            else {
+
+                if (isInteger(ctx.expr(0).getText()) != isInteger(ctx.expr(1).getText())) {
+                    numErrors++;
+                    error = "Semantic Error Incompatible types in CondFactAST between "
+                            + ctx.expr(0).getText() + " and " + ctx.expr(1).getText();
+                    listaErrores.push(error);
+                }
+            }
+
         }
         else{
 
-            //verifico si son id
+            //verifico si ambos son id
 
             Symbol existExpreI    = tableS.retrieve(ctx.expr(0).getText());
             Symbol existExpreII   = tableS.retrieve(ctx.expr(1).getText());

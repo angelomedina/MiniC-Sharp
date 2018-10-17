@@ -60,10 +60,10 @@ const char b = 'b';
 {
     void ocuta(){
 
-        if(3 > 5){
+        if(3 > a){
              a = 4*4;
        }else{
-           a=b;
+           a=1;
        }
    }
 }

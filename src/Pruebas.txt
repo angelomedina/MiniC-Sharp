@@ -60,10 +60,25 @@ const char b = 'b';
 {
     void ocuta(){
 
-        if(3 > 5){
+        if(3 > a){
              a = 4*4;
        }else{
-           a=b;
+           a=1;
        }
    }
 }
+
+class AllProds
+const int a = 0;
+const char b = 'b';
+{
+    void ocuta(){
+
+       while (-size < x && x < size) {
+       			if (0 <= x) val.pos[x]++;
+       			else val.neg[-x]++;
+       			read(x);
+       		}
+   }
+}
+

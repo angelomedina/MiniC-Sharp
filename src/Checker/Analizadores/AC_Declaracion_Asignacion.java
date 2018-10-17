@@ -3,6 +3,7 @@ package Checker.Analizadores;
 
 import Antlr.MyParser;
 import Antlr.MyParserBaseVisitor;
+import Checker.TypeSymbol.Funcion;
 import Checker.TypeSymbol.Symbol;
 import Checker.TypeSymbol.SymbolTable;
 import Exeptions.SemanticException;
@@ -744,32 +745,33 @@ public class AC_Declaracion_Asignacion extends MyParserBaseVisitor {
     }
 
 
-
-
-    //Codigo: Angelo: Faltante /////////////////////////////////////////////////////////////////////////////////////////
-
-
     @Override
     public Object visitForSTAST(MyParser.ForSTASTContext ctx) {
 
         //FOR PAR_IZQ expr PyC (condition)? PyC (statement)? PAR_DER statement
-        return super.visitForSTAST(ctx);
+
+        visit(ctx.expr());
+        visit(ctx.condition());
+        visit(ctx.statement(0));
+        visit(ctx.statement(1));
+
+        return null;
     }
 
-    @Override //preguntar: que hago con el new
+    @Override
     public Object visitNewFAST(MyParser.NewFASTContext ctx) {
 
         //NEW designator
 
-        return super.visitNewFAST(ctx);
+        visit(ctx.IDENT());
+
+        return null;
     }
 
-    @Override
-    public Object visitFactorFAST(MyParser.FactorFASTContext ctx) {
 
-        //designator ( PAR_IZQ ( actPars )? PAR_DER )?
-        return super.visitFactorFAST(ctx);
-    }
+
+
+
 }
 
 
