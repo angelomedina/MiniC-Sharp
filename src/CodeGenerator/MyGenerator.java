@@ -48,6 +48,27 @@ public class MyGenerator extends MyParserBaseVisitor {
         Felipe: PUSH, JUMP COMPARE_OP
         Angelo: BINARY, STORE, LOAD
     */
+
+    /*
+    Notas:
+    Load:
+        Load_Const: coloca el valode de la constante al tope de la pila.
+        Load_Fast: coloca el valor del contenido de la variable en la pila.
+        Load_Global: carga en el tope de la pila o el valor de la variable o la referencia a la funcion.
+
+    Store:
+        Store_Fast:  escribe el contenido del tope de la pila en la variable.
+
+    Binary:
+        Binary_Substract: realixa una resta de los operandos.
+        Binary_Add: realiza una suma de los operandos.
+        Binary_Multiply: realiza una multiplicación de los operandos.
+        Binary_Divide: realiza una division entera de operandos.
+        Binary_And: realiza un AND lógico.
+        Binary_Or: realiza un OR lógico.
+        Binary_Módulo: realiza el cálculo del cociente de la division de dos operandos.
+
+     */
     @Override
     public Object visitProgramAST(MyParser.ProgramASTContext ctx) {
 
@@ -321,42 +342,50 @@ public class MyGenerator extends MyParserBaseVisitor {
 
     @Override
     public Object visitRelopIgIgAST(MyParser.RelopIgIgASTContext ctx) {
-        return super.visitRelopIgIgAST(ctx);
+        visit(ctx.IGIG());
+        return  null;
     }
 
     @Override
     public Object visitRelopDifAST(MyParser.RelopDifASTContext ctx) {
-        return super.visitRelopDifAST(ctx);
+        visit(ctx.DIF());
+        return  null;
     }
 
     @Override
     public Object visitRelopMayAST(MyParser.RelopMayASTContext ctx) {
-        return super.visitRelopMayAST(ctx);
+        visit(ctx.MAY());
+        return  null;
     }
 
     @Override
     public Object visitRelopMatIgAST(MyParser.RelopMatIgASTContext ctx) {
-        return super.visitRelopMatIgAST(ctx);
+        visit(ctx.MAY_IG());
+        return  null;
     }
 
     @Override
     public Object visitRelopMenAST(MyParser.RelopMenASTContext ctx) {
-        return super.visitRelopMenAST(ctx);
+        visit(ctx.MEN());
+        return  null;
     }
 
     @Override
     public Object visitRelopMenIgAST(MyParser.RelopMenIgASTContext ctx) {
-        return super.visitRelopMenIgAST(ctx);
+        visit(ctx.MEN_IG());
+        return  null;
     }
 
     @Override
     public Object visitAddopSumAST(MyParser.AddopSumASTContext ctx) {
-        return super.visitAddopSumAST(ctx);
+        visit(ctx.SUM());
+        return  null;
     }
 
     @Override
     public Object visitAddopRestAST(MyParser.AddopRestASTContext ctx) {
-        return super.visitAddopRestAST(ctx);
+        visit(ctx.REST());
+        return  null;
     }
 
     @Override
@@ -366,11 +395,13 @@ public class MyGenerator extends MyParserBaseVisitor {
 
     @Override
     public Object visitMulopDivAST(MyParser.MulopDivASTContext ctx) {
-        return super.visitMulopDivAST(ctx);
+        visit(ctx.DIV());
+        return  null;
     }
 
     @Override
     public Object visitMulopPorcAST(MyParser.MulopPorcASTContext ctx) {
-        return super.visitMulopPorcAST(ctx);
+        visit(ctx.PORC());
+        return  null;
     }
 }
