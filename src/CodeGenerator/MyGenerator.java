@@ -160,7 +160,9 @@ public class MyGenerator extends MyParserBaseVisitor {
 
     @Override
     public Object visitStatementIgSTAST(MyParser.StatementIgSTASTContext ctx) {
-        return super.visitStatementIgSTAST(ctx);
+        visit(ctx.designator());
+        visit(ctx.expr());
+        return null;
     }
 
     @Override
@@ -290,112 +292,149 @@ public class MyGenerator extends MyParserBaseVisitor {
 
     @Override
     public Object visitFactorFAST(MyParser.FactorFASTContext ctx) {
+
         return super.visitFactorFAST(ctx);
     }
 
+    //listo
     @Override
     public Object visitNumIntFAST(MyParser.NumIntFASTContext ctx) {
-        return super.visitNumIntFAST(ctx);
+        visit(ctx.NUMBER_INTEGER());
+        return null;
     }
 
+    //listo
     @Override
     public Object visitNumIntZeroFAST(MyParser.NumIntZeroFASTContext ctx) {
-        return super.visitNumIntZeroFAST(ctx);
+        visit(ctx.NUMBER_INTEGER_ZERO());
+        return null;
     }
 
+    //listo
     @Override
     public Object visitNumberFloatFAST(MyParser.NumberFloatFASTContext ctx) {
-        return super.visitNumberFloatFAST(ctx);
+        visit(ctx.NUMBER_FLOAT());
+        return null;
     }
 
+    //listo
     @Override
     public Object visitStringFAST(MyParser.StringFASTContext ctx) {
-        return super.visitStringFAST(ctx);
+        visit(ctx.STRING_CONST());
+        return null;
     }
 
+    //listo
     @Override
     public Object visitChaeFAST(MyParser.ChaeFASTContext ctx) {
-        return super.visitChaeFAST(ctx);
+        visit(ctx.CHAR_CONST());
+        return null;
     }
 
+    //listo
     @Override
     public Object visitBooleanFAST(MyParser.BooleanFASTContext ctx) {
-        return super.visitBooleanFAST(ctx);
+        visit(ctx.booleanValue());
+        return null;
     }
 
+    //listo
     @Override
     public Object visitNewFAST(MyParser.NewFASTContext ctx) {
-        return super.visitNewFAST(ctx);
+        visit(ctx.IDENT());
+        return null;
     }
 
+    //listo
     @Override
     public Object visitExpresionFAST(MyParser.ExpresionFASTContext ctx) {
-        return super.visitExpresionFAST(ctx);
+        visit(ctx.expr());
+        return null;
     }
 
+    //listo
     @Override
     public Object visitBooleanTrueFAST(MyParser.BooleanTrueFASTContext ctx) {
         visit(ctx.TRUE());
         return null;
     }
 
+    //listo
     @Override
     public Object visitBooleanFalseFAST(MyParser.BooleanFalseFASTContext ctx) {
         visit(ctx.FALSE());
         return null;
     }
 
+    //listo
     @Override
     public Object visitDesignatorAST(MyParser.DesignatorASTContext ctx) {
-        return super.visitDesignatorAST(ctx);
+
+        for (int i=0; i<=ctx.designatorExp().size()-1; i++) {
+            storage.add(new Instruccion(contadorInstrucciones, "STORE_FAST", ctx.IDENT().getSymbol().getText()));
+            contadorInstrucciones++;
+        }
+        return null;
     }
 
+    //listo
     @Override
     public Object visitDesignatorPuntIdAST(MyParser.DesignatorPuntIdASTContext ctx) {
-        return super.visitDesignatorPuntIdAST(ctx);
+        visit(ctx.IDENT());
+        visit(ctx.PUNT());
+        return null;
     }
 
+    //listo
     @Override
     public Object visitDesignatorCorcsAST(MyParser.DesignatorCorcsASTContext ctx) {
-        return super.visitDesignatorCorcsAST(ctx);
+        visit(ctx.expr());
+        return null;
     }
 
+    //listo
     @Override
     public Object visitRelopIgIgAST(MyParser.RelopIgIgASTContext ctx) {
         visit(ctx.IGIG());
         return  null;
     }
 
+    //listo
     @Override
     public Object visitRelopDifAST(MyParser.RelopDifASTContext ctx) {
         visit(ctx.DIF());
         return  null;
     }
 
+    //listo
     @Override
     public Object visitRelopMayAST(MyParser.RelopMayASTContext ctx) {
         visit(ctx.MAY());
         return  null;
     }
 
+    //listo
     @Override
     public Object visitRelopMatIgAST(MyParser.RelopMatIgASTContext ctx) {
         visit(ctx.MAY_IG());
         return  null;
     }
 
+    //listo
     @Override
     public Object visitRelopMenAST(MyParser.RelopMenASTContext ctx) {
         visit(ctx.MEN());
         return  null;
     }
 
+    //listo
     @Override
     public Object visitRelopMenIgAST(MyParser.RelopMenIgASTContext ctx) {
         visit(ctx.MEN_IG());
         return  null;
     }
 
+    //listo
     @Override
     public Object visitAddopSumAST(MyParser.AddopSumASTContext ctx) {
         storage.add(new Instruccion(contadorInstrucciones, "BINARY_ADD"));
@@ -403,6 +442,7 @@ public class MyGenerator extends MyParserBaseVisitor {
         return null;
     }
 
+    //listo
     @Override
     public Object visitAddopRestAST(MyParser.AddopRestASTContext ctx) {
         storage.add(new Instruccion(contadorInstrucciones, "BINARY_SUBSTRACT"));
@@ -410,6 +450,7 @@ public class MyGenerator extends MyParserBaseVisitor {
         return null;
     }
 
+    //listo
     @Override
     public Object visitMulopMultAST(MyParser.MulopMultASTContext ctx) {
         storage.add(new Instruccion(contadorInstrucciones, "BINARY_MULTIPLY"));
@@ -417,6 +458,7 @@ public class MyGenerator extends MyParserBaseVisitor {
         return null;
     }
 
+    //listo
     @Override
     public Object visitMulopDivAST(MyParser.MulopDivASTContext ctx) {
         storage.add(new Instruccion(contadorInstrucciones, "BINARY_DIVIDE"));
@@ -424,6 +466,7 @@ public class MyGenerator extends MyParserBaseVisitor {
         return null;
     }
 
+    //listo
     @Override
     public Object visitMulopPorcAST(MyParser.MulopPorcASTContext ctx) {
         storage.add(new Instruccion(contadorInstrucciones, "BINARY_PORCENTAJE"));
