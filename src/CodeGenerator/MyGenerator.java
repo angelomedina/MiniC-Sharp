@@ -50,7 +50,18 @@ public class MyGenerator extends MyParserBaseVisitor {
     */
     @Override
     public Object visitProgramAST(MyParser.ProgramASTContext ctx) {
-        return super.visitProgramAST(ctx);
+
+        visit(ctx.declaration(0));
+        for (int x = 1; x <= ctx.declaration().size()-1; x++)
+            visit(ctx.declaration(x));
+
+        visit(ctx.methodDecl(0));
+        for (int x = 1; x <= ctx.methodDecl().size()-1; x++)
+            visit(ctx.methodDecl(x));
+
+        this.escribirArchivo();
+        return  null;
+
     }
 
     @Override
