@@ -87,17 +87,20 @@ public class MyGenerator extends MyParserBaseVisitor {
 
     @Override
     public Object visitProgramConstAST(MyParser.ProgramConstASTContext ctx) {
-        return super.visitProgramConstAST(ctx);
+        visit(ctx.constDecl());
+        return null;
     }
 
     @Override
     public Object visitProgramVarAST(MyParser.ProgramVarASTContext ctx) {
-        return super.visitProgramVarAST(ctx);
+        visit(ctx.varDecl());
+        return null;
     }
 
     @Override
     public Object visitProgramClassAST(MyParser.ProgramClassASTContext ctx) {
-        return super.visitProgramClassAST(ctx);
+        visit(ctx.classDecl());
+        return null;
     }
 
     @Override
@@ -247,12 +250,24 @@ public class MyGenerator extends MyParserBaseVisitor {
 
     @Override
     public Object visitConditionAST(MyParser.ConditionASTContext ctx) {
-        return super.visitConditionAST(ctx);
+
+        for (int i=0;i<=ctx.condTerm().size()-1;i++) {
+            visit(ctx.condTerm(i));
+            storage.add(new Instruccion(contadorInstrucciones,"BINARY_OR"));
+            contadorInstrucciones++;
+        }
+        return null;
     }
 
     @Override
     public Object visitCondTermAST(MyParser.CondTermASTContext ctx) {
-        return super.visitCondTermAST(ctx);
+
+        for (int i=0;i<=ctx.condFact().size()-1;i++) {
+            visit(ctx.condFact(i));
+            storage.add(new Instruccion(contadorInstrucciones,"BINARY_ADD"));
+            contadorInstrucciones++;
+        }
+        return null;
     }
 
     @Override
@@ -267,7 +282,10 @@ public class MyGenerator extends MyParserBaseVisitor {
 
     @Override
     public Object visitTermAST(MyParser.TermASTContext ctx) {
-        return super.visitTermAST(ctx);
+        for (int i=0; i<=ctx.factor().size()-1;i++){
+            visit(ctx.factor(i));
+        }
+        return null;
     }
 
     @Override
@@ -317,12 +335,14 @@ public class MyGenerator extends MyParserBaseVisitor {
 
     @Override
     public Object visitBooleanTrueFAST(MyParser.BooleanTrueFASTContext ctx) {
-        return super.visitBooleanTrueFAST(ctx);
+        visit(ctx.TRUE());
+        return null;
     }
 
     @Override
     public Object visitBooleanFalseFAST(MyParser.BooleanFalseFASTContext ctx) {
-        return super.visitBooleanFalseFAST(ctx);
+        visit(ctx.FALSE());
+        return null;
     }
 
     @Override
@@ -378,30 +398,36 @@ public class MyGenerator extends MyParserBaseVisitor {
 
     @Override
     public Object visitAddopSumAST(MyParser.AddopSumASTContext ctx) {
-        visit(ctx.SUM());
-        return  null;
+        storage.add(new Instruccion(contadorInstrucciones, "BINARY_ADD"));
+        contadorInstrucciones++;
+        return null;
     }
 
     @Override
     public Object visitAddopRestAST(MyParser.AddopRestASTContext ctx) {
-        visit(ctx.REST());
-        return  null;
+        storage.add(new Instruccion(contadorInstrucciones, "BINARY_SUBSTRACT"));
+        contadorInstrucciones++;
+        return null;
     }
 
     @Override
     public Object visitMulopMultAST(MyParser.MulopMultASTContext ctx) {
-        return super.visitMulopMultAST(ctx);
+        storage.add(new Instruccion(contadorInstrucciones, "BINARY_MULTIPLY"));
+        contadorInstrucciones++;
+        return null;
     }
 
     @Override
     public Object visitMulopDivAST(MyParser.MulopDivASTContext ctx) {
-        visit(ctx.DIV());
-        return  null;
+        storage.add(new Instruccion(contadorInstrucciones, "BINARY_DIVIDE"));
+        contadorInstrucciones++;
+        return null;
     }
 
     @Override
     public Object visitMulopPorcAST(MyParser.MulopPorcASTContext ctx) {
-        visit(ctx.PORC());
-        return  null;
+        storage.add(new Instruccion(contadorInstrucciones, "BINARY_PORCENTAJE"));
+        contadorInstrucciones++;
+        return null;
     }
 }
