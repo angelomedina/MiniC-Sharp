@@ -52,9 +52,9 @@ public class MyGenerator extends MyParserBaseVisitor {
     /*
     Notas:
     Load:
-        Load_Const: coloca el valode de la constante al tope de la pila.
-        Load_Fast: coloca el valor del contenido de la variable en la pila.
-        Load_Global: carga en el tope de la pila o el valor de la variable o la referencia a la funcion.
+        Load_Const: coloca el valor de de la constante al tope de la pila.                                 ejem: int a = 0; guarda el 0
+        Load_Fast: coloca el valor del contenido de la variable en la pila.                                ejem: int a = 0; guarda el a
+        Load_Global: carga en el tope de la pila o el valor de la variable o la referencia a la funcion.   ejem: guarda a ó 0 ó el metódo
 
     Store:
         Store_Fast:  escribe el contenido del tope de la pila en la variable.
@@ -69,6 +69,8 @@ public class MyGenerator extends MyParserBaseVisitor {
         Binary_Módulo: realiza el cálculo del cociente de la division de dos operandos.
 
      */
+
+    //listo
     @Override
     public Object visitProgramAST(MyParser.ProgramASTContext ctx) {
 
@@ -85,79 +87,28 @@ public class MyGenerator extends MyParserBaseVisitor {
 
     }
 
+    //listo
     @Override
     public Object visitProgramConstAST(MyParser.ProgramConstASTContext ctx) {
         visit(ctx.constDecl());
         return null;
     }
 
+    //listo
     @Override
     public Object visitProgramVarAST(MyParser.ProgramVarASTContext ctx) {
         visit(ctx.varDecl());
         return null;
     }
 
+    //listo
     @Override
     public Object visitProgramClassAST(MyParser.ProgramClassASTContext ctx) {
         visit(ctx.classDecl());
         return null;
     }
 
-    @Override
-    public Object visitConstDeclAST(MyParser.ConstDeclASTContext ctx) {
-        return super.visitConstDeclAST(ctx);
-    }
-
-    @Override
-    public Object visitConstNumberIntDeclAST(MyParser.ConstNumberIntDeclASTContext ctx) {
-        return super.visitConstNumberIntDeclAST(ctx);
-    }
-
-    @Override
-    public Object visitConstNumberIntZDeclAST(MyParser.ConstNumberIntZDeclASTContext ctx) {
-        return super.visitConstNumberIntZDeclAST(ctx);
-    }
-
-    @Override
-    public Object visitConstCharDeclAST(MyParser.ConstCharDeclASTContext ctx) {
-        return super.visitConstCharDeclAST(ctx);
-    }
-
-    @Override
-    public Object visitVarDeclAST(MyParser.VarDeclASTContext ctx) {
-        return super.visitVarDeclAST(ctx);
-    }
-
-    @Override
-    public Object visitClassDeclAST(MyParser.ClassDeclASTContext ctx) {
-        return super.visitClassDeclAST(ctx);
-    }
-
-    @Override
-    public Object visitMethodDeclAST(MyParser.MethodDeclASTContext ctx) {
-        return super.visitMethodDeclAST(ctx);
-    }
-
-    @Override
-    public Object visitMethodTypeDeclAST(MyParser.MethodTypeDeclASTContext ctx) {
-        return super.visitMethodTypeDeclAST(ctx);
-    }
-
-    @Override
-    public Object visitMethodVoidDeclAST(MyParser.MethodVoidDeclASTContext ctx) {
-        return super.visitMethodVoidDeclAST(ctx);
-    }
-
-    @Override
-    public Object visitFormParsAST(MyParser.FormParsASTContext ctx) {
-        return super.visitFormParsAST(ctx);
-    }
-
-    @Override
-    public Object visitTypeAST(MyParser.TypeASTContext ctx) {
-        return super.visitTypeAST(ctx);
-    }
-
+    //listo
     @Override
     public Object visitStatementIgSTAST(MyParser.StatementIgSTASTContext ctx) {
         visit(ctx.designator());
@@ -165,91 +116,16 @@ public class MyGenerator extends MyParserBaseVisitor {
         return null;
     }
 
+    //listo
     @Override
-    public Object visitStatementMetSTAST(MyParser.StatementMetSTASTContext ctx) {
-        return super.visitStatementMetSTAST(ctx);
+    public Object visitTermAST(MyParser.TermASTContext ctx) {
+        for (int i=0; i<=ctx.factor().size()-1;i++){
+            visit(ctx.factor(i));
+        }
+        return null;
     }
 
-    @Override
-    public Object visitStatementIncSTAST(MyParser.StatementIncSTASTContext ctx) {
-        return super.visitStatementIncSTAST(ctx);
-    }
-
-    @Override
-    public Object visitStatementDecSTAST(MyParser.StatementDecSTASTContext ctx) {
-        return super.visitStatementDecSTAST(ctx);
-    }
-
-    @Override
-    public Object visitIfSTAST(MyParser.IfSTASTContext ctx) {
-        return super.visitIfSTAST(ctx);
-    }
-
-    @Override
-    public Object visitForSTAST(MyParser.ForSTASTContext ctx) {
-        return super.visitForSTAST(ctx);
-    }
-
-    @Override
-    public Object visitWhileSTAST(MyParser.WhileSTASTContext ctx) {
-        return super.visitWhileSTAST(ctx);
-    }
-
-    @Override
-    public Object visitBreakStAST(MyParser.BreakStASTContext ctx) {
-        return super.visitBreakStAST(ctx);
-    }
-
-    @Override
-    public Object visitReturnSTAST(MyParser.ReturnSTASTContext ctx) {
-        return super.visitReturnSTAST(ctx);
-    }
-
-    @Override
-    public Object visitReadSTAT(MyParser.ReadSTATContext ctx) {
-        return super.visitReadSTAT(ctx);
-    }
-
-    @Override
-    public Object visitWriteSTAST(MyParser.WriteSTASTContext ctx) {
-        return super.visitWriteSTAST(ctx);
-    }
-
-    @Override
-    public Object visitBlockSTAST(MyParser.BlockSTASTContext ctx) {
-        return super.visitBlockSTAST(ctx);
-    }
-
-    @Override
-    public Object visitPycSTAST(MyParser.PycSTASTContext ctx) {
-        return super.visitPycSTAST(ctx);
-    }
-
-    @Override
-    public Object visitWriteTypeNumIntSTAST(MyParser.WriteTypeNumIntSTASTContext ctx) {
-        return super.visitWriteTypeNumIntSTAST(ctx);
-    }
-
-    @Override
-    public Object visitWriteTypeNumIntZSTAST(MyParser.WriteTypeNumIntZSTASTContext ctx) {
-        return super.visitWriteTypeNumIntZSTAST(ctx);
-    }
-
-    @Override
-    public Object visitWriteTypeNumFloatSTAST(MyParser.WriteTypeNumFloatSTASTContext ctx) {
-        return super.visitWriteTypeNumFloatSTAST(ctx);
-    }
-
-    @Override
-    public Object visitBlockAST(MyParser.BlockASTContext ctx) {
-        return super.visitBlockAST(ctx);
-    }
-
-    @Override
-    public Object visitActParsAST(MyParser.ActParsASTContext ctx) {
-        return super.visitActParsAST(ctx);
-    }
-
+    //listo
     @Override
     public Object visitConditionAST(MyParser.ConditionASTContext ctx) {
 
@@ -261,6 +137,7 @@ public class MyGenerator extends MyParserBaseVisitor {
         return null;
     }
 
+    //listo
     @Override
     public Object visitCondTermAST(MyParser.CondTermASTContext ctx) {
 
@@ -272,28 +149,11 @@ public class MyGenerator extends MyParserBaseVisitor {
         return null;
     }
 
-    @Override
-    public Object visitCondFactAST(MyParser.CondFactASTContext ctx) {
-        return super.visitCondFactAST(ctx);
-    }
-
-    @Override
-    public Object visitExprAST(MyParser.ExprASTContext ctx) {
-        return super.visitExprAST(ctx);
-    }
-
-    @Override
-    public Object visitTermAST(MyParser.TermASTContext ctx) {
-        for (int i=0; i<=ctx.factor().size()-1;i++){
-            visit(ctx.factor(i));
-        }
-        return null;
-    }
-
+    //listo
     @Override
     public Object visitFactorFAST(MyParser.FactorFASTContext ctx) {
-
-        return super.visitFactorFAST(ctx);
+        visit(ctx.designator());
+        return null;
     }
 
     //listo
@@ -472,5 +332,173 @@ public class MyGenerator extends MyParserBaseVisitor {
         storage.add(new Instruccion(contadorInstrucciones, "BINARY_PORCENTAJE"));
         contadorInstrucciones++;
         return null;
+    }
+
+    //listo
+    @Override
+    public Object visitIfSTAST(MyParser.IfSTASTContext ctx) {
+        visit(ctx.condition());
+        visit(ctx.statement(0));
+        visit(ctx.statement(1));
+        return null;
+    }
+
+    //listo
+    @Override
+    public Object visitForSTAST(MyParser.ForSTASTContext ctx) {
+        visit(ctx.expr());
+        visit(ctx.condition());
+        visit(ctx.statement(0));
+        visit(ctx.statement(1));
+
+        return null;
+    }
+
+    //listo
+    @Override
+    public Object visitWhileSTAST(MyParser.WhileSTASTContext ctx) {
+        visit(ctx.condition());
+        visit(ctx.statement());
+
+        return null;
+    }
+
+    @Override
+    public Object visitConstDeclAST(MyParser.ConstDeclASTContext ctx) {
+        return super.visitConstDeclAST(ctx);
+    }
+
+    @Override
+    public Object visitConstNumberIntDeclAST(MyParser.ConstNumberIntDeclASTContext ctx) {
+        return super.visitConstNumberIntDeclAST(ctx);
+    }
+
+    @Override
+    public Object visitConstNumberIntZDeclAST(MyParser.ConstNumberIntZDeclASTContext ctx) {
+        return super.visitConstNumberIntZDeclAST(ctx);
+    }
+
+    @Override
+    public Object visitConstCharDeclAST(MyParser.ConstCharDeclASTContext ctx) {
+        return super.visitConstCharDeclAST(ctx);
+    }
+
+    @Override
+    public Object visitVarDeclAST(MyParser.VarDeclASTContext ctx) {
+        return super.visitVarDeclAST(ctx);
+    }
+
+    @Override
+    public Object visitClassDeclAST(MyParser.ClassDeclASTContext ctx) {
+        return super.visitClassDeclAST(ctx);
+    }
+
+    @Override
+    public Object visitMethodDeclAST(MyParser.MethodDeclASTContext ctx) {
+        return super.visitMethodDeclAST(ctx);
+    }
+
+    @Override
+    public Object visitMethodTypeDeclAST(MyParser.MethodTypeDeclASTContext ctx) {
+        return super.visitMethodTypeDeclAST(ctx);
+    }
+
+    @Override
+    public Object visitMethodVoidDeclAST(MyParser.MethodVoidDeclASTContext ctx) {
+        return super.visitMethodVoidDeclAST(ctx);
+    }
+
+    @Override
+    public Object visitFormParsAST(MyParser.FormParsASTContext ctx) {
+        return super.visitFormParsAST(ctx);
+    }
+
+    @Override
+    public Object visitTypeAST(MyParser.TypeASTContext ctx) {
+        return super.visitTypeAST(ctx);
+    }
+
+
+
+    @Override
+    public Object visitStatementMetSTAST(MyParser.StatementMetSTASTContext ctx) {
+        return super.visitStatementMetSTAST(ctx);
+    }
+
+    @Override
+    public Object visitStatementIncSTAST(MyParser.StatementIncSTASTContext ctx) {
+        return super.visitStatementIncSTAST(ctx);
+    }
+
+    @Override
+    public Object visitStatementDecSTAST(MyParser.StatementDecSTASTContext ctx) {
+        return super.visitStatementDecSTAST(ctx);
+    }
+
+
+    @Override
+    public Object visitBreakStAST(MyParser.BreakStASTContext ctx) {
+        return super.visitBreakStAST(ctx);
+    }
+
+    @Override
+    public Object visitReturnSTAST(MyParser.ReturnSTASTContext ctx) {
+        return super.visitReturnSTAST(ctx);
+    }
+
+    @Override
+    public Object visitReadSTAT(MyParser.ReadSTATContext ctx) {
+        return super.visitReadSTAT(ctx);
+    }
+
+    @Override
+    public Object visitWriteSTAST(MyParser.WriteSTASTContext ctx) {
+        return super.visitWriteSTAST(ctx);
+    }
+
+    @Override
+    public Object visitBlockSTAST(MyParser.BlockSTASTContext ctx) {
+        return super.visitBlockSTAST(ctx);
+    }
+
+    @Override
+    public Object visitPycSTAST(MyParser.PycSTASTContext ctx) {
+        return super.visitPycSTAST(ctx);
+    }
+
+    @Override
+    public Object visitWriteTypeNumIntSTAST(MyParser.WriteTypeNumIntSTASTContext ctx) {
+        return super.visitWriteTypeNumIntSTAST(ctx);
+    }
+
+    @Override
+    public Object visitWriteTypeNumIntZSTAST(MyParser.WriteTypeNumIntZSTASTContext ctx) {
+        return super.visitWriteTypeNumIntZSTAST(ctx);
+    }
+
+    @Override
+    public Object visitWriteTypeNumFloatSTAST(MyParser.WriteTypeNumFloatSTASTContext ctx) {
+        return super.visitWriteTypeNumFloatSTAST(ctx);
+    }
+
+    @Override
+    public Object visitBlockAST(MyParser.BlockASTContext ctx) {
+        return super.visitBlockAST(ctx);
+    }
+
+    @Override
+    public Object visitActParsAST(MyParser.ActParsASTContext ctx) {
+        return super.visitActParsAST(ctx);
+    }
+
+
+    @Override
+    public Object visitCondFactAST(MyParser.CondFactASTContext ctx) {
+        return super.visitCondFactAST(ctx);
+    }
+
+    @Override
+    public Object visitExprAST(MyParser.ExprASTContext ctx) {
+        return super.visitExprAST(ctx);
     }
 }

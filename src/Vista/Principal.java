@@ -6,6 +6,7 @@ import Antlr.MyParser;
 import Antlr.Scanner;
 import Checker.Analizadores.AC_Llamadas_Funciones;
 import Checker.Analizadores.AC_Declaracion_Asignacion;
+import CodeGenerator.MyGenerator;
 import Exeptions.*;
 import Modelo.Archivos;
 import org.antlr.v4.runtime.ANTLRInputStream;
@@ -362,6 +363,14 @@ public class Principal extends  JFrame implements ActionListener {
                         // Declaracion Analizador 2 (Analizador Contextual de Funciones)
                         analizador_contextual_f1 = new AC_Llamadas_Funciones(analizador_contextual_vc1.getTableS());
                         analizador_contextual_f1.visit(tree);
+
+                        //**********************************************************************************************
+                        //Generador de código
+
+                        MyGenerator generator = new MyGenerator();
+                        generator.visit(tree);
+
+                        //**********************************************************************************************
                     }
                     catch(SemanticException error) {}
 
@@ -394,13 +403,6 @@ public class Principal extends  JFrame implements ActionListener {
 
                     }
 
-                    // Hasta el final
-                    //JOptionPane.showMessageDialog(this,"Compilación exitosa.");
-                    //defaultListModel.addElement(Mymsg);
-                    //contError=list.getModel().getSize();
-
-                    //se envia el arbol y el parser
-                    //java.util.concurrent.Future<JFrame> treeGUI = org.antlr.v4.gui.Trees.inspect(tree, parser);
 
                 }
                 else{ // Si el analizador 1 (Analizador Contextual de Variables y clases) tiene errores
@@ -428,24 +430,6 @@ public class Principal extends  JFrame implements ActionListener {
                 contError = list.getModel().getSize();
                 return;
             }
-
-
-            /*
-            DefaultListModel defaultListModel=(DefaultListModel) list.getModel();
-            String Mymsg="----------------------------------------------------";
-            try {
-
-                parser.program();
-                scanner.reset();//para que vuelva a llenar los tokens, porque el parser los consumio
-                List<Token> lista = (List<Token>) scanner.getAllTokens();
-
-                for (Token t : lista)
-                    defaultListModel.addElement(scanner.VOCABULARY.getSymbolicName(t.getType()) + ":" + t.getText() + "\n");
-            }
-            catch(Exception ex){
-                ex.printStackTrace();
-                JOptionPane.showMessageDialog(this,"Error de try/cash","",JOptionPane.ERROR_MESSAGE);
-            }*/
 
         }
         else if(e.getSource()==btnTree){
