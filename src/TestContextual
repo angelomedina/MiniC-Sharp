@@ -1,0 +1,108 @@
+class AllProds
+  const int nPoints = 2;
+  const char exclaim = '!';
+  const char caracter_raro = '\n';
+  float i;
+  int test2;
+
+  class Point {
+    int x, y;
+    float i;
+  }
+  char[] msg;
+  int[] pArr;
+  boolean test1;
+{
+  void WriteError ()
+    int i;
+    boolean test2;
+  {
+
+    i = 0;
+    test1 = true;     //verificación de alcances
+    test2 = test1;    //verificación de alcances cuando hay una global llamada "test2"
+    while(i<len(msg)){
+        write(msg[i]);  //ERROR: CUANDO SE VISITA EL METÓDO WRITE()
+        i++;}
+    }
+
+    for(i;i<len(msg);i++;){
+    write(msg[i]); //ERROR: CUANDO SE VISITA EL METÓDO WRITE()
+
+    }
+    }
+      write(exclaim); //ERROR: CUANDO SE VISITA EL METÓDO WRITE()
+      while (i > 0) {
+        i--;
+        if (i < 3 && test1==true) break; // ERROR: EL IF NO CUMPLE CON NUESTRA LA ESTRUCTURA  : visit(ctx.condition());
+                                                                                                visit(ctx.statement(0));
+                                                                                                visit(ctx.statement(1));
+        write(msg[i], 2);
+      }
+  }
+
+  int GetX (Point p) { p = new Point; return p.i; } // error de tipos, en caso de reconocerlo, cambiar a "return p.x"
+
+  //ERRRO: INT X COMO PARAMETRO DA ERROR XQ YA HA SIDO DECLARADO COMO GLOBAL
+  void SetX (int x, Point p) {
+    if (x > -10 && x <= 9 ||
+        x == 4*3/4%4+12-11*(2147483647/(-2147483647-1)%2) )
+     { //NOTA: SE DEBEN AGREGAR LOS CORCHETES DE APERTURA Y CIERRE XQ ASI ESTA DEFINIDA NUESTRA ESTRUCTURA
+      p.x = x;
+      i = x; //error de tipos, en caso de fallo cambiar la "x" por un numero float
+      }
+    else{
+        i= WriteError(3); // error de alcances porque no existe este parametro en la definicion
+        }
+    return i; //error porque no es funcion;
+  }
+
+  //ERROR: NUESTRA ESTRUCTUA NO ADMITE CHAR[]
+  int SetMsg () {
+    msg = new char[];
+    msg[0] = 'E';
+    msg[1] = 'r';
+    msg[2] = 'r';
+    msg[3] = 'r';
+    msg[4] = msg[3];
+    msg[3] = caracter_raro; //verificacion de constantes globales
+    write(len(msg),1); //verificacion de métodos predefinidos //ERROR: CUANDO SE VISITA EL METÓDO WRITE()
+
+    //verificar error de no existencia de retorno en funcion, en caso de encontrarlo, agregar el retorno correspondiente
+  }
+
+  void SetPoints ()
+    int i;
+  {
+    pArr = new int[]; //ERROR: EN LA GRAMATICA NO SE ACEPTA NEW INT[]; SOLO NEW INT
+    i = 0;
+    while (i < len(pArr)) {
+      pArr[i] = new Point; //error de tipos por la definicion de clases que solo permiten tipos simples
+      pArr[i] = i;
+      pArr[i] = 3.14; //debe dar error de tipos.
+      i++;
+    }
+  }
+
+  void Main ()
+    int i; //ERROR: SE DEBE CAMBIAR EL NOMBRE DE LA VARIABLE XQ EXISTE GLOBALMENTE Y CAUSA ERROR
+    Point algo;
+  {
+
+    write("Hola Mundo"); //verificar constantes String //ERROR: CUANDO SE VISITA EL METÓDO WRITE()
+    SetMsg(); //puede o no ser error que para la llamada a una funcion no se utilice su retorno //ERROR: XQ LA GRAMATICA NO ACEPTA  NEW CHAR[]
+    SetPoints(); //error: xq la gramatica no acepta  new int[]
+    read(i);
+    if (i < nPoints) { // ERROR: DA ERROR DE TIPOS AUNQUE AMBOS SON INT DA ERROR XQ UNO ES GLOBAL Y EL OTRO ES LOCAL
+      write(GetX(algo)); //ERROR: CUANDO SE VISITA EL METÓDO WRITE()
+    }
+    //NOTA: IF Y ELSE DEBEN ABRIR Y CERRA CORCHETES
+    else{
+      WriteError();
+    write('\n'); //ERROR: CUANDO SE VISITA EL METÓDO WRITE()
+    }
+
+  }
+}
+// ANOTAR SUS COMENTARIOS EN MAYUSCULA Y NO QUITAR NADA DE LO QUE VIENE EN EL ARCHIVO SINO SOLO COMENTARLO PERO A LA VEZ COLOCAR EL EQUIVALENTE CORRECTO
+// CUALQUIER COSA QUE SEA ERROR MIO AL MOMENTO DE HACER LA PRUEBA, FAVOR CORREGIRLO Y ANOTARLO

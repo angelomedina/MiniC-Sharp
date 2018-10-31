@@ -367,8 +367,10 @@ public class Principal extends  JFrame implements ActionListener {
                         //**********************************************************************************************
                         //Generador de código
 
+                        /*
                         MyGenerator generator = new MyGenerator();
                         generator.visit(tree);
+                        */
 
                         //**********************************************************************************************
                     }
