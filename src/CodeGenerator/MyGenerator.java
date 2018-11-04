@@ -208,6 +208,12 @@ public class MyGenerator extends MyParserBaseVisitor {
     //listo
     @Override
     public Object visitExpresionFAST(MyParser.ExpresionFASTContext ctx) {
+
+        /*
+        storage.add(new Instruccion(contadorInstrucciones,"LOAD_GLOBAL",ctx.expr().getText()));
+        contadorInstrucciones++;
+        */
+
         visit(ctx.expr());
         return null;
     }
@@ -230,6 +236,7 @@ public class MyGenerator extends MyParserBaseVisitor {
     @Override
     public Object visitDesignatorAST(MyParser.DesignatorASTContext ctx) {
 
+        //ctx.IDENT().getSymbol().getText();
         for (int i=0; i<=ctx.designatorExp().size()-1; i++) {
             storage.add(new Instruccion(contadorInstrucciones, "STORE_FAST", ctx.IDENT().getSymbol().getText()));
             contadorInstrucciones++;
@@ -346,6 +353,11 @@ public class MyGenerator extends MyParserBaseVisitor {
     //listo
     @Override
     public Object visitForSTAST(MyParser.ForSTASTContext ctx) {
+
+        /*
+        storage.add(new Instruccion(contadorInstrucciones,"LOAD_FAST",ctx.expr().getText()));
+        contadorInstrucciones++;
+        */
         visit(ctx.expr());
         visit(ctx.condition());
         visit(ctx.statement(0));
@@ -370,17 +382,23 @@ public class MyGenerator extends MyParserBaseVisitor {
 
     @Override
     public Object visitConstNumberIntDeclAST(MyParser.ConstNumberIntDeclASTContext ctx) {
-        return super.visitConstNumberIntDeclAST(ctx);
+        storage.add(new Instruccion(contadorInstrucciones,"LOAD_CONST",ctx.NUMBER_INTEGER().getSymbol().getText()));
+        contadorInstrucciones++;
+        return null;
     }
 
     @Override
     public Object visitConstNumberIntZDeclAST(MyParser.ConstNumberIntZDeclASTContext ctx) {
-        return super.visitConstNumberIntZDeclAST(ctx);
+        storage.add(new Instruccion(contadorInstrucciones,"LOAD_CONST",ctx.NUMBER_INTEGER_ZERO().getSymbol().getText()));
+        contadorInstrucciones++;
+        return null;
     }
 
     @Override
     public Object visitConstCharDeclAST(MyParser.ConstCharDeclASTContext ctx) {
-        return super.visitConstCharDeclAST(ctx);
+        storage.add(new Instruccion(contadorInstrucciones,"LOAD_CONST",ctx.CHAR_CONST().getSymbol().getText()));
+        contadorInstrucciones++;
+        return null;
     }
 
     @Override
