@@ -1,2 +1,0 @@
-0 STORE_FAST ad
-1 STORE_FAST ad

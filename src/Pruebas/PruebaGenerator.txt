@@ -1,0 +1,40 @@
+//Codigo para comprobar la declaracion de variables y constantes globales
+class claseP
+
+    // Declaracion de variables
+    int v1;
+    int v2;
+    int v3;
+    char v4;
+    int v5;
+    char v6;
+    char v7;
+    int v8;
+    int v9;
+    int v10;
+    int v11;
+    int v12;
+    int v13;
+    xhar v14; // No es reconocida
+    int v15,v16,v17,v18,v19;
+    char v20,v21,v22,v23;    
+    char v24,v25,v26,v27;
+    zchar v30,v31,v32,v33;  // No deben ser reconocidas
+    int v34,v35,v36,v37;    
+    dint v38,v39,v40; // No deben ser reconocidas
+    int v41,v42,v43,v44; 
+    char v35,v36,v37;
+
+    // Declaracion de constantes
+    const int vc1 = 110;
+    const int vc2 = 120;
+    const char vc3 = 'm';
+    const int vc4 = 130;
+    const char vc5 = 'u';
+    const char vc6 = 'n';
+    const char vc7 = 'd';
+    const char vc8 = 'o';
+    const int vc10 = 140;
+
+
+{}

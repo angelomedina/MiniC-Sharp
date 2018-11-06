@@ -3,9 +3,11 @@ package CodeGenerator;
 import Antlr.MyParser;
 import Antlr.MyParserBaseVisitor;
 import Modelo.Archivos;
+import org.antlr.v4.runtime.tree.TerminalNode;
 
 import java.io.IOException;
 import java.util.LinkedList;
+import java.util.List;
 
 public class MyGenerator extends MyParserBaseVisitor {
 
@@ -18,7 +20,7 @@ public class MyGenerator extends MyParserBaseVisitor {
 
     public void escribirArchivo(){
         try {
-            archivo.crearArchivoUno(instrucciones(), "MyFile.txt");
+            archivo.crearArchivoUno(instrucciones(), "generado.txt");
         }catch (IOException ioe) {
             System.out.println(ioe);
         }
@@ -74,16 +76,18 @@ public class MyGenerator extends MyParserBaseVisitor {
     @Override
     public Object visitProgramAST(MyParser.ProgramASTContext ctx) {
 
-        visit(ctx.declaration(0));
-        for (int x = 1; x <= ctx.declaration().size()-1; x++)
-            visit(ctx.declaration(x));
+        for (MyParser.DeclarationContext e: ctx.declaration()) {
+            visit(e);
+        }
 
-        visit(ctx.methodDecl(0));
-        for (int x = 1; x <= ctx.methodDecl().size()-1; x++)
-            visit(ctx.methodDecl(x));
+        for(MyParser.MethodDeclContext e: ctx.methodDecl()){
+            visit(e);
+        }
 
+        System.out.println(instrucciones());
         this.escribirArchivo();
-        return  null;
+
+        return null;
 
     }
 
@@ -111,6 +115,11 @@ public class MyGenerator extends MyParserBaseVisitor {
     //listo
     @Override
     public Object visitStatementIgSTAST(MyParser.StatementIgSTASTContext ctx) {
+
+        //hay que ver si la igualdad esta en la tabla de simbolos
+        storage.add(new Instruccion(contadorInstrucciones,"LOAD_FAST",ctx.expr().getText()));
+        contadorInstrucciones++;
+
         visit(ctx.designator());
         visit(ctx.expr());
         return null;
@@ -377,7 +386,23 @@ public class MyGenerator extends MyParserBaseVisitor {
 
     @Override
     public Object visitConstDeclAST(MyParser.ConstDeclASTContext ctx) {
-        return super.visitConstDeclAST(ctx);
+
+        String tipo = ctx.type().getText();
+
+        if ((tipo.equals("int")) || (tipo.equals("char"))) {
+
+            if(tipo.equals("int")){
+                storage.add(new Instruccion(contadorInstrucciones,"PUSH_GLOBAL_I",ctx.IDENT().getSymbol().getText()));
+            }
+            else if(tipo.equals("char")){
+                storage.add(new Instruccion(contadorInstrucciones,"PUSH_GLOBAL_C",ctx.IDENT().getSymbol().getText()));
+            }
+
+            contadorInstrucciones++;
+
+        }
+
+        return null;
     }
 
     @Override
@@ -403,7 +428,52 @@ public class MyGenerator extends MyParserBaseVisitor {
 
     @Override
     public Object visitVarDeclAST(MyParser.VarDeclASTContext ctx) {
-        return super.visitVarDeclAST(ctx);
+        String tipo = ctx.type().getText();
+
+        if ((tipo.equals("int")) || (tipo.equals("char"))) {
+
+            if(tipo.equals("int")) {
+                registrar_variables(ctx.IDENT(),1);
+            }
+            else if(tipo.equals("char")){
+                registrar_variables(ctx.IDENT(),2);
+            }
+
+        }
+
+
+        return null;
+    }
+
+    private void registrar_variables(List<TerminalNode> ident, int tipoVar) {
+
+        for(int j = 0; j<ident.size(); j++){
+
+            if(esFuncion && tipoVar == 1){ // Si estoy en una funcion, y es una variable entera (int)
+                System.out.println("Entero local ");
+                // La registro como local
+                storage.add(new Instruccion(contadorInstrucciones,"PUSH_LOCAL_I",ident.get(j).getSymbol().getText()));
+            }
+            else if(esFuncion && tipoVar == 2) { // Si estoy en una funcion, y es una variable char (char)
+                System.out.println("Char local ");
+                // La registro como local
+                storage.add(new Instruccion(contadorInstrucciones,"PUSH_LOCAL_C",ident.get(j).getSymbol().getText()));
+            }
+            else if(!esFuncion && tipoVar == 1){ // Si no estoy en una funcion, y es una variable entera (int)
+                // La registro como global
+                System.out.println("Entero global");
+                storage.add(new Instruccion(contadorInstrucciones,"PUSH_GLOBAL_I",ident.get(j).getSymbol().getText()));
+            }
+            else if(!esFuncion && tipoVar == 2) { // Si no estoy en una funcion, y es una variable char (char)
+                // La registro como global
+                System.out.println("Char global ");
+                storage.add(new Instruccion(contadorInstrucciones,"PUSH_GLOBAL_C",ident.get(j).getSymbol().getText()));
+            }
+
+            contadorInstrucciones++;
+
+        }
+
     }
 
     @Override
@@ -413,7 +483,18 @@ public class MyGenerator extends MyParserBaseVisitor {
 
     @Override
     public Object visitMethodDeclAST(MyParser.MethodDeclASTContext ctx) {
-        return super.visitMethodDeclAST(ctx);
+
+        esFuncion = true;
+        visit(ctx.formPars());
+
+        for (MyParser.VarDeclContext e: ctx.varDecl()) {
+            visit(e);
+        }
+
+        esFuncion = false;
+
+
+        return null;
     }
 
     @Override
@@ -428,7 +509,36 @@ public class MyGenerator extends MyParserBaseVisitor {
 
     @Override
     public Object visitFormParsAST(MyParser.FormParsASTContext ctx) {
-        return super.visitFormParsAST(ctx);
+
+        System.out.println("Registrando parametros ");
+        String tipo = "";
+
+        for(int i = 0;i<ctx.type().size(); i++){ // Recorro los tipos de los parametros
+
+            tipo = ctx.type(i).getText();
+
+            if ((tipo.equals("int")) || (tipo.equals("char"))) {
+
+                if(tipo.equals("int")) {
+
+
+                    System.out.println("Par Entero local ");
+                    // La registro como local
+                    storage.add(new Instruccion(contadorInstrucciones,"PUSH_LOCAL_I",ctx.IDENT().get(i).getSymbol().getText()));
+
+                }
+                else if(tipo.equals("char")){
+                    System.out.println("Par Char local ");
+                    // La registro como local
+                    storage.add(new Instruccion(contadorInstrucciones,"PUSH_LOCAL_C",ctx.IDENT().get(i).getSymbol().getText()));
+                }
+
+                contadorInstrucciones++;
+
+            }
+        }
+
+        return null;
     }
 
     @Override

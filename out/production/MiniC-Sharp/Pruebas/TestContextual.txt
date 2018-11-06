@@ -19,35 +19,35 @@ class AllProds
   {
 
     i = 0;
-    test1 = true;  //verificación de alcances
-    test2 = test1;  //verificación de alcances cuando hay una global llamada "test2"
+    test1 = true;     //verificación de alcances
+    test2 = test1;    //verificación de alcances cuando hay una global llamada "test2"
     while(i<len(msg)){
-        write(msg[i]);  //error: cuando se visita el metodo write()
+        write(msg[i]);  //ERROR: CUANDO SE VISITA EL METÓDO WRITE()
         i++;}
     }
 
     for(i;i<len(msg);i++;){
-    write(msg[i]); //error: cuando se visita el metodo write()
+    write(msg[i]); //ERROR: CUANDO SE VISITA EL METÓDO WRITE()
 
     }
     }
-      write(exclaim); //error: cuando se visita el metodo write()
+      write(exclaim); //ERROR: CUANDO SE VISITA EL METÓDO WRITE()
       while (i > 0) {
         i--;
-        if (i < 3 && test1==true) break; // error: el if no cumple la estructura del if : visit(ctx.condition());
-                                                                                          visit(ctx.statement(0));
-                                                                                          visit(ctx.statement(1));
+        if (i < 3 && test1==true) break; // ERROR: EL IF NO CUMPLE CON NUESTRA LA ESTRUCTURA  : visit(ctx.condition());
+                                                                                                visit(ctx.statement(0));
+                                                                                                visit(ctx.statement(1));
         write(msg[i], 2);
       }
   }
 
   int GetX (Point p) { p = new Point; return p.i; } // error de tipos, en caso de reconocerlo, cambiar a "return p.x"
 
-  //error: int x como parametro da error xq ya ha sido declarado como global
+  //ERRRO: INT X COMO PARAMETRO DA ERROR XQ YA HA SIDO DECLARADO COMO GLOBAL
   void SetX (int x, Point p) {
     if (x > -10 && x <= 9 ||
         x == 4*3/4%4+12-11*(2147483647/(-2147483647-1)%2) )
-     { //nota: abrir y cerrar oorchetes
+     { //NOTA: SE DEBEN AGREGAR LOS CORCHETES DE APERTURA Y CIERRE XQ ASI ESTA DEFINIDA NUESTRA ESTRUCTURA
       p.x = x;
       i = x; //error de tipos, en caso de fallo cambiar la "x" por un numero float
       }
@@ -57,8 +57,7 @@ class AllProds
     return i; //error porque no es funcion;
   }
 
-
-  //error: revisar el parser para ver si admite char[]
+  //ERROR: NUESTRA ESTRUCTUA NO ADMITE CHAR[]
   int SetMsg () {
     msg = new char[];
     msg[0] = 'E';
@@ -67,7 +66,7 @@ class AllProds
     msg[3] = 'r';
     msg[4] = msg[3];
     msg[3] = caracter_raro; //verificacion de constantes globales
-    write(len(msg),1); //verificacion de métodos predefinidos //errro en metodo write()
+    write(len(msg),1); //verificacion de métodos predefinidos //ERROR: CUANDO SE VISITA EL METÓDO WRITE()
 
     //verificar error de no existencia de retorno en funcion, en caso de encontrarlo, agregar el retorno correspondiente
   }
@@ -75,7 +74,7 @@ class AllProds
   void SetPoints ()
     int i;
   {
-    pArr = new int[]; //error: en la gramatica no acepta new int[]: solo new int;
+    pArr = new int[]; //ERROR: EN LA GRAMATICA NO SE ACEPTA NEW INT[]; SOLO NEW INT
     i = 0;
     while (i < len(pArr)) {
       pArr[i] = new Point; //error de tipos por la definicion de clases que solo permiten tipos simples
@@ -86,20 +85,22 @@ class AllProds
   }
 
   void Main ()
-    int i;
+    int i; //ERROR: SE DEBE CAMBIAR EL NOMBRE DE LA VARIABLE XQ EXISTE GLOBALMENTE Y CAUSA ERROR
     Point algo;
   {
 
-    write("Hola Mundo"); //verificar constantes String // error de metodo
-    SetMsg(); //puede o no ser error que para la llamada a una funcion no se utilice su retorno //error: xq la gramatica no acepta  new char[]
+    write("Hola Mundo"); //verificar constantes String //ERROR: CUANDO SE VISITA EL METÓDO WRITE()
+    SetMsg(); //puede o no ser error que para la llamada a una funcion no se utilice su retorno //ERROR: XQ LA GRAMATICA NO ACEPTA  NEW CHAR[]
     SetPoints(); //error: xq la gramatica no acepta  new int[]
     read(i);
-    if (i < nPoints) { // error de tipos en: i y nPoints
-      write(GetX(algo)); // error de metodo
+    if (i < nPoints) { // ERROR: DA ERROR DE TIPOS AUNQUE AMBOS SON INT DA ERROR XQ UNO ES GLOBAL Y EL OTRO ES LOCAL
+      write(GetX(algo)); //ERROR: CUANDO SE VISITA EL METÓDO WRITE()
     }
-    else
+    //NOTA: IF Y ELSE DEBEN ABRIR Y CERRA CORCHETES
+    else{
       WriteError();
-    write('\n');
+    write('\n'); //ERROR: CUANDO SE VISITA EL METÓDO WRITE()
+    }
 
   }
 }
