@@ -1,3 +1,4 @@
+
 //CLASES
 class claseP
 
@@ -7,13 +8,7 @@ class claseP
     class prueba3 {
 
         tipo2 h1,h5,t6;
-        tipo5 hr,h2,t3;
+        tipo5 h9,h2,t3;
 
     }
-{
-    int abc(int g){}
-    int b(){}
-    int c(){}
-    int d(){}
-    int e(){}   
-}
+{}

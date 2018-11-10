@@ -215,10 +215,6 @@ public class AC_Declaracion_Asignacion extends MyParserBaseVisitor {
                 visit(e);
             }
 
-
-          //  tableS.closeScope();
-
-            //System.out.println("Tiene "+varsName.size()+" variables.");
         }
 
         int res = tableS.enterCl(ctx.IDENT().getText(),ctx.CLASS().getText(), varsName, varsType);
@@ -228,34 +224,7 @@ public class AC_Declaracion_Asignacion extends MyParserBaseVisitor {
             error = "Error Semantico("+ ctx.IDENT().getSymbol().getLine() + ":" + (ctx.IDENT().getSymbol().getCharPositionInLine() + 1) + "): Ya existe un elemento con ese nombre!";
             listaErrores.push(error);
         }
-        /*
-        int clasePadre = tableS.enterCl(ctx.CLASS().getText(),ctx.CLASS().getSymbol().getText(),"Clase");
 
-        if (clasePadre == 1) {
-
-            //cuando entra la primera ves la padre y el primer hijo se crean
-            //cuando tienen muchos hijos la clase padre se crea nuvamente, pero la clase padre solo se puede delcarar
-            //una vez por eso aunque de error de clase padre, no se guarda en la lista pero sus hijos si
-            int claseHija = tableS.enterCl(ctx.IDENT().getText(),ctx.IDENT().getSymbol().getText(),"Clase");
-
-            if (claseHija == 1) {
-
-                this.numErrors++;
-                error = "Semantic Error Hijo("+ ctx.IDENT().getSymbol().getLine() + ":" + (ctx.IDENT().getSymbol().getCharPositionInLine() + 1) + "): The identifier is already declared in actual context!!!";
-                listaErrores.push(error);
-            }
-
-        }else{
-
-            int claseHija = tableS.enterCl(ctx.IDENT().getText(),ctx.IDENT().getSymbol().getText(),"Clase");
-
-            if (claseHija == 1) {
-
-                this.numErrors++;
-                error = "Semantic Error Hijo("+ ctx.IDENT().getSymbol().getLine() + ":" + (ctx.IDENT().getSymbol().getCharPositionInLine() + 1) + "): The identifier is already declared in actual context!!!";
-                listaErrores.push(error);
-            }
-        }*/
 
         return null;
     }
