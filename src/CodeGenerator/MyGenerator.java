@@ -83,6 +83,8 @@ public class MyGenerator extends MyParserBaseVisitor {
         for(MyParser.MethodDeclContext e: ctx.methodDecl()){
             visit(e);
         }
+        storage.add(new Instruccion(contadorInstrucciones,"END"," "));
+        contadorInstrucciones++;
 
         System.out.println(instrucciones());
         this.escribirArchivo();
@@ -366,7 +368,6 @@ public class MyGenerator extends MyParserBaseVisitor {
     @Override
     public Object visitIfSTAST(MyParser.IfSTASTContext ctx) {
 
-        System.out.println("alllllllllllllllllllllllllllllllllllll");
         visit(ctx.condition());
         visit(ctx.statement(0));
         visit(ctx.statement(1));
