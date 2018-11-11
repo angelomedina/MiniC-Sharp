@@ -36,7 +36,7 @@ public class Principal extends  JFrame implements ActionListener {
     MyBaseErrorListener errorListener = null;
     MyException     myException = null;
     MyConsoleErrorListener myConsoleErrorListener = null;
-    AC_Declaracion_Asignacion analizador_contextual_vc1 = null;
+    public static AC_Declaracion_Asignacion analizador_contextual_vc1 = null;
     AC_Llamadas_Funciones analizador_contextual_f1 = null;
 
     int tab=1;

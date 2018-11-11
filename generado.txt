@@ -2,14 +2,39 @@
 1 PUSH_GLOBAL_I v2
 2 PUSH_GLOBAL_I vc1
 3 PUSH_GLOBAL_C vc3
-4 Load_Global
-5 Load_Global
-6 BINARY_ADD
-7 Load_Global
+4 LOAD_GLOBAL 10
+5 LOAD_FAST v1
+6 Load_Global
+7 LOAD_FAST 0
 8 Load_Global
-9 BINARY_ADD
-10 BINARY_OR
-11 LOAD_GLOBAL 4*4
-12 LOAD_FAST 4*5
-13 Load_Global
-14 END  
+9 Load_Global
+10 Load_Global
+11 BINARY_ADD
+12 BINARY_OR
+13 LOAD_FAST 10*2
+14 Load_Global
+15 Load_Global
+16 RETURN_VALUE
+17 Load_Global
+18 Load_Global
+19 BINARY_ADD
+20 Load_Global
+21 Load_Global
+22 BINARY_ADD
+23 BINARY_OR
+24 LOAD_GLOBAL 4*4
+25 LOAD_FAST 4*5
+26 Load_Global
+27 RETURN
+28 Load_Global
+29 Load_Global
+30 BINARY_ADD
+31 Load_Global
+32 Load_Global
+33 BINARY_ADD
+34 BINARY_OR
+35 LOAD_FAST 4*4
+36 Load_Global
+37 LOAD_FAST 4*5
+38 Load_Global
+39 END  

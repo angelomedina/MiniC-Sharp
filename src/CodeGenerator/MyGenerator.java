@@ -3,6 +3,7 @@ import Checker.Analizadores.*;
 import Antlr.MyParser;
 import Antlr.MyParserBaseVisitor;
 import Checker.TypeSymbol.Symbol;
+import Checker.TypeSymbol.SymbolTable;
 import Modelo.Archivos;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
@@ -10,12 +11,16 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
+
+import Vista.*;
+
 import static com.sun.org.apache.xalan.internal.xsltc.compiler.sym.error;
 
 public class MyGenerator extends MyParserBaseVisitor {
 
 
 
+    public SymbolTable tableS = Principal.analizador_contextual_vc1.getTableS();
     int contadorInstrucciones       = 0;
     Boolean esFuncion               = false;
     Archivos archivo                = new Archivos();
@@ -508,11 +513,58 @@ public class MyGenerator extends MyParserBaseVisitor {
 
         esFuncion = true;
         funcion_actual = ctx.IDENT().getText();
+        Symbol elementoFuncion = tableS.retrieve(funcion_actual);
+
+        if(elementoFuncion.getType().equals("void")) {
+
+            visit(ctx.optionMethodDecl());
+            visit(ctx.block());
+
+            storage.add(new Instruccion(contadorInstrucciones,"RETURN"));
+            contadorInstrucciones++;
+        }
+
         visit(ctx.optionMethodDecl());
         visit(ctx.block());
 
         return null;
     }
+
+
+    @Override
+    public Object visitReturnSTAST(MyParser.ReturnSTASTContext ctx) {
+
+        Symbol elementoFuncion = tableS.retrieve(funcion_actual);
+
+        if(ctx.expr()!= null) {
+            visit(ctx.expr());
+        }
+
+        System.out.println("Funcion actual  "+ funcion_actual);
+        System.out.println("es funcion "+ esFuncion);
+
+        if(elementoFuncion.getType().equals("void")) {
+
+
+            storage.add(new Instruccion(contadorInstrucciones,"RETURN"));
+            contadorInstrucciones++;
+
+
+        }else {
+
+            storage.add(new Instruccion(contadorInstrucciones,"RETURN_VALUE"));
+            contadorInstrucciones++;
+
+        }
+
+        funcion_actual   = "";
+        esFuncion        = false;
+        debeTenerRetorno = false;
+
+        return null;
+    }
+
+
 
     @Override
     public Object visitMethodTypeDeclAST(MyParser.MethodTypeDeclASTContext ctx) {
@@ -532,7 +584,6 @@ public class MyGenerator extends MyParserBaseVisitor {
     @Override
     public Object visitFormParsAST(MyParser.FormParsASTContext ctx) {
 
-        System.out.println("Registrando parametros ");
         String tipo = "";
 
         for(int i = 0;i<ctx.type().size(); i++){ // Recorro los tipos de los parametros
@@ -544,13 +595,11 @@ public class MyGenerator extends MyParserBaseVisitor {
                 if(tipo.equals("int")) {
 
 
-                    System.out.println("Par Entero local ");
                     // La registro como local
                     storage.add(new Instruccion(contadorInstrucciones,"PUSH_LOCAL_I",ctx.IDENT().get(i).getSymbol().getText()));
 
                 }
                 else if(tipo.equals("char")){
-                    System.out.println("Par Char local ");
                     // La registro como local
                     storage.add(new Instruccion(contadorInstrucciones,"PUSH_LOCAL_C",ctx.IDENT().get(i).getSymbol().getText()));
                 }
@@ -595,38 +644,6 @@ public class MyGenerator extends MyParserBaseVisitor {
         return super.visitBreakStAST(ctx);
     }
 
-    @Override
-    public Object visitReturnSTAST(MyParser.ReturnSTASTContext ctx) {
-
-        Symbol elementoFuncion = AC_Llamadas_Funciones.tableS.retrieve(funcion_actual);
-
-
-        System.out.println("tipo: "+elementoFuncion.getType());
-
-        if(esFuncion && !elementoFuncion.getType().equals("void")) {
-
-            storage.add(new Instruccion(contadorInstrucciones,"RETURN"));
-            contadorInstrucciones++;
-
-            if(ctx.expr()!= null) {
-                visit(ctx.expr());
-            }
-
-        }else {
-
-            storage.add(new Instruccion(contadorInstrucciones,"RETURN_VALUE"));
-            contadorInstrucciones++;
-            if(ctx.expr()!= null) {
-                visit(ctx.expr());
-            }
-        }
-
-        funcion_actual   = "";
-        esFuncion        = false;
-        debeTenerRetorno = false;
-
-        return null;
-    }
 
     @Override
     public Object visitReadSTAT(MyParser.ReadSTATContext ctx) {

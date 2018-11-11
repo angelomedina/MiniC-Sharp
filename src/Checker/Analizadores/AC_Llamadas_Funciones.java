@@ -12,7 +12,7 @@ import java.util.List;
 public class AC_Llamadas_Funciones extends MyParserBaseVisitor {
 
     private int numErrors;
-    public static SymbolTable tableS;
+    public   SymbolTable tableS;
     private String error = "";
     private boolean debeTenerRetorno = false;
     private boolean en_funcion = false;
