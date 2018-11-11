@@ -28,7 +28,7 @@ class claseP
      void ocuta(){
 
            // BYNARY
-           if(3 > 50 && 85 == 0){
+           if(3 > 50){
                  vc1 = 11 / 1000;
            }else{
                vc1 = 100 - 99;

@@ -68,13 +68,13 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="TestContextual" value="1271" />
-          <entry key="java" value="5010" />
+          <entry key="java" value="5274" />
           <entry key="txt" value="530" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="5010" />
+          <entry key="JAVA" value="5274" />
           <entry key="PLAIN_TEXT" value="1801" />
         </counts>
       </usages-collector>
@@ -82,7 +82,7 @@
         <counts>
           <entry key="TestContextual" value="2" />
           <entry key="class" value="2" />
-          <entry key="g4" value="10" />
+          <entry key="g4" value="11" />
           <entry key="gitignore" value="1" />
           <entry key="java" value="50" />
           <entry key="txt" value="171" />
@@ -90,7 +90,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="ANTLR v4 grammar file" value="10" />
+          <entry key="ANTLR v4 grammar file" value="11" />
           <entry key="CLASS" value="2" />
           <entry key="JAVA" value="50" />
           <entry key="PLAIN_TEXT" value="174" />
@@ -103,42 +103,51 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Antlr/MyParser.g4">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="411">
-              <caret line="109" column="121" lean-forward="true" selection-start-line="109" selection-start-column="121" selection-end-line="109" selection-end-column="133" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Pruebas/PruebasGenerador/Prueba1.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="37" />
+            <state relative-caret-position="154">
+              <caret line="69" column="121" lean-forward="true" selection-start-line="69" selection-start-column="121" selection-end-line="69" selection-end-column="133" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Pruebas/PruebasGenerador/Prueba1.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret selection-end-line="36" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Antlr/Scanner.g4">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="188">
+              <caret line="42" column="7" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/CodeGenerator/MyGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="780" column="12" lean-forward="true" selection-start-line="780" selection-start-column="12" selection-end-line="780" selection-end-column="12" />
+            <state relative-caret-position="221">
+              <caret line="221" column="13" selection-start-line="221" selection-start-column="13" selection-end-line="221" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#18963#18964#0" expanded="true" />
-                <element signature="e#19009#19010#0" expanded="true" />
-                <element signature="e#19564#19565#0" expanded="true" />
-                <element signature="e#19613#19614#0" expanded="true" />
-                <element signature="e#19693#19694#0" expanded="true" />
-                <element signature="e#19740#19741#0" expanded="true" />
-                <element signature="e#19823#19824#0" expanded="true" />
-                <element signature="e#19872#19873#0" expanded="true" />
-                <element signature="e#20089#20090#0" expanded="true" />
-                <element signature="e#20136#20137#0" expanded="true" />
-                <element signature="e#20710#20711#0" expanded="true" />
-                <element signature="e#20757#20758#0" expanded="true" />
-                <element signature="e#20840#20841#0" expanded="true" />
-                <element signature="e#20889#20890#0" expanded="true" />
+                <element signature="e#19176#19177#0" expanded="true" />
+                <element signature="e#19222#19223#0" expanded="true" />
+                <element signature="e#19777#19778#0" expanded="true" />
+                <element signature="e#19826#19827#0" expanded="true" />
+                <element signature="e#19906#19907#0" expanded="true" />
+                <element signature="e#19953#19954#0" expanded="true" />
+                <element signature="e#20036#20037#0" expanded="true" />
+                <element signature="e#20085#20086#0" expanded="true" />
+                <element signature="e#20302#20303#0" expanded="true" />
+                <element signature="e#20349#20350#0" expanded="true" />
+                <element signature="e#20923#20924#0" expanded="true" />
+                <element signature="e#20970#20971#0" expanded="true" />
+                <element signature="e#21053#21054#0" expanded="true" />
+                <element signature="e#21102#21103#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -164,36 +173,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>visitR</find>
-      <find>visitProgramAST</find>
-      <find>metho</find>
-      <find>meth</find>
-      <find>analizador_contextual_f1</find>
-      <find>met</find>
-      <find>retu</find>
-      <find>visitRetur</find>
-      <find>IGU</find>
-      <find>System</find>
-      <find>Load_Global</find>
       <find>esFuncion</find>
       <find>tab</find>
-      <find>conditionAST</find>
       <find>visitCondFactAST</find>
-      <find>relopIgIgAST</find>
       <find>relo</find>
       <find>esF</find>
       <find>DesignatorAST</find>
       <find>visitRetu</find>
-      <find>exprAST</find>
       <find>StatementIgSTAST</find>
       <find>termAST</find>
       <find>tabl</find>
       <find>mulopMultAST</find>
-      <find>TermAST</find>
       <find>LOAD_CONST</find>
       <find>Sys</find>
       <find>System.o</find>
       <find>STORE_FAST</find>
+      <find>TermAST</find>
+      <find>relopIgIgAST</find>
+      <find>term</find>
+      <find>factorFAST</find>
+      <find>BINARY_ADD</find>
+      <find>BINARY_OR</find>
+      <find>STORE_FAS</find>
+      <find>LOAD_GLOBAL</find>
+      <find>addop</find>
+      <find>exprAST</find>
+      <find>condTermAST</find>
+      <find>!= null</find>
+      <find>Or</find>
+      <find>if</find>
+      <find>conditionAST</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -242,6 +251,12 @@
               <item name="MiniC-Sharp" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="MiniC-Sharp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MiniC-Sharp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Antlr" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -262,7 +277,7 @@
     <property name="$PROJECT_DIR$/src/Antlr/Scanner.g4::/language" value="Java" />
     <property name="$PROJECT_DIR$/src/Antlr/Scanner.g4::/lib-dir" value="E:\Doccumentos TEC\6 SEMESTRE 2018\Compiladores\Proyectos\I Proyecto\Avance II\MiniC-Sharp\src\Generated" />
     <property name="$PROJECT_DIR$/src/Antlr/Scanner.g4::/output-dir" value="E:\Doccumentos TEC\6 SEMESTRE 2018\Compiladores\Proyectos\I Proyecto\Avance II\MiniC-Sharp\src\Generated" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541959348083" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541970447399" />
     <property name="last_opened_file_path" value="$USER_HOME$/Downloads/Generacion de Codigo" />
   </component>
   <component name="RecentsManager">
@@ -321,7 +336,7 @@
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.18683812" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18683812" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -331,7 +346,7 @@
       <window_info id="Capture Tool" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32741934" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.66935486" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.5532258" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -403,13 +418,6 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Antlr/Scanner.g4">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="34" column="2" selection-start-line="34" selection-end-line="34" selection-end-column="2" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Pruebas/Funciones/FuncionesV5.txt">
       <provider selected="true" editor-type-id="text-editor" />
@@ -624,20 +632,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Checker/Analizadores/AC_Llamadas_Funciones.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="538">
-          <caret line="674" lean-forward="true" selection-start-line="674" selection-end-line="674" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Antlr/MyParser.g4">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="411">
-          <caret line="109" column="121" lean-forward="true" selection-start-line="109" selection-start-column="121" selection-end-line="109" selection-end-column="133" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Generated/Antlr/MyParser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="57">
@@ -651,34 +645,55 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Pruebas/PruebasGenerador/Prueba1.txt">
+    <entry file="file://$PROJECT_DIR$/src/Checker/Analizadores/AC_Llamadas_Funciones.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="37" />
+        <state relative-caret-position="538">
+          <caret line="674" lean-forward="true" selection-start-line="674" selection-end-line="674" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Antlr/Scanner.g4">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="42" column="7" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Antlr/MyParser.g4">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="69" column="121" lean-forward="true" selection-start-line="69" selection-start-column="121" selection-end-line="69" selection-end-column="133" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/CodeGenerator/MyGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="780" column="12" lean-forward="true" selection-start-line="780" selection-start-column="12" selection-end-line="780" selection-end-column="12" />
+        <state relative-caret-position="221">
+          <caret line="221" column="13" selection-start-line="221" selection-start-column="13" selection-end-line="221" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#18963#18964#0" expanded="true" />
-            <element signature="e#19009#19010#0" expanded="true" />
-            <element signature="e#19564#19565#0" expanded="true" />
-            <element signature="e#19613#19614#0" expanded="true" />
-            <element signature="e#19693#19694#0" expanded="true" />
-            <element signature="e#19740#19741#0" expanded="true" />
-            <element signature="e#19823#19824#0" expanded="true" />
-            <element signature="e#19872#19873#0" expanded="true" />
-            <element signature="e#20089#20090#0" expanded="true" />
-            <element signature="e#20136#20137#0" expanded="true" />
-            <element signature="e#20710#20711#0" expanded="true" />
-            <element signature="e#20757#20758#0" expanded="true" />
-            <element signature="e#20840#20841#0" expanded="true" />
-            <element signature="e#20889#20890#0" expanded="true" />
+            <element signature="e#19176#19177#0" expanded="true" />
+            <element signature="e#19222#19223#0" expanded="true" />
+            <element signature="e#19777#19778#0" expanded="true" />
+            <element signature="e#19826#19827#0" expanded="true" />
+            <element signature="e#19906#19907#0" expanded="true" />
+            <element signature="e#19953#19954#0" expanded="true" />
+            <element signature="e#20036#20037#0" expanded="true" />
+            <element signature="e#20085#20086#0" expanded="true" />
+            <element signature="e#20302#20303#0" expanded="true" />
+            <element signature="e#20349#20350#0" expanded="true" />
+            <element signature="e#20923#20924#0" expanded="true" />
+            <element signature="e#20970#20971#0" expanded="true" />
+            <element signature="e#21053#21054#0" expanded="true" />
+            <element signature="e#21102#21103#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Pruebas/PruebasGenerador/Prueba1.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="36" selection-end-column="1" />
         </state>
       </provider>
     </entry>

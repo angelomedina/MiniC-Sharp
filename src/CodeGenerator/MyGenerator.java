@@ -173,7 +173,9 @@ public class MyGenerator extends MyParserBaseVisitor {
     //listo
     @Override
     public Object visitTermAST(MyParser.TermASTContext ctx) {
+
         for (int i=0; i<=ctx.factor().size()-1;i++){
+
             visit(ctx.factor(i));
 
             Symbol expre    = tableS.retrieve(ctx.factor(i).getText());
@@ -181,8 +183,10 @@ public class MyGenerator extends MyParserBaseVisitor {
             // es ID o funcion
             if( expre != null ){
 
+
                 storage.add(new Instruccion(contadorInstrucciones,"LOAD_GLOBAL",expre.getName()));
                 contadorInstrucciones++;
+
 
                 for (int j=0; j<=ctx.mulop().size()-1;j++){
                     visit(ctx.mulop(j));
@@ -191,8 +195,10 @@ public class MyGenerator extends MyParserBaseVisitor {
 
             }else{
 
+
                 storage.add(new Instruccion(contadorInstrucciones,"STORE_FAST",ctx.factor(i).getText()));
                 contadorInstrucciones++;
+
 
                 for (int j=0; j<=ctx.mulop().size()-1;j++){
                     visit(ctx.mulop(j));
@@ -207,9 +213,18 @@ public class MyGenerator extends MyParserBaseVisitor {
     public Object visitConditionAST(MyParser.ConditionASTContext ctx) {
 
         for (int i=0;i<=ctx.condTerm().size()-1;i++) {
+
             visit(ctx.condTerm(i));
+
+            if(ctx.OR(i) != null){
+                visit(ctx.OR(i));
+
+            }
+
+            /*
             storage.add(new Instruccion(contadorInstrucciones,"BINARY_OR"));
             contadorInstrucciones++;
+            */
         }
         return null;
     }
@@ -220,8 +235,15 @@ public class MyGenerator extends MyParserBaseVisitor {
 
         for (int i=0;i<=ctx.condFact().size()-1;i++) {
             visit(ctx.condFact(i));
+
+            if(ctx.AND(i) != null){
+                visit(ctx.AND(i));
+            }
+
+            /*
             storage.add(new Instruccion(contadorInstrucciones,"BINARY_ADD"));
             contadorInstrucciones++;
+            */
         }
         return null;
     }
@@ -315,8 +337,11 @@ public class MyGenerator extends MyParserBaseVisitor {
     public Object visitDesignatorAST(MyParser.DesignatorASTContext ctx) {
 
         for (int i=0; i<=ctx.designatorExp().size()-1; i++) {
+            visit(ctx.designatorExp(i));
+            /*
             storage.add(new Instruccion(contadorInstrucciones, "STORE_FAST", ctx.IDENT().getText()));
             contadorInstrucciones++;
+            */
         }
         return null;
     }
@@ -760,61 +785,9 @@ public class MyGenerator extends MyParserBaseVisitor {
     @Override
     public Object visitCondFactAST(MyParser.CondFactASTContext ctx) {
 
-        // 1. Verifico si ambos son id: a
-
-        if(isInteger(ctx.expr(0).getText()) != true ) {
-
-            Symbol expreA    = tableS.retrieve(ctx.expr(0).getText());
-
-            /*
-            storage.add(new Instruccion(contadorInstrucciones,"STORE_FAST",expreA.getName()));
-            contadorInstrucciones++;
-            */
-
-            visit(ctx.expr(0));
-            visit(ctx.relop());
-            visit(ctx.expr(1));
-        }
-        if(isInteger(ctx.expr(1).getText()) != true ){
-
-            Symbol expreB    = tableS.retrieve(ctx.expr(1).getText());
-
-            storage.add(new Instruccion(contadorInstrucciones,"STORE_FAST",expreB.getName()));
-            contadorInstrucciones++;
-
-
-            /*
-            visit(ctx.expr(0));
-            visit(ctx.expr(1));
-            */
-        }
-
-        if(isInteger(ctx.expr(0).getText()) == true ) {
-
-            storage.add(new Instruccion(contadorInstrucciones,"STORE_FAST",ctx.expr(0).getText()));
-            contadorInstrucciones++;
-
-
-            //visit(ctx.expr(0));
-            visit(ctx.relop());
-            //visit(ctx.expr(1));
-
-        }
-        if(isInteger(ctx.expr(1).getText()) == true ){
-
-
-            storage.add(new Instruccion(contadorInstrucciones,"STORE_FAST",ctx.expr(1).getText()));
-            contadorInstrucciones++;
-
-
-            /*
-            visit(ctx.expr(0));
-            visit(ctx.expr(1));
-            */
-        }
-
-
-
+        visit(ctx.expr(0));
+        visit(ctx.expr(1));
+        visit(ctx.relop());
 
         return null;
     }
@@ -824,6 +797,10 @@ public class MyGenerator extends MyParserBaseVisitor {
 
         for (int i=0;i<=ctx.term().size()-1;i++) {
             visit(ctx.term(i));
+
+            if( ctx.addop(i) != null){
+                visit(ctx.addop(i));
+            }
         }
         return null;
     }
