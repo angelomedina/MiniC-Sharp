@@ -1,5 +1,6 @@
 package Checker.Analizadores;
 
+import Checker.Analizadores.AC_Llamadas_Funciones;
 import Antlr.MyParser;
 import Antlr.MyParserBaseVisitor;
 import Checker.TypeSymbol.*;
@@ -11,7 +12,7 @@ import java.util.List;
 public class AC_Llamadas_Funciones extends MyParserBaseVisitor {
 
     private int numErrors;
-    private SymbolTable tableS;
+    public static SymbolTable tableS;
     private String error = "";
     private boolean debeTenerRetorno = false;
     private boolean en_funcion = false;
@@ -59,7 +60,7 @@ public class AC_Llamadas_Funciones extends MyParserBaseVisitor {
     @Override
     public Object visitMethodTypeDeclAST(MyParser.MethodTypeDeclASTContext ctx) {
 
-        debeTenerRetorno = true;
+        debeTenerRetorno  = true;
         return null;
     }
 

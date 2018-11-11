@@ -2,4 +2,14 @@
 1 PUSH_GLOBAL_I v2
 2 PUSH_GLOBAL_I vc1
 3 PUSH_GLOBAL_C vc3
-4 END  
+4 Load_Global
+5 Load_Global
+6 BINARY_ADD
+7 Load_Global
+8 Load_Global
+9 BINARY_ADD
+10 BINARY_OR
+11 LOAD_GLOBAL 4*4
+12 LOAD_FAST 4*5
+13 Load_Global
+14 END  

@@ -330,13 +330,14 @@ public class Principal extends  JFrame implements ActionListener {
             catch(RecognitionException re){}
 
 
+            /*
             MyGenerator generator = new MyGenerator();
             generator.visit(tree);
 
             JOptionPane.showMessageDialog(this,"Finalizo.");
+            */
 
-
-            /*
+            ///*
 
             if(myException.hasErrors() == false){ //Inicio analizadores contextuales
 
@@ -441,7 +442,8 @@ public class Principal extends  JFrame implements ActionListener {
                 contError = list.getModel().getSize();
                 return;
             }
-            */
+
+            //*/
 
         }
         else if(e.getSource()==btnTree){

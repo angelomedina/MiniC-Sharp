@@ -35,3 +35,45 @@ class claseP
            }
        }
 }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+class Prueba
+
+	 int n;
+	 char res;
+
+	{
+
+	  int calcularFac(int num)
+	    int num_aux;
+
+	  {
+            num_aux = 0;
+
+            num_aux = num;
+            num = 2*3+4-6;
+
+
+
+            if (num < 10 && num > 0){
+                num_aux = num;
+            }
+
+            else{
+                num_aux = num * (calcularFac(num));
+            }
+
+            return num_aux;
+	  }
+
+	  int funcioncita(int a, int b, int c){
+	    return 0;
+	  }
+
+	  void Main(){
+	    n = 5;
+	    n = calcularFac(n);
+        res = 'F';
+	  }
+}

@@ -1,7 +1,8 @@
 package CodeGenerator;
-
+import Checker.Analizadores.*;
 import Antlr.MyParser;
 import Antlr.MyParserBaseVisitor;
+import Checker.TypeSymbol.Symbol;
 import Modelo.Archivos;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
@@ -9,13 +10,21 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
+import static com.sun.org.apache.xalan.internal.xsltc.compiler.sym.error;
+
 public class MyGenerator extends MyParserBaseVisitor {
+
 
 
     int contadorInstrucciones       = 0;
     Boolean esFuncion               = false;
     Archivos archivo                = new Archivos();
     LinkedList<Instruccion> storage = new LinkedList<>();
+
+    private String funcion_actual = "";
+    private boolean debeTenerRetorno = false;
+
+
 
 
     public void escribirArchivo(){
@@ -119,8 +128,6 @@ public class MyGenerator extends MyParserBaseVisitor {
     public Object visitStatementIgSTAST(MyParser.StatementIgSTASTContext ctx) {
 
 
-        System.out.println("entro a IgStatement");
-
         if (esFuncion){
             storage.add(new Instruccion(contadorInstrucciones,"LOAD_GLOBAL",ctx.expr().getText()));
             contadorInstrucciones++;
@@ -178,9 +185,6 @@ public class MyGenerator extends MyParserBaseVisitor {
     //listo
     @Override
     public Object visitNumIntFAST(MyParser.NumIntFASTContext ctx) {
-
-        storage.add(new Instruccion(contadorInstrucciones,"BINARY_ADD Prueba"));
-        contadorInstrucciones++;
 
         visit(ctx.NUMBER_INTEGER());
         return null;
@@ -503,29 +507,17 @@ public class MyGenerator extends MyParserBaseVisitor {
     public Object visitMethodDeclAST(MyParser.MethodDeclASTContext ctx) {
 
         esFuncion = true;
+        funcion_actual = ctx.IDENT().getText();
+        visit(ctx.optionMethodDecl());
+        visit(ctx.block());
 
-        //si tiene parametros
-        if(ctx.formPars() != null){
-
-            for (MyParser.VarDeclContext e: ctx.varDecl()) {
-                visit(e);
-            }
-        }
-        //no tiene parametros
-        else{
-
-            for (MyParser.VarDeclContext e: ctx.varDecl()) {
-                visit(e);
-            }
-        }
-        esFuncion = false;
         return null;
     }
 
     @Override
     public Object visitMethodTypeDeclAST(MyParser.MethodTypeDeclASTContext ctx) {
 
-        visit(ctx.type());
+        debeTenerRetorno  = true;
         return null;
 
     }
@@ -605,7 +597,35 @@ public class MyGenerator extends MyParserBaseVisitor {
 
     @Override
     public Object visitReturnSTAST(MyParser.ReturnSTASTContext ctx) {
-        return super.visitReturnSTAST(ctx);
+
+        Symbol elementoFuncion = AC_Llamadas_Funciones.tableS.retrieve(funcion_actual);
+
+
+        System.out.println("tipo: "+elementoFuncion.getType());
+
+        if(esFuncion && !elementoFuncion.getType().equals("void")) {
+
+            storage.add(new Instruccion(contadorInstrucciones,"RETURN"));
+            contadorInstrucciones++;
+
+            if(ctx.expr()!= null) {
+                visit(ctx.expr());
+            }
+
+        }else {
+
+            storage.add(new Instruccion(contadorInstrucciones,"RETURN_VALUE"));
+            contadorInstrucciones++;
+            if(ctx.expr()!= null) {
+                visit(ctx.expr());
+            }
+        }
+
+        funcion_actual   = "";
+        esFuncion        = false;
+        debeTenerRetorno = false;
+
+        return null;
     }
 
     @Override
