@@ -140,22 +140,30 @@ public class MyGenerator extends MyParserBaseVisitor {
     @Override
     public Object visitStatementIgSTAST(MyParser.StatementIgSTASTContext ctx) {
 
+
         Symbol level = tableS.retrieve(ctx.designator().getText());
 
 
         if (level.getLevel() == 0){
 
+            visit(ctx.designator());
+            visit(ctx.expr());
+            /*
             storage.add(new Instruccion(contadorInstrucciones,"LOAD_CONST ",ctx.expr().getText()));
             contadorInstrucciones++;
+            */
+
         }
         if(level.getLevel() == 1){
 
+            visit(ctx.designator());
+            visit(ctx.expr());
+            /*
             storage.add(new Instruccion(contadorInstrucciones,"LOAD_FAST",ctx.expr().getText()));
             contadorInstrucciones++;
+            */
         }
 
-        visit(ctx.designator());
-        visit(ctx.expr());
         esFuncion = false;
         return null;
 
@@ -167,6 +175,29 @@ public class MyGenerator extends MyParserBaseVisitor {
     public Object visitTermAST(MyParser.TermASTContext ctx) {
         for (int i=0; i<=ctx.factor().size()-1;i++){
             visit(ctx.factor(i));
+
+            Symbol expre    = tableS.retrieve(ctx.factor(i).getText());
+
+            // es ID o funcion
+            if( expre != null ){
+
+                storage.add(new Instruccion(contadorInstrucciones,"LOAD_GLOBAL",expre.getName()));
+                contadorInstrucciones++;
+
+                for (int j=0; j<=ctx.mulop().size()-1;j++){
+                    visit(ctx.mulop(j));
+                }
+
+
+            }else{
+
+                storage.add(new Instruccion(contadorInstrucciones,"STORE_FAST",ctx.factor(i).getText()));
+                contadorInstrucciones++;
+
+                for (int j=0; j<=ctx.mulop().size()-1;j++){
+                    visit(ctx.mulop(j));
+                }
+            }
         }
         return null;
     }
@@ -308,42 +339,54 @@ public class MyGenerator extends MyParserBaseVisitor {
     //listo
     @Override
     public Object visitRelopIgIgAST(MyParser.RelopIgIgASTContext ctx) {
-        visit(ctx.IGIG());
+        storage.add(new Instruccion(contadorInstrucciones, "COMPARE_OPCOMPARE_OP", ctx.IGIG().getSymbol().getText()));
+        contadorInstrucciones++;
+        //visit(ctx.IGIG());
         return  null;
     }
 
     //listo
     @Override
     public Object visitRelopDifAST(MyParser.RelopDifASTContext ctx) {
-        visit(ctx.DIF());
+        storage.add(new Instruccion(contadorInstrucciones, "COMPARE_OPCOMPARE_OP", ctx.DIF().getSymbol().getText()));
+        contadorInstrucciones++;
+        //visit(ctx.DIF());
         return  null;
     }
 
     //listo
     @Override
     public Object visitRelopMayAST(MyParser.RelopMayASTContext ctx) {
-        visit(ctx.MAY());
+        storage.add(new Instruccion(contadorInstrucciones, "COMPARE_OPCOMPARE_OP", ctx.MAY().getSymbol().getText()));
+        contadorInstrucciones++;
+        //visit(ctx.MAY());
         return  null;
     }
 
     //listo
     @Override
     public Object visitRelopMatIgAST(MyParser.RelopMatIgASTContext ctx) {
-        visit(ctx.MAY_IG());
+        storage.add(new Instruccion(contadorInstrucciones, "COMPARE_OPCOMPARE_OP", ctx.MAY_IG().getSymbol().getText()));
+        contadorInstrucciones++;
+        //visit(ctx.MAY_IG());
         return  null;
     }
 
     //listo
     @Override
     public Object visitRelopMenAST(MyParser.RelopMenASTContext ctx) {
-        visit(ctx.MEN());
+        storage.add(new Instruccion(contadorInstrucciones, "COMPARE_OPCOMPARE_OP", ctx.MEN().getSymbol().getText()));
+        contadorInstrucciones++;
+        //visit(ctx.MEN());
         return  null;
     }
 
     //listo
     @Override
     public Object visitRelopMenIgAST(MyParser.RelopMenIgASTContext ctx) {
-        visit(ctx.MEN_IG());
+        storage.add(new Instruccion(contadorInstrucciones, "COMPARE_OPCOMPARE_OP", ctx.MEN_IG().getSymbol().getText()));
+        contadorInstrucciones++;
+        //visit(ctx.MEN_IG());
         return  null;
     }
 
@@ -523,6 +566,9 @@ public class MyGenerator extends MyParserBaseVisitor {
 
         esFuncion = true;
 
+        storage.add(new Instruccion(contadorInstrucciones,"LOAD_GLOBAL ",ctx.IDENT().getText()+"()"));
+        contadorInstrucciones++;
+
         funcion_actual = ctx.IDENT().getText();
         Symbol elementoFuncion = tableS.retrieve(funcion_actual);
 
@@ -567,6 +613,9 @@ public class MyGenerator extends MyParserBaseVisitor {
 
 
         }else {
+
+            storage.add(new Instruccion(contadorInstrucciones,"LOAD_FAST ",ctx.expr().getText()));
+            contadorInstrucciones++;
 
             storage.add(new Instruccion(contadorInstrucciones,"RETURN_VALUE"));
             contadorInstrucciones++;
@@ -717,9 +766,14 @@ public class MyGenerator extends MyParserBaseVisitor {
 
             Symbol expreA    = tableS.retrieve(ctx.expr(0).getText());
 
+            /*
             storage.add(new Instruccion(contadorInstrucciones,"STORE_FAST",expreA.getName()));
             contadorInstrucciones++;
+            */
 
+            visit(ctx.expr(0));
+            visit(ctx.relop());
+            visit(ctx.expr(1));
         }
         if(isInteger(ctx.expr(1).getText()) != true ){
 
@@ -728,13 +782,22 @@ public class MyGenerator extends MyParserBaseVisitor {
             storage.add(new Instruccion(contadorInstrucciones,"STORE_FAST",expreB.getName()));
             contadorInstrucciones++;
 
+
+            /*
+            visit(ctx.expr(0));
+            visit(ctx.expr(1));
+            */
         }
 
         if(isInteger(ctx.expr(0).getText()) == true ) {
 
-
             storage.add(new Instruccion(contadorInstrucciones,"STORE_FAST",ctx.expr(0).getText()));
             contadorInstrucciones++;
+
+
+            //visit(ctx.expr(0));
+            visit(ctx.relop());
+            //visit(ctx.expr(1));
 
         }
         if(isInteger(ctx.expr(1).getText()) == true ){
@@ -743,12 +806,15 @@ public class MyGenerator extends MyParserBaseVisitor {
             storage.add(new Instruccion(contadorInstrucciones,"STORE_FAST",ctx.expr(1).getText()));
             contadorInstrucciones++;
 
+
+            /*
+            visit(ctx.expr(0));
+            visit(ctx.expr(1));
+            */
         }
 
 
-        visit(ctx.expr(0));
-        visit(ctx.relop());
-        visit(ctx.expr(1));
+
 
         return null;
     }

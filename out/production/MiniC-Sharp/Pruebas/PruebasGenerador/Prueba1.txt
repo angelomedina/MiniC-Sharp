@@ -12,15 +12,15 @@ class claseP
     int abc(int g){
 
         //LOAD
-        v1 = 10;
+        v1 = 700;
         v2 = v1;
-        g  = 0;
+        g  = 20;
 
         //STORE FAST
         while(g<v2){
 
             g++;
-            g = 10*2;
+            g = 10 + 2;
         }
         return g;
     }
@@ -28,10 +28,10 @@ class claseP
      void ocuta(){
 
            // BYNARY
-           if(3 > 5 && 0 == 0){
-                 vc1 = 10*10;
+           if(3 > 50 && 85 == 0){
+                 vc1 = 11 / 1000;
            }else{
-               vc1 = 4*5;
+               vc1 = 100 - 99;
            }
        }
 }
