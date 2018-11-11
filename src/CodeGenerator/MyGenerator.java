@@ -30,6 +30,14 @@ public class MyGenerator extends MyParserBaseVisitor {
     private boolean debeTenerRetorno = false;
 
 
+    public boolean isInteger(String numero){
+        try{
+            Integer.parseInt(numero);
+            return true;
+        }catch(NumberFormatException e){
+            return false;
+        }
+    }
 
 
     public void escribirArchivo(){
@@ -132,19 +140,26 @@ public class MyGenerator extends MyParserBaseVisitor {
     @Override
     public Object visitStatementIgSTAST(MyParser.StatementIgSTASTContext ctx) {
 
+        Symbol level = tableS.retrieve(ctx.designator().getText());
 
-        if (esFuncion){
-            storage.add(new Instruccion(contadorInstrucciones,"LOAD_GLOBAL",ctx.expr().getText()));
+
+        if (level.getLevel() == 0){
+
+            storage.add(new Instruccion(contadorInstrucciones,"LOAD_CONST ",ctx.expr().getText()));
             contadorInstrucciones++;
-            esFuncion = false;
-            return null;
         }
-        storage.add(new Instruccion(contadorInstrucciones,"LOAD_FAST",ctx.expr().getText()));
-        contadorInstrucciones++;
+        if(level.getLevel() == 1){
+
+            storage.add(new Instruccion(contadorInstrucciones,"LOAD_FAST",ctx.expr().getText()));
+            contadorInstrucciones++;
+        }
 
         visit(ctx.designator());
         visit(ctx.expr());
+        esFuncion = false;
         return null;
+
+
     }
 
     //listo
@@ -268,9 +283,8 @@ public class MyGenerator extends MyParserBaseVisitor {
     @Override
     public Object visitDesignatorAST(MyParser.DesignatorASTContext ctx) {
 
-        //ctx.IDENT().getSymbol().getText();
         for (int i=0; i<=ctx.designatorExp().size()-1; i++) {
-            storage.add(new Instruccion(contadorInstrucciones, "STORE_FAST", ctx.IDENT().getSymbol().getText()));
+            storage.add(new Instruccion(contadorInstrucciones, "STORE_FAST", ctx.IDENT().getText()));
             contadorInstrucciones++;
         }
         return null;
@@ -472,23 +486,19 @@ public class MyGenerator extends MyParserBaseVisitor {
         for(int j = 0; j<ident.size(); j++){
 
             if(esFuncion && tipoVar == 1){ // Si estoy en una funcion, y es una variable entera (int)
-                System.out.println("Entero local ");
                 // La registro como local
                 storage.add(new Instruccion(contadorInstrucciones,"PUSH_LOCAL_I",ident.get(j).getSymbol().getText()));
             }
             else if(esFuncion && tipoVar == 2) { // Si estoy en una funcion, y es una variable char (char)
-                System.out.println("Char local ");
                 // La registro como local
                 storage.add(new Instruccion(contadorInstrucciones,"PUSH_LOCAL_C",ident.get(j).getSymbol().getText()));
             }
             else if(!esFuncion && tipoVar == 1){ // Si no estoy en una funcion, y es una variable entera (int)
                 // La registro como global
-                System.out.println("Entero global");
                 storage.add(new Instruccion(contadorInstrucciones,"PUSH_GLOBAL_I",ident.get(j).getSymbol().getText()));
             }
             else if(!esFuncion && tipoVar == 2) { // Si no estoy en una funcion, y es una variable char (char)
                 // La registro como global
-                System.out.println("Char global ");
                 storage.add(new Instruccion(contadorInstrucciones,"PUSH_GLOBAL_C",ident.get(j).getSymbol().getText()));
             }
 
@@ -512,20 +522,28 @@ public class MyGenerator extends MyParserBaseVisitor {
     public Object visitMethodDeclAST(MyParser.MethodDeclASTContext ctx) {
 
         esFuncion = true;
+
         funcion_actual = ctx.IDENT().getText();
         Symbol elementoFuncion = tableS.retrieve(funcion_actual);
 
+
         if(elementoFuncion.getType().equals("void")) {
+
 
             visit(ctx.optionMethodDecl());
             visit(ctx.block());
 
+
             storage.add(new Instruccion(contadorInstrucciones,"RETURN"));
             contadorInstrucciones++;
         }
+        else{
 
-        visit(ctx.optionMethodDecl());
-        visit(ctx.block());
+            visit(ctx.optionMethodDecl());
+            visit(ctx.block());
+        }
+
+        esFuncion = false;
 
         return null;
     }
@@ -540,8 +558,6 @@ public class MyGenerator extends MyParserBaseVisitor {
             visit(ctx.expr());
         }
 
-        System.out.println("Funcion actual  "+ funcion_actual);
-        System.out.println("es funcion "+ esFuncion);
 
         if(elementoFuncion.getType().equals("void")) {
 
@@ -694,7 +710,47 @@ public class MyGenerator extends MyParserBaseVisitor {
 
     @Override
     public Object visitCondFactAST(MyParser.CondFactASTContext ctx) {
-        return super.visitCondFactAST(ctx);
+
+        // 1. Verifico si ambos son id: a
+
+        if(isInteger(ctx.expr(0).getText()) != true ) {
+
+            Symbol expreA    = tableS.retrieve(ctx.expr(0).getText());
+
+            storage.add(new Instruccion(contadorInstrucciones,"STORE_FAST",expreA.getName()));
+            contadorInstrucciones++;
+
+        }
+        if(isInteger(ctx.expr(1).getText()) != true ){
+
+            Symbol expreB    = tableS.retrieve(ctx.expr(1).getText());
+
+            storage.add(new Instruccion(contadorInstrucciones,"STORE_FAST",expreB.getName()));
+            contadorInstrucciones++;
+
+        }
+
+        if(isInteger(ctx.expr(0).getText()) == true ) {
+
+
+            storage.add(new Instruccion(contadorInstrucciones,"STORE_FAST",ctx.expr(0).getText()));
+            contadorInstrucciones++;
+
+        }
+        if(isInteger(ctx.expr(1).getText()) == true ){
+
+
+            storage.add(new Instruccion(contadorInstrucciones,"STORE_FAST",ctx.expr(1).getText()));
+            contadorInstrucciones++;
+
+        }
+
+
+        visit(ctx.expr(0));
+        visit(ctx.relop());
+        visit(ctx.expr(1));
+
+        return null;
     }
 
     @Override
@@ -702,8 +758,6 @@ public class MyGenerator extends MyParserBaseVisitor {
 
         for (int i=0;i<=ctx.term().size()-1;i++) {
             visit(ctx.term(i));
-            storage.add(new Instruccion(contadorInstrucciones,"Load_Global"));
-            contadorInstrucciones++;
         }
         return null;
     }

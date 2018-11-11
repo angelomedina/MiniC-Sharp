@@ -29,9 +29,9 @@ class claseP
 
            // BYNARY
            if(3 > 5 && 0 == 0){
-                 vc1 = 4*4;
+                 vc1 = 10*10;
            }else{
-               vc1=4*5;
+               vc1 = 4*5;
            }
        }
 }
