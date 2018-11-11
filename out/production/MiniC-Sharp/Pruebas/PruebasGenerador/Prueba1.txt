@@ -1,6 +1,5 @@
 class claseP
 
-
      // PUSH
      int v1;
      int v2;
@@ -12,12 +11,10 @@ class claseP
 {
     int abc(int g){
 
-
         //LOAD
         v1 = 10;
         v2 = v1;
         g  = 0;
-
 
         //STORE FAST
         while(g<v2){

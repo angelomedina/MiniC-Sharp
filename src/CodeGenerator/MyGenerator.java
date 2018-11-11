@@ -365,6 +365,8 @@ public class MyGenerator extends MyParserBaseVisitor {
     //listo
     @Override
     public Object visitIfSTAST(MyParser.IfSTASTContext ctx) {
+
+        System.out.println("alllllllllllllllllllllllllllllllllllll");
         visit(ctx.condition());
         visit(ctx.statement(0));
         visit(ctx.statement(1));
@@ -488,8 +490,6 @@ public class MyGenerator extends MyParserBaseVisitor {
 
     @Override
     public Object visitClassDeclAST(MyParser.ClassDeclASTContext ctx) {
-
-
 
         for (MyParser.VarDeclContext e: ctx.varDecl()) {
             visit(e);

@@ -2,33 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e828475d-0109-45cc-8852-b7e90462f57e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Pruebas/PruebasGenerador/Prueba1.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FuncionesV12.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pruebas/PruebasIncompletas/FuncionesV12.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pruebas(Angelo).txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pruebas/PruebasIncompletas/Pruebas(Angelo).txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/generado.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Checker/Analizadores/AC_Declaracion_Asignacion.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Checker/Analizadores/AC_Declaracion_Asignacion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Checker/Analizadores/AC_Llamadas_Funciones.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Checker/Analizadores/AC_Llamadas_Funciones.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/CodeGenerator/MyGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/CodeGenerator/MyGenerator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Pruebas/CodigoPrueba.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Pruebas/FuncionesV12.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Pruebas/PruebaCompleta6.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Pruebas/PruebaCompleta7.txt.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Pruebas/PruebaGenerator.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Pruebas/Pruebas.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Pruebas/TestContextual.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Pruebas/test.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Checker/Analizadores/AC_Declaracion_Asignacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Checker/Analizadores/AC_Declaracion_Asignacion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Checker/Analizadores/AC_Llamadas_Funciones.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Checker/Analizadores/AC_Llamadas_Funciones.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Pruebas/PruebasGenerador/Prueba1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Pruebas/PruebasGenerador/Prueba1.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniC-Sharp/Vista/Principal.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniC-Sharp/Vista/Principal.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CodeGenerator/MyGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CodeGenerator/MyGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pruebas/CodigoPrueba.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pruebas/PruebasIncompletas/CodigoPrueba.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pruebas/FuncionesV12.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pruebas/PruebaCompleta6.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pruebas/PruebasIncompletas/PruebaCompleta6.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pruebas/PruebaCompleta7.txt.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pruebas/PruebasIncompletas/PruebaCompleta7.txt.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pruebas/PruebaGenerator.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pruebas/PruebasIncompletas/PruebaGenerator.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pruebas/Pruebas.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pruebas/PruebasIncompletas/Pruebas.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pruebas/TestContextual.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pruebas/PruebasIncompletas/TestContextual.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pruebas/test.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pruebas/PruebasIncompletas/test.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vista/Principal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/Principal.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -89,14 +68,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="TestContextual" value="1271" />
-          <entry key="java" value="3871" />
-          <entry key="txt" value="333" />
+          <entry key="java" value="3948" />
+          <entry key="txt" value="335" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="3871" />
-          <entry key="PLAIN_TEXT" value="1604" />
+          <entry key="JAVA" value="3948" />
+          <entry key="PLAIN_TEXT" value="1606" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -105,7 +84,7 @@
           <entry key="class" value="2" />
           <entry key="g4" value="8" />
           <entry key="gitignore" value="1" />
-          <entry key="java" value="40" />
+          <entry key="java" value="41" />
           <entry key="txt" value="167" />
         </counts>
       </usages-collector>
@@ -113,7 +92,7 @@
         <counts>
           <entry key="ANTLR v4 grammar file" value="8" />
           <entry key="CLASS" value="2" />
-          <entry key="JAVA" value="40" />
+          <entry key="JAVA" value="41" />
           <entry key="PLAIN_TEXT" value="170" />
         </counts>
       </usages-collector>
@@ -133,8 +112,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/CodeGenerator/MyGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="163" column="36" selection-start-line="163" selection-start-column="12" selection-end-line="163" selection-end-column="36" />
+            <state relative-caret-position="112">
+              <caret line="366" column="30" selection-start-line="366" selection-start-column="18" selection-end-line="366" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#703#1257#0" />
@@ -143,11 +122,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Pruebas/PruebasGenerador/Prueba1.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="493">
-              <caret line="41" column="1" lean-forward="true" selection-end-line="41" selection-end-column="1" />
+              <caret line="36" column="1" lean-forward="true" selection-end-line="36" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Vista/Principal.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="304">
+              <caret line="335" column="56" selection-start-line="335" selection-start-column="56" selection-end-line="335" selection-end-column="56" />
+              <folding>
+                <element signature="e#12049#12083#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -155,8 +146,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/generado.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+            <state relative-caret-position="68">
+              <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
             </state>
           </provider>
         </entry>
@@ -185,7 +176,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>MethodVoidDeclAST</find>
       <find>visitCondFactAST</find>
       <find>exprAST</find>
       <find>Statement</find>
@@ -215,6 +205,7 @@
       <find>visitMethodTypeDeclAST</find>
       <find>visitMethodVoidDeclAST</find>
       <find>factorFAST</find>
+      <find>metht</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -228,15 +219,15 @@
         <option value="$PROJECT_DIR$/src/CodeGenerator/Instruccion.java" />
         <option value="$PROJECT_DIR$/MyFile.txt" />
         <option value="$PROJECT_DIR$/src/TestContextual" />
-        <option value="$PROJECT_DIR$/src/Vista/Principal.java" />
         <option value="$PROJECT_DIR$/src/Vista/PruebaGenerator.txt" />
         <option value="$PROJECT_DIR$/src/Pruebas/PruebaCompleta6.txt" />
         <option value="$PROJECT_DIR$/src/Pruebas/FuncionesV12.txt" />
         <option value="$PROJECT_DIR$/src/Antlr/MyParser.g4" />
         <option value="$PROJECT_DIR$/src/Checker/Analizadores/AC_Declaracion_Asignacion.java" />
         <option value="$PROJECT_DIR$/src/Checker/Analizadores/AC_Llamadas_Funciones.java" />
-        <option value="$PROJECT_DIR$/src/CodeGenerator/MyGenerator.java" />
         <option value="$PROJECT_DIR$/src/Pruebas/PruebasGenerador/Prueba1.txt" />
+        <option value="$PROJECT_DIR$/src/CodeGenerator/MyGenerator.java" />
+        <option value="$PROJECT_DIR$/src/Vista/Principal.java" />
       </list>
     </option>
   </component>
@@ -267,14 +258,7 @@
               <item name="MiniC-Sharp" type="b2602c69:ProjectViewProjectNode" />
               <item name="MiniC-Sharp" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Pruebas" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MiniC-Sharp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MiniC-Sharp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Pruebas" type="462c0819:PsiDirectoryNode" />
-              <item name="PruebasGenerador" type="462c0819:PsiDirectoryNode" />
+              <item name="Vista" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -296,7 +280,7 @@
     <property name="$PROJECT_DIR$/src/Antlr/Scanner.g4::/language" value="Java" />
     <property name="$PROJECT_DIR$/src/Antlr/Scanner.g4::/lib-dir" value="E:\Doccumentos TEC\6 SEMESTRE 2018\Compiladores\Proyectos\I Proyecto\Avance II\MiniC-Sharp\src\Generated" />
     <property name="$PROJECT_DIR$/src/Antlr/Scanner.g4::/output-dir" value="E:\Doccumentos TEC\6 SEMESTRE 2018\Compiladores\Proyectos\I Proyecto\Avance II\MiniC-Sharp\src\Generated" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541894144628" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541902601180" />
     <property name="last_opened_file_path" value="$USER_HOME$/Downloads/Generacion de Codigo" />
   </component>
   <component name="RecentsManager">
@@ -355,7 +339,7 @@
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.33131617" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.059001513" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -365,7 +349,7 @@
       <window_info id="Capture Tool" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32741934" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.5032258" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.9919355" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -581,13 +565,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Vista/Principal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-534">
-          <caret line="327" column="16" lean-forward="true" selection-start-line="327" selection-start-column="16" selection-end-line="327" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Generated/Antlr/MyParser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="129">
@@ -681,13 +658,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/generado.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Checker/Analizadores/AC_Llamadas_Funciones.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="507">
@@ -701,8 +671,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/CodeGenerator/MyGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="163" column="36" selection-start-line="163" selection-start-column="12" selection-end-line="163" selection-end-column="36" />
+        <state relative-caret-position="112">
+          <caret line="366" column="30" selection-start-line="366" selection-start-column="18" selection-end-line="366" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#703#1257#0" />
@@ -713,7 +683,24 @@
     <entry file="file://$PROJECT_DIR$/src/Pruebas/PruebasGenerador/Prueba1.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
-          <caret line="41" column="1" lean-forward="true" selection-end-line="41" selection-end-column="1" />
+          <caret line="36" column="1" lean-forward="true" selection-end-line="36" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/generado.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Vista/Principal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="335" column="56" selection-start-line="335" selection-start-column="56" selection-end-line="335" selection-end-column="56" />
+          <folding>
+            <element signature="e#12049#12083#0" />
+          </folding>
         </state>
       </provider>
     </entry>

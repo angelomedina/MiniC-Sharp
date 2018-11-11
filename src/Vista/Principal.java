@@ -329,6 +329,15 @@ public class Principal extends  JFrame implements ActionListener {
             }
             catch(RecognitionException re){}
 
+
+            MyGenerator generator = new MyGenerator();
+            generator.visit(tree);
+
+            JOptionPane.showMessageDialog(this,"Finalizo.");
+
+
+            /*
+
             if(myException.hasErrors() == false){ //Inicio analizadores contextuales
 
                 //agregndo AContextual
@@ -424,6 +433,7 @@ public class Principal extends  JFrame implements ActionListener {
 
                 }
 
+
             }
             else{
                 JOptionPane.showMessageDialog( this, "Error de compilación", "", JOptionPane.ERROR_MESSAGE );
@@ -431,6 +441,7 @@ public class Principal extends  JFrame implements ActionListener {
                 contError = list.getModel().getSize();
                 return;
             }
+            */
 
         }
         else if(e.getSource()==btnTree){
