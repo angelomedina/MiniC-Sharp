@@ -621,6 +621,7 @@ public class MyGenerator extends MyParserBaseVisitor {
         esFuncion = true;
 
         storage.add(new Instruccion(contadorInstrucciones,"DEF "+ctx.IDENT().getSymbol().getText()));
+        contadorInstrucciones++;
 
         if(ctx.formPars() != null){ // Si la funcion tiene parametros los visito
             visit(ctx.formPars());
@@ -649,21 +650,24 @@ public class MyGenerator extends MyParserBaseVisitor {
             visit(ctx.expr());
         }
 
+        if(elementoFuncion != null) {
 
-        if(elementoFuncion.getType().equals("void")) {
-
-
-            storage.add(new Instruccion(contadorInstrucciones,"RETURN"));
-            contadorInstrucciones++;
+            if (elementoFuncion.getType().equals("void")) {
 
 
-        }else {
+                storage.add(new Instruccion(contadorInstrucciones, "RETURN"));
+                contadorInstrucciones++;
 
-            storage.add(new Instruccion(contadorInstrucciones,"LOAD_FAST ",ctx.expr().getText()));
-            contadorInstrucciones++;
 
-            storage.add(new Instruccion(contadorInstrucciones,"RETURN_VALUE"));
-            contadorInstrucciones++;
+            } else {
+
+                storage.add(new Instruccion(contadorInstrucciones, "LOAD_FAST ", ctx.expr().getText()));
+                contadorInstrucciones++;
+
+                storage.add(new Instruccion(contadorInstrucciones, "RETURN_VALUE"));
+                contadorInstrucciones++;
+
+            }
 
         }
 
