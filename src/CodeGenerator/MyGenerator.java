@@ -255,10 +255,16 @@ public class MyGenerator extends MyParserBaseVisitor {
         visit(ctx.designator());
 
         if(ctx.actPars() !=  null){ // Si tiene parametros, es una funcion
+
             //System.out.println("ASIGNACION -> Cantidad de parametros "+ctx.actPars().getChildCount());
             numero_parametros = ctx.actPars().getChildCount();
             visit(ctx.actPars());
+
+            storage.add(new Instruccion(contadorInstrucciones,"LOAD_GLOBAL ",ctx.designator().getText()+"()"));
+            contadorInstrucciones++;
+
             storage.add(new Instruccion(contadorInstrucciones,"CALL_FUNCTION "+numero_parametros));
+            contadorInstrucciones++;
             //System.out.println("Es asignacion de una funcion a una variable");
         }
 
@@ -467,8 +473,17 @@ public class MyGenerator extends MyParserBaseVisitor {
     public Object visitIfSTAST(MyParser.IfSTASTContext ctx) {
 
         visit(ctx.condition());
+        Instruccion inst1 = new Instruccion(contadorInstrucciones,"JUMP_IF_FALSE");
+        storage.add(inst1);
+        contadorInstrucciones++;
         visit(ctx.statement(0));
+
+        Instruccion inst = new Instruccion(contadorInstrucciones,"JUMP_ABSOLUTE");
+        storage.add(inst);
+        contadorInstrucciones++;
+        inst1.setParam(String.valueOf(contadorInstrucciones));
         visit(ctx.statement(1));
+        inst.setParam(String.valueOf(contadorInstrucciones));
         return null;
     }
 
@@ -605,30 +620,21 @@ public class MyGenerator extends MyParserBaseVisitor {
 
         esFuncion = true;
 
-        storage.add(new Instruccion(contadorInstrucciones,"LOAD_GLOBAL ",ctx.IDENT().getText()+"()"));
-        contadorInstrucciones++;
+        storage.add(new Instruccion(contadorInstrucciones,"DEF "+ctx.IDENT().getSymbol().getText()));
 
-        funcion_actual = ctx.IDENT().getText();
-        Symbol elementoFuncion = tableS.retrieve(funcion_actual);
-
-
-        if(elementoFuncion.getType().equals("void")) {
-
-
-            visit(ctx.optionMethodDecl());
-            visit(ctx.block());
-
-
-            storage.add(new Instruccion(contadorInstrucciones,"RETURN"));
-            contadorInstrucciones++;
+        if(ctx.formPars() != null){ // Si la funcion tiene parametros los visito
+            visit(ctx.formPars());
         }
-        else{
 
-            visit(ctx.optionMethodDecl());
-            visit(ctx.block());
+
+        for (MyParser.VarDeclContext e: ctx.varDecl()) {
+            visit(e);
         }
+
+        visit(ctx.block());
 
         esFuncion = false;
+
 
         return null;
     }
@@ -667,7 +673,6 @@ public class MyGenerator extends MyParserBaseVisitor {
 
         return null;
     }
-
 
 
     @Override
@@ -738,7 +743,11 @@ public class MyGenerator extends MyParserBaseVisitor {
             visit(ctx.actPars());
         }
 
+        storage.add(new Instruccion(contadorInstrucciones,"LOAD_GLOBAL ",ctx.designator().getText()+"()"));
+        contadorInstrucciones++;
+
         storage.add(new Instruccion(contadorInstrucciones,"CALL_FUNCTION "+numero_parametros));
+        contadorInstrucciones++;
 
         return null;
     }
