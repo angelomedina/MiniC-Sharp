@@ -249,9 +249,24 @@ public class MyGenerator extends MyParserBaseVisitor {
     }
 
     //listo
-    @Override
     public Object visitFactorFAST(MyParser.FactorFASTContext ctx) {
+
+        int numero_parametros = 0;
+
+        //System.out.println("Llamando una funcion ? 2 "+ctx.designator().getText());
         visit(ctx.designator());
+
+        if(ctx.actPars() !=  null){ // Si tiene parametros, es una funcion
+            //System.out.println("ASIGNACION -> Cantidad de parametros "+ctx.actPars().getChildCount());
+            numero_parametros = ctx.actPars().getChildCount();
+            visit(ctx.actPars());
+            storage.add(new Instruccion(contadorInstrucciones,"CALL_FUNCTION "+numero_parametros));
+            //System.out.println("Es asignacion de una funcion a una variable");
+        }
+
+        //storage.add(new Instruccion(contadorInstrucciones,"CALL_FUNCTION "+numero_parametros));
+
+        //visit(ctx.designator());
         return null;
     }
 
@@ -364,55 +379,49 @@ public class MyGenerator extends MyParserBaseVisitor {
     //listo
     @Override
     public Object visitRelopIgIgAST(MyParser.RelopIgIgASTContext ctx) {
-        storage.add(new Instruccion(contadorInstrucciones, "COMPARE_OPCOMPARE_OP", ctx.IGIG().getSymbol().getText()));
-        contadorInstrucciones++;
+        //  System.out.println("Simbolo igualdad");
         //visit(ctx.IGIG());
-        return  null;
+        return  ctx.IGIG().getSymbol().getText();
     }
 
     //listo
     @Override
-    public Object visitRelopDifAST(MyParser.RelopDifASTContext ctx) {
-        storage.add(new Instruccion(contadorInstrucciones, "COMPARE_OPCOMPARE_OP", ctx.DIF().getSymbol().getText()));
-        contadorInstrucciones++;
+    public String visitRelopDifAST(MyParser.RelopDifASTContext ctx) {
+        //System.out.println("Simbolo diferencia");
         //visit(ctx.DIF());
-        return  null;
+        return  ctx.DIF().getSymbol().getText();
     }
 
     //listo
     @Override
-    public Object visitRelopMayAST(MyParser.RelopMayASTContext ctx) {
-        storage.add(new Instruccion(contadorInstrucciones, "COMPARE_OPCOMPARE_OP", ctx.MAY().getSymbol().getText()));
-        contadorInstrucciones++;
+    public String visitRelopMayAST(MyParser.RelopMayASTContext ctx) {
+        //System.out.println("Simbolo mayor");
         //visit(ctx.MAY());
-        return  null;
+        return  ctx.MAY().getSymbol().getText();
     }
 
     //listo
     @Override
-    public Object visitRelopMatIgAST(MyParser.RelopMatIgASTContext ctx) {
-        storage.add(new Instruccion(contadorInstrucciones, "COMPARE_OPCOMPARE_OP", ctx.MAY_IG().getSymbol().getText()));
-        contadorInstrucciones++;
-        //visit(ctx.MAY_IG());
-        return  null;
+    public String visitRelopMatIgAST(MyParser.RelopMatIgASTContext ctx) {
+        // System.out.println("Simbolo mayor igual");
+        // visit(ctx.MAY_IG());
+        return ctx.MAY_IG().getSymbol().getText();
     }
 
     //listo
     @Override
-    public Object visitRelopMenAST(MyParser.RelopMenASTContext ctx) {
-        storage.add(new Instruccion(contadorInstrucciones, "COMPARE_OPCOMPARE_OP", ctx.MEN().getSymbol().getText()));
-        contadorInstrucciones++;
+    public String visitRelopMenAST(MyParser.RelopMenASTContext ctx) {
+        //System.out.println("Simbolo menor");
         //visit(ctx.MEN());
-        return  null;
+        return  ctx.MEN().getSymbol().getText();
     }
 
     //listo
     @Override
-    public Object visitRelopMenIgAST(MyParser.RelopMenIgASTContext ctx) {
-        storage.add(new Instruccion(contadorInstrucciones, "COMPARE_OPCOMPARE_OP", ctx.MEN_IG().getSymbol().getText()));
-        contadorInstrucciones++;
+    public String visitRelopMenIgAST(MyParser.RelopMenIgASTContext ctx) {
+        // System.out.println("Simbolo menor igual "+ctx.MEN_IG().getSymbol().getText());
         //visit(ctx.MEN_IG());
-        return  null;
+        return  ctx.MEN_IG().getSymbol().getText();
     }
 
     //listo
@@ -711,7 +720,22 @@ public class MyGenerator extends MyParserBaseVisitor {
 
     @Override
     public Object visitStatementMetSTAST(MyParser.StatementMetSTASTContext ctx) {
-        return super.visitStatementMetSTAST(ctx);
+        //System.out.println("Llamando una funcion ? 1 "+ctx.designator().getText());
+
+        int numero_parametros = 0;
+
+        visit(ctx.designator());
+
+
+        if(ctx.actPars() !=  null){ // Si tiene parametros
+            //  System.out.println("LLAMADA DIRECTA -> Cantidad de parametros "+ctx.actPars().getChildCount());
+            numero_parametros = ctx.actPars().getChildCount();
+            visit(ctx.actPars());
+        }
+
+        storage.add(new Instruccion(contadorInstrucciones,"CALL_FUNCTION "+numero_parametros));
+
+        return null;
     }
 
     @Override
@@ -773,7 +797,11 @@ public class MyGenerator extends MyParserBaseVisitor {
 
     @Override
     public Object visitBlockAST(MyParser.BlockASTContext ctx) {
-        return super.visitBlockAST(ctx);
+        for(MyParser.StatementContext e : ctx.statement() ){
+            visit(e);
+        }
+
+        return null;
     }
 
     @Override
@@ -786,8 +814,12 @@ public class MyGenerator extends MyParserBaseVisitor {
     public Object visitCondFactAST(MyParser.CondFactASTContext ctx) {
 
         visit(ctx.expr(0));
+        //System.out.println("SIMBOLO DE COMPARACION "+visit(ctx.relop()));
+        String simbolo = (String) visit(ctx.relop());
+        contadorInstrucciones++;
+        storage.add(new Instruccion(contadorInstrucciones,"COMPARE_OP",simbolo));
+        contadorInstrucciones++;
         visit(ctx.expr(1));
-        visit(ctx.relop());
 
         return null;
     }

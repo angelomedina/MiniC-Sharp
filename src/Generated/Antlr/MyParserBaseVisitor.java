@@ -1,4 +1,4 @@
-// Generated from E:/Doccumentos TEC/6 SEMESTRE 2018/Compiladores/Proyectos/I Proyecto/Avance II/MiniC-Sharp/src/Antlr\MyParser.g4 by ANTLR 4.7
+// Generated from C:/Users/felip/Desktop/Proyecto Compi/MiniC-Sharp/src/Antlr\MyParser.g4 by ANTLR 4.7
 package Antlr;
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 
