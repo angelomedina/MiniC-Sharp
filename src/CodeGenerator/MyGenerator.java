@@ -23,6 +23,7 @@ public class MyGenerator extends MyParserBaseVisitor {
     private String funcion_actual = "";
     private boolean debeTenerRetorno = false;
 
+    private int paramWrite = 0;
 
     public boolean isInteger(String numero){
         try{
@@ -165,6 +166,8 @@ public class MyGenerator extends MyParserBaseVisitor {
 
             storage.add(new Instruccion(contadorInstrucciones,"CALL_FUNCTION "+numero_parametros));
             contadorInstrucciones++;
+
+            paramWrite = numero_parametros;
         }
 
         else {
@@ -586,6 +589,8 @@ public class MyGenerator extends MyParserBaseVisitor {
         storage.add(new Instruccion(contadorInstrucciones,"CALL_FUNCTION "+numero_parametros));
         contadorInstrucciones++;
 
+        paramWrite = numero_parametros;
+
         return null;
     }
 
@@ -615,11 +620,15 @@ public class MyGenerator extends MyParserBaseVisitor {
 
     @Override
     public Object visitWriteSTAST(MyParser.WriteSTASTContext ctx) {
+
         visit(ctx.expr());
+
         storage.add(new Instruccion(contadorInstrucciones,"LOAD_GLOBAL "+"write"));
         contadorInstrucciones++;
 
-        storage.add(new Instruccion(contadorInstrucciones,"CALL_FUNCTION "+1));
+
+
+        storage.add(new Instruccion(contadorInstrucciones,"CALL_FUNCTION "+ paramWrite));
         contadorInstrucciones++;
         return null;
     }

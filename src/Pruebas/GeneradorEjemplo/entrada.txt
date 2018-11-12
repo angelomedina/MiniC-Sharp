@@ -15,6 +15,7 @@ class Fact
 
     void Main()
     {
-        write('F'); write(fact_iter(5));
+        write('F');
+        write(fact_iter(5));
     }
 }
