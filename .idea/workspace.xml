@@ -118,12 +118,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="37" />
+          <entry key="java" value="46" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="37" />
+          <entry key="JAVA" value="46" />
         </counts>
       </usages-collector>
     </session>
@@ -139,11 +139,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/CodeGenerator/MyGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="22" column="65" lean-forward="true" selection-start-line="22" selection-start-column="65" selection-end-line="22" selection-end-column="65" />
+            <state relative-caret-position="292">
+              <caret line="499" selection-start-line="499" selection-end-line="499" />
               <folding>
                 <element signature="e#860#1059#0" />
                 <element signature="e#1066#1268#0" />
@@ -176,28 +176,6 @@
                 <element signature="e#20955#21149#0" />
                 <element signature="e#21157#21158#0" expanded="true" />
                 <element signature="e#21206#21207#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Checker/Analizadores/AC_Llamadas_Funciones.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="378" selection-start-line="378" selection-end-line="378" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Vista/Principal.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="378" column="22" selection-start-line="378" selection-start-column="22" selection-end-line="378" selection-end-column="22" />
-              <folding>
-                <element signature="e#5050#5051#0" expanded="true" />
-                <element signature="e#5114#5115#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -264,12 +242,12 @@
         <option value="$PROJECT_DIR$/src/Checker/Analizadores/AC_Llamadas_Funciones.java" />
         <option value="$PROJECT_DIR$/src/Antlr/MyParser.g4" />
         <option value="$PROJECT_DIR$/src/Pruebas/PruebasGenerador/Prueba1.txt" />
-        <option value="$PROJECT_DIR$/src/CodeGenerator/MyGenerator.java" />
         <option value="$PROJECT_DIR$/src/Vista/Principal.java" />
+        <option value="$PROJECT_DIR$/src/CodeGenerator/MyGenerator.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="79" />
     <option name="y" value="3" />
     <option name="width" value="1189" />
@@ -326,7 +304,7 @@
     <property name="$PROJECT_DIR$/src/Antlr/Scanner.g4::/language" value="Java" />
     <property name="$PROJECT_DIR$/src/Antlr/Scanner.g4::/lib-dir" value="C:\Users\felip\Desktop\Proyecto Compi\MiniC-Sharp\src\Generated" />
     <property name="$PROJECT_DIR$/src/Antlr/Scanner.g4::/output-dir" value="C:\Users\felip\Desktop\Proyecto Compi\MiniC-Sharp\src\Generated" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541988450653" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541989076280" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Generated" />
   </component>
   <component name="RecentsManager">
@@ -395,7 +373,7 @@
       <window_info id="Capture Tool" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32741934" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.04918033" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.27704918" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -724,6 +702,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Antlr/MyParser.g4">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="73" column="4" lean-forward="true" selection-start-line="73" selection-start-column="4" selection-end-line="73" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Vista/Principal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="411" column="54" lean-forward="true" selection-start-line="411" selection-start-column="54" selection-end-line="411" selection-end-column="54" />
+          <folding>
+            <element signature="e#5050#5051#0" expanded="true" />
+            <element signature="e#5114#5115#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Checker/Analizadores/AC_Llamadas_Funciones.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -733,8 +729,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/CodeGenerator/MyGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="22" column="65" lean-forward="true" selection-start-line="22" selection-start-column="65" selection-end-line="22" selection-end-column="65" />
+        <state relative-caret-position="292">
+          <caret line="499" selection-start-line="499" selection-end-line="499" />
           <folding>
             <element signature="e#860#1059#0" />
             <element signature="e#1066#1268#0" />
@@ -767,24 +763,6 @@
             <element signature="e#20955#21149#0" />
             <element signature="e#21157#21158#0" expanded="true" />
             <element signature="e#21206#21207#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Antlr/MyParser.g4">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="73" column="4" lean-forward="true" selection-start-line="73" selection-start-column="4" selection-end-line="73" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Vista/Principal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="378" column="22" selection-start-line="378" selection-start-column="22" selection-end-line="378" selection-end-column="22" />
-          <folding>
-            <element signature="e#5050#5051#0" expanded="true" />
-            <element signature="e#5114#5115#0" expanded="true" />
           </folding>
         </state>
       </provider>

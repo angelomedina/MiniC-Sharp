@@ -18,8 +18,6 @@ import static com.sun.org.apache.xalan.internal.xsltc.compiler.sym.error;
 
 public class MyGenerator extends MyParserBaseVisitor {
 
-
-
     public SymbolTable tableS = Principal.analizador_contextual_vc1.getTableS();
     int contadorInstrucciones       = 0;
     Boolean esFuncion               = false;
@@ -490,8 +488,15 @@ public class MyGenerator extends MyParserBaseVisitor {
     @Override
     public Object visitWhileSTAST(MyParser.WhileSTASTContext ctx) {
 
+        int jmpAbs = contadorInstrucciones;
         visit(ctx.condition());
+        Instruccion inst1 = new Instruccion(contadorInstrucciones,"JUMP_IF_FALSE");
+        storage.add(inst1);
+        contadorInstrucciones++;
         visit(ctx.statement());
+        storage.add(new Instruccion(contadorInstrucciones,"JUMP_ABSOLUTE",String.valueOf(jmpAbs)));
+        contadorInstrucciones++;
+        inst1.setParam(String.valueOf(contadorInstrucciones));
 
         return null;
     }
