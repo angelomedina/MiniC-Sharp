@@ -37,7 +37,7 @@ public class Principal extends  JFrame implements ActionListener {
     MyException     myException = null;
     MyConsoleErrorListener myConsoleErrorListener = null;
     public static AC_Declaracion_Asignacion analizador_contextual_vc1 = null;
-    AC_Llamadas_Funciones analizador_contextual_f1 = null;
+   // AC_Llamadas_Funciones analizador_contextual_f1 = null;
 
     int tab=1;
     private JMenuBar menuBar;
@@ -363,11 +363,20 @@ public class Principal extends  JFrame implements ActionListener {
                     // Imprimo resultados del Analizador 1 (Analizador Contextual de Variables y clases)
                     //defaultListModel.addElement(analizador_contextual_vc1.imprimir());
 
-                    System.out.println(analizador_contextual_vc1.imprimir());
+                    //System.out.println(analizador_contextual_vc1.imprimir());
+
+                    //**********************************************************************************************
+                    //Generador de código
+
+
+                    MyGenerator generator = new MyGenerator();
+                    generator.visit(tree);
+
+                    //**********************************************************************************************
 
                     // Analizador 2 (Analizador Contextual de Funciones)
 
-                    try { // Utilizo Analizador Contextual de Funciones
+                    /*try { // Utilizo Analizador Contextual de Funciones
                         // Para revisar las funciones declaradas, y agregarlas a la tabla de funciones
 
                         // Declaracion Analizador 2 (Analizador Contextual de Funciones)
@@ -412,7 +421,7 @@ public class Principal extends  JFrame implements ActionListener {
 
                         defaultListModel.addElement( "Total Errors: " + (errorListener.errorMsgs.size()+ analizador_contextual_f1.getNumErrors()) );
 
-                    }
+                    }*/
 
 
                 }
