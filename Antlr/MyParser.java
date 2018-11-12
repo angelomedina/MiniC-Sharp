@@ -140,6 +140,14 @@ public class MyParser extends Parser {
 		}
 		public ProgramASTContext(ProgramContext ctx) { copyFrom(ctx); }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).enterProgramAST(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).exitProgramAST(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitProgramAST(this);
 			else return visitor.visitChildren(this);
@@ -222,6 +230,14 @@ public class MyParser extends Parser {
 		}
 		public ProgramClassASTContext(DeclarationContext ctx) { copyFrom(ctx); }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).enterProgramClassAST(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).exitProgramClassAST(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitProgramClassAST(this);
 			else return visitor.visitChildren(this);
@@ -233,6 +249,14 @@ public class MyParser extends Parser {
 		}
 		public ProgramVarASTContext(DeclarationContext ctx) { copyFrom(ctx); }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).enterProgramVarAST(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).exitProgramVarAST(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitProgramVarAST(this);
 			else return visitor.visitChildren(this);
@@ -243,6 +267,14 @@ public class MyParser extends Parser {
 			return getRuleContext(ConstDeclContext.class,0);
 		}
 		public ProgramConstASTContext(DeclarationContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).enterProgramConstAST(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).exitProgramConstAST(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitProgramConstAST(this);
@@ -320,6 +352,14 @@ public class MyParser extends Parser {
 		}
 		public ConstDeclASTContext(ConstDeclContext ctx) { copyFrom(ctx); }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).enterConstDeclAST(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).exitConstDeclAST(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitConstDeclAST(this);
 			else return visitor.visitChildren(this);
@@ -375,6 +415,14 @@ public class MyParser extends Parser {
 		public TerminalNode CHAR_CONST() { return getToken(MyParser.CHAR_CONST, 0); }
 		public ConstCharDeclASTContext(ValueTypeConstContext ctx) { copyFrom(ctx); }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).enterConstCharDeclAST(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).exitConstCharDeclAST(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitConstCharDeclAST(this);
 			else return visitor.visitChildren(this);
@@ -384,6 +432,14 @@ public class MyParser extends Parser {
 		public TerminalNode NUMBER_INTEGER() { return getToken(MyParser.NUMBER_INTEGER, 0); }
 		public ConstNumberIntDeclASTContext(ValueTypeConstContext ctx) { copyFrom(ctx); }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).enterConstNumberIntDeclAST(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).exitConstNumberIntDeclAST(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitConstNumberIntDeclAST(this);
 			else return visitor.visitChildren(this);
@@ -392,6 +448,14 @@ public class MyParser extends Parser {
 	public static class ConstNumberIntZDeclASTContext extends ValueTypeConstContext {
 		public TerminalNode NUMBER_INTEGER_ZERO() { return getToken(MyParser.NUMBER_INTEGER_ZERO, 0); }
 		public ConstNumberIntZDeclASTContext(ValueTypeConstContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).enterConstNumberIntZDeclAST(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).exitConstNumberIntZDeclAST(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitConstNumberIntZDeclAST(this);
@@ -471,6 +535,14 @@ public class MyParser extends Parser {
 		}
 		public VarDeclASTContext(VarDeclContext ctx) { copyFrom(ctx); }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).enterVarDeclAST(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).exitVarDeclAST(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitVarDeclAST(this);
 			else return visitor.visitChildren(this);
@@ -543,6 +615,14 @@ public class MyParser extends Parser {
 			return getRuleContext(VarDeclContext.class,i);
 		}
 		public ClassDeclASTContext(ClassDeclContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).enterClassDeclAST(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).exitClassDeclAST(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitClassDeclAST(this);
@@ -625,6 +705,14 @@ public class MyParser extends Parser {
 		}
 		public MethodDeclASTContext(MethodDeclContext ctx) { copyFrom(ctx); }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).enterMethodDeclAST(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).exitMethodDeclAST(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitMethodDeclAST(this);
 			else return visitor.visitChildren(this);
@@ -705,6 +793,14 @@ public class MyParser extends Parser {
 		}
 		public MethodTypeDeclASTContext(OptionMethodDeclContext ctx) { copyFrom(ctx); }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).enterMethodTypeDeclAST(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).exitMethodTypeDeclAST(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitMethodTypeDeclAST(this);
 			else return visitor.visitChildren(this);
@@ -713,6 +809,14 @@ public class MyParser extends Parser {
 	public static class MethodVoidDeclASTContext extends OptionMethodDeclContext {
 		public TerminalNode VOID() { return getToken(MyParser.VOID, 0); }
 		public MethodVoidDeclASTContext(OptionMethodDeclContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).enterMethodVoidDeclAST(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).exitMethodVoidDeclAST(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitMethodVoidDeclAST(this);
@@ -786,6 +890,14 @@ public class MyParser extends Parser {
 		}
 		public FormParsASTContext(FormParsContext ctx) { copyFrom(ctx); }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).enterFormParsAST(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).exitFormParsAST(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitFormParsAST(this);
 			else return visitor.visitChildren(this);
@@ -852,6 +964,14 @@ public class MyParser extends Parser {
 		public TerminalNode CORC_DER() { return getToken(MyParser.CORC_DER, 0); }
 		public TypeASTContext(TypeContext ctx) { copyFrom(ctx); }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).enterTypeAST(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).exitTypeAST(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitTypeAST(this);
 			else return visitor.visitChildren(this);
@@ -912,6 +1032,14 @@ public class MyParser extends Parser {
 		}
 		public ReturnSTASTContext(StatementContext ctx) { copyFrom(ctx); }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).enterReturnSTAST(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).exitReturnSTAST(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitReturnSTAST(this);
 			else return visitor.visitChildren(this);
@@ -922,6 +1050,14 @@ public class MyParser extends Parser {
 			return getRuleContext(BlockContext.class,0);
 		}
 		public BlockSTASTContext(StatementContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).enterBlockSTAST(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).exitBlockSTAST(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitBlockSTAST(this);
@@ -938,6 +1074,14 @@ public class MyParser extends Parser {
 		public TerminalNode PyC() { return getToken(MyParser.PyC, 0); }
 		public ReadSTATContext(StatementContext ctx) { copyFrom(ctx); }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).enterReadSTAT(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).exitReadSTAT(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitReadSTAT(this);
 			else return visitor.visitChildren(this);
@@ -951,6 +1095,14 @@ public class MyParser extends Parser {
 		public TerminalNode INC() { return getToken(MyParser.INC, 0); }
 		public StatementIncSTASTContext(StatementContext ctx) { copyFrom(ctx); }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).enterStatementIncSTAST(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).exitStatementIncSTAST(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitStatementIncSTAST(this);
 			else return visitor.visitChildren(this);
@@ -960,6 +1112,14 @@ public class MyParser extends Parser {
 		public TerminalNode BREAK() { return getToken(MyParser.BREAK, 0); }
 		public TerminalNode PyC() { return getToken(MyParser.PyC, 0); }
 		public BreakStASTContext(StatementContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).enterBreakStAST(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).exitBreakStAST(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitBreakStAST(this);
@@ -976,6 +1136,14 @@ public class MyParser extends Parser {
 			return getRuleContext(ExprContext.class,0);
 		}
 		public StatementIgSTASTContext(StatementContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).enterStatementIgSTAST(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).exitStatementIgSTAST(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitStatementIgSTAST(this);
@@ -994,6 +1162,14 @@ public class MyParser extends Parser {
 		}
 		public WhileSTASTContext(StatementContext ctx) { copyFrom(ctx); }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).enterWhileSTAST(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).exitWhileSTAST(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitWhileSTAST(this);
 			else return visitor.visitChildren(this);
@@ -1010,6 +1186,14 @@ public class MyParser extends Parser {
 			return getRuleContext(ActParsContext.class,0);
 		}
 		public StatementMetSTASTContext(StatementContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).enterStatementMetSTAST(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).exitStatementMetSTAST(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitStatementMetSTAST(this);
@@ -1031,6 +1215,14 @@ public class MyParser extends Parser {
 		}
 		public TerminalNode ELSE() { return getToken(MyParser.ELSE, 0); }
 		public IfSTASTContext(StatementContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).enterIfSTAST(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).exitIfSTAST(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitIfSTAST(this);
@@ -1059,6 +1251,14 @@ public class MyParser extends Parser {
 		}
 		public ForSTASTContext(StatementContext ctx) { copyFrom(ctx); }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).enterForSTAST(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).exitForSTAST(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitForSTAST(this);
 			else return visitor.visitChildren(this);
@@ -1072,6 +1272,14 @@ public class MyParser extends Parser {
 		public TerminalNode DEC() { return getToken(MyParser.DEC, 0); }
 		public StatementDecSTASTContext(StatementContext ctx) { copyFrom(ctx); }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).enterStatementDecSTAST(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).exitStatementDecSTAST(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitStatementDecSTAST(this);
 			else return visitor.visitChildren(this);
@@ -1080,6 +1288,14 @@ public class MyParser extends Parser {
 	public static class PycSTASTContext extends StatementContext {
 		public TerminalNode PyC() { return getToken(MyParser.PyC, 0); }
 		public PycSTASTContext(StatementContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).enterPycSTAST(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).exitPycSTAST(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitPycSTAST(this);
@@ -1098,6 +1314,14 @@ public class MyParser extends Parser {
 			return getRuleContext(WriteTypeContext.class,0);
 		}
 		public WriteSTASTContext(StatementContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).enterWriteSTAST(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).exitWriteSTAST(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitWriteSTAST(this);
@@ -1383,6 +1607,14 @@ public class MyParser extends Parser {
 		public TerminalNode NUMBER_FLOAT() { return getToken(MyParser.NUMBER_FLOAT, 0); }
 		public WriteTypeNumFloatSTASTContext(WriteTypeContext ctx) { copyFrom(ctx); }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).enterWriteTypeNumFloatSTAST(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).exitWriteTypeNumFloatSTAST(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitWriteTypeNumFloatSTAST(this);
 			else return visitor.visitChildren(this);
@@ -1391,6 +1623,14 @@ public class MyParser extends Parser {
 	public static class WriteTypeNumIntZSTASTContext extends WriteTypeContext {
 		public TerminalNode NUMBER_INTEGER_ZERO() { return getToken(MyParser.NUMBER_INTEGER_ZERO, 0); }
 		public WriteTypeNumIntZSTASTContext(WriteTypeContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).enterWriteTypeNumIntZSTAST(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).exitWriteTypeNumIntZSTAST(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitWriteTypeNumIntZSTAST(this);
@@ -1401,6 +1641,14 @@ public class MyParser extends Parser {
 		public TerminalNode COMA() { return getToken(MyParser.COMA, 0); }
 		public TerminalNode NUMBER_INTEGER() { return getToken(MyParser.NUMBER_INTEGER, 0); }
 		public WriteTypeNumIntSTASTContext(WriteTypeContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).enterWriteTypeNumIntSTAST(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).exitWriteTypeNumIntSTAST(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitWriteTypeNumIntSTAST(this);
@@ -1478,6 +1726,14 @@ public class MyParser extends Parser {
 		}
 		public BlockASTContext(BlockContext ctx) { copyFrom(ctx); }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).enterBlockAST(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).exitBlockAST(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitBlockAST(this);
 			else return visitor.visitChildren(this);
@@ -1546,6 +1802,14 @@ public class MyParser extends Parser {
 			return getToken(MyParser.COMA, i);
 		}
 		public ActParsASTContext(ActParsContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).enterActParsAST(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).exitActParsAST(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitActParsAST(this);
@@ -1616,6 +1880,14 @@ public class MyParser extends Parser {
 		}
 		public ConditionASTContext(ConditionContext ctx) { copyFrom(ctx); }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).enterConditionAST(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).exitConditionAST(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitConditionAST(this);
 			else return visitor.visitChildren(this);
@@ -1685,6 +1957,14 @@ public class MyParser extends Parser {
 		}
 		public CondTermASTContext(CondTermContext ctx) { copyFrom(ctx); }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).enterCondTermAST(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).exitCondTermAST(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitCondTermAST(this);
 			else return visitor.visitChildren(this);
@@ -1753,6 +2033,14 @@ public class MyParser extends Parser {
 		}
 		public CondFactASTContext(CondFactContext ctx) { copyFrom(ctx); }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).enterCondFactAST(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).exitCondFactAST(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitCondFactAST(this);
 			else return visitor.visitChildren(this);
@@ -1811,6 +2099,14 @@ public class MyParser extends Parser {
 			return getRuleContext(AddopContext.class,i);
 		}
 		public ExprASTContext(ExprContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).enterExprAST(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).exitExprAST(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitExprAST(this);
@@ -1893,6 +2189,14 @@ public class MyParser extends Parser {
 		}
 		public TermASTContext(TermContext ctx) { copyFrom(ctx); }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).enterTermAST(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).exitTermAST(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitTermAST(this);
 			else return visitor.visitChildren(this);
@@ -1953,6 +2257,14 @@ public class MyParser extends Parser {
 		public TerminalNode NUMBER_INTEGER() { return getToken(MyParser.NUMBER_INTEGER, 0); }
 		public NumIntFASTContext(FactorContext ctx) { copyFrom(ctx); }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).enterNumIntFAST(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).exitNumIntFAST(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitNumIntFAST(this);
 			else return visitor.visitChildren(this);
@@ -1969,6 +2281,14 @@ public class MyParser extends Parser {
 		}
 		public FactorFASTContext(FactorContext ctx) { copyFrom(ctx); }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).enterFactorFAST(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).exitFactorFAST(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitFactorFAST(this);
 			else return visitor.visitChildren(this);
@@ -1977,6 +2297,14 @@ public class MyParser extends Parser {
 	public static class NumIntZeroFASTContext extends FactorContext {
 		public TerminalNode NUMBER_INTEGER_ZERO() { return getToken(MyParser.NUMBER_INTEGER_ZERO, 0); }
 		public NumIntZeroFASTContext(FactorContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).enterNumIntZeroFAST(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).exitNumIntZeroFAST(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitNumIntZeroFAST(this);
@@ -1991,6 +2319,14 @@ public class MyParser extends Parser {
 		public TerminalNode PAR_DER() { return getToken(MyParser.PAR_DER, 0); }
 		public ExpresionFASTContext(FactorContext ctx) { copyFrom(ctx); }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).enterExpresionFAST(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).exitExpresionFAST(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitExpresionFAST(this);
 			else return visitor.visitChildren(this);
@@ -1999,6 +2335,14 @@ public class MyParser extends Parser {
 	public static class ChaeFASTContext extends FactorContext {
 		public TerminalNode CHAR_CONST() { return getToken(MyParser.CHAR_CONST, 0); }
 		public ChaeFASTContext(FactorContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).enterChaeFAST(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).exitChaeFAST(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitChaeFAST(this);
@@ -2009,6 +2353,14 @@ public class MyParser extends Parser {
 		public TerminalNode STRING_CONST() { return getToken(MyParser.STRING_CONST, 0); }
 		public StringFASTContext(FactorContext ctx) { copyFrom(ctx); }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).enterStringFAST(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).exitStringFAST(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitStringFAST(this);
 			else return visitor.visitChildren(this);
@@ -2018,6 +2370,14 @@ public class MyParser extends Parser {
 		public TerminalNode NEW() { return getToken(MyParser.NEW, 0); }
 		public TerminalNode IDENT() { return getToken(MyParser.IDENT, 0); }
 		public NewFASTContext(FactorContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).enterNewFAST(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).exitNewFAST(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitNewFAST(this);
@@ -2030,6 +2390,14 @@ public class MyParser extends Parser {
 		}
 		public BooleanFASTContext(FactorContext ctx) { copyFrom(ctx); }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).enterBooleanFAST(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).exitBooleanFAST(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitBooleanFAST(this);
 			else return visitor.visitChildren(this);
@@ -2038,6 +2406,14 @@ public class MyParser extends Parser {
 	public static class NumberFloatFASTContext extends FactorContext {
 		public TerminalNode NUMBER_FLOAT() { return getToken(MyParser.NUMBER_FLOAT, 0); }
 		public NumberFloatFASTContext(FactorContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).enterNumberFloatFAST(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).exitNumberFloatFAST(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitNumberFloatFAST(this);
@@ -2186,6 +2562,14 @@ public class MyParser extends Parser {
 		public TerminalNode TRUE() { return getToken(MyParser.TRUE, 0); }
 		public BooleanTrueFASTContext(BooleanValueContext ctx) { copyFrom(ctx); }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).enterBooleanTrueFAST(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).exitBooleanTrueFAST(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitBooleanTrueFAST(this);
 			else return visitor.visitChildren(this);
@@ -2194,6 +2578,14 @@ public class MyParser extends Parser {
 	public static class BooleanFalseFASTContext extends BooleanValueContext {
 		public TerminalNode FALSE() { return getToken(MyParser.FALSE, 0); }
 		public BooleanFalseFASTContext(BooleanValueContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).enterBooleanFalseFAST(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).exitBooleanFalseFAST(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitBooleanFalseFAST(this);
@@ -2260,6 +2652,14 @@ public class MyParser extends Parser {
 		}
 		public DesignatorASTContext(DesignatorContext ctx) { copyFrom(ctx); }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).enterDesignatorAST(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).exitDesignatorAST(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitDesignatorAST(this);
 			else return visitor.visitChildren(this);
@@ -2322,6 +2722,14 @@ public class MyParser extends Parser {
 		public TerminalNode CORC_DER() { return getToken(MyParser.CORC_DER, 0); }
 		public DesignatorCorcsASTContext(DesignatorExpContext ctx) { copyFrom(ctx); }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).enterDesignatorCorcsAST(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).exitDesignatorCorcsAST(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitDesignatorCorcsAST(this);
 			else return visitor.visitChildren(this);
@@ -2331,6 +2739,14 @@ public class MyParser extends Parser {
 		public TerminalNode PUNT() { return getToken(MyParser.PUNT, 0); }
 		public TerminalNode IDENT() { return getToken(MyParser.IDENT, 0); }
 		public DesignatorPuntIdASTContext(DesignatorExpContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).enterDesignatorPuntIdAST(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).exitDesignatorPuntIdAST(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitDesignatorPuntIdAST(this);
@@ -2397,6 +2813,14 @@ public class MyParser extends Parser {
 		public TerminalNode MEN_IG() { return getToken(MyParser.MEN_IG, 0); }
 		public RelopMenIgASTContext(RelopContext ctx) { copyFrom(ctx); }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).enterRelopMenIgAST(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).exitRelopMenIgAST(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitRelopMenIgAST(this);
 			else return visitor.visitChildren(this);
@@ -2405,6 +2829,14 @@ public class MyParser extends Parser {
 	public static class RelopMenASTContext extends RelopContext {
 		public TerminalNode MEN() { return getToken(MyParser.MEN, 0); }
 		public RelopMenASTContext(RelopContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).enterRelopMenAST(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).exitRelopMenAST(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitRelopMenAST(this);
@@ -2415,6 +2847,14 @@ public class MyParser extends Parser {
 		public TerminalNode DIF() { return getToken(MyParser.DIF, 0); }
 		public RelopDifASTContext(RelopContext ctx) { copyFrom(ctx); }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).enterRelopDifAST(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).exitRelopDifAST(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitRelopDifAST(this);
 			else return visitor.visitChildren(this);
@@ -2423,6 +2863,14 @@ public class MyParser extends Parser {
 	public static class RelopMayASTContext extends RelopContext {
 		public TerminalNode MAY() { return getToken(MyParser.MAY, 0); }
 		public RelopMayASTContext(RelopContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).enterRelopMayAST(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).exitRelopMayAST(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitRelopMayAST(this);
@@ -2433,6 +2881,14 @@ public class MyParser extends Parser {
 		public TerminalNode IGIG() { return getToken(MyParser.IGIG, 0); }
 		public RelopIgIgASTContext(RelopContext ctx) { copyFrom(ctx); }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).enterRelopIgIgAST(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).exitRelopIgIgAST(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitRelopIgIgAST(this);
 			else return visitor.visitChildren(this);
@@ -2441,6 +2897,14 @@ public class MyParser extends Parser {
 	public static class RelopMatIgASTContext extends RelopContext {
 		public TerminalNode MAY_IG() { return getToken(MyParser.MAY_IG, 0); }
 		public RelopMatIgASTContext(RelopContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).enterRelopMatIgAST(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).exitRelopMatIgAST(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitRelopMatIgAST(this);
@@ -2533,6 +2997,14 @@ public class MyParser extends Parser {
 		public TerminalNode REST() { return getToken(MyParser.REST, 0); }
 		public AddopRestASTContext(AddopContext ctx) { copyFrom(ctx); }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).enterAddopRestAST(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).exitAddopRestAST(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitAddopRestAST(this);
 			else return visitor.visitChildren(this);
@@ -2541,6 +3013,14 @@ public class MyParser extends Parser {
 	public static class AddopSumASTContext extends AddopContext {
 		public TerminalNode SUM() { return getToken(MyParser.SUM, 0); }
 		public AddopSumASTContext(AddopContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).enterAddopSumAST(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).exitAddopSumAST(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitAddopSumAST(this);
@@ -2601,6 +3081,14 @@ public class MyParser extends Parser {
 		public TerminalNode DIV() { return getToken(MyParser.DIV, 0); }
 		public MulopDivASTContext(MulopContext ctx) { copyFrom(ctx); }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).enterMulopDivAST(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).exitMulopDivAST(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitMulopDivAST(this);
 			else return visitor.visitChildren(this);
@@ -2610,6 +3098,14 @@ public class MyParser extends Parser {
 		public TerminalNode PORC() { return getToken(MyParser.PORC, 0); }
 		public MulopPorcASTContext(MulopContext ctx) { copyFrom(ctx); }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).enterMulopPorcAST(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).exitMulopPorcAST(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitMulopPorcAST(this);
 			else return visitor.visitChildren(this);
@@ -2618,6 +3114,14 @@ public class MyParser extends Parser {
 	public static class MulopMultASTContext extends MulopContext {
 		public TerminalNode MULT() { return getToken(MyParser.MULT, 0); }
 		public MulopMultASTContext(MulopContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).enterMulopMultAST(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MyParserListener ) ((MyParserListener)listener).exitMulopMultAST(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof MyParserVisitor ) return ((MyParserVisitor<? extends T>)visitor).visitMulopMultAST(this);

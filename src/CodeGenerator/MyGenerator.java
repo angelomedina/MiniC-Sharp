@@ -621,16 +621,28 @@ public class MyGenerator extends MyParserBaseVisitor {
     @Override
     public Object visitWriteSTAST(MyParser.WriteSTASTContext ctx) {
 
+
         visit(ctx.expr());
 
         storage.add(new Instruccion(contadorInstrucciones,"LOAD_GLOBAL "+"write"));
         contadorInstrucciones++;
 
+        if(ctx.writeType() != null){
 
+            visit(ctx.writeType());
+
+        }else{
+
+            if( ctx.WRITE() != null){
+                visit(ctx.WRITE());
+            }
+        }
 
         storage.add(new Instruccion(contadorInstrucciones,"CALL_FUNCTION "+ paramWrite));
         contadorInstrucciones++;
-        return null;
+        //return null;
+
+        return super.visitWriteSTAST(ctx);
     }
 
     @Override
@@ -646,16 +658,22 @@ public class MyGenerator extends MyParserBaseVisitor {
 
     @Override
     public Object visitWriteTypeNumIntSTAST(MyParser.WriteTypeNumIntSTASTContext ctx) {
+
+        System.out.println(ctx.NUMBER_INTEGER().getSymbol().getText());
         return super.visitWriteTypeNumIntSTAST(ctx);
     }
 
     @Override
     public Object visitWriteTypeNumIntZSTAST(MyParser.WriteTypeNumIntZSTASTContext ctx) {
+
+        System.out.println(ctx.NUMBER_INTEGER_ZERO().getSymbol().getText());
         return super.visitWriteTypeNumIntZSTAST(ctx);
     }
 
     @Override
     public Object visitWriteTypeNumFloatSTAST(MyParser.WriteTypeNumFloatSTASTContext ctx) {
+
+        System.out.println(ctx.NUMBER_FLOAT().getSymbol().getText());
         return super.visitWriteTypeNumFloatSTAST(ctx);
     }
 

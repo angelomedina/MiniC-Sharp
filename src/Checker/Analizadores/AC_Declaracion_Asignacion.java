@@ -3,7 +3,6 @@ package Checker.Analizadores;
 
 import Antlr.MyParser;
 import Antlr.MyParserBaseVisitor;
-import Checker.TypeSymbol.Funcion;
 import Checker.TypeSymbol.Symbol;
 import Checker.TypeSymbol.SymbolTable;
 import Exeptions.SemanticException;

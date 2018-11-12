@@ -1,6 +1,5 @@
 package Checker.Analizadores;
 
-import Checker.Analizadores.AC_Llamadas_Funciones;
 import Antlr.MyParser;
 import Antlr.MyParserBaseVisitor;
 import Checker.TypeSymbol.*;
@@ -376,10 +375,12 @@ public class AC_Llamadas_Funciones extends MyParserBaseVisitor {
     public Object visitWriteSTAST(MyParser.WriteSTASTContext ctx) {
 
 
-        //visit(ctx.expr());
-        //visit(ctx.writeType());
-
+        /*
+        visit(ctx.expr());
+        visit(ctx.writeType());
         return null;
+        */
+        return super.visitWriteSTAST(ctx);
     }
 
     @Override
