@@ -375,8 +375,9 @@ public class AC_Llamadas_Funciones extends MyParserBaseVisitor {
     @Override
     public Object visitWriteSTAST(MyParser.WriteSTASTContext ctx) {
 
-        visit(ctx.expr());
-        visit(ctx.writeType());
+
+        //visit(ctx.expr());
+        //visit(ctx.writeType());
 
         return null;
     }

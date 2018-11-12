@@ -1,5 +1,4 @@
 package CodeGenerator;
-import Checker.Analizadores.*;
 import Antlr.MyParser;
 import Antlr.MyParserBaseVisitor;
 import Checker.TypeSymbol.Symbol;
@@ -10,11 +9,8 @@ import org.antlr.v4.runtime.tree.TerminalNode;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
-
-
 import Vista.*;
 
-import static com.sun.org.apache.xalan.internal.xsltc.compiler.sym.error;
 
 public class MyGenerator extends MyParserBaseVisitor {
 
@@ -63,36 +59,6 @@ public class MyGenerator extends MyParserBaseVisitor {
         return inst;
     }
 
-
-
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    /*Nota:
-        Felipe: PUSH, JUMP, COMPARE_OP
-        Angelo: BINARY, STORE, LOAD
-    */
-
-    /*
-    Notas:
-    Load:
-        Load_Const: coloca el valor de de la constante al tope de la pila.                                 ejem: int a = 0; guarda el 0
-        Load_Fast: coloca el valor del contenido de la variable en la pila.                                ejem: int a = 0; guarda el a
-        Load_Global: carga en el tope de la pila o el valor de la variable o la referencia a la funcion.   ejem: guarda a ó 0 ó el metódo
-
-    Store:
-        Store_Fast:  escribe el contenido del tope de la pila en la variable.
-
-    Binary:
-        Binary_Substract: realixa una resta de los operandos.
-        Binary_Add: realiza una suma de los operandos.
-        Binary_Multiply: realiza una multiplicación de los operandos.
-        Binary_Divide: realiza una division entera de operandos.
-        Binary_And: realiza un AND lógico.
-        Binary_Or: realiza un OR lógico.
-        Binary_Módulo: realiza el cálculo del cociente de la division de dos operandos.
-
-     */
-
-    //listo
     @Override
     public Object visitProgramAST(MyParser.ProgramASTContext ctx) {
 
@@ -113,28 +79,24 @@ public class MyGenerator extends MyParserBaseVisitor {
 
     }
 
-    //listo
     @Override
     public Object visitProgramConstAST(MyParser.ProgramConstASTContext ctx) {
         visit(ctx.constDecl());
         return null;
     }
 
-    //listo
     @Override
     public Object visitProgramVarAST(MyParser.ProgramVarASTContext ctx) {
         visit(ctx.varDecl());
         return null;
     }
 
-    //listo
     @Override
     public Object visitProgramClassAST(MyParser.ProgramClassASTContext ctx) {
         visit(ctx.classDecl());
         return null;
     }
 
-    //listo
     @Override
     public Object visitStatementIgSTAST(MyParser.StatementIgSTASTContext ctx) {
 
@@ -144,19 +106,13 @@ public class MyGenerator extends MyParserBaseVisitor {
         contadorInstrucciones++;
         esFuncion = false;
         return null;
-
-
     }
 
-    //listo
     @Override
     public Object visitTermAST(MyParser.TermASTContext ctx) {
 
         for (int i=0; i<=ctx.factor().size()-1;i++){
-
-           // System.out.println("EN TERM -> "+ctx.factor(i).getText());
             visit(ctx.factor(i));
-
         }
 
         for(int j = 0; j< ctx.mulop().size();j++){
@@ -166,7 +122,6 @@ public class MyGenerator extends MyParserBaseVisitor {
         return null;
     }
 
-    //listo
     @Override
     public Object visitConditionAST(MyParser.ConditionASTContext ctx) {
 
@@ -176,18 +131,11 @@ public class MyGenerator extends MyParserBaseVisitor {
 
             if(ctx.OR(i) != null){
                 visit(ctx.OR(i));
-
             }
-
-            /*
-            storage.add(new Instruccion(contadorInstrucciones,"BINARY_OR"));
-            contadorInstrucciones++;
-            */
         }
         return null;
     }
 
-    //listo
     @Override
     public Object visitCondTermAST(MyParser.CondTermASTContext ctx) {
 
@@ -197,28 +145,18 @@ public class MyGenerator extends MyParserBaseVisitor {
             if(ctx.AND(i) != null){
                 visit(ctx.AND(i));
             }
-
-            /*
-            storage.add(new Instruccion(contadorInstrucciones,"BINARY_ADD"));
-            contadorInstrucciones++;
-            */
         }
         return null;
     }
 
-    //listo = Aprobado
     public Object visitFactorFAST(MyParser.FactorFASTContext ctx) {
 
         int numero_parametros = 0;
 
-    //    System.out.println("En factor "+ctx.designator().getText());
-
-        //System.out.println("Llamando una funcion ? 2 "+ctx.designator().getText());
         visit(ctx.designator());
 
         if(ctx.actPars() !=  null){ // Si tiene parametros, es una funcion
 
-            //System.out.println("ASIGNACION -> Cantidad de parametros "+ctx.actPars().getChildCount());
             numero_parametros = ctx.actPars().getChildCount();
             visit(ctx.actPars());
 
@@ -227,12 +165,9 @@ public class MyGenerator extends MyParserBaseVisitor {
 
             storage.add(new Instruccion(contadorInstrucciones,"CALL_FUNCTION "+numero_parametros));
             contadorInstrucciones++;
-            //System.out.println("Es asignacion de una funcion a una variable");
         }
 
         else {
-
-            //System.out.println("Var o const "+ctx.designator().getText());
             // Si no es funcion es un valor natural o una variable
 
             // Busco en la tabla de variables, para saber si es una variable respectivamente
@@ -243,9 +178,7 @@ public class MyGenerator extends MyParserBaseVisitor {
                 // Si es variable, entonces la agrego como un load_fast
                 storage.add(new Instruccion(contadorInstrucciones,"LOAD_FAST "+ctx.designator().getText()));
                 contadorInstrucciones++;
-
             }
-
             else {
 
                 // Si es un valor natural, lo agrego como un load_const
@@ -253,14 +186,9 @@ public class MyGenerator extends MyParserBaseVisitor {
                 contadorInstrucciones++;
             }
         }
-
-        //storage.add(new Instruccion(contadorInstrucciones,"CALL_FUNCTION "+numero_parametros));
-
-        //visit(ctx.designator());
         return null;
     }
 
-    //listo
     @Override
     public Object visitNumIntFAST(MyParser.NumIntFASTContext ctx) {
 
@@ -269,7 +197,6 @@ public class MyGenerator extends MyParserBaseVisitor {
         return null;
     }
 
-    //listo
     @Override
     public Object visitNumIntZeroFAST(MyParser.NumIntZeroFASTContext ctx) {
         storage.add(new Instruccion(contadorInstrucciones,"LOAD_CONST "+ctx.NUMBER_INTEGER_ZERO()));
@@ -277,7 +204,6 @@ public class MyGenerator extends MyParserBaseVisitor {
         return null;
     }
 
-    //listo
     @Override
     public Object visitChaeFAST(MyParser.ChaeFASTContext ctx) {
         storage.add(new Instruccion(contadorInstrucciones,"LOAD_CONST "+ctx.CHAR_CONST()));
@@ -285,9 +211,6 @@ public class MyGenerator extends MyParserBaseVisitor {
         return null;
     }
 
-
-
-    //listo
     @Override
     public Object visitExpresionFAST(MyParser.ExpresionFASTContext ctx) {
 
@@ -296,35 +219,27 @@ public class MyGenerator extends MyParserBaseVisitor {
 
     }
 
-    //listo
     @Override
     public Object visitBooleanTrueFAST(MyParser.BooleanTrueFASTContext ctx) {
         visit(ctx.TRUE());
         return null;
     }
 
-    //listo
     @Override
     public Object visitBooleanFalseFAST(MyParser.BooleanFalseFASTContext ctx) {
         visit(ctx.FALSE());
         return null;
     }
 
-    //listo
     @Override
     public Object visitDesignatorAST(MyParser.DesignatorASTContext ctx) {
 
         for (int i=0; i<=ctx.designatorExp().size()-1; i++) {
             visit(ctx.designatorExp(i));
-            /*
-            storage.add(new Instruccion(contadorInstrucciones, "STORE_FAST", ctx.IDENT().getText()));
-            contadorInstrucciones++;
-            */
         }
         return null;
     }
 
-    //listo
     @Override
     public Object visitDesignatorPuntIdAST(MyParser.DesignatorPuntIdASTContext ctx) {
         visit(ctx.IDENT());
@@ -332,62 +247,42 @@ public class MyGenerator extends MyParserBaseVisitor {
         return null;
     }
 
-    //listo
     @Override
     public Object visitDesignatorCorcsAST(MyParser.DesignatorCorcsASTContext ctx) {
         visit(ctx.expr());
         return null;
     }
 
-    //listo
     @Override
     public Object visitRelopIgIgAST(MyParser.RelopIgIgASTContext ctx) {
-        //  System.out.println("Simbolo igualdad");
-        //visit(ctx.IGIG());
         return  ctx.IGIG().getSymbol().getText();
     }
 
-    //listo
     @Override
     public String visitRelopDifAST(MyParser.RelopDifASTContext ctx) {
-        //System.out.println("Simbolo diferencia");
-        //visit(ctx.DIF());
         return  ctx.DIF().getSymbol().getText();
     }
 
-    //listo
     @Override
     public String visitRelopMayAST(MyParser.RelopMayASTContext ctx) {
-        //System.out.println("Simbolo mayor");
-        //visit(ctx.MAY());
         return  ctx.MAY().getSymbol().getText();
     }
 
-    //listo
     @Override
     public String visitRelopMatIgAST(MyParser.RelopMatIgASTContext ctx) {
-        // System.out.println("Simbolo mayor igual");
-        // visit(ctx.MAY_IG());
         return ctx.MAY_IG().getSymbol().getText();
     }
 
-    //listo
     @Override
     public String visitRelopMenAST(MyParser.RelopMenASTContext ctx) {
-        //System.out.println("Simbolo menor");
-        //visit(ctx.MEN());
         return  ctx.MEN().getSymbol().getText();
     }
 
-    //listo
     @Override
     public String visitRelopMenIgAST(MyParser.RelopMenIgASTContext ctx) {
-        // System.out.println("Simbolo menor igual "+ctx.MEN_IG().getSymbol().getText());
-        //visit(ctx.MEN_IG());
         return  ctx.MEN_IG().getSymbol().getText();
     }
 
-    //listo
     @Override
     public Object visitAddopSumAST(MyParser.AddopSumASTContext ctx) {
         storage.add(new Instruccion(contadorInstrucciones, "BINARY_ADD"));
@@ -395,7 +290,6 @@ public class MyGenerator extends MyParserBaseVisitor {
         return null;
     }
 
-    //listo
     @Override
     public Object visitAddopRestAST(MyParser.AddopRestASTContext ctx) {
         storage.add(new Instruccion(contadorInstrucciones, "BINARY_SUBSTRACT"));
@@ -403,7 +297,6 @@ public class MyGenerator extends MyParserBaseVisitor {
         return null;
     }
 
-    //listo
     @Override
     public Object visitMulopMultAST(MyParser.MulopMultASTContext ctx) {
         storage.add(new Instruccion(contadorInstrucciones, "BINARY_MULTIPLY"));
@@ -411,7 +304,6 @@ public class MyGenerator extends MyParserBaseVisitor {
         return null;
     }
 
-    //listo
     @Override
     public Object visitMulopDivAST(MyParser.MulopDivASTContext ctx) {
         storage.add(new Instruccion(contadorInstrucciones, "BINARY_DIVIDE"));
@@ -419,7 +311,6 @@ public class MyGenerator extends MyParserBaseVisitor {
         return null;
     }
 
-    //listo
     @Override
     public Object visitMulopPorcAST(MyParser.MulopPorcASTContext ctx) {
         storage.add(new Instruccion(contadorInstrucciones, "BINARY_PORCENTAJE"));
@@ -427,7 +318,6 @@ public class MyGenerator extends MyParserBaseVisitor {
         return null;
     }
 
-    //listo
     @Override
     public Object visitIfSTAST(MyParser.IfSTASTContext ctx) {
 
@@ -449,7 +339,6 @@ public class MyGenerator extends MyParserBaseVisitor {
         return null;
     }
 
-    //listo
     @Override
     public Object visitForSTAST(MyParser.ForSTASTContext ctx) {
 
@@ -461,7 +350,6 @@ public class MyGenerator extends MyParserBaseVisitor {
         return null;
     }
 
-    //listo
     @Override
     public Object visitWhileSTAST(MyParser.WhileSTASTContext ctx) {
 
@@ -474,7 +362,6 @@ public class MyGenerator extends MyParserBaseVisitor {
         storage.add(new Instruccion(contadorInstrucciones,"JUMP_ABSOLUTE",String.valueOf(jmpAbs)));
         contadorInstrucciones++;
         inst1.setParam(String.valueOf(contadorInstrucciones));
-
         return null;
     }
 
@@ -493,9 +380,7 @@ public class MyGenerator extends MyParserBaseVisitor {
             }
 
             contadorInstrucciones++;
-
         }
-
         return null;
     }
 
@@ -520,7 +405,6 @@ public class MyGenerator extends MyParserBaseVisitor {
         return null;
     }
 
-    // Funciona
     @Override
     public Object visitVarDeclAST(MyParser.VarDeclASTContext ctx) {
 
@@ -534,10 +418,7 @@ public class MyGenerator extends MyParserBaseVisitor {
             else if(tipo.equals("char")){
                 registrar_variables(ctx.IDENT(),2);
             }
-
         }
-
-
         return null;
     }
 
@@ -561,11 +442,8 @@ public class MyGenerator extends MyParserBaseVisitor {
                 // La registro como global
                 storage.add(new Instruccion(contadorInstrucciones,"PUSH_GLOBAL_C",ident.get(j).getSymbol().getText()));
             }
-
             contadorInstrucciones++;
-
         }
-
     }
 
     @Override
@@ -575,7 +453,6 @@ public class MyGenerator extends MyParserBaseVisitor {
             visit(e);
         }
         return null;
-
     }
 
     @Override
@@ -586,10 +463,11 @@ public class MyGenerator extends MyParserBaseVisitor {
         storage.add(new Instruccion(contadorInstrucciones,"DEF "+ctx.IDENT().getSymbol().getText()));
         contadorInstrucciones++;
 
+        funcion_actual  =  ctx.IDENT().getSymbol().getText();
+
         if(ctx.formPars() != null){ // Si la funcion tiene parametros los visito
             visit(ctx.formPars());
         }
-
 
         for (MyParser.VarDeclContext e: ctx.varDecl()) {
             visit(e);
@@ -599,6 +477,7 @@ public class MyGenerator extends MyParserBaseVisitor {
 
         esFuncion = false;
 
+        /*
         String tipo_retorno = ctx.optionMethodDecl().getText();
 
         if(tipo_retorno.equals("void")) {
@@ -613,8 +492,7 @@ public class MyGenerator extends MyParserBaseVisitor {
             contadorInstrucciones++;
 
         }
-
-
+        */
         return null;
     }
 
@@ -627,28 +505,16 @@ public class MyGenerator extends MyParserBaseVisitor {
         if(ctx.expr()!= null) {
             visit(ctx.expr());
         }
-
         if(elementoFuncion != null) {
 
             if (elementoFuncion.getType().equals("void")) {
-
-
                 storage.add(new Instruccion(contadorInstrucciones, "RETURN_VOID"));
                 contadorInstrucciones++;
-
-
             } else {
-
-                storage.add(new Instruccion(contadorInstrucciones, "LOAD_FAST ", ctx.expr().getText()));
-                contadorInstrucciones++;
-
                 storage.add(new Instruccion(contadorInstrucciones, "RETURN_VALUE"));
                 contadorInstrucciones++;
-
             }
-
         }
-
         funcion_actual   = "";
         esFuncion        = false;
         debeTenerRetorno = false;
@@ -659,15 +525,12 @@ public class MyGenerator extends MyParserBaseVisitor {
 
     @Override
     public Object visitMethodTypeDeclAST(MyParser.MethodTypeDeclASTContext ctx) {
-
         debeTenerRetorno  = true;
         return null;
-
     }
 
     @Override
     public Object visitMethodVoidDeclAST(MyParser.MethodVoidDeclASTContext ctx) {
-
         visit(ctx.VOID());
         return null;
     }
@@ -684,22 +547,17 @@ public class MyGenerator extends MyParserBaseVisitor {
             if ((tipo.equals("int")) || (tipo.equals("char"))) {
 
                 if(tipo.equals("int")) {
-
-
                     // La registro como local
                     storage.add(new Instruccion(contadorInstrucciones,"PUSH_LOCAL_I",ctx.IDENT().get(i).getSymbol().getText()));
 
                 }
-                else if(tipo.equals("char")){
+                else if(tipo.equals("char")) {
                     // La registro como local
-                    storage.add(new Instruccion(contadorInstrucciones,"PUSH_LOCAL_C",ctx.IDENT().get(i).getSymbol().getText()));
+                    storage.add(new Instruccion(contadorInstrucciones, "PUSH_LOCAL_C", ctx.IDENT().get(i).getSymbol().getText()));
                 }
-
                 contadorInstrucciones++;
-
             }
         }
-
         return null;
     }
 
@@ -712,19 +570,16 @@ public class MyGenerator extends MyParserBaseVisitor {
 
     @Override
     public Object visitStatementMetSTAST(MyParser.StatementMetSTASTContext ctx) {
-        //System.out.println("Llamando una funcion ? 1 "+ctx.designator().getText());
 
         int numero_parametros = 0;
 
         visit(ctx.designator());
-
 
         if(ctx.actPars() !=  null){ // Si tiene parametros
             //  System.out.println("LLAMADA DIRECTA -> Cantidad de parametros "+ctx.actPars().getChildCount());
             numero_parametros = ctx.actPars().getChildCount();
             visit(ctx.actPars());
         }
-
         storage.add(new Instruccion(contadorInstrucciones,"LOAD_GLOBAL ",ctx.designator().getText()+"()"));
         contadorInstrucciones++;
 
@@ -736,14 +591,12 @@ public class MyGenerator extends MyParserBaseVisitor {
 
     @Override
     public Object visitStatementIncSTAST(MyParser.StatementIncSTASTContext ctx) {
-
         visit(ctx.designator());
         return null;
     }
 
     @Override
     public Object visitStatementDecSTAST(MyParser.StatementDecSTASTContext ctx) {
-
         visit(ctx.designator());
         return null;
     }
@@ -762,14 +615,12 @@ public class MyGenerator extends MyParserBaseVisitor {
 
     @Override
     public Object visitWriteSTAST(MyParser.WriteSTASTContext ctx) {
-
         visit(ctx.expr());
         storage.add(new Instruccion(contadorInstrucciones,"LOAD_GLOBAL "+"write"));
         contadorInstrucciones++;
 
         storage.add(new Instruccion(contadorInstrucciones,"CALL_FUNCTION "+1));
         contadorInstrucciones++;
-
         return null;
     }
 
@@ -804,7 +655,6 @@ public class MyGenerator extends MyParserBaseVisitor {
         for(MyParser.StatementContext e : ctx.statement() ){
             visit(e);
         }
-
         return null;
     }
 
@@ -816,9 +666,7 @@ public class MyGenerator extends MyParserBaseVisitor {
 
     @Override
     public Object visitCondFactAST(MyParser.CondFactASTContext ctx) {
-
         visit(ctx.expr(0));
-        //System.out.println("SIMBOLO DE COMPARACION "+visit(ctx.relop()));
         String simbolo = (String) visit(ctx.relop());
 
         visit(ctx.expr(1));
@@ -831,8 +679,6 @@ public class MyGenerator extends MyParserBaseVisitor {
     @Override
     public Object visitExprAST(MyParser.ExprASTContext ctx) {
 
-   //    System.out.println("VISITANDO EXP");
-
         for (int i=0;i<=ctx.term().size()-1;i++) {
                 visit(ctx.term(i));
 
@@ -843,7 +689,6 @@ public class MyGenerator extends MyParserBaseVisitor {
             visit(ctx.addop(j));
 
         }
-
         return null;
     }
 }
